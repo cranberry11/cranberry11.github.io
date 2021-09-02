@@ -1,0 +1,1452 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="javaScript基础, cranberry">
+    <meta name="description" content="策马前途须努力，莫学龙种虚叹息。——唐代：李涉《岳阳别张祜》">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>javaScript基础 | cranberry</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">cranberry</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">cranberry</div>
+        <div class="logo-desc">
+            
+            策马前途须努力，莫学龙种虚叹息。——唐代：李涉《岳阳别张祜》
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">javaScript基础</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #ffb6c1;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #ffb6c1;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JavaScript/">
+                                <span class="chip bg-color">JavaScript</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-09-02
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、JS简介"><a href="#一、JS简介" class="headerlink" title="一、JS简介"></a>一、JS简介</h2><h4 id="1-JS的特点"><a href="#1-JS的特点" class="headerlink" title="1.JS的特点"></a>1.JS的特点</h4><ul>
+<li>解释型语言</li>
+<li>类似于C和Java的语法结构</li>
+<li>动态语言</li>
+<li>基于原型的面向对象</li>
+</ul>
+<h4 id="2-helloWorld"><a href="#2-helloWorld" class="headerlink" title="2.helloWorld"></a>2.helloWorld</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//控制浏览器弹出一个警告框</span></span><br><span class="line">alert(<span class="string">&quot;...&quot;</span>);</span><br><span class="line"><span class="comment">//让计算机在页面中输出一个内容</span></span><br><span class="line"><span class="built_in">document</span>.write()可以向body中输出一个内容</span><br><span class="line"><span class="comment">//向控制台输出一个内容</span></span><br><span class="line"><span class="built_in">console</span>.log()的作用是向控制台输出一个内容</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-JS编写位置"><a href="#3-JS编写位置" class="headerlink" title="3.JS编写位置"></a>3.JS编写位置</h4><p>（1）可以将js代码编写到外部js文件中，然后通过script标签引入，写到外部文件中可以在不同的页面中同时引用，也可以利用到浏览器的缓存机制推荐使用的方式</p>
+<p>（2）script标签一旦用于引入外部文件了，就不能在编写代码了，即使编写了浏览器也会忽略，如果需要则可以在创建一个新的script标签用于编写内部代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;js/javascript&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>(3)可以将js代码编写到script标签</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">   alert(<span class="string">&quot;我是内部的JS代码&quot;</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>(4)可以将js代码编写到标签的onclick属性中，当我们点击按钮时，js代码才会执行 虽然可以写在标签的属性中，但是他们属于结构与行为耦合，不方便维护，不推荐使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=<span class="string">&quot;alert(&#x27;讨厌，你点我干嘛&#x27;);&quot;</span>&gt;点我一下&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>(5)可以将js代码写在超链接的href属性中，这样当点击超链接时，会执行js代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">&quot;javascript:alert(&#x27;让你点你就点！！&#x27;);&quot;</span>&gt;你也点我一下&lt;/a&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:;&quot;</span>&gt;</span>你也点我一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、语法"><a href="#二、语法" class="headerlink" title="二、语法"></a>二、语法</h2><h4 id="1、JS注释"><a href="#1、JS注释" class="headerlink" title="1、JS注释"></a>1、JS注释</h4><p>（1）多行注释：/**/ 注释中的内容不会被执行，但是可以在源代码中查看，要养成良好的编写注释的习惯，也可以通过注释来对代码进行一些简单的调试</p>
+<p>（2）单行注释：//</p>
+<h4 id="2-语法"><a href="#2-语法" class="headerlink" title="2.语法"></a>2.语法</h4><p>（1）JS中严格区分大小写</p>
+<p>（2）JS中每一条语句以分号（;）结尾</p>
+<ul>
+<li>如果不写分号，浏览器会自动添加，但是会消耗一些系统资源，而且有些时候，浏览器会加错分号，所以在开发中分号必须写</li>
+</ul>
+<p>（3）JS中会忽略多个空格和换行，所以我们可以利用空格和换行对代码进行格式化</p>
+<h2 id="三、变量和字面量"><a href="#三、变量和字面量" class="headerlink" title="三、变量和字面量"></a>三、变量和字面量</h2><h4 id="1-字面量：都是一些不可改变的值"><a href="#1-字面量：都是一些不可改变的值" class="headerlink" title="1. 字面量：都是一些不可改变的值"></a>1. 字面量：都是一些不可改变的值</h4><ul>
+<li>比如：1 2 3 4 5</li>
+<li>字面量都是可以直接使用，但是我们一般都不会直接使用字面量</li>
+</ul>
+<h4 id="2-变量：变量可以用来保存字面量，而且变量的值时可以任意改变的"><a href="#2-变量：变量可以用来保存字面量，而且变量的值时可以任意改变的" class="headerlink" title="2. 变量：变量可以用来保存字面量，而且变量的值时可以任意改变的"></a>2. 变量：变量可以用来保存字面量，而且变量的值时可以任意改变的</h4><ul>
+<li>变量更加方面我们使用，所以在开发中都是通过变量去保存一个字面量，而很少直接使用字面量</li>
+<li>声明变量</li>
+<li>在js中使用var关键字来声明一个变量</li>
+<li>可以通过变量对字面量进行描述</li>
+</ul>
+<h2 id="四、标识符"><a href="#四、标识符" class="headerlink" title="四、标识符"></a>四、标识符</h2><h4 id="1-在JS中所有的可以由我们自主命名的都可以称为是标识符"><a href="#1-在JS中所有的可以由我们自主命名的都可以称为是标识符" class="headerlink" title="1. 在JS中所有的可以由我们自主命名的都可以称为是标识符"></a>1. 在JS中所有的可以由我们自主命名的都可以称为是标识符</h4><h4 id="2-例如：变量名、函数名、属性名都属于标识符"><a href="#2-例如：变量名、函数名、属性名都属于标识符" class="headerlink" title="2. 例如：变量名、函数名、属性名都属于标识符"></a>2. 例如：变量名、函数名、属性名都属于标识符</h4><h4 id="3-命名一个标识符时需要遵守如下的规则："><a href="#3-命名一个标识符时需要遵守如下的规则：" class="headerlink" title="3. 命名一个标识符时需要遵守如下的规则："></a>3. 命名一个标识符时需要遵守如下的规则：</h4><ul>
+<li>标识符中可以含有字母、数字、——、$</li>
+<li>标识符不能以数字开头</li>
+<li>标识符不能是ES中的关键字或保留字</li>
+<li>标识符一般都采用驼峰命名法 首字母小写，每个单词的开头字母大写，其余小写 例：helloWorld xxxYyyZzz</li>
+</ul>
+<h4 id="4-JS底层保存标识符时实际上是采用的Unicode编码，所以理论上讲，所有的utf-8中含有的内容都可以作为标识符"><a href="#4-JS底层保存标识符时实际上是采用的Unicode编码，所以理论上讲，所有的utf-8中含有的内容都可以作为标识符" class="headerlink" title="4. JS底层保存标识符时实际上是采用的Unicode编码，所以理论上讲，所有的utf-8中含有的内容都可以作为标识符"></a>4. JS底层保存标识符时实际上是采用的Unicode编码，所以理论上讲，所有的utf-8中含有的内容都可以作为标识符</h4><h2 id="五、数据类型"><a href="#五、数据类型" class="headerlink" title="五、数据类型"></a>五、数据类型</h2><h4 id="1-数据类型指的是字面量的类型"><a href="#1-数据类型指的是字面量的类型" class="headerlink" title="1. 数据类型指的是字面量的类型"></a>1. 数据类型指的是字面量的类型</h4><h4 id="2-在JS中一共有六种数据类型"><a href="#2-在JS中一共有六种数据类型" class="headerlink" title="2. 在JS中一共有六种数据类型"></a>2. 在JS中一共有六种数据类型</h4><ul>
+<li>string 字符串</li>
+<li>Number 数值</li>
+<li>Boolean 布尔值</li>
+<li>Null 空值</li>
+<li>Undefined 去定义</li>
+<li>Object 对象</li>
+<li>其中string NUmber Boolean Null Undefined属于基本数据类型，而Object属于引用数据类型</li>
+</ul>
+<h4 id="3-string字符串"><a href="#3-string字符串" class="headerlink" title="3. string字符串"></a>3. string字符串</h4><ul>
+<li>在JS中农字符串需要使用引号引起来</li>
+<li>使用双引号或单引号都可以，但是不要混着用</li>
+<li>引号不能嵌套，双引号不能放过双引号，单引号不能放单引号</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;hello&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在字符串中我们可以使用\作为转移字符，当表示一些特殊符号时可以使用\进行转义</li>
+<li>\ “表示”</li>
+<li>&#39;表示’</li>
+<li>\n表示换行</li>
+<li>\t表示制表符</li>
+<li>\表示\</li>
+</ul>
+<h4 id="4-Number"><a href="#4-Number" class="headerlink" title="4. Number"></a>4. Number</h4><ul>
+<li>在JS中所有的数值都是Number类型，包括整数和浮点数（小数）</li>
+<li>可以使用一个运算符typeof来检查一个变量的类型 语法：typeof 变量 检查字符串时，会返回string;检查数值时，会返回number</li>
+<li>JS中可以表示的数字的最大值 Number.MAX_VALUE(1.79176931348623157e+308)</li>
+<li>如果使用Number表示的数字超过了最大值，则会返回一个Inifity表示正无穷，使用typeof检查Infinity也会返回Number</li>
+<li>Innifity表示正无穷；-Innifity表示负无穷</li>
+<li>NaN是一个特殊的数字，表示Not A Number，使用typeof检查一个NaN也会返回number</li>
+<li>在JS中整数的运算基本可以保证精确</li>
+<li>如果使用JS进行浮点元素，可能得到一个不精确的结果，所以千万不要使用JS进行对精确度要求比较高的运算</li>
+</ul>
+<h4 id="5-Boolean布尔值"><a href="#5-Boolean布尔值" class="headerlink" title="5. Boolean布尔值"></a>5. Boolean布尔值</h4><ul>
+<li>布尔值只有两个，主要用来做逻辑判断</li>
+<li>true表示真，false表示假</li>
+<li>使用typeof检查一个布尔值时，会返回boolean</li>
+</ul>
+<h4 id="6-Null和Undefined"><a href="#6-Null和Undefined" class="headerlink" title="6. Null和Undefined"></a>6. Null和Undefined</h4><ul>
+<li>Null类型的值只有一个，就是null</li>
+<li>null这个值专门用来表示一个为空的对象，使用typeof检查一个null值时，会返回object</li>
+<li>Undefined类型的值只有一个，就undefined</li>
+<li>当声明一个变量，但是并不给变量赋值时，它的值就是undefined,使用typeof检查一个undefined值时，会返回undefined</li>
+</ul>
+<h4 id="7-强制类型转换"><a href="#7-强制类型转换" class="headerlink" title="7. 强制类型转换"></a>7. 强制类型转换</h4><ul>
+<li>指将一个数据类型强制转换为其他的数据类型</li>
+<li>类型转换主要指，将其他的数据类型，转换为string Number Boolean</li>
+</ul>
+<h4 id="8-将其他的数据类型转换为string"><a href="#8-将其他的数据类型转换为string" class="headerlink" title="8. 将其他的数据类型转换为string"></a>8. 将其他的数据类型转换为string</h4><p>（1）方式一：</p>
+<ul>
+<li>调用被转换数据类型的toString()方法</li>
+<li>该方法不会影响到原变量，它会转换的结果返回</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用a的toString()方法</span></span><br><span class="line"><span class="comment">//调用XXX的yyy()方法，就是xxx.yyy()</span></span><br><span class="line">a.toString()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>但是注意：null和undefined者两个值没有toStrong()方法，如果调用他们的方法，会报错</li>
+</ul>
+<p>（2）方式二：</p>
+<ul>
+<li>调用String()函数，并将被转换的数据作为参数传递给函数</li>
+<li>使用String()函数做强制类型转换时，对于Number和Boolean实际上就是调用的toString()方法，但是对于null和undefined，就不会调用toString()方法，他会将null直接转换为”null”，将undefined直接转换为”undefined”</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="built_in">String</span>(a);</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-将其他的数据类型转换为Number"><a href="#9-将其他的数据类型转换为Number" class="headerlink" title="9. 将其他的数据类型转换为Number"></a>9. 将其他的数据类型转换为Number</h4><p>（1）方式一：</p>
+<ul>
+<li>使用Number()函数</li>
+<li>字符串—&gt;数字</li>
+<li>如果是纯数字的字符串，则直接将其转换为数字</li>
+<li>如果字符串中有非数字的内容，则转换为NaN</li>
+<li>如果字符串是一个空串或者是一个全是空格的字符串，则转换为0</li>
+<li>布尔–&gt;数字</li>
+<li>true转成1；false转成0</li>
+<li>null–&gt;数字 0</li>
+<li>undefined–&gt;数字 数字NaN</li>
+</ul>
+<p>（2）方式二：</p>
+<ul>
+<li>这种方式专门用来对付字符串</li>
+<li>parseInt()把一个字符串转换为一个整数</li>
+<li>parseFloat()把一个字符串转换为一个浮点数</li>
+<li>调用parseInt()函数将a转换为Number</li>
+<li>parseFloat()作用和parseInt()类似，不同的是他可以获得有效的小数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//parseInt()可以将一个支付穿中的有效的整数内容取出来，然后转换为Number</span></span><br><span class="line">a=<span class="built_in">parseInt</span>(a);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果对非String使用parseInt()或parseFloat()，它会将其转换为String然后再操作</li>
+</ul>
+<h4 id="10-其他进制的数字"><a href="#10-其他进制的数字" class="headerlink" title="10. 其他进制的数字"></a>10. 其他进制的数字</h4><ul>
+<li>在js中，如果需要表示16进制的数字，则需要以0x开头</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">0x10</span>;</span><br><span class="line">a=<span class="number">0xff</span>;</span><br><span class="line">a=<span class="number">0xcafe</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果需要表示8进制的数字，则需要以0开头</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=070;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果需要表示2进制的数字，则需要以0b开头（但不是所有的浏览器都支持，IE不支持）</li>
+<li>像“070”这种字符串，有些浏览器会当成8进制解析，有些会当成10进制解析，可以在parseInt()中传递一个第二个参数，来指定数字的进制</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">&quot;070&quot;</span>;</span><br><span class="line">a=<span class="built_in">parseInt</span>(a);</span><br><span class="line">a=<span class="built_in">parseInt</span>(a,<span class="number">10</span>);</span><br><span class="line">a=<span class="built_in">parseInt</span>(a,<span class="number">8</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-将其他的数据类型转换为Boolean"><a href="#11-将其他的数据类型转换为Boolean" class="headerlink" title="11. 将其他的数据类型转换为Boolean"></a>11. 将其他的数据类型转换为Boolean</h4><ul>
+<li>使用Boolean()函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用Boolean()函数来将a转换为布尔值</span></span><br><span class="line">a=<span class="built_in">Boolean</span>(a);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>数字–&gt;布尔</li>
+<li>除了0和NaN，其余的都是true</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">123</span>;<span class="comment">//true</span></span><br><span class="line">a=-<span class="number">123</span>;<span class="comment">//true</span></span><br><span class="line">a=<span class="number">0</span>;<span class="comment">//false</span></span><br><span class="line">a=Inifity;<span class="comment">//true</span></span><br><span class="line">a=<span class="literal">NaN</span>;<span class="comment">//fasle</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字符串–&gt;布尔</li>
+<li>除了空串，其余的都是true</li>
+<li>null和undefined都会转换为false</li>
+<li>对象也会转换为true</li>
+</ul>
+<h2 id="六、运算符"><a href="#六、运算符" class="headerlink" title="六、运算符"></a>六、运算符</h2><h4 id="1-运算符也叫操作符"><a href="#1-运算符也叫操作符" class="headerlink" title="1.运算符也叫操作符"></a>1.运算符也叫操作符</h4><p>（1）通过运算符可以对一个或多个值进行运算，并获取运算结果 （2）比如：typeof就是运算符，可以来获得一个值的类型，它会将该值的类型以字符串的形式返回 number string boolean undefined object</p>
+<h4 id="2-算数运算符"><a href="#2-算数运算符" class="headerlink" title="2.算数运算符"></a>2.算数运算符</h4><p>（1）当对于非Number类型的值进行运算时，会将这些值转换为Number然后再运算 （2）任何值和NaN做运算都得NaN （3）任何值做- * /运算时都会自动转换为Number</p>
+<ul>
+<li>我们可以利用者以特点做隐式的类型转换</li>
+<li>可以通过为一个值-0 *1 /1来将其转换为Number</li>
+<li>原理和Number()函数一样，使用起来更加简单</li>
+</ul>
+<h5 id=""><a href="#" class="headerlink" title="+"></a>+</h5><p>（1）可以对两个值进行加法运算，并将结果返回 （2）如果对两个字符串进行加法运算，则会做拼串；会将两个字符串拼接为一个字符串，并返回任何的值和字符串做加法运算，都会先转换为字符串，然后再和字符串做拼串的操作 （3）任何值和字符串相加都会转换为字符串，并做拼串操作 （4）我们可以利用这一特点，来将一个任意的数据类型转换为String，我们只需要为任意的数据类型+一个””即可将其转换为String，这是一种隐式的类型转换，由浏览器自动完成，实际上它也是调用String()函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result=<span class="number">1</span>+<span class="number">2</span>+<span class="string">&#x27;3&#x27;</span>;<span class="comment">//33</span></span><br><span class="line">result=<span class="string">&quot;1&quot;</span>+<span class="number">2</span>+<span class="number">3</span>;<span class="comment">//123</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="-1"><a href="#-1" class="headerlink" title="-"></a>-</h5><p>（1）可以对两个值进行减法运算，并将结果返回</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result=<span class="number">100</span>-<span class="literal">true</span>;<span class="comment">//99</span></span><br><span class="line">result=<span class="number">100</span>-<span class="string">&quot;1&quot;</span>;<span class="comment">//99</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="-2"><a href="#-2" class="headerlink" title="*"></a>*</h5><p>可以对两个值进行乘法运算</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">result=<span class="number">2</span>*<span class="number">2</span>;<span class="comment">//4</span></span><br><span class="line">result=<span class="number">2</span>*<span class="string">&quot;8&quot;</span><span class="comment">//16</span></span><br><span class="line">result=<span class="number">2</span>*<span class="literal">undefined</span>;<span class="comment">//NaN</span></span><br><span class="line">result=<span class="number">2</span>*<span class="literal">null</span>;<span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="-3"><a href="#-3" class="headerlink" title="/"></a>/</h5><p>可以对两个值进行除法运算</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result=<span class="number">4</span>/<span class="number">2</span>;<span class="comment">//2</span></span><br><span class="line">result=<span class="number">3</span>/<span class="number">2</span>;<span class="comment">//1.5</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="-4"><a href="#-4" class="headerlink" title="%"></a>%</h5><p>取模运算（取余数）</p>
+<h4 id="3-一元运算符（只需要一个操作数）"><a href="#3-一元运算符（只需要一个操作数）" class="headerlink" title="3.一元运算符（只需要一个操作数）"></a>3.一元运算符（只需要一个操作数）</h4><p>（1）+ 正号：不会对数字产生任何影响 （2）- 负号：可以对数字进行负号的取反 （3）对于非Number类型的值，它会将先转换为Number，然后再运算。可以对一个其他的数据类型使用+，来将其转换为Number,它的原理和Number()函数一样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">123</span>;</span><br><span class="line">a+=a;<span class="comment">//123</span></span><br><span class="line"></span><br><span class="line">result=<span class="number">1</span>+ +<span class="string">&quot;2&quot;</span>+<span class="number">3</span>;<span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-自增和自减"><a href="#4-自增和自减" class="headerlink" title="4.自增和自减"></a>4.自增和自减</h4><h5 id="自增"><a href="#自增" class="headerlink" title="自增"></a>自增</h5><p>（1）通过自增可以是变量在自身的基础上增加1 （2）对于一个变量自增以后，原变量的值会立即自增1 （3）自增分成两种：后++（a++）和前++（a） （4）无论是a还是a，都会立即使原变量的值自增1 （5）不同的是a和++a的值不同</p>
+<ul>
+<li>a++的值等于原变量的值（自增前的值）</li>
+<li>++a的值等于原变量新值（自增后的值）</li>
+</ul>
+<h5 id="自减"><a href="#自减" class="headerlink" title="自减"></a>自减</h5><p>（1）通过自减可以是变量在自身的基础上减1 （2）自减分成两种：后–（a–）和前–（–a） （3）无论是a–还是–a，都会立即使原变量的值自减1 （4）不同的是a–和–a的值不同</p>
+<ul>
+<li>a–的值等于原变量的值（自减前的值）</li>
+<li>–a的值等于原变量新值（自减后的值）</li>
+</ul>
+<h4 id="5-逻辑运算符"><a href="#5-逻辑运算符" class="headerlink" title="5.逻辑运算符"></a>5.逻辑运算符</h4><p>JS中为我们提供了三种逻辑运算符</p>
+<h5 id="！非"><a href="#！非" class="headerlink" title="！非"></a>！非</h5><p>（1）！可以用来对一个值进行非运算 （2）所谓非运算就是值对一个布尔值进行取反操作，true边false,false边true （3）如果对一个值进行两次取反，他不会变化 （4）如果对非布尔值进行运算，则会将其转换为布尔值，然后再取反。所以我们可以利用该特点，来将一个其他的数据类型转换为布尔值，可以为一个任意数据类型取两次反，来将其转换为布尔值，原理和Boolean()函数一样</p>
+<h5 id="amp-amp-与"><a href="#amp-amp-与" class="headerlink" title="&amp;&amp; 与"></a>&amp;&amp; 与</h5><p>（1）&amp;&amp;可以对符号两侧的值进行与运算并返回结果 （2）运算规则</p>
+<ul>
+<li>两个值中只要有一个值为false就返回false，只有两个值都为true时，才会返回true</li>
+<li>JS中的“与”属于短路的与，如果第一个值为false，则不会看第二个值</li>
+</ul>
+<h5 id="与"><a href="#与" class="headerlink" title="|| 与"></a>|| 与</h5><p>（1）||可以对符号两侧的值进行或运算并返回结果 （2）运算规则：</p>
+<ul>
+<li>两个值中只要有一个true,就返回true,如果两个值都为false，才返回false</li>
+<li>JS中的“或”属于短路的或，如果第一个值为true,则不会检查第二个值</li>
+</ul>
+<h5 id="amp-amp-非布尔值的情况"><a href="#amp-amp-非布尔值的情况" class="headerlink" title="&amp;&amp; || 非布尔值的情况"></a>&amp;&amp; || 非布尔值的情况</h5><p>（1）对于非布尔值进行与或运算时，会先将其转换为布尔值，然后再运算，并且返回原值 （2）与运算：如果两个值为true，则返回后边的 如果两个值中有false,则返回靠前的false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//true&amp;&amp;true</span></span><br><span class="line"><span class="keyword">var</span> result=<span class="number">5</span>&amp;&amp;<span class="number">6</span>;<span class="comment">//6</span></span><br><span class="line"><span class="comment">//false&amp;&amp;true</span></span><br><span class="line">result=<span class="number">0</span>&amp;&amp;<span class="number">2</span>;<span class="comment">//0</span></span><br><span class="line">result=<span class="number">2</span>&amp;&amp;<span class="number">0</span>;<span class="comment">//0</span></span><br><span class="line"><span class="comment">//false&amp;&amp;false</span></span><br><span class="line">result=<span class="literal">NaN</span>&amp;&amp;<span class="number">0</span>;<span class="comment">//NaN</span></span><br><span class="line">result=<span class="number">0</span>&amp;&amp;<span class="literal">NaN</span>;<span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+
+<p>（3）或运算：如果第一个值为true,则直接返回第一个值 如果第一个值为false，则直接返回第二个值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>||<span class="number">1</span>  <span class="number">2</span></span><br><span class="line"><span class="number">2</span>||<span class="literal">NaN</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span>||<span class="number">0</span> <span class="number">2</span></span><br><span class="line"><span class="literal">NaN</span>||<span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="literal">NaN</span>||<span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-赋值运算符"><a href="#6-赋值运算符" class="headerlink" title="6.赋值运算符"></a>6.赋值运算符</h4><p>= 可以将符号右侧的值赋值给符号左侧的变量 += a+=5等价于a=a+5 …</p>
+<h4 id="7-关系运算符"><a href="#7-关系运算符" class="headerlink" title="7.关系运算符"></a>7.关系运算符</h4><p>通过关系运算符可以比较两个值之间的大小关系，如果关系成立它会返回true，如果关系不成立李泽返回false</p>
+<h5 id="gt-大于号"><a href="#gt-大于号" class="headerlink" title="&gt; 大于号"></a>&gt; 大于号</h5><ul>
+<li>判断符号左侧的值是否大于右侧的</li>
+<li>如果关系成立，返回true,如果关系不成立则返回false</li>
+</ul>
+<h5 id="gt-大于等于"><a href="#gt-大于等于" class="headerlink" title="&gt;= 大于等于"></a>&gt;= 大于等于</h5><ul>
+<li>判断符号左侧的值是否大于或等于右侧的值</li>
+</ul>
+<h5 id="lt-小于号"><a href="#lt-小于号" class="headerlink" title="&lt;小于号"></a>&lt;小于号</h5><h5 id="lt-小于等于"><a href="#lt-小于等于" class="headerlink" title="&lt;=小于等于"></a>&lt;=小于等于</h5><h5 id="非数值的情况"><a href="#非数值的情况" class="headerlink" title="非数值的情况"></a>非数值的情况</h5><p>（1）对于非数值进行比较时，会将其转换为数字然后再比较 （2）如果符号两侧的值都是字符串时，不会将其转换为数字进行比较，而会分别比较字符串中字符的Unicode编码 （3）任何值和NaN做任何比较都是false （4）比较字符编码时是一位一位进行比较，如果两位一样，则比较下一位，所以借用它来对英文进行排序，比较中文时没有意义 （5）如果比较的两个字符串型的数字，可能会得到不可预期的结果 （6）注意：在比较两个字符串型的数字时，一定一定一定要转型</p>
+<h4 id="8-相等运算符"><a href="#8-相等运算符" class="headerlink" title="8.相等运算符"></a>8.相等运算符</h4><p>相等运算符用来比较两个值是否相等，如果相等会返回true，否则返回false （1）使用来做相等运算 当使用来比较两个值时，如果值的类型不同，则会自动进行类型转换，将其转换为相同的类型，然后再比较 undefined衍生自null，所以这两个值做相等判断时，会返回true NaN不和任何值相等，包括它本身 可以通过isNaN()函数来判断一个值是否是NaN</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;1&quot;</span>==<span class="number">1</span>;<span class="comment">//true</span></span><br><span class="line"><span class="literal">true</span>==<span class="number">1</span>;<span class="comment">//true</span></span><br><span class="line"><span class="literal">null</span>==<span class="number">0</span>;<span class="comment">//false</span></span><br><span class="line"><span class="literal">undefined</span>==<span class="literal">null</span>;<span class="comment">//true</span></span><br><span class="line"><span class="literal">NaN</span>==<span class="literal">NaN</span>;<span class="comment">//false</span></span><br><span class="line"><span class="built_in">isNaN</span>(b)</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-不相等"><a href="#9-不相等" class="headerlink" title="9.不相等"></a>9.不相等</h4><p>不相等用来判断两个值是否不相等，如果不相等返回true,否则返回false</p>
+<ul>
+<li>使用！=来做不相等运算</li>
+<li>不相等也会对变量进行自动的类型转换，如果转化后相等它也会返回false</li>
+</ul>
+<h4 id="10-全等"><a href="#10-全等" class="headerlink" title="10.=== 全等"></a>10.=== 全等</h4><p>用来判断两个值是否全等，他和相等类似，不同的是它不会做自动的类型转换，如果两个值的类型不同，直接返回false</p>
+<h4 id="11-不全等"><a href="#11-不全等" class="headerlink" title="11.!==不全等"></a>11.!==不全等</h4><p>用来判断两个值是否不全等，和不等类似，不同的是它不会做自动的类型转换，如果两个值的类型不同，直接返回true</p>
+<h4 id="12-条件运算符（也叫三元运算符）"><a href="#12-条件运算符（也叫三元运算符）" class="headerlink" title="12.条件运算符（也叫三元运算符）"></a>12.条件运算符（也叫三元运算符）</h4><p>（1）语法：条件表达式？语句1：语句2 （2）执行的流程： 条件运算符在执行时，首先对条件表达式进行求值，如果该值为true，则执行语句1，并返回结果；如果该值为false，则执行语句2，并返回执行结果 （3）如果条件的表达式的求值结果是一个非布尔值，会将其转换为布尔值然后再运算</p>
+<h4 id="13-运算符的优先级"><a href="#13-运算符的优先级" class="headerlink" title="13.运算符的优先级"></a>13.运算符的优先级</h4><p>（1）使用，（逗号）可以分割多个语句，一般可以在声明多个变量时使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以同时声明多个变量并赋值</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>,b=<span class="number">2</span>,c=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<p>（2）就和数学中一样，在JS中运算符也有优先级，比如：先乘除后加减 （3）在JS中有一个运算符优先级的表，在表中越靠上优先级越高</p>
+<h2 id="七、代码块"><a href="#七、代码块" class="headerlink" title="七、代码块"></a>七、代码块</h2><p>（1）我们的程序是由一条一条语句构成的，语句是按照自上向下的书序一条一条执行的，在JS中可以使用{}来为语句进行分组 （2）{}中的语句我们称为是一组语句，他们要么都执行，要么都不执行，一个{}中的语句我们也称为一个代码块 （3）在代码块的后边就不用编写;了 （4）JS中的代码块，只具有分组的作用，没有其他的用途 （5）代码块内容的内容，在外部是完全可见的</p>
+<h2 id="八、流程控制语句"><a href="#八、流程控制语句" class="headerlink" title="八、流程控制语句"></a>八、流程控制语句</h2><p>（1）在JS中的程序时从上到下一行一行执行的 （2）通过流程控制语句可以控制程序执行流程，使程序可以控制程序执行流程，是程序可以根据一定的条件来选择执行 （3）语句的分类：</p>
+<ul>
+<li>条件判断语句</li>
+<li>条件分支语句</li>
+<li>循环语句</li>
+</ul>
+<h4 id="1-条件判断语句"><a href="#1-条件判断语句" class="headerlink" title="1.条件判断语句"></a>1.条件判断语句</h4><p>（1）使用条件判断语句可以在执行某个语句之前进行判断，如果条件成立才会执行语句，条件不成立则语句不执行 （2）if语句</p>
+<ul>
+<li>语法一：</li>
+<li>if（条件表达式）{语句…}</li>
+<li>if语句在执行时，会先对条件表达式进行求职判断，如果条件表达式的值为true，在执行if后的语句，如果条件表达式的值为false，则不会执行if后的语句</li>
+<li>if语句只能呢过控制紧随其后的那个语句，如果希望if语句可以控制多条语句，可以将这些语句统一放到代码块中</li>
+<li>if语句后的代码块不是必须的，但是在开发中尽量写</li>
+<li>语法二：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件表达式)&#123;</span><br><span class="line">    语句...</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    语句...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>if…else…语句：当该语句执行时，会先对if后的条件表达式进行求职判断，如果该值为true,则执行if后的语句;如果该值为false，则执行else后的语句</li>
+<li>语法三：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件表达式)&#123;</span><br><span class="line">    语句...</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>()条件表达式&#123;</span><br><span class="line">    语句...</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    语句...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>if…else if …else：当该语句执行时，会从上到下一次对条件表达式进行求值判断</li>
+<li>如果值为true，则执行当前语句</li>
+<li>如果值为false,则继续向下判断</li>
+</ul>
+<h4 id="2-条件分支语句也叫switch语句"><a href="#2-条件分支语句也叫switch语句" class="headerlink" title="2.条件分支语句也叫switch语句"></a>2.条件分支语句也叫switch语句</h4><p>（1）语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(条件表达式)&#123;</span><br><span class="line">    <span class="keyword">case</span> 表达式：</span><br><span class="line">        语句...</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> 表达式:</span><br><span class="line">        语句...</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        语句...</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）执行流程： swicth…case..语句：在执行时会一次将case后的表达式的值和switch后的条件表达式的值进行全等比较，如果比较结果为true,则从当前case处开始执行代码。如果比较结果为false，则继续向下比较；如果所有的比较结果都为False.则只执行default后的语句 （3）switch语句和if语句的功能实际上有重复的，使用switch可以实现if的功能，同样使用if也可以实现switch的功能 </p>
+<h4 id="3-while循环"><a href="#3-while循环" class="headerlink" title="3.while循环"></a>3.while循环</h4><p>1.循环语句：通过循环语句可以发安抚的执行的一段代码多次</p>
+<p>2.while循环语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(条件表达式)&#123;</span><br><span class="line">	语句...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.while语句在执行时，先对条件表达式进行求值判断，如果值为true，则执行循环体，循环体执行完毕以后，继续对表达式进行判断，如果为true，则继续执行循环体，以此类推；如果为false，则终止循环</p>
+<p>4.像这种将条件表达式写死为true的循环，叫死循环</p>
+<p>该循环不会停止，除非浏览器关闭，死循环在开发中慎用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">    alert(n++);</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">10</span>)&#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5.do…while循环语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    语句...</span><br><span class="line">&#125;<span class="keyword">while</span>(条件)</span><br></pre></td></tr></table></figure>
+
+<p>6.do…while语句在执行时，会先执行循环体，循环体执行完毕以后，在对while后的条件表达式进行判断，如果结果为true,则继续执行循环体，执行完毕继续判断以此类推，如果结果为false，则终止循环</p>
+<p>7.实际上这两个语句功能类似，不同的是while是先判断后执行，而do…while会先执行后判断。do…while可以保证循环体至少执行一次，而while不能</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">cranberry</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://cranberry11.github.io/2021/09/02/js%E5%9F%BA%E7%A1%80/">https://cranberry11.github.io/2021/09/02/js%E5%9F%BA%E7%A1%80/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">cranberry</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JavaScript/">
+                                    <span class="chip bg-color">JavaScript</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/09/02/js%E5%9F%BA%E7%A1%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="javaScript基础">
+                        
+                        <span class="card-title">javaScript基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/09/02/js%E5%9F%BA%E7%A1%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="javaScript基础">
+                        
+                        <span class="card-title">javaScript基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">cranberry</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            <!-- 
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+             -->
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/ozawa-vine" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2545973588@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2545973588" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2545973588" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
