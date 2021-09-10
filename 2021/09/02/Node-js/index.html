@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cranberry11.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="一、node基础1.命令行窗口1.1常用指令（1）dir    列出当前目录下的所有文件 （2）cd 目录名    进入到指定的目录 （3）md 目录名    创建一个文件夹 （4）rd 目录名    删除一个文件夹 （5）d:    去d盘 1.2目录.    表示当前目录 ..    表示上一级目录 1.3环境变量（windows系统中的变量）与作用域链一样的（？） path：当我们在命令行窗">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js">
+<meta property="og:url" content="https://cranberry11.github.io/2021/09/02/Node-js/index.html">
+<meta property="og:site_name" content="cranberry">
+<meta property="og:description" content="一、node基础1.命令行窗口1.1常用指令（1）dir    列出当前目录下的所有文件 （2）cd 目录名    进入到指定的目录 （3）md 目录名    创建一个文件夹 （4）rd 目录名    删除一个文件夹 （5）d:    去d盘 1.2目录.    表示当前目录 ..    表示上一级目录 1.3环境变量（windows系统中的变量）与作用域链一样的（？） path：当我们在命令行窗">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cranberry11.github.io/2021/09/02/Node-js/myBlog/source_posts/Node-js/1.png">
+<meta property="og:image" content="https://cranberry11.github.io/2021/09/02/Node-js/myBlog/source_posts/Node-js/4.png">
+<meta property="og:image" content="https://cranberry11.github.io/2021/09/02/Node-js/myBlog/source_posts/Node-js/5.png">
+<meta property="og:image" content="https://cranberry11.github.io/2021/09/02/Node-js/myBlog/source_posts/Node-js/6.png">
+<meta property="article:published_time" content="2021-09-02T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-10T13:36:24.318Z">
+<meta property="article:author" content="cranberry">
+<meta property="article:tag" content="Node.js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cranberry11.github.io/2021/09/02/Node-js/myBlog/source_posts/Node-js/1.png">
+
+<link rel="canonical" href="https://cranberry11.github.io/2021/09/02/Node-js/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Node.js | cranberry</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">cranberry</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">cranberry</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cranberry11.github.io/2021/09/02/Node-js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cranberry">
+      <meta itemprop="description" content="策马前途须努力，莫学龙种虚叹息。——唐代：李涉《岳阳别张祜》">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cranberry">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Node.js
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-02 08:00:00" itemprop="dateCreated datePublished" datetime="2021-09-02T08:00:00+08:00">2021-09-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-10 21:36:24" itemprop="dateModified" datetime="2021-09-10T21:36:24+08:00">2021-09-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node-js/" itemprop="url" rel="index"><span itemprop="name">Node.js</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="一、node基础"><a href="#一、node基础" class="headerlink" title="一、node基础"></a>一、node基础</h2><h4 id="1-命令行窗口"><a href="#1-命令行窗口" class="headerlink" title="1.命令行窗口"></a>1.命令行窗口</h4><h5 id="1-1常用指令"><a href="#1-1常用指令" class="headerlink" title="1.1常用指令"></a>1.1常用指令</h5><p>（1）<strong>dir</strong>    列出当前目录下的所有文件</p>
+<p>（2）<strong>cd 目录名</strong>    进入到指定的目录</p>
+<p>（3）<strong>md 目录名</strong>    创建一个文件夹</p>
+<p>（4）<strong>rd 目录名</strong>    删除一个文件夹</p>
+<p>（5）<strong>d:</strong>    去d盘</p>
+<h5 id="1-2目录"><a href="#1-2目录" class="headerlink" title="1.2目录"></a>1.2目录</h5><p>.    表示当前目录</p>
+<p>..    表示上一级目录</p>
+<h5 id="1-3环境变量（windows系统中的变量）"><a href="#1-3环境变量（windows系统中的变量）" class="headerlink" title="1.3环境变量（windows系统中的变量）"></a>1.3环境变量（windows系统中的变量）</h5><p>与作用域链一样的（？）</p>
+<p>path：当我们在命令行窗口打开一个文件，或调用一个程序时，系统会首先在当前目录下寻找文件程序，如果找到了则直接打开，如果没有找到则会依次到环境变量path的路径中寻找，直到扎到为止，如果没有找到则报错</p>
+<p>所以我们可以将一些经常需要访问的文件和路径添加到path中，这样我们就可以在任意位置来访问文件和程序了。</p>
+<h4 id="2-进程和线程"><a href="#2-进程和线程" class="headerlink" title="2.进程和线程"></a>2.进程和线程</h4><p><strong>进程</strong></p>
+<ul>
+<li>进程负责为程序的运行提供必备的环境</li>
+<li>进程就相当于工厂中的车间</li>
+</ul>
+<p><strong>线程</strong></p>
+<ul>
+<li>线程计算机中的最小的计算单位，线程负责执行进程中的程序线程就相当于工厂中的工人</li>
+</ul>
+<p>单线程（JS)</p>
+<p>多线程（主流）：并发问题</p>
+<h4 id="3-node-js简介"><a href="#3-node-js简介" class="headerlink" title="3.node.js简介"></a>3.node.js简介</h4><p>（1）Node.js不是一门语言，不是库，不是框架，是一个构建与谷歌V8引擎之上的js运行时环境</p>
+<p>（2）Node.js可以解析和执行js代码，可以完全脱离浏览器来运行</p>
+<p>（3）Node.js中的js没有DOM,BOM,在Node这个执行环境中为js提供了一些服务器级别的操作API</p>
+<ul>
+<li>文件读写</li>
+<li>网络服务的构建</li>
+<li>网络通信</li>
+<li>http服务器</li>
+</ul>
+<p>（4）Node.js使用事件驱动，非阻塞IO模型（异步），使他更加的轻量和高效</p>
+<p>（5）Node.js包生态系统，npm是世界上最大的开源库生态系统</p>
+<p>与系统进行交互，从前端拿到后台</p>
+<p>Node.js是一个能够在服务器端运行JavaScript的开放源代码、跨平台JavaScript运行环境</p>
+<p><img src="/2021/09/02/Node-js/myBlog\source_posts\Node-js\1.png"></p>
+<p>Node的用途：<br>（1）Web服务API，比如REST</p>
+<p>（2）实时多人游戏</p>
+<p>（3）后端的Web服务，例如跨域、服务端的请求</p>
+<p>（4）基于Web的应用</p>
+<p>（5）多客户端的通信，如及时通信</p>
+<ol>
+<li><p>Node是对ES标准的一个实现，Node也是一个JS引擎</p>
+</li>
+<li><p>通过Node可以使js代码在服务端执行</p>
+</li>
+<li><p>Node仅仅对ES标准进行了实现，所以Node不包含DOM和BOM</p>
+</li>
+<li><p>Node中可以使用所有的内建对象</p>
+<p>String Number Boolean Math Date RegExp Function Object Array</p>
+<p>而BOM和DOM都不能使用，但是可以使用console也可以使用定时器（setTimeout() setInterval())</p>
+</li>
+<li><p>Node可以在后台来编写服务器</p>
+<p>Node编写服务器都是单线程的服务器</p>
+<ul>
+<li>进程：进程就是一个一个的工作计划（工厂中的车间）</li>
+<li>线程：线程是计算机最小的运算单位（工厂中的工人），线程是干活的</li>
+</ul>
+</li>
+<li><p>传统的服务器都是多线程的</p>
+<p>每进来一个请求，就创建一个线程去处理请求</p>
+</li>
+<li><p>Node的服务器单线程的</p>
+<p>Node处理请求时是单线程，但是在后台拥有一个I/O线程池</p>
+</li>
+</ol>
+<h4 id="4-模块化"><a href="#4-模块化" class="headerlink" title="4.模块化"></a>4.模块化</h4><p>（1）模块化</p>
+<p> -在node中，一个js文件就是一个模块</p>
+<p>  -在node中，每一个js文件中的js代码都是独立运行在一个函数中</p>
+<p> 而不是全局作用域，所以一个模块中的变量和函数在其他模块中无法访问</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;我是一个模块，我是02.module.js&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p> 我们可以通过exports来向外部暴露变量和方法</p>
+<p> 只主要将需要暴露给外部的变量或方法设置为exports的属性即可</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//向外暴露属性或方法</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.x=<span class="string">&quot;我是02&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.y=<span class="string">&quot;我是y&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.fn=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）引入其他模块</p>
+<p>在node中，通过require()函数来引入外部的模块</p>
+<p>require()可以传递一个文件的路径作为参数，node将会自动根据该路径来引入外部模块，这里路径，如果使用相对路径，必须以.或..开头</p>
+<p>使用require()引入模块以后，该函数会返回一个对象，这个对象代表的是引入的模块</p>
+<p>我们使用require()引入外部模块时，使用的就是模块标识，我们可以通过模块标识来找到指定的模块</p>
+<p>-模块分成两大类</p>
+<p>核心模块</p>
+<p>-由node引擎提供的模块</p>
+<p>-核心模块的标识就是，模块的名字</p>
+<p>文件模块</p>
+<p>-由用户自己创建的模块</p>
+<p>-文件模块的标识就是文件的路径（绝对路径，相对路径）</p>
+<p>相对路径使用..或.开头</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> md=<span class="built_in">require</span>(<span class="string">&quot;./02.module&quot;</span>)<span class="comment">//点js可以省略</span></span><br><span class="line"><span class="keyword">const</span> mt=<span class="built_in">require</span>(<span class="string">&quot;./math&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="comment">// console.log(mt.add(1,2))</span></span><br><span class="line"><span class="comment">// console.log(mt.mul(1,2))</span></span><br><span class="line"><span class="built_in">console</span>.log(fs)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>在node中有一个全局对象global，它的作用和网页中window类似</p>
+<p>在全局中创建的变量都会作为global的属性保存</p>
+<p>在全局中创建的函数都会作为global的方法保存</p>
+</li>
+<li><p>当node在执行模块中的代码时，它会首先在代码的<strong>最顶部</strong>，添加如下代码</p>
+<p>function (exports,require,module,_filename,_dirname){</p>
+<p>在代码的<strong>最底部</strong>，添加如下代码</p>
+<p>}</p>
+</li>
+<li><p>实际上模块中的代码都是包装在一个函数中执行的，并且在函数执行时，同时传递了<strong>5个实参</strong><br><strong>exports</strong>：该对象用来将变量或函数暴露到外部<br><strong>require</strong>：函数，用来引入外部的模块<br><strong>module</strong>：代表的是当前模块本身，exports就是module的属性，既可以使用exports到处，也可以用module.exports导出<br><strong>_filename</strong>：当前模块的完整路径<br><strong>_dirname</strong>：当前模块所在文件夹的完整路径</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var a=10;//他不是全局变量，全局变量是window的属性</span></span><br><span class="line">a=<span class="number">10</span>;<span class="comment">//是全局的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// console.log(global.a)undefined/10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * arguments.callee</span></span><br><span class="line"><span class="comment"> * 这个属性保存的是当前执行的函数对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// console.log(arguments)//可以证明不是全局的</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">arguments</span>.callee+<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>（3）exports和module.exports</p>
+<p> * 通过exports只能使用.的方式来向外暴露内部变量exports.xxx=xxx</p>
+<p> * 而module.exports既可以通过.的形式，也可以直接赋值</p>
+<p><img src="/2021/09/02/Node-js/myBlog\source_posts\Node-js\4.png"></p>
+<p><img src="/2021/09/02/Node-js/myBlog\source_posts\Node-js\5.png"></p>
+<p><img src="/2021/09/02/Node-js/myBlog\source_posts\Node-js\6.png"></p>
+<h4 id="5-包结构"><a href="#5-包结构" class="headerlink" title="5.包结构"></a>5.包结构</h4><p>包实际上就是一个压缩文件，解压以后还原为目录。符合规范的目录，应该包含如下文件：</p>
+<ul>
+<li><strong>package.json 描述文件</strong>（不能写注释）</li>
+<li>bin 可执行二进制文件</li>
+<li>lib js代码</li>
+<li>doc 文档</li>
+<li>test 单元测试</li>
+</ul>
+<p>包描述文件用于表达非代码相关的信息，它是一个JSON格式的文件-package.json，位于包的根目录下，是包的重要组成部分</p>
+<h4 id="6-npm简介（Node-Package-Manager）"><a href="#6-npm简介（Node-Package-Manager）" class="headerlink" title="6.npm简介（Node Package Manager）"></a>6.npm简介（Node Package Manager）</h4><ul>
+<li>CommonJS包规范是理论，NPM是其中一种实践</li>
+<li>对于Node而言，NPM帮助其完成了第三方模块的发布、安装和依赖等。借助NPM，Node与第三方模块之间形成了很好的一个生态系统</li>
+</ul>
+<p>（1）NPM命令</p>
+<ul>
+<li>npm init 生成package.json文件<ul>
+<li>npm init -y 可以跳过向导，快速生成</li>
+</ul>
+</li>
+<li>npm -v :查看版本</li>
+<li>npm version:查看所有模块的版本</li>
+<li>npm:帮助说明</li>
+<li>npm search 包名 :搜索包</li>
+<li>npm install/i 包名：安装包</li>
+<li>npm remove/r 包名：删除包</li>
+<li>npm install 包名 –save：安装包并添加到依赖中(package.json文件中的dependencis选项)</li>
+<li>npm install：下载到当前项目所依赖的包</li>
+<li>npm install 包名 -g：全局安装包(全局安装的包一般都是一些工具)</li>
+</ul>
+<h4 id="7-配置cnpm"><a href="#7-配置cnpm" class="headerlink" title="7.配置cnpm"></a>7.配置cnpm</h4><p>npm.taobao.org</p>
+<h4 id="8-npm搜索包的流程"><a href="#8-npm搜索包的流程" class="headerlink" title="8.npm搜索包的流程"></a>8.npm搜索包的流程</h4><ul>
+<li>通过npm下载的包都放到node_modules文件夹中</li>
+</ul>
+<p>我们通过npm下载的包，直接通过包名引入即可</p>
+<ul>
+<li>node 在使用模块名字来引入模块时，它会首先在当前目录的node_modules中寻找是否含有该模块，如果有则直接使用，如果没有则取上一级目录的node_modules中寻找，如果有则直接使用，如果没有则再去上一级目录寻找，直到找到为止，直到找到磁盘的根目录，如果依然没有，则报错</li>
+</ul>
+<h4 id="9-文件系统"><a href="#9-文件系统" class="headerlink" title="9.文件系统"></a>9.文件系统</h4><h5 id="9-1Buffer缓冲区"><a href="#9-1Buffer缓冲区" class="headerlink" title="9.1Buffer缓冲区"></a>9.1Buffer缓冲区</h5><ul>
+<li><p>Buffer的结构和数组很像，操作的方法也和数组类似</p>
+</li>
+<li><p>数组中不能存储二进制的文件，而buffer就是专门用来存储二进制数据</p>
+</li>
+<li><p>使用buffer不需要引入模块，直接使用即可</p>
+</li>
+<li><p>在buffer中存储的都是二进制数据，但是在显示时都是以16进制的形式显示</p>
+<ul>
+<li>buffer中每一个元素的范围是从00-ff  0-255     二进制：00000000 - 11111111</li>
+<li>计算机一个0或一个1 我们称为1位（bit)</li>
+<li>8bit=1byte（字节）</li>
+<li>1024byte=1kb,1024kb=1mb,1024mb=1gb,1024gb=1tb</li>
+<li>buffer中的一个元素，占用内存的一个字节</li>
+</ul>
+</li>
+<li><p>Buffer的大小一旦确定，则不能修改,Buffer实际上是对底层内存的直接操作</p>
+</li>
+<li><p>Buffer.from(str) ：将一个字符串转换为buffer</p>
+<p>Buffer.alloc(size)：创建一个指定大小的Buffer</p>
+<p>Buffer.allocUnsafe(size)：创建一个指定大小的Buffer，但是可能包含敏感数据</p>
+<p>buf.toString() ：将缓冲区中的数据转换为字符串</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str=<span class="string">&quot;hello ahdj&quot;</span></span><br><span class="line"><span class="comment">//将一个字符串保存到buffer中</span></span><br><span class="line"><span class="keyword">const</span> buf=Buffer.from(str)</span><br><span class="line"><span class="comment">// console.log(buf.length);//占用内存的大小</span></span><br><span class="line"><span class="comment">// console.log(str.length);//字符串的长度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个指定大小的buffer</span></span><br><span class="line"><span class="comment">//buffer构造函数都是不推荐使用的</span></span><br><span class="line"><span class="comment">//var buf2=new Buffer(10);//10个字节的buffer</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建一个10个字节的buffer</span></span><br><span class="line"><span class="keyword">const</span> buf2=Buffer.alloc(<span class="number">10</span>);</span><br><span class="line"><span class="comment">//通过索引，来操作buf2中的元素</span></span><br><span class="line"><span class="comment">//&lt;Buffer 58 ff aa 0f 00 00 00 00 00 00&gt;</span></span><br><span class="line">buf2[<span class="number">0</span>]=<span class="number">88</span>;</span><br><span class="line">buf2[<span class="number">1</span>]=<span class="number">255</span>;</span><br><span class="line">buf2[<span class="number">2</span>]=<span class="number">0xaa</span>;</span><br><span class="line">buf2[<span class="number">3</span>]=<span class="number">15</span>;</span><br><span class="line"><span class="comment">// console.log(buf2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//只要数字在控制台或页面中输出一定是10进制</span></span><br><span class="line"><span class="comment">// console.log(buf2[2]);</span></span><br><span class="line"><span class="comment">//不要10进制</span></span><br><span class="line"><span class="comment">// console.log(buf2[2].toString(16));</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// for(let i of buf2)&#123;</span></span><br><span class="line"><span class="comment">//     console.log(i);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Buffer.allocUnsafe(size) 创建一个指定大小的buffer,但是buffer中可能含有铭感数据</span></span><br><span class="line"><span class="comment">//分配内存时没有清空数据，但是这个的性能好</span></span><br><span class="line"><span class="comment">// const buf3=Buffer.allocUnsafe(10);</span></span><br><span class="line"><span class="comment">// console.log(buf3)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> buf4=Buffer.from(<span class="string">&quot;我是一段文本数据&quot;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(buf4.toString())</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-2同步文件写入"><a href="#9-2同步文件写入" class="headerlink" title="9.2同步文件写入"></a>9.2同步文件写入</h5><p>（1）文件系统（File System)</p>
+<p> * 文件系统简单来说就是通果Node来操作系统中的文件</p>
+<p> * 使用文件系统，需要先引入fs模块，fs是核心模块，直接引入不需要下载</p>
+<p>（2）文件的写入</p>
+<p> 手动操作的步骤</p>
+<p> 1）打开文件：fs.openSync(path,flags[,model])</p>
+<ul>
+<li><p>path ：要打开文件的路径</p>
+</li>
+<li><p>flags ：打开文件要做的操作的类型</p>
+<p>r 只读的  w 可写的</p>
+</li>
+<li><p>model：设置文件的操作权限，一般不传</p>
+</li>
+</ul>
+<p>2）向文件中写入内容： fs.writeSync(fd,string[,position[,encoding]])</p>
+<ul>
+<li>fd 文件的描述符，需要传递要写入的文件的描述符</li>
+<li>string 要写入的内容</li>
+<li>position 写入的起始位置</li>
+<li>encoding 写入的编码，默认utf-8</li>
+</ul>
+<p>3）保存并关闭文件：fs.closeSync(fd)</p>
+<p>-fd 要关闭的文件的描述符</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="comment">//打开文件</span></span><br><span class="line"><span class="keyword">const</span> fd=fs.openSync(<span class="string">&quot;hello.txt&quot;</span>,<span class="string">&quot;w&quot;</span>);</span><br><span class="line"><span class="comment">//向文件中写入内容</span></span><br><span class="line">fs.writeSync(fd,<span class="string">&quot;今天&quot;</span>)</span><br><span class="line"><span class="comment">// console.log(fd);</span></span><br><span class="line"><span class="comment">//关闭文件</span></span><br><span class="line">fs.closeSync(fd);</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-3异步文件写入"><a href="#9-3异步文件写入" class="headerlink" title="9.3异步文件写入"></a>9.3异步文件写入</h5><p> （1）fs.open(path,flags[,model],callback)</p>
+<ul>
+<li>用来打开一个文件</li>
+<li>异步调用的方法，结果都是通过回调函数返回的</li>
+<li>回调函数两个参数：<ul>
+<li>err：错误对象，如果没有错误则为null</li>
+<li>fd: 文件的描述符</li>
+</ul>
+</li>
+</ul>
+<p> （2）fs.write(fd,string[,position[,encoding]],callback)</p>
+<ul>
+<li>用来异步写入一个文件</li>
+</ul>
+<p>（3) fs.close(fd,callback)</p>
+<ul>
+<li>用来关闭文件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入fs模块</span></span><br><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="comment">//打开文件</span></span><br><span class="line">fs.open(<span class="string">&quot;hello.txt&quot;</span>,<span class="string">&quot;w&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,fd</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//判断是否出错</span></span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        <span class="comment">//如果没有出错，则对文件进行写入操作</span></span><br><span class="line">        fs.write(fd,<span class="string">&quot;这是异步写入的内容&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;写入成功~~&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//关闭文件</span></span><br><span class="line">            fs.close(fd,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">&quot;文件已关闭~&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-4简单文件写入"><a href="#9-4简单文件写入" class="headerlink" title="9.4简单文件写入"></a>9.4简单文件写入</h5><p>（1）fs.writeFile(file,data[,options],callback)</p>
+<p>  fs.writeFileSync(file,data[,options])</p>
+<ul>
+<li>file 要操作的文件的路径</li>
+<li>data 要写入的数据</li>
+<li>options 选项，可以对写入进行一些设置</li>
+<li>callback 当写入完成以后执行的函数</li>
+<li>flag-&gt;  r 可读；w 可写；a 追加</li>
+</ul>
+<h5 id="9-5流式文件写入"><a href="#9-5流式文件写入" class="headerlink" title="9.5流式文件写入"></a>9.5流式文件写入</h5><p>同步、异步、简单文件的写入都不适合大文件的写入，性能较差，容易导致内存溢出</p>
+<p>（1）创建一个可写流</p>
+<p>fs.createWriteStream(path[,options])</p>
+<ul>
+<li>可以用来创建一个可写流</li>
+<li>path,文件路径</li>
+<li>options 配置参数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> ws=fs.createWriteStream(<span class="string">&quot;hello3.txt&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>（2）可以通过监听流的open和close事件来监听流的打开和关闭</p>
+<p> on(事件字符串，回调函数)</p>
+<ul>
+<li>可以为对象绑定一个事件</li>
+</ul>
+<p> once(事件字符串，回调函数)</p>
+<ul>
+<li>可以为对象绑定一个一次性的事件，该事件将会在触发一次以后自动失效</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ws.on(<span class="string">&quot;open&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;流打开了~~&quot;</span>)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// ws.once(&quot;open&quot;,function()&#123;</span></span><br><span class="line"><span class="comment">//     console.log(&quot;流打开了~~&quot;)</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line">ws.on(<span class="string">&quot;close&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;流关闭了~~&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过ws向文件中输出内容</span></span><br><span class="line">ws.write(<span class="string">&quot;通过可写流写入文件的内容&quot;</span>);</span><br><span class="line">ws.write(<span class="string">&quot;通过可写流写入文件的内容&quot;</span>);</span><br><span class="line">ws.write(<span class="string">&quot;通过可写流写入文件的内容&quot;</span>);</span><br><span class="line">ws.write(<span class="string">&quot;通过可写流写入文件的内容&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//关闭流</span></span><br><span class="line">ws.end();</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-6文件的读取"><a href="#9-6文件的读取" class="headerlink" title="9.6文件的读取"></a>9.6文件的读取</h5><p> （1）同步文件读取</p>
+<p> （2）异步文件读取</p>
+<p> （3）简单文件读取</p>
+<ul>
+<li>fs.readFile(path[,options],callback)</li>
+<li>fs.readFileSync(path[,options])<ul>
+<li>path 要读取的文件的路径</li>
+<li>options 读取的选项</li>
+<li>callback 回调函数，通过回调函数将读取到内容返回（err, data）<ul>
+<li>err 错误对象</li>
+<li>data 读取到的数据，会返回一个buffer</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> path=<span class="string">&quot;xxxx&quot;</span>;</span><br><span class="line">fs.readFile(<span class="string">&quot;an.jpg&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        <span class="comment">// console.log(data.toString());</span></span><br><span class="line">        <span class="comment">//将data写入到文件中</span></span><br><span class="line">        fs.writeFile(<span class="string">&quot;hello.jpg&quot;</span>,data,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&quot;文件写入成功&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>（4）流式文件读取</p>
+<p>流式文件读取也适用于一些比较大的文件，可以分多次将文件读取到内存中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs=<span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"></span><br><span class="line"> <span class="comment">//创建一个可读流</span></span><br><span class="line"> <span class="keyword">const</span> rs=fs.createReadStream(<span class="string">&quot;hello3.txt&quot;</span>)</span><br><span class="line"><span class="comment">//创建一个可写流</span></span><br><span class="line"><span class="keyword">const</span> ws=fs.createWriteStream(<span class="string">&quot;ddd.txt&quot;</span>)</span><br><span class="line"><span class="comment">//  //监听流的开启和关闭</span></span><br><span class="line"><span class="comment">//  rs.once(&quot;open&quot;,function()&#123;</span></span><br><span class="line"><span class="comment">//      console.log(&quot;可读流打开了&quot;)</span></span><br><span class="line"><span class="comment">//  &#125;);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  rs.once(&quot;close&quot;,function()&#123;</span></span><br><span class="line"><span class="comment">//      console.log(&quot;可读流关闭了&quot;)</span></span><br><span class="line"><span class="comment">//      //数据读取完毕，关闭科协刘</span></span><br><span class="line"><span class="comment">//      ws.end();</span></span><br><span class="line"><span class="comment">//  &#125;)</span></span><br><span class="line"><span class="comment">// ws.once(&quot;open&quot;,function()&#123;</span></span><br><span class="line"><span class="comment">//     console.log(&quot;可写流打开了&quot;)</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"><span class="comment">// ws.once(&quot;close&quot;,function()&#123;</span></span><br><span class="line"><span class="comment">//     console.log(&quot;可写流关闭了&quot;)</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"><span class="comment">//  //如果要读取一个可读流中的数据，必须要为可读流绑定一个data事件，data事件绑定完毕，它会自动供开始读取数据</span></span><br><span class="line"><span class="comment">//  rs.on(&quot;data&quot;,function(data)&#123;</span></span><br><span class="line"><span class="comment">//      console.log(data)</span></span><br><span class="line"><span class="comment">//  &#125;)</span></span><br><span class="line"><span class="comment">//pipe()可以将可读流中的内容，直接输出到可写流中</span></span><br><span class="line"> rs.pipe(ws);</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-7其他"><a href="#9-7其他" class="headerlink" title="9.7其他"></a>9.7其他</h5><p>（1）fs.existsSync(path)</p>
+<ul>
+<li>检查一个文件是否存在</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isExists=fs.existsSync(<span class="string">&quot;a.mp3&quot;</span>)</span><br><span class="line"><span class="comment">// console.log(isExists)</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）fs.stat(path,callback)</p>
+<p>fs.statSync(path)</p>
+<ul>
+<li>获取文件的状态</li>
+<li>它会给我们返回一个对象，这个对象中保存了当前对象状态的相关信息</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fs.stat(<span class="string">&quot;hello3.txt&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,stat</span>)</span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * size 文件的大小</span></span><br><span class="line"><span class="comment">     * isFile()是否是一个文件</span></span><br><span class="line"><span class="comment">     * isDirectory()是否是一个文件夹（目录）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="built_in">console</span>.log(stat);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>（3）fs.unlink(path,callback)</p>
+<p>  fs.unlinkSync(path)</p>
+<ul>
+<li>删除文件</li>
+</ul>
+<p>（4）fs.readdir(path[,options],callback)</p>
+<p>  fs.readdirSync(path[,options])</p>
+<ul>
+<li>读取一个目录的目录结构</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fs.readdir(<span class="string">&quot;.&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,files</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(files)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>（5）fs.truncate(path,len,callback)</p>
+<p> fs.truncateSync(path,len)</p>
+<ul>
+<li>截断文件，将文件修改为指定的大小</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.truncateSync(<span class="string">&quot;hello3.txt&quot;</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<p>（6）fs.rename(oldPath,newPath,callback)</p>
+<p> fs.renameSync(oldPath,newPath)</p>
+<ul>
+<li>对文件进行重命名</li>
+<li>参数：oldPath 旧的路径；newPath 新的路径；callback 回调函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fs.rename(<span class="string">&quot;笔记.mp3&quot;</span>,<span class="string">&quot;xxx&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;修改成功--&quot;</span>)</span><br><span class="line">    &#125; </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>（7）fs.watchFile(filename[,options],listener)</p>
+<p>-监视文件的修改</p>
+<p> -参数：</p>
+<ul>
+<li><p>filename 要监视的文件的名字</p>
+</li>
+<li><p>options 配置选项</p>
+</li>
+<li><p>listener 回调函数，当文件发生变化时，回调函数会执行</p>
+<p>在回调函数中会有两个参数：</p>
+</li>
+</ul>
+<p> *curr 当前文件的状态</p>
+<p> *  prev 修改前文件的状态</p>
+<p> *  - 这两个对象都是stats对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fs.watchFile(<span class="string">&quot;hello2.txt&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">cur,prev</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;修改前文件大小：&quot;</span>+prev.size);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;修改后文件大小：&quot;</span>+cur.size)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Node-js/" rel="tag"># Node.js</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/02/ajax/" rel="prev" title="ajax">
+      <i class="fa fa-chevron-left"></i> ajax
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/09/10/%E9%9D%A2%E8%AF%95/" rel="next" title="html+css+js">
+      html+css+js <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81node%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">一、node基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AA%97%E5%8F%A3"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.命令行窗口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1.1常用指令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2%E7%9B%AE%E5%BD%95"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">1.2目录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%88windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%EF%BC%89"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">1.3环境变量（windows系统中的变量）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.进程和线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-node-js%E7%AE%80%E4%BB%8B"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.node.js简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.模块化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%8C%85%E7%BB%93%E6%9E%84"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.包结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-npm%E7%AE%80%E4%BB%8B%EF%BC%88Node-Package-Manager%EF%BC%89"><span class="nav-number">1.0.6.</span> <span class="nav-text">6.npm简介（Node Package Manager）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E9%85%8D%E7%BD%AEcnpm"><span class="nav-number">1.0.7.</span> <span class="nav-text">7.配置cnpm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-npm%E6%90%9C%E7%B4%A2%E5%8C%85%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="nav-number">1.0.8.</span> <span class="nav-text">8.npm搜索包的流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.0.9.</span> <span class="nav-text">9.文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#9-1Buffer%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="nav-number">1.0.9.1.</span> <span class="nav-text">9.1Buffer缓冲区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-2%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5"><span class="nav-number">1.0.9.2.</span> <span class="nav-text">9.2同步文件写入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-3%E5%BC%82%E6%AD%A5%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5"><span class="nav-number">1.0.9.3.</span> <span class="nav-text">9.3异步文件写入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-4%E7%AE%80%E5%8D%95%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5"><span class="nav-number">1.0.9.4.</span> <span class="nav-text">9.4简单文件写入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-5%E6%B5%81%E5%BC%8F%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5"><span class="nav-number">1.0.9.5.</span> <span class="nav-text">9.5流式文件写入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%8F%96"><span class="nav-number">1.0.9.6.</span> <span class="nav-text">9.6文件的读取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-7%E5%85%B6%E4%BB%96"><span class="nav-number">1.0.9.7.</span> <span class="nav-text">9.7其他</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">cranberry</p>
+  <div class="site-description" itemprop="description">策马前途须努力，莫学龙种虚叹息。——唐代：李涉《岳阳别张祜》</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cranberry</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
