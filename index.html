@@ -889,19 +889,19 @@
 <p>（3）注意：.git目录中存放的是本地库相关的子目录和文件，不要删除，也不要胡乱修改</p>
 <h4 id="2-设置签名"><a href="#2-设置签名" class="headerlink" title="2.设置签名"></a>2.设置签名</h4><p>（1）形式</p>
 <p>用户名：cranberry</p>
-<p>Email地址：<a href="mailto:&#99;&#114;&#x61;&#x6e;&#98;&#x65;&#x72;&#x72;&#x79;&#64;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">&#99;&#114;&#x61;&#x6e;&#98;&#x65;&#x72;&#x72;&#x79;&#64;&#113;&#113;&#x2e;&#99;&#111;&#x6d;</a></p>
+<p>Email地址：<a href="mailto:&#99;&#x72;&#x61;&#x6e;&#98;&#x65;&#114;&#x72;&#121;&#64;&#x71;&#113;&#x2e;&#x63;&#111;&#109;">&#99;&#x72;&#x61;&#x6e;&#98;&#x65;&#114;&#x72;&#121;&#64;&#x71;&#113;&#x2e;&#x63;&#111;&#109;</a></p>
 <p>（2）作用：区分不同开发人员的身份</p>
 <p>（3）辨析：这里设置的签名和登录远程库（代码托管中心）的账号密码没有任何关系</p>
 <p>（4）命令</p>
 <ul>
 <li>项目级别/仓库级别：仅在当前本地库范围内有效<ul>
 <li>git <strong>config</strong> user.name cranberry</li>
-<li>git <strong>config</strong> user.email <a href="mailto:&#x63;&#114;&#x61;&#x6e;&#x62;&#x65;&#114;&#x72;&#x79;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x63;&#114;&#x61;&#x6e;&#x62;&#x65;&#114;&#x72;&#x79;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;</a></li>
+<li>git <strong>config</strong> user.email <a href="mailto:&#99;&#x72;&#x61;&#110;&#98;&#x65;&#114;&#x72;&#x79;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#x6d;">&#99;&#x72;&#x61;&#110;&#98;&#x65;&#114;&#x72;&#x79;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#x6d;</a></li>
 </ul>
 </li>
 <li>系统用户级别：登录当前操作系统的用户范围<ul>
 <li>git config <strong>–global</strong> user.name cranberry</li>
-<li>git config <strong>–global</strong> user.email <a href="mailto:&#99;&#114;&#x61;&#110;&#98;&#x65;&#x72;&#x72;&#x79;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#109;">&#99;&#114;&#x61;&#110;&#98;&#x65;&#x72;&#x72;&#x79;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#109;</a></li>
+<li>git config <strong>–global</strong> user.email <a href="mailto:&#x63;&#114;&#x61;&#110;&#98;&#x65;&#114;&#114;&#121;&#64;&#x71;&#113;&#46;&#99;&#111;&#x6d;">&#x63;&#114;&#x61;&#110;&#98;&#x65;&#114;&#114;&#121;&#64;&#x71;&#113;&#46;&#99;&#111;&#x6d;</a></li>
 </ul>
 </li>
 <li>级别优先级<ul>
@@ -2885,7 +2885,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-16 20:47:07" itemprop="dateModified" datetime="2021-09-16T20:47:07+08:00">2021-09-16</time>
+                <time title="修改时间：2021-09-17 16:11:10" itemprop="dateModified" datetime="2021-09-17T16:11:10+08:00">2021-09-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -3975,7 +3975,134 @@
 <li>nowrap 不换行</li>
 <li>pre 保留空白</li>
 </ul>
-<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><h3 id="1-less简介"><a href="#1-less简介" class="headerlink" title="1.less简介"></a>1.less简介</h3><p>vscode中安装插件easy less</p>
+<h2 id="二十五、animation"><a href="#二十五、animation" class="headerlink" title="二十五、animation"></a>二十五、animation</h2><h3 id="1-过渡（transition）"><a href="#1-过渡（transition）" class="headerlink" title="1.过渡（transition）"></a>1.过渡（transition）</h3><p>通过过渡可以制定一个属性发生变化时的切换方式</p>
+<p>通过过渡可以创建一些非常好的溪小果，提升用户的体验</p>
+<p>属性：</p>
+<ul>
+<li>transition-property:指定要执行过渡的属性<ul>
+<li>多个属性间使用,隔开</li>
+<li>如果所有属性都需要过渡，则使用all关键字</li>
+<li>大部分属性都支持过渡效果（可计算的），注意过渡时必须是从一个有效数值向另外一个有效数值进行过渡</li>
+<li>transition-property:width,height</li>
+</ul>
+</li>
+<li>transition-duration：指定执行过渡效果的持续事件<ul>
+<li>时间单位:s和ms   1s=1000ms</li>
+<li>transition-duration:100ms</li>
+</ul>
+</li>
+<li>transition-timing-function:过渡的时序函数<ul>
+<li>指定动画过渡的执行的方式</li>
+<li>可选值<ul>
+<li>ease 默认值，慢速开始，先加速，再减速</li>
+<li>linear 匀速运动</li>
+<li>ease-in 加速运动</li>
+<li>ease-out 减速运动</li>
+<li>ease-in-out 先加速后减速</li>
+<li>cubic-bezier(.25,.1,.25,1) 来指定时序函数（<a target="_blank" rel="noopener" href="https://cubic-bezier.com)/">https://cubic-bezier.com）</a></li>
+<li>steps(2,end) 分步执行过渡效果，2表示间断地跳转需要2步的操作，end是默认值，表示1秒数完再动，如果是start就一开始就动。end 在时间结束时执行过渡（默认值），start，在时间开始时执行过渡</li>
+</ul>
+</li>
+<li>transition-timing-function:ease</li>
+</ul>
+</li>
+<li>transition-delay：过渡效果的延迟，等待一段时间后再执行过渡<ul>
+<li>transition-delay:2s</li>
+</ul>
+</li>
+<li>transition 可以同时设置过渡相关的所有属性，只有一个要求，如果要写延迟，则两个时间中第一个是持续时间，第二个是延迟时间<ul>
+<li>transition:2s margin-left 2s;</li>
+</ul>
+</li>
+</ul>
+<p>练习：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.box1</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>:<span class="number">271px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>:<span class="number">132px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>:<span class="number">0</span> auto;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&quot;./img/bigtap-mitu-queue-big.png&quot;</span>);</span></span><br><span class="line"><span class="css">            <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">transition</span>: <span class="number">1s</span> <span class="built_in">steps</span>(<span class="number">3</span>);</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.box1</span><span class="selector-pseudo">:hover</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-position</span>:-<span class="number">396px</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-动画（animation）"><a href="#2-动画（animation）" class="headerlink" title="2.动画（animation）"></a>2.动画（animation）</h3><p>与过渡类似，都是可以实现一些动态的效果，不同的是过渡需要在某个属性发生变化时才会触发，动画可以<strong>自动触发动态效果</strong></p>
+<p>设置动画效果，必须先要设置一个关键帧，关键帧设置了动画执行每一个步骤</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> test&#123;</span><br><span class="line">    <span class="comment">/*from 表示动画的开始位置，也可以使用 0%*/</span></span><br><span class="line">    <span class="selector-tag">from</span>&#123;</span><br><span class="line">        <span class="attribute">margin-left</span>:<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*to 动画的结束位置，也可以使用100%*/</span></span><br><span class="line">    <span class="selector-tag">to</span>&#123;</span><br><span class="line">        <span class="attribute">margin-left</span>:<span class="number">700px</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后引用</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box2</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>:<span class="number">#bfa</span>;</span><br><span class="line">    <span class="comment">/*设置box2动画*/</span></span><br><span class="line">    <span class="comment">/*animation-name:要对当前元素生效的关键帧的名字*/</span></span><br><span class="line">    <span class="attribute">animation-name</span>:test;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*animation-duration:动画的执行时间*/</span></span><br><span class="line">    <span class="attribute">animation-duration</span>:<span class="number">4s</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*动画延时*/</span></span><br><span class="line">    <span class="attribute">animation-delay</span>:<span class="number">1s</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="attribute">animation-timing-function</span>:ease-in-out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相比于transition多出来的属性如下</p>
+<ul>
+<li>animation-iteration-count:动画执行的次数<ul>
+<li>可选值：<ul>
+<li>次数 1,2,3</li>
+<li>inifinite 无限执行</li>
+</ul>
+</li>
+<li>animation-iteration-count:1</li>
+<li>animation-iteration-count:infinite</li>
+</ul>
+</li>
+<li>animation-direction:指定动画运行的方向<ul>
+<li>可选值：<ul>
+<li>normal 默认值 从from向to运行 每次都这样</li>
+<li>reverse 从to向from运行 ，每次都这样</li>
+<li>alternate 从from向to运行 重复执行动画时反向执行</li>
+<li>alternate-reverse 从to向from运行 重复执行动画时反向执行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>animation-play-state:设置动画的执行状态<ul>
+<li>可选值;<ul>
+<li>running 默认值 动画执行</li>
+<li>paused 动画暂停</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>animation-fill-mode:动画的填充模式<ul>
+<li>可选值：<ul>
+<li>none 默认值 动画执行完毕元素回到原来位置</li>
+<li>forwards 动画执行完毕元素会停止在动画结束的位置</li>
+<li>backwards 动画延时等待时，元素就会处于开始位置</li>
+<li>both  结合了forwards和backwards</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-变形（transform）"><a href="#3-变形（transform）" class="headerlink" title="3.变形（transform）"></a>3.变形（transform）</h3><p>指通过CSS来改变元素的形状或位置</p>
+<ul>
+<li>变形不会影响到页面的布局</li>
+<li>transform用来设置元素的变形效果</li>
+</ul>
+<h4 id="（1）平移"><a href="#（1）平移" class="headerlink" title="（1）平移"></a>（1）平移</h4><ul>
+<li>translateX() 沿着x轴方向平移</li>
+<li>translateY() 沿着y轴方向平移<ul>
+<li>平移元素，百分比是相对于自身计算的</li>
+</ul>
+</li>
+<li>translateZ() 沿着z轴方向平移</li>
+<li>z轴平移，调整元素在z轴的位置，正常情况就是调凭证元素和人眼之间的距离，距离越大，元素离人越近</li>
+<li>z轴平移属于立体效果（近大远小），默认情况下网页是不支持透视，如果需要看见效果必须设置网页的视距</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="comment">/*设置当前网页的视距为800px，人眼距离网页的距离*/</span></span><br><span class="line">    <span class="attribute">perspective</span>:<span class="number">800px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）旋转"><a href="#（2）旋转" class="headerlink" title="（2）旋转"></a>（2）旋转</h4><p>通过旋转可以使元素沿着x,y或z旋转指定的角度</p>
+<ul>
+<li>rotateX()</li>
+<li>rotateY()</li>
+<li>rotateZ()</li>
+</ul>
+<p>里面的参数可以写90deg（90度），1turn（一圈，即360度）</p>
+<p>还有一个就是backface-visibility:visible(默认值)，hidden的话就隐藏，它的作用就是是否显示元素的背面</p>
+<p>上面想要有效果的话，就要添加视距哦</p>
+<h4 id="（3）缩放"><a href="#（3）缩放" class="headerlink" title="（3）缩放"></a>（3）缩放</h4><p>对元素进行缩放的函数</p>
+<ul>
+<li>scaleX() 水平方向缩放</li>
+<li>scaleY() 垂直方向缩放</li>
+<li>scale() 双方向缩放</li>
+</ul>
+<p>变形的原点 默认值 center</p>
+<ul>
+<li>transform-origin:20px 20px</li>
+</ul>
+<h2 id="二十六、less"><a href="#二十六、less" class="headerlink" title="二十六、less"></a>二十六、less</h2><h3 id="1-less简介"><a href="#1-less简介" class="headerlink" title="1.less简介"></a>1.less简介</h3><p>vscode中安装插件easy less</p>
 <p>是一门css的预处理语言，less是一个css增强版，通过less可以编写更少的代码，实现更强大的样式</p>
 <p>在less中添加了许多的新特性：像对变量的支持、对mixin的支持</p>
 <p>less的语法大体上和css语法一致，但是less中增添了许多对css的扩展，所以浏览器无法直接执行less代码，要执行必须向将less转换为css，然后再有浏览器执行</p>
@@ -4012,7 +4139,7 @@
 <p><img src="/2021/09/02/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/15.png"></p>
 <p><img src="/2021/09/02/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/16.png"></p>
 <p><img src="/2021/09/02/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/17.png"></p>
-<h2 id="弹性盒"><a href="#弹性盒" class="headerlink" title="弹性盒"></a>弹性盒</h2><h3 id="1-flex（弹性盒、伸缩盒）"><a href="#1-flex（弹性盒、伸缩盒）" class="headerlink" title="1.flex（弹性盒、伸缩盒）"></a>1.flex（弹性盒、伸缩盒）</h3><ul>
+<h2 id="二十七、弹性盒"><a href="#二十七、弹性盒" class="headerlink" title="二十七、弹性盒"></a>二十七、弹性盒</h2><h3 id="1-flex（弹性盒、伸缩盒）"><a href="#1-flex（弹性盒、伸缩盒）" class="headerlink" title="1.flex（弹性盒、伸缩盒）"></a>1.flex（弹性盒、伸缩盒）</h3><ul>
 <li><p>是CSS中的又一种布局手段，它主要用来代替浮动来完成页面的布局</p>
 </li>
 <li><p>flex可以使元素具有弹性，让元素可以跟随页面的大小的改变而改变</p>
@@ -4245,6 +4372,45 @@
 <p>4.667vw=35px</p>
 <h3 id="9-vw适配"><a href="#9-vw适配" class="headerlink" title="9.vw适配"></a>9.vw适配</h3><p>网页中字体大小最小是12px，不能设置一个比12像素还小的字体，如果我们设置了一个小于12px的字体，则字体自动设置为12</p>
 <p>可以在html中用vw设置字体大小，然后换算成rem就好了</p>
+<h3 id="二十八、响应式布局"><a href="#二十八、响应式布局" class="headerlink" title="二十八、响应式布局"></a>二十八、响应式布局</h3><p>网页可以通过根据不同的设备或窗口大小呈现出不同的效果</p>
+<p>使用响应式布局，可以使一个网页适用于所有设备</p>
+<p>响应布局的关键 <strong>媒体查询</strong></p>
+<p>通过媒体查询，可以为不同的设备，或设备不同状态来分别设置样式</p>
+<ul>
+<li>语法：@media 查询规则{}</li>
+<li>媒体类型<ul>
+<li>all 所有设备</li>
+<li>print 打印设备</li>
+<li>screen 带屏幕的设备</li>
+<li>speech 屏幕阅读器</li>
+<li>可以使用<strong>，</strong>连接多个媒体类型，这样他们之间就是一个或的关系</li>
+</ul>
+</li>
+<li>可以在媒体类型前添加一个only,表示只有<ul>
+<li>only的使用主要是为了兼容一些老版本浏览器</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen&#123;</span><br><span class="line">    <span class="selector-tag">body</span>&#123;</span><br><span class="line">        <span class="attribute">background-color</span>:red;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>媒体特性<ul>
+<li>width 视口的宽度</li>
+<li>height 视口的高度</li>
+<li>min-width 视口的最小宽度（视口大于指定宽度时生效）</li>
+<li>max-width 视口的最大宽度（视口小于指定宽度时生效）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*只有到500px的时候才会出现颜色*/</span></span><br><span class="line"><span class="keyword">@media</span>(width:500px)&#123;</span><br><span class="line">    <span class="selector-tag">body</span>&#123;</span><br><span class="line">        <span class="attribute">background-color</span>:red;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>样式切换的分界点，我们称其为断点，也就是网页的样式会在这个点时发生变化，一般比较常用的断点</p>
+<ul>
+<li>小于768 超小屏幕 max-width=768px</li>
+<li>大于768 小屏幕 min-width=768px</li>
+<li>大于992 中型屏幕 min-width=992px</li>
+<li>大于1200 大屏幕 min-width=1200px</li>
+</ul>
 
       
     </div>
