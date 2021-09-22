@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cranberry11.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.window对象BOM由多个对象组成，其中代表浏览器窗口的window对象是BOM的顶层对象，其他对象都是该对象的子对象 所有浏览器都支持window对象。 window对象表示浏览器窗口。 所有JavaScript全局对象、函数、变量均自动成为window对象的成员。 全局变量是window对象的属性。 全局函数是window对象的方法  1.1window对象的属性   属性 含义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BOM">
+<meta property="og:url" content="https://cranberry11.github.io/2021/09/22/Bom/index.html">
+<meta property="og:site_name" content="cranberry">
+<meta property="og:description" content="1.window对象BOM由多个对象组成，其中代表浏览器窗口的window对象是BOM的顶层对象，其他对象都是该对象的子对象 所有浏览器都支持window对象。 window对象表示浏览器窗口。 所有JavaScript全局对象、函数、变量均自动成为window对象的成员。 全局变量是window对象的属性。 全局函数是window对象的方法  1.1window对象的属性   属性 含义">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cranberry11.github.io/2021/09/22/Bom/1.png">
+<meta property="article:published_time" content="2021-09-22T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-22T03:05:35.354Z">
+<meta property="article:author" content="cranberry">
+<meta property="article:tag" content="浏览器对象模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cranberry11.github.io/2021/09/22/Bom/1.png">
+
+<link rel="canonical" href="https://cranberry11.github.io/2021/09/22/Bom/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>BOM | cranberry</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">cranberry</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">cranberry</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cranberry11.github.io/2021/09/22/Bom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cranberry">
+      <meta itemprop="description" content="策马前途须努力，莫学龙种虚叹息。——唐代：李涉《岳阳别张祜》">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cranberry">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          BOM
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-09-22 08:00:00 / 修改时间：11:05:35" itemprop="dateCreated datePublished" datetime="2021-09-22T08:00:00+08:00">2021-09-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/" itemprop="url" rel="index"><span itemprop="name">对象模型</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="1-window对象"><a href="#1-window对象" class="headerlink" title="1.window对象"></a>1.window对象</h3><p>BOM由多个对象组成，其中代表浏览器窗口的window对象是BOM的顶层对象，其他对象都是该对象的子对象</p>
+<p>所有浏览器都支持window对象。</p>
+<p>window对象表示浏览器窗口。</p>
+<p>所有JavaScript全局对象、函数、变量均自动成为window对象的成员。</p>
+<p>全局变量是window对象的属性。</p>
+<p>全局函数是window对象的方法</p>
+<p><img src="/2021/09/22/Bom/1.png"></p>
+<h4 id="1-1window对象的属性"><a href="#1-1window对象的属性" class="headerlink" title="1.1window对象的属性"></a>1.1window对象的属性</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>screen</td>
+<td>有关客户端的屏幕和显示性能的信息</td>
+</tr>
+<tr>
+<td>history</td>
+<td>有关客户访问过的URL的信息</td>
+</tr>
+<tr>
+<td>location</td>
+<td>有关当前URL的信息</td>
+</tr>
+<tr>
+<td>navigator</td>
+<td>包含有关浏览器的信息</td>
+</tr>
+<tr>
+<td>document</td>
+<td>窗口中显示的文档对象</td>
+</tr>
+<tr>
+<td>frames</td>
+<td>返回窗口中所有命名的框架</td>
+</tr>
+</tbody></table>
+<p>注意：有些window对象的属性本身也是对象。其中，表格中的前五个属性也是对象，具有自己的属性和方法</p>
+<h4 id="1-2window对象的常用方法"><a href="#1-2window对象的常用方法" class="headerlink" title="1.2window对象的常用方法"></a>1.2window对象的常用方法</h4><p>window对象中的所有方法均可以省略前面的window</p>
+<h5 id="1-2-1window弹窗的输入输出"><a href="#1-2-1window弹窗的输入输出" class="headerlink" title="1.2.1window弹窗的输入输出"></a>1.2.1window弹窗的输入输出</h5><p>1）prompt（）：弹窗接收用户输入</p>
+<p>2）alert（）：弹窗警告。</p>
+<p>3）confirm（）：带有确认或取消按钮的提示框</p>
+<h5 id="1-2-2open-与close"><a href="#1-2-2open-与close" class="headerlink" title="1.2.2open()与close()"></a>1.2.2open()与close()</h5><p>1）open（）：重新打开一个窗口，主要传入三个参数：URL地址、窗口名称、窗口特征。</p>
+<p>2）close（）：关闭浏览器的当前选项卡。</p>
+<h5 id="1-2-3setTimeout-与clearTimeout"><a href="#1-2-3setTimeout-与clearTimeout" class="headerlink" title="1.2.3setTimeout()与clearTimeout()"></a>1.2.3setTimeout()与clearTimeout()</h5><p>1）setTimeout（）：设置延时执行（以ms为单位计时），只会执行一次。</p>
+<p>2）clearTimeout（）：清除延时，传入参数：调用setTimeout时返回一个id，通过变量接收id，传入clearTimeout。</p>
+<h5 id="1-2-4setInterval-与clearInterval"><a href="#1-2-4setInterval-与clearInterval" class="headerlink" title="1.2.4setInterval()与clearInterval()"></a>1.2.4setInterval()与clearInterval()</h5><p>1）setInterval（）：设置定时器，循环每个N毫秒执行一次，两个参数：需要执行的function/毫秒数。</p>
+<p>2）clearInterval（）：清除定时器，传入参数：调用setInterval时返回一个id，通过变量接收id，传入clearInterval。</p>
+<h3 id="2-screen-屏幕对象"><a href="#2-screen-屏幕对象" class="headerlink" title="2.screen:屏幕对象"></a>2.screen:屏幕对象</h3><p>screen对象包含有关客户端显示屏幕的信息，有四个常用属性，分别是屏幕宽度、屏幕高度、可用宽度和可用高度。</p>
+<p>screen.width； //屏幕宽度</p>
+<p>screen.height； //屏幕高度</p>
+<p>screen.availWidth； //屏幕可用宽度</p>
+<p>screen.availHeight； //屏幕高度=屏幕高度-底部工具栏</p>
+<p><strong>注意:</strong></p>
+<p>当Windows桌面的任务栏在底部或上部时，可用高度等于屏幕高度减去底部任务栏高度，可用宽度等于屏幕宽度。</p>
+<p>当Windows桌面的任务栏在左侧或右侧时，可用宽度等于屏幕宽度减去底部任务栏高度，可用高度等于屏幕高度。</p>
+<h3 id="3-location-地址栏对象"><a href="#3-location-地址栏对象" class="headerlink" title="3.location:地址栏对象"></a>3.location:地址栏对象</h3><p>它存储在window对象的location属性中，表示那个窗口中当前显示的文档的Web地址，可通过window.location属性来访问。</p>
+<h4 id="3-1location属性"><a href="#3-1location属性" class="headerlink" title="3.1location属性"></a>3.1location属性</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>href</td>
+<td>完整路径</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>使用的协议（http,htpps,ftp,file,mailto）</td>
+</tr>
+<tr>
+<td>pathname</td>
+<td>文件路径</td>
+</tr>
+<tr>
+<td>port</td>
+<td>端口号</td>
+</tr>
+<tr>
+<td>search</td>
+<td>从？开始往后的部分</td>
+</tr>
+<tr>
+<td>hostname</td>
+<td>主机名（IP地址)</td>
+</tr>
+<tr>
+<td>host</td>
+<td>主机名和端口号</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>从#开始的锚点</td>
+</tr>
+</tbody></table>
+<p>location.href； //返回当前完整路径</p>
+<p>location.protocol； //返回协议名 http：//</p>
+<p>location.host； //返回主机名+端口号 127.0.0.1：8080</p>
+<p>location.hostname； //返回主机名 127.0.0.1</p>
+<p>location.port； //返回端口号：8080</p>
+<p>location.pathname； //返回文件路径</p>
+<p>location.search； //返回？开头的参数列表</p>
+<p>location.hash； //返回#开头的锚点</p>
+<h4 id="3-2location方法"><a href="#3-2location方法" class="headerlink" title="3.2location方法"></a>3.2location方法</h4><p>reload（）方法可以重新装载当前文档；</p>
+<p>replace（）方法可以装载一个新文档而无须为它创建一个新的历史记录，即在浏览器的历史列表中，新文档将替换当前文档；</p>
+<p>assign（）方法可以加载新的文档</p>
+<p><strong>注意</strong>：reload（）传参与不传参情况的区别，当reload（true）时，表示从服务器重新加载当前页面；而当reload（）不传参时，表示在本地刷新当前页面。</p>
+<h3 id="4-history-历史记录对象"><a href="#4-history-历史记录对象" class="headerlink" title="4.history:历史记录对象"></a>4.history:历史记录对象</h3><p>它是window对象的一部分，可通过window.history属性对其进行访问</p>
+<table>
+<thead>
+<tr>
+<th>属性或方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>length</td>
+<td>返回浏览器历史列表中的URL数量</td>
+</tr>
+<tr>
+<td>back()</td>
+<td>加载history列表的前一个URL，与在浏览器中单击后退按钮相同</td>
+</tr>
+<tr>
+<td>forward()</td>
+<td>加载history列表中的下一个URL，与在浏览器中单击按钮向前相同</td>
+</tr>
+<tr>
+<td>go()</td>
+<td>跳转到浏览历史列表的任意位置。位置标志：当前页为第0个，前一个页面第一个，后一个页面-1个</td>
+</tr>
+</tbody></table>
+<h3 id="5-navigator-浏览器配置对象"><a href="#5-navigator-浏览器配置对象" class="headerlink" title="5.navigator:浏览器配置对象"></a>5.navigator:浏览器配置对象</h3><p>navigator对象包含了有关浏览器基本配置的各种信息，所包含的属性较多。navigator对象中的各种属性，仅仅是用来查询显示的</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>appName</td>
+<td>产品名称</td>
+</tr>
+<tr>
+<td>appVersion</td>
+<td>产品版本号</td>
+</tr>
+<tr>
+<td>userAgent</td>
+<td>用户代理信息</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>系统平台</td>
+</tr>
+<tr>
+<td>plugins</td>
+<td>返回一个数组，检测浏览器安装的所有插件</td>
+</tr>
+<tr>
+<td>MimeTypes</td>
+<td>检查浏览器安装的插件支持的文件类型</td>
+</tr>
+</tbody></table>
+<p>plugins属性。它可以查看浏览器安装的所有插件，包括四个属性。</p>
+<p>1）description：插件的描述信息。</p>
+<p>2）filename：插件在本地磁盘的文件名。</p>
+<p>3）length：插件的个数。</p>
+<p>4）name：插件名。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/" rel="tag"># 浏览器对象模型</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/22/Dom/" rel="prev" title="DOM">
+      <i class="fa fa-chevron-left"></i> DOM
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-window%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">1.window对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1window%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">1.1window对象的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2window%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">1.2window对象的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-1window%E5%BC%B9%E7%AA%97%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1window弹窗的输入输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-2open-%E4%B8%8Eclose"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2open()与close()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-3setTimeout-%E4%B8%8EclearTimeout"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3setTimeout()与clearTimeout()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-4setInterval-%E4%B8%8EclearInterval"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.2.4setInterval()与clearInterval()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-screen-%E5%B1%8F%E5%B9%95%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">2.screen:屏幕对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-location-%E5%9C%B0%E5%9D%80%E6%A0%8F%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.</span> <span class="nav-text">3.location:地址栏对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1location%E5%B1%9E%E6%80%A7"><span class="nav-number">3.1.</span> <span class="nav-text">3.1location属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2location%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">3.2location方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-history-%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.</span> <span class="nav-text">4.history:历史记录对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-navigator-%E6%B5%8F%E8%A7%88%E5%99%A8%E9%85%8D%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.</span> <span class="nav-text">5.navigator:浏览器配置对象</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">cranberry</p>
+  <div class="site-description" itemprop="description">策马前途须努力，莫学龙种虚叹息。——唐代：李涉《岳阳别张祜》</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cranberry</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
