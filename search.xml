@@ -304,6 +304,249 @@
       </tags>
   </entry>
   <entry>
+    <title>Git&amp;GitHub</title>
+    <url>/2021/09/06/Git/</url>
+    <content><![CDATA[<h3 id="一、版本控制工具的功能"><a href="#一、版本控制工具的功能" class="headerlink" title="一、版本控制工具的功能"></a>一、版本控制工具的功能</h3><h4 id="1-协同修改"><a href="#1-协同修改" class="headerlink" title="1.协同修改"></a>1.协同修改</h4><ul>
+<li>多人并行不悖的修改服务器端的同一个文件</li>
+</ul>
+<h4 id="2-数据备份"><a href="#2-数据备份" class="headerlink" title="2.数据备份"></a>2.数据备份</h4><ul>
+<li>不仅保存目录和文件的当前状态，还能够保存每一个提交过的状态</li>
+</ul>
+<h4 id="3-版本管理"><a href="#3-版本管理" class="headerlink" title="3.版本管理"></a>3.版本管理</h4><ul>
+<li>在保存每一个版本的文件信息的时候要做到不保存重复数据，以节约存储空间，提高运行效率。这方面SVN采用的是增量式管理的方式，而Git采取了文件系统快照的方式</li>
+</ul>
+<h4 id="4-权限控制"><a href="#4-权限控制" class="headerlink" title="4.权限控制"></a>4.权限控制</h4><ul>
+<li>对团队中参与开发的人员进行权限控制</li>
+<li>对团队开发者贡献的代码进行审核——Git独有</li>
+</ul>
+<h4 id="5-历史记录"><a href="#5-历史记录" class="headerlink" title="5.历史记录"></a>5.历史记录</h4><ul>
+<li>查看修改人、修改时间、修改内容、日志信息</li>
+<li>将本地文件恢复到某一个历史状态</li>
+</ul>
+<h4 id="6-分支管理"><a href="#6-分支管理" class="headerlink" title="6.分支管理"></a>6.分支管理</h4><ul>
+<li>允许开发团队在工作过程中多条生产线同时推进任务，进一步提高效率</li>
+</ul>
+<h3 id="二、版本控制简介"><a href="#二、版本控制简介" class="headerlink" title="二、版本控制简介"></a>二、版本控制简介</h3><h4 id="1-集中式版本控制工具"><a href="#1-集中式版本控制工具" class="headerlink" title="1.集中式版本控制工具"></a>1.集中式版本控制工具</h4><p>CVS、SVN、VSS……</p>
+<h4 id="2-分布式版本控制工具"><a href="#2-分布式版本控制工具" class="headerlink" title="2.分布式版本控制工具"></a>2.分布式版本控制工具</h4><p>Git</p>
+<p>有效避免单点故障</p>
+<h3 id="三、Git简史"><a href="#三、Git简史" class="headerlink" title="三、Git简史"></a>三、Git简史</h3><h4 id="1-Git官网"><a href="#1-Git官网" class="headerlink" title="1.Git官网"></a>1.Git官网</h4><p>地址：<a href="https://git-scm.com/">https://git-scm.com/</a></p>
+<h4 id="2-Git优势"><a href="#2-Git优势" class="headerlink" title="2.Git优势"></a>2.Git优势</h4><ul>
+<li>大部分操作在本地完成，不需要联网</li>
+<li>完整性保证（文件的完整性）</li>
+<li>尽可能添加数据而不是删除或修改数据（因为删除就找不回来了）</li>
+<li>分支操作而非常快捷流畅</li>
+<li>与Linux命令全面兼容</li>
+</ul>
+<h3 id="四、Git结构"><a href="#四、Git结构" class="headerlink" title="四、Git结构"></a>四、Git结构</h3><p>Git在本地的结构</p>
+<p><img src="/2021/09/06/Git/1.png"></p>
+<h3 id="五、Git和代码托管中心"><a href="#五、Git和代码托管中心" class="headerlink" title="五、Git和代码托管中心"></a>五、Git和代码托管中心</h3><h4 id="1-局域网环境下"><a href="#1-局域网环境下" class="headerlink" title="1.局域网环境下"></a>1.局域网环境下</h4><p>GitLab服务器</p>
+<h4 id="2-外网环境下行"><a href="#2-外网环境下行" class="headerlink" title="2.外网环境下行"></a>2.外网环境下行</h4><ul>
+<li>GitHub</li>
+<li>码云（Gitee）</li>
+</ul>
+<h4 id="3-代码托管中心的任务"><a href="#3-代码托管中心的任务" class="headerlink" title="3.代码托管中心的任务"></a>3.代码托管中心的任务</h4><p>维护远程库</p>
+<h3 id="六、本地库和远程库"><a href="#六、本地库和远程库" class="headerlink" title="六、本地库和远程库"></a>六、本地库和远程库</h3><h4 id="1-团队内部协作"><a href="#1-团队内部协作" class="headerlink" title="1.团队内部协作"></a>1.团队内部协作</h4><p><img src="/2021/09/06/Git/2.png"></p>
+<h4 id="3-跨团队协作"><a href="#3-跨团队协作" class="headerlink" title="3.跨团队协作"></a>3.跨团队协作</h4><p><img src="/2021/09/06/Git/3.png"></p>
+<h3 id="七、Git命令行操作"><a href="#七、Git命令行操作" class="headerlink" title="七、Git命令行操作"></a>七、Git命令行操作</h3><h4 id="1-本地库初始化"><a href="#1-本地库初始化" class="headerlink" title="1.本地库初始化"></a>1.本地库初始化</h4><p>（1）命令：git init </p>
+<p>（2）效果</p>
+<p><img src="/2021/09/06/Git/4.png"></p>
+<p>（3）注意：.git目录中存放的是本地库相关的子目录和文件，不要删除，也不要胡乱修改</p>
+<h4 id="2-设置签名"><a href="#2-设置签名" class="headerlink" title="2.设置签名"></a>2.设置签名</h4><p>（1）形式</p>
+<p>用户名：cranberry</p>
+<p>Email地址：<a href="mailto:&#x63;&#x72;&#97;&#110;&#98;&#x65;&#x72;&#x72;&#121;&#x40;&#x71;&#113;&#46;&#99;&#111;&#x6d;">&#x63;&#x72;&#97;&#110;&#98;&#x65;&#x72;&#x72;&#121;&#x40;&#x71;&#113;&#46;&#99;&#111;&#x6d;</a></p>
+<p>（2）作用：区分不同开发人员的身份</p>
+<p>（3）辨析：这里设置的签名和登录远程库（代码托管中心）的账号密码没有任何关系</p>
+<p>（4）命令</p>
+<ul>
+<li>项目级别/仓库级别：仅在当前本地库范围内有效<ul>
+<li>git <strong>config</strong> user.name cranberry</li>
+<li>git <strong>config</strong> user.email <a href="mailto:&#x63;&#114;&#x61;&#110;&#98;&#x65;&#114;&#114;&#x79;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;">&#x63;&#114;&#x61;&#110;&#98;&#x65;&#114;&#114;&#x79;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;</a></li>
+</ul>
+</li>
+<li>系统用户级别：登录当前操作系统的用户范围<ul>
+<li>git config <strong>–global</strong> user.name cranberry</li>
+<li>git config <strong>–global</strong> user.email <a href="mailto:&#x63;&#x72;&#97;&#x6e;&#98;&#x65;&#x72;&#x72;&#121;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#x63;&#x72;&#97;&#x6e;&#98;&#x65;&#x72;&#x72;&#121;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a></li>
+</ul>
+</li>
+<li>级别优先级<ul>
+<li>就近原则：项目级别优先于系统用户级别，二者都有时采用项目级别的签名</li>
+<li>如果只有系统用户级别的签名，就以系统用户级别的签名为准</li>
+<li>二者都没有不允许</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/09/06/Git/5.png"></p>
+<h4 id="3-基本操作"><a href="#3-基本操作" class="headerlink" title="3.基本操作"></a>3.基本操作</h4><h5 id="（1）状态查看操作"><a href="#（1）状态查看操作" class="headerlink" title="（1）状态查看操作"></a>（1）状态查看操作</h5><p>git status:查看工作区、暂存区状态</p>
+<h5 id="（2）添加操作"><a href="#（2）添加操作" class="headerlink" title="（2）添加操作"></a>（2）添加操作</h5><p>git add [filename]:将工作区的“新建/修改”添加到暂存区</p>
+<h5 id="（3）提交操作"><a href="#（3）提交操作" class="headerlink" title="（3）提交操作"></a>（3）提交操作</h5><p>git commit -m “commit message” [filename]:将暂存区的内容提交到本地库</p>
+<h5 id="（4）查看历史记录操作"><a href="#（4）查看历史记录操作" class="headerlink" title="（4）查看历史记录操作"></a>（4）查看历史记录操作</h5><ul>
+<li>git log</li>
+</ul>
+<p><img src="/2021/09/06/Git/6.png"></p>
+<p>多屏显示控制方式：空格向下翻页、b向上翻页、q退出</p>
+<ul>
+<li>git log –pretty=oneline</li>
+</ul>
+<p><img src="/2021/09/06/Git/7.png"></p>
+<ul>
+<li>git log –oneline</li>
+</ul>
+<p><img src="/2021/09/06/Git/8.png"></p>
+<ul>
+<li>git reflog</li>
+</ul>
+<p><img src="/2021/09/06/Git/9.png"></p>
+<p>HEAD@{移动到当前笨笨需要多少步}</p>
+<h5 id="（5）前进后退"><a href="#（5）前进后退" class="headerlink" title="（5）前进后退"></a>（5）前进后退</h5><ul>
+<li>基于索引值操作【推荐】<ul>
+<li>git reset –hard [局部索引值]</li>
+<li>git reset –hard a6ace91</li>
+</ul>
+</li>
+<li>使用^符号：只能后退<ul>
+<li>git reset –hard HEAD^</li>
+<li>注：一个^表示后退一步，n个表示后退n步</li>
+</ul>
+</li>
+<li>使用~符号：只能后提<ul>
+<li>git reset –hard HEAD~n</li>
+<li>注：表示后退n步</li>
+</ul>
+</li>
+</ul>
+<h5 id="（6）reset命令的三个参数对比"><a href="#（6）reset命令的三个参数对比" class="headerlink" title="（6）reset命令的三个参数对比"></a>（6）reset命令的三个参数对比</h5><ul>
+<li>–soft参数<ul>
+<li>仅仅在本地库移动HEAD指针</li>
+</ul>
+</li>
+<li>–mixed参数<ul>
+<li>在本地库移动HEAD指针</li>
+<li>重置暂存区</li>
+</ul>
+</li>
+<li>–hard参数<ul>
+<li>在本地库移动HEAD指针</li>
+<li>重置暂存区</li>
+<li>重置工作区</li>
+</ul>
+</li>
+</ul>
+<h5 id="（7）删除文件并找回"><a href="#（7）删除文件并找回" class="headerlink" title="（7）删除文件并找回"></a>（7）删除文件并找回</h5><ul>
+<li>前提：删除前，文件存在时的状态提交到了本地库</li>
+<li>操作：git reset –hard[指针位置]<ul>
+<li>删除操作已经提交到本地库：指针位置指向历史记录</li>
+<li>删除操作尚未提交到本地库：指针位置使用HEAD</li>
+</ul>
+</li>
+</ul>
+<h5 id="（8）比较文件差异"><a href="#（8）比较文件差异" class="headerlink" title="（8）比较文件差异"></a>（8）比较文件差异</h5><ul>
+<li><p>git diff[文件名]</p>
+<ul>
+<li>将工作区中的文件和暂存区进行比较</li>
+</ul>
+</li>
+<li><p>git diff [本地库中历史版本] [文件名]</p>
+<ul>
+<li>将工作区中的文件和本地库历史记录比较</li>
+</ul>
+</li>
+<li><p>不带文件名比较多个文件</p>
+</li>
+</ul>
+<h4 id="4-分支管理"><a href="#4-分支管理" class="headerlink" title="4.分支管理"></a>4.分支管理</h4><h5 id="（1）什么是分支？"><a href="#（1）什么是分支？" class="headerlink" title="（1）什么是分支？"></a>（1）什么是分支？</h5><p>在版本控制过程中，使用多条线同时推进多个任务</p>
+<h5 id="（2）分支的好处"><a href="#（2）分支的好处" class="headerlink" title="（2）分支的好处"></a>（2）分支的好处</h5><ul>
+<li>同时并行推进多个功能开发，提高开发效率</li>
+<li>各个分支在开发过程中，如果某一个分支开发失败，不会对其他分支有任何影响。失败的分支删除重新开始即可</li>
+</ul>
+<h5 id="（3）分支操作"><a href="#（3）分支操作" class="headerlink" title="（3）分支操作"></a>（3）分支操作</h5><ul>
+<li><p>创建分支</p>
+<ul>
+<li>git branch[分支名]</li>
+</ul>
+</li>
+<li><p>查看分支</p>
+<ul>
+<li>git branch -v</li>
+</ul>
+</li>
+<li><p>切换分支</p>
+<ul>
+<li>git checkout [分支名]</li>
+</ul>
+</li>
+<li><p>合并分支</p>
+<ul>
+<li><p>第一步：切换到接受修改的分支（被合并，增加新内容）上</p>
+<p>git checkout[分支名]</p>
+</li>
+<li><p>第二部：执行merge命令</p>
+<p>git merge[分支名]</p>
+</li>
+</ul>
+</li>
+<li><p>解决冲突</p>
+<ul>
+<li>冲突的表现：<ul>
+<li>一个文件的同一个地方同时被修改</li>
+</ul>
+</li>
+<li>冲突的解决<ul>
+<li>第一步：编辑文件，删除特殊符号</li>
+<li>第二步：把文件修改到满意的程度，保存退出</li>
+<li>第三步：gi add [文件名]</li>
+<li>第四步：git commit -m “日志信息”<ul>
+<li>注意：此时commit 一定不能带具体文件名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="八、Github"><a href="#八、Github" class="headerlink" title="八、Github"></a>八、Github</h4><h5 id="1-在本地创建远程库地址别名"><a href="#1-在本地创建远程库地址别名" class="headerlink" title="1.在本地创建远程库地址别名"></a>1.在本地创建远程库地址别名</h5><ul>
+<li>git remote -v<ul>
+<li>查看起的别名</li>
+</ul>
+</li>
+<li>git remote add [别名] [远程地址]<ul>
+<li>起别名</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-推送操作"><a href="#2-推送操作" class="headerlink" title="2.推送操作"></a>2.推送操作</h5><ul>
+<li>git push [别名] [要推送的分支]</li>
+</ul>
+<h5 id="3-克隆操作"><a href="#3-克隆操作" class="headerlink" title="3.克隆操作"></a>3.克隆操作</h5><ul>
+<li>命令<ul>
+<li>git clone [远程地址]</li>
+</ul>
+</li>
+<li>效果<ul>
+<li>完整地把远程库下载到本地</li>
+<li>创建origin远程地址别名</li>
+<li>初始化本地库</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-拉取"><a href="#4-拉取" class="headerlink" title="4.拉取"></a>4.拉取</h5><ul>
+<li>pull=fetch+merge</li>
+<li>git fetch [远程库地址别名] [远程分支名]</li>
+<li>git merge [远程库地址别名/远程分支名]</li>
+<li>git pull [远程库地址别名] [远程分支名]</li>
+</ul>
+<h5 id="5-解决冲突"><a href="#5-解决冲突" class="headerlink" title="5.解决冲突"></a>5.解决冲突</h5><ul>
+<li>如果不是基于Github远程库的最新版所做的修改，不能推送，必须先拉取</li>
+<li>拉取下来后如果进入冲突状态，则按照“分支冲突结局额”操作解决即可</li>
+</ul>
+]]></content>
+      <categories>
+        <category>版本控制工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ES6</title>
     <url>/2021/09/02/ES6-ES11/</url>
     <content><![CDATA[<h3 id="一、let关键字"><a href="#一、let关键字" class="headerlink" title="一、let关键字"></a>一、let关键字</h3><p>用来声明变量，有几个特点</p>
@@ -544,249 +787,6 @@
       </categories>
       <tags>
         <tag>ES6</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git&amp;GitHub</title>
-    <url>/2021/09/06/Git/</url>
-    <content><![CDATA[<h3 id="一、版本控制工具的功能"><a href="#一、版本控制工具的功能" class="headerlink" title="一、版本控制工具的功能"></a>一、版本控制工具的功能</h3><h4 id="1-协同修改"><a href="#1-协同修改" class="headerlink" title="1.协同修改"></a>1.协同修改</h4><ul>
-<li>多人并行不悖的修改服务器端的同一个文件</li>
-</ul>
-<h4 id="2-数据备份"><a href="#2-数据备份" class="headerlink" title="2.数据备份"></a>2.数据备份</h4><ul>
-<li>不仅保存目录和文件的当前状态，还能够保存每一个提交过的状态</li>
-</ul>
-<h4 id="3-版本管理"><a href="#3-版本管理" class="headerlink" title="3.版本管理"></a>3.版本管理</h4><ul>
-<li>在保存每一个版本的文件信息的时候要做到不保存重复数据，以节约存储空间，提高运行效率。这方面SVN采用的是增量式管理的方式，而Git采取了文件系统快照的方式</li>
-</ul>
-<h4 id="4-权限控制"><a href="#4-权限控制" class="headerlink" title="4.权限控制"></a>4.权限控制</h4><ul>
-<li>对团队中参与开发的人员进行权限控制</li>
-<li>对团队开发者贡献的代码进行审核——Git独有</li>
-</ul>
-<h4 id="5-历史记录"><a href="#5-历史记录" class="headerlink" title="5.历史记录"></a>5.历史记录</h4><ul>
-<li>查看修改人、修改时间、修改内容、日志信息</li>
-<li>将本地文件恢复到某一个历史状态</li>
-</ul>
-<h4 id="6-分支管理"><a href="#6-分支管理" class="headerlink" title="6.分支管理"></a>6.分支管理</h4><ul>
-<li>允许开发团队在工作过程中多条生产线同时推进任务，进一步提高效率</li>
-</ul>
-<h3 id="二、版本控制简介"><a href="#二、版本控制简介" class="headerlink" title="二、版本控制简介"></a>二、版本控制简介</h3><h4 id="1-集中式版本控制工具"><a href="#1-集中式版本控制工具" class="headerlink" title="1.集中式版本控制工具"></a>1.集中式版本控制工具</h4><p>CVS、SVN、VSS……</p>
-<h4 id="2-分布式版本控制工具"><a href="#2-分布式版本控制工具" class="headerlink" title="2.分布式版本控制工具"></a>2.分布式版本控制工具</h4><p>Git</p>
-<p>有效避免单点故障</p>
-<h3 id="三、Git简史"><a href="#三、Git简史" class="headerlink" title="三、Git简史"></a>三、Git简史</h3><h4 id="1-Git官网"><a href="#1-Git官网" class="headerlink" title="1.Git官网"></a>1.Git官网</h4><p>地址：<a href="https://git-scm.com/">https://git-scm.com/</a></p>
-<h4 id="2-Git优势"><a href="#2-Git优势" class="headerlink" title="2.Git优势"></a>2.Git优势</h4><ul>
-<li>大部分操作在本地完成，不需要联网</li>
-<li>完整性保证（文件的完整性）</li>
-<li>尽可能添加数据而不是删除或修改数据（因为删除就找不回来了）</li>
-<li>分支操作而非常快捷流畅</li>
-<li>与Linux命令全面兼容</li>
-</ul>
-<h3 id="四、Git结构"><a href="#四、Git结构" class="headerlink" title="四、Git结构"></a>四、Git结构</h3><p>Git在本地的结构</p>
-<p><img src="/2021/09/06/Git/1.png"></p>
-<h3 id="五、Git和代码托管中心"><a href="#五、Git和代码托管中心" class="headerlink" title="五、Git和代码托管中心"></a>五、Git和代码托管中心</h3><h4 id="1-局域网环境下"><a href="#1-局域网环境下" class="headerlink" title="1.局域网环境下"></a>1.局域网环境下</h4><p>GitLab服务器</p>
-<h4 id="2-外网环境下行"><a href="#2-外网环境下行" class="headerlink" title="2.外网环境下行"></a>2.外网环境下行</h4><ul>
-<li>GitHub</li>
-<li>码云（Gitee）</li>
-</ul>
-<h4 id="3-代码托管中心的任务"><a href="#3-代码托管中心的任务" class="headerlink" title="3.代码托管中心的任务"></a>3.代码托管中心的任务</h4><p>维护远程库</p>
-<h3 id="六、本地库和远程库"><a href="#六、本地库和远程库" class="headerlink" title="六、本地库和远程库"></a>六、本地库和远程库</h3><h4 id="1-团队内部协作"><a href="#1-团队内部协作" class="headerlink" title="1.团队内部协作"></a>1.团队内部协作</h4><p><img src="/2021/09/06/Git/2.png"></p>
-<h4 id="3-跨团队协作"><a href="#3-跨团队协作" class="headerlink" title="3.跨团队协作"></a>3.跨团队协作</h4><p><img src="/2021/09/06/Git/3.png"></p>
-<h3 id="七、Git命令行操作"><a href="#七、Git命令行操作" class="headerlink" title="七、Git命令行操作"></a>七、Git命令行操作</h3><h4 id="1-本地库初始化"><a href="#1-本地库初始化" class="headerlink" title="1.本地库初始化"></a>1.本地库初始化</h4><p>（1）命令：git init </p>
-<p>（2）效果</p>
-<p><img src="/2021/09/06/Git/4.png"></p>
-<p>（3）注意：.git目录中存放的是本地库相关的子目录和文件，不要删除，也不要胡乱修改</p>
-<h4 id="2-设置签名"><a href="#2-设置签名" class="headerlink" title="2.设置签名"></a>2.设置签名</h4><p>（1）形式</p>
-<p>用户名：cranberry</p>
-<p>Email地址：<a href="mailto:&#99;&#x72;&#x61;&#x6e;&#98;&#x65;&#x72;&#114;&#121;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#99;&#x72;&#x61;&#x6e;&#98;&#x65;&#x72;&#114;&#121;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a></p>
-<p>（2）作用：区分不同开发人员的身份</p>
-<p>（3）辨析：这里设置的签名和登录远程库（代码托管中心）的账号密码没有任何关系</p>
-<p>（4）命令</p>
-<ul>
-<li>项目级别/仓库级别：仅在当前本地库范围内有效<ul>
-<li>git <strong>config</strong> user.name cranberry</li>
-<li>git <strong>config</strong> user.email <a href="mailto:&#99;&#x72;&#97;&#x6e;&#x62;&#x65;&#x72;&#114;&#121;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#99;&#x72;&#97;&#x6e;&#x62;&#x65;&#x72;&#114;&#121;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></li>
-</ul>
-</li>
-<li>系统用户级别：登录当前操作系统的用户范围<ul>
-<li>git config <strong>–global</strong> user.name cranberry</li>
-<li>git config <strong>–global</strong> user.email <a href="mailto:&#99;&#x72;&#97;&#110;&#98;&#101;&#x72;&#114;&#121;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;">&#99;&#x72;&#97;&#110;&#98;&#101;&#x72;&#114;&#121;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;</a></li>
-</ul>
-</li>
-<li>级别优先级<ul>
-<li>就近原则：项目级别优先于系统用户级别，二者都有时采用项目级别的签名</li>
-<li>如果只有系统用户级别的签名，就以系统用户级别的签名为准</li>
-<li>二者都没有不允许</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2021/09/06/Git/5.png"></p>
-<h4 id="3-基本操作"><a href="#3-基本操作" class="headerlink" title="3.基本操作"></a>3.基本操作</h4><h5 id="（1）状态查看操作"><a href="#（1）状态查看操作" class="headerlink" title="（1）状态查看操作"></a>（1）状态查看操作</h5><p>git status:查看工作区、暂存区状态</p>
-<h5 id="（2）添加操作"><a href="#（2）添加操作" class="headerlink" title="（2）添加操作"></a>（2）添加操作</h5><p>git add [filename]:将工作区的“新建/修改”添加到暂存区</p>
-<h5 id="（3）提交操作"><a href="#（3）提交操作" class="headerlink" title="（3）提交操作"></a>（3）提交操作</h5><p>git commit -m “commit message” [filename]:将暂存区的内容提交到本地库</p>
-<h5 id="（4）查看历史记录操作"><a href="#（4）查看历史记录操作" class="headerlink" title="（4）查看历史记录操作"></a>（4）查看历史记录操作</h5><ul>
-<li>git log</li>
-</ul>
-<p><img src="/2021/09/06/Git/6.png"></p>
-<p>多屏显示控制方式：空格向下翻页、b向上翻页、q退出</p>
-<ul>
-<li>git log –pretty=oneline</li>
-</ul>
-<p><img src="/2021/09/06/Git/7.png"></p>
-<ul>
-<li>git log –oneline</li>
-</ul>
-<p><img src="/2021/09/06/Git/8.png"></p>
-<ul>
-<li>git reflog</li>
-</ul>
-<p><img src="/2021/09/06/Git/9.png"></p>
-<p>HEAD@{移动到当前笨笨需要多少步}</p>
-<h5 id="（5）前进后退"><a href="#（5）前进后退" class="headerlink" title="（5）前进后退"></a>（5）前进后退</h5><ul>
-<li>基于索引值操作【推荐】<ul>
-<li>git reset –hard [局部索引值]</li>
-<li>git reset –hard a6ace91</li>
-</ul>
-</li>
-<li>使用^符号：只能后退<ul>
-<li>git reset –hard HEAD^</li>
-<li>注：一个^表示后退一步，n个表示后退n步</li>
-</ul>
-</li>
-<li>使用~符号：只能后提<ul>
-<li>git reset –hard HEAD~n</li>
-<li>注：表示后退n步</li>
-</ul>
-</li>
-</ul>
-<h5 id="（6）reset命令的三个参数对比"><a href="#（6）reset命令的三个参数对比" class="headerlink" title="（6）reset命令的三个参数对比"></a>（6）reset命令的三个参数对比</h5><ul>
-<li>–soft参数<ul>
-<li>仅仅在本地库移动HEAD指针</li>
-</ul>
-</li>
-<li>–mixed参数<ul>
-<li>在本地库移动HEAD指针</li>
-<li>重置暂存区</li>
-</ul>
-</li>
-<li>–hard参数<ul>
-<li>在本地库移动HEAD指针</li>
-<li>重置暂存区</li>
-<li>重置工作区</li>
-</ul>
-</li>
-</ul>
-<h5 id="（7）删除文件并找回"><a href="#（7）删除文件并找回" class="headerlink" title="（7）删除文件并找回"></a>（7）删除文件并找回</h5><ul>
-<li>前提：删除前，文件存在时的状态提交到了本地库</li>
-<li>操作：git reset –hard[指针位置]<ul>
-<li>删除操作已经提交到本地库：指针位置指向历史记录</li>
-<li>删除操作尚未提交到本地库：指针位置使用HEAD</li>
-</ul>
-</li>
-</ul>
-<h5 id="（8）比较文件差异"><a href="#（8）比较文件差异" class="headerlink" title="（8）比较文件差异"></a>（8）比较文件差异</h5><ul>
-<li><p>git diff[文件名]</p>
-<ul>
-<li>将工作区中的文件和暂存区进行比较</li>
-</ul>
-</li>
-<li><p>git diff [本地库中历史版本] [文件名]</p>
-<ul>
-<li>将工作区中的文件和本地库历史记录比较</li>
-</ul>
-</li>
-<li><p>不带文件名比较多个文件</p>
-</li>
-</ul>
-<h4 id="4-分支管理"><a href="#4-分支管理" class="headerlink" title="4.分支管理"></a>4.分支管理</h4><h5 id="（1）什么是分支？"><a href="#（1）什么是分支？" class="headerlink" title="（1）什么是分支？"></a>（1）什么是分支？</h5><p>在版本控制过程中，使用多条线同时推进多个任务</p>
-<h5 id="（2）分支的好处"><a href="#（2）分支的好处" class="headerlink" title="（2）分支的好处"></a>（2）分支的好处</h5><ul>
-<li>同时并行推进多个功能开发，提高开发效率</li>
-<li>各个分支在开发过程中，如果某一个分支开发失败，不会对其他分支有任何影响。失败的分支删除重新开始即可</li>
-</ul>
-<h5 id="（3）分支操作"><a href="#（3）分支操作" class="headerlink" title="（3）分支操作"></a>（3）分支操作</h5><ul>
-<li><p>创建分支</p>
-<ul>
-<li>git branch[分支名]</li>
-</ul>
-</li>
-<li><p>查看分支</p>
-<ul>
-<li>git branch -v</li>
-</ul>
-</li>
-<li><p>切换分支</p>
-<ul>
-<li>git checkout [分支名]</li>
-</ul>
-</li>
-<li><p>合并分支</p>
-<ul>
-<li><p>第一步：切换到接受修改的分支（被合并，增加新内容）上</p>
-<p>git checkout[分支名]</p>
-</li>
-<li><p>第二部：执行merge命令</p>
-<p>git merge[分支名]</p>
-</li>
-</ul>
-</li>
-<li><p>解决冲突</p>
-<ul>
-<li>冲突的表现：<ul>
-<li>一个文件的同一个地方同时被修改</li>
-</ul>
-</li>
-<li>冲突的解决<ul>
-<li>第一步：编辑文件，删除特殊符号</li>
-<li>第二步：把文件修改到满意的程度，保存退出</li>
-<li>第三步：gi add [文件名]</li>
-<li>第四步：git commit -m “日志信息”<ul>
-<li>注意：此时commit 一定不能带具体文件名</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="八、Github"><a href="#八、Github" class="headerlink" title="八、Github"></a>八、Github</h4><h5 id="1-在本地创建远程库地址别名"><a href="#1-在本地创建远程库地址别名" class="headerlink" title="1.在本地创建远程库地址别名"></a>1.在本地创建远程库地址别名</h5><ul>
-<li>git remote -v<ul>
-<li>查看起的别名</li>
-</ul>
-</li>
-<li>git remote add [别名] [远程地址]<ul>
-<li>起别名</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-推送操作"><a href="#2-推送操作" class="headerlink" title="2.推送操作"></a>2.推送操作</h5><ul>
-<li>git push [别名] [要推送的分支]</li>
-</ul>
-<h5 id="3-克隆操作"><a href="#3-克隆操作" class="headerlink" title="3.克隆操作"></a>3.克隆操作</h5><ul>
-<li>命令<ul>
-<li>git clone [远程地址]</li>
-</ul>
-</li>
-<li>效果<ul>
-<li>完整地把远程库下载到本地</li>
-<li>创建origin远程地址别名</li>
-<li>初始化本地库</li>
-</ul>
-</li>
-</ul>
-<h5 id="4-拉取"><a href="#4-拉取" class="headerlink" title="4.拉取"></a>4.拉取</h5><ul>
-<li>pull=fetch+merge</li>
-<li>git fetch [远程库地址别名] [远程分支名]</li>
-<li>git merge [远程库地址别名/远程分支名]</li>
-<li>git pull [远程库地址别名] [远程分支名]</li>
-</ul>
-<h5 id="5-解决冲突"><a href="#5-解决冲突" class="headerlink" title="5.解决冲突"></a>5.解决冲突</h5><ul>
-<li>如果不是基于Github远程库的最新版所做的修改，不能推送，必须先拉取</li>
-<li>拉取下来后如果进入冲突状态，则按照“分支冲突结局额”操作解决即可</li>
-</ul>
-]]></content>
-      <categories>
-        <category>版本控制工具</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -1131,99 +1131,6 @@
       </tags>
   </entry>
   <entry>
-    <title>axios框架</title>
-    <url>/2021/09/13/axios/</url>
-    <content><![CDATA[<h3 id="一、axios框架的基本使用"><a href="#一、axios框架的基本使用" class="headerlink" title="一、axios框架的基本使用"></a>一、axios框架的基本使用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">    <span class="attr">method</span>:<span class="string">&#x27;post&#x27;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//没写method，默认是get</span></span><br><span class="line">axios(&#123;</span><br><span class="line">	<span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">   <span class="attr">params</span>:&#123;</span><br><span class="line">       <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">       <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、axios发送并发请求"><a href="#二、axios发送并发请求" class="headerlink" title="二、axios发送并发请求"></a>二、axios发送并发请求</h3><p>有时候我们可能需要同时发送两个请求</p>
-<ul>
-<li>使用axios.all可以放入多个请求的数组</li>
-<li>axios.all([])返回的结果是一个数组，使用axios.spread可将数组[res1,res2]展开为res1,res2</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.all([axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">&#125;),axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;yyy&#x27;</span>,</span><br><span class="line">    <span class="attr">parms</span>:&#123;</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)]).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.all([axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">&#125;),axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;yyy&#x27;</span>,</span><br><span class="line">    <span class="attr">parms</span>:&#123;</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)]).then(axios.spread([res1,res2])=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res1)</span><br><span class="line">    <span class="built_in">console</span>.log(res2)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="三、axios的配置信息相关"><a href="#三、axios的配置信息相关" class="headerlink" title="三、axios的配置信息相关"></a>三、axios的配置信息相关</h3><h4 id="1-全局配置"><a href="#1-全局配置" class="headerlink" title="1.全局配置"></a>1.全局配置</h4><p>在开发中可能很多参数都是固定，这个时候可以进行一些抽取，也可以利用axios的全局配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">axios.defaults.baseURL=&#x27;http://localhost:8080&#x27;</span><br><span class="line">axios.defaults.headers.post[&#x27;Content-Type&#x27;]=&#x27;application/x-www-form-urlencoded&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2021/09/13/axios/1.png"></p>
-<h3 id="四、axios的实例和模块封装"><a href="#四、axios的实例和模块封装" class="headerlink" title="四、axios的实例和模块封装"></a>四、axios的实例和模块封装</h3><p>创建对应的axios的实例</p>
-<p>第一个方法：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config,success,failure</span>)</span>&#123;<span class="comment">//config配置信息，success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;/home/multidata&#x27;</span></span><br><span class="line">&#125;,<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>第二个方法：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(baseConfig.config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        config.success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        config.failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">   <span class="attr">baseConfig</span>:&#123;</span><br><span class="line">       </span><br><span class="line">   &#125;,</span><br><span class="line">    <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">suc</span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">failuer</span>:<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>第三个的方法：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">             <span class="comment">//1.创建axios的实例</span></span><br><span class="line">            <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">            <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">            <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment">//发送真正的网络请求</span></span><br><span class="line">        instance(config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="comment">//console.log(res)</span></span><br><span class="line">            resolve(res)</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">           <span class="comment">// console.log(err)</span></span><br><span class="line">            reject(res)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;/home/multidata&#x27;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>最终的方法</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    <span class="keyword">return</span> instance(config)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance1=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(baseConfig.config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        config.success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        config.failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="五、axios的拦截器的使用"><a href="#五、axios的拦截器的使用" class="headerlink" title="五、axios的拦截器的使用"></a>五、axios的拦截器的使用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.axios的拦截器</span></span><br><span class="line">    instance.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(config)</span><br><span class="line">        <span class="comment">//拦截后可能要做的操作</span></span><br><span class="line">        <span class="comment">//1.比如config中的一些信息不符合服务器的要求</span></span><br><span class="line">        <span class="comment">//2.比如每次发送网络请求时，都希望在界面中显示一个请求的图标</span></span><br><span class="line">        <span class="comment">//3.某些网络请求（比如登录（token）)，必须携带一些特殊的信息</span></span><br><span class="line">        <span class="keyword">return</span> config<span class="comment">//放行</span></span><br><span class="line">    &#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.2响应拦截</span></span><br><span class="line">    instance.interceptors.response.use(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">        <span class="keyword">return</span> res.data</span><br><span class="line">    &#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    <span class="keyword">return</span> instance(config)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>axios</category>
-      </categories>
-      <tags>
-        <tag>axios框架</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ajax</title>
     <url>/2021/09/02/ajax/</url>
     <content><![CDATA[<h2 id="一、AJAX介绍与网页应用"><a href="#一、AJAX介绍与网页应用" class="headerlink" title="一、AJAX介绍与网页应用"></a><strong>一、AJAX介绍与网页应用</strong></h2><p>在不刷新的情况下与服务器交互</p>
@@ -1317,6 +1224,99 @@
       </categories>
       <tags>
         <tag>ajax</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>axios框架</title>
+    <url>/2021/09/13/axios/</url>
+    <content><![CDATA[<h3 id="一、axios框架的基本使用"><a href="#一、axios框架的基本使用" class="headerlink" title="一、axios框架的基本使用"></a>一、axios框架的基本使用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">    <span class="attr">method</span>:<span class="string">&#x27;post&#x27;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//没写method，默认是get</span></span><br><span class="line">axios(&#123;</span><br><span class="line">	<span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">   <span class="attr">params</span>:&#123;</span><br><span class="line">       <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">       <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、axios发送并发请求"><a href="#二、axios发送并发请求" class="headerlink" title="二、axios发送并发请求"></a>二、axios发送并发请求</h3><p>有时候我们可能需要同时发送两个请求</p>
+<ul>
+<li>使用axios.all可以放入多个请求的数组</li>
+<li>axios.all([])返回的结果是一个数组，使用axios.spread可将数组[res1,res2]展开为res1,res2</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.all([axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">&#125;),axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;yyy&#x27;</span>,</span><br><span class="line">    <span class="attr">parms</span>:&#123;</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)]).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.all([axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">&#125;),axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;yyy&#x27;</span>,</span><br><span class="line">    <span class="attr">parms</span>:&#123;</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)]).then(axios.spread([res1,res2])=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res1)</span><br><span class="line">    <span class="built_in">console</span>.log(res2)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、axios的配置信息相关"><a href="#三、axios的配置信息相关" class="headerlink" title="三、axios的配置信息相关"></a>三、axios的配置信息相关</h3><h4 id="1-全局配置"><a href="#1-全局配置" class="headerlink" title="1.全局配置"></a>1.全局配置</h4><p>在开发中可能很多参数都是固定，这个时候可以进行一些抽取，也可以利用axios的全局配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">axios.defaults.baseURL=&#x27;http://localhost:8080&#x27;</span><br><span class="line">axios.defaults.headers.post[&#x27;Content-Type&#x27;]=&#x27;application/x-www-form-urlencoded&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/09/13/axios/1.png"></p>
+<h3 id="四、axios的实例和模块封装"><a href="#四、axios的实例和模块封装" class="headerlink" title="四、axios的实例和模块封装"></a>四、axios的实例和模块封装</h3><p>创建对应的axios的实例</p>
+<p>第一个方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config,success,failure</span>)</span>&#123;<span class="comment">//config配置信息，success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;/home/multidata&#x27;</span></span><br><span class="line">&#125;,<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第二个方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(baseConfig.config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        config.success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        config.failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">   <span class="attr">baseConfig</span>:&#123;</span><br><span class="line">       </span><br><span class="line">   &#125;,</span><br><span class="line">    <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">suc</span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">failuer</span>:<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第三个的方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">             <span class="comment">//1.创建axios的实例</span></span><br><span class="line">            <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">            <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">            <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment">//发送真正的网络请求</span></span><br><span class="line">        instance(config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="comment">//console.log(res)</span></span><br><span class="line">            resolve(res)</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">           <span class="comment">// console.log(err)</span></span><br><span class="line">            reject(res)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;/home/multidata&#x27;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>最终的方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    <span class="keyword">return</span> instance(config)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance1=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(baseConfig.config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        config.success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        config.failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、axios的拦截器的使用"><a href="#五、axios的拦截器的使用" class="headerlink" title="五、axios的拦截器的使用"></a>五、axios的拦截器的使用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.axios的拦截器</span></span><br><span class="line">    instance.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(config)</span><br><span class="line">        <span class="comment">//拦截后可能要做的操作</span></span><br><span class="line">        <span class="comment">//1.比如config中的一些信息不符合服务器的要求</span></span><br><span class="line">        <span class="comment">//2.比如每次发送网络请求时，都希望在界面中显示一个请求的图标</span></span><br><span class="line">        <span class="comment">//3.某些网络请求（比如登录（token）)，必须携带一些特殊的信息</span></span><br><span class="line">        <span class="keyword">return</span> config<span class="comment">//放行</span></span><br><span class="line">    &#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.2响应拦截</span></span><br><span class="line">    instance.interceptors.response.use(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">        <span class="keyword">return</span> res.data</span><br><span class="line">    &#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    <span class="keyword">return</span> instance(config)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>axios</category>
+      </categories>
+      <tags>
+        <tag>axios框架</tag>
       </tags>
   </entry>
   <entry>
@@ -3676,6 +3676,151 @@
       </categories>
       <tags>
         <tag>html+css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电商管理vue项目实战</title>
+    <url>/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</url>
+    <content><![CDATA[<p>描述：基于Vue技术栈的SPA项目</p>
+<h4 id="一、搭建vue-cli，采用可视化的形式搭建"><a href="#一、搭建vue-cli，采用可视化的形式搭建" class="headerlink" title="一、搭建vue-cli，采用可视化的形式搭建"></a>一、搭建vue-cli，采用可视化的形式搭建</h4><p>1.第一步，win+r打开cmd，然后输入vue ui</p>
+<p><img src="/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/myBlog\source_posts\项目实战\1.png"></p>
+<h4 id="二、此项目用到的工具"><a href="#二、此项目用到的工具" class="headerlink" title="二、此项目用到的工具"></a>二、此项目用到的工具</h4><h5 id="1-phpStudy"><a href="#1-phpStudy" class="headerlink" title="1.phpStudy"></a>1.phpStudy</h5><p>是一个php运行环境的集成包,用户不需要去配置运行环境,就可以使用。用它将把sql文件导入mysql</p>
+<h5 id="2-postman"><a href="#2-postman" class="headerlink" title="2.postman"></a>2.postman</h5><p>网页调试工具的客户端，用于测试接口</p>
+<h5 id="3-VSCode"><a href="#3-VSCode" class="headerlink" title="3.VSCode"></a>3.VSCode</h5><p>进行开发</p>
+<h5 id="4-Git"><a href="#4-Git" class="headerlink" title="4.Git"></a>4.Git</h5><p>使用git将项目部署到码云Gitee</p>
+<p><a href="https://gitee.com/peng-zeman/vue_shop">https://gitee.com/peng-zeman/vue_shop</a></p>
+<h4 id="三、项目中添加的依赖"><a href="#三、项目中添加的依赖" class="headerlink" title="三、项目中添加的依赖"></a>三、项目中添加的依赖</h4><h5 id="1-element-ui"><a href="#1-element-ui" class="headerlink" title="1.element-ui"></a>1.element-ui</h5><ul>
+<li><p><a href="https://element.eleme.cn/#/zh-CN">https://element.eleme.cn/#/zh-CN</a></p>
+</li>
+<li><p>安装方式：npm i element-ui -S</p>
+</li>
+<li><p>导入方式：在入口文件导入import ‘./plugins/element.js’</p>
+</li>
+<li><p>再在./plugins/element.js中按需导入</p>
+</li>
+</ul>
+<h5 id="2-axios"><a href="#2-axios" class="headerlink" title="2.axios"></a>2.axios</h5><ul>
+<li>安装方式：npm install axios</li>
+<li>在入口环境配置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这样每一个vue组件可以通过this.$http访问到发起axios请求</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="comment">//配置请求的根路径</span></span><br><span class="line">axios.defaults.baseURL=<span class="string">&#x27;http://127.0.0.1:8888/api/private/v1/&#x27;</span></span><br><span class="line"><span class="comment">//在request中展示进度条NProgress.start()</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="comment">//为请求头对象，添加token验证的Authorization字段</span></span><br><span class="line">  config.headers.Authorization=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//在response拦截器中，隐藏进度条NProgress.done()</span></span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.done()</span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">&#125;)</span><br><span class="line">Vue.prototype.$http=axios</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-TreeTable"><a href="#3-TreeTable" class="headerlink" title="3.TreeTable"></a>3.TreeTable</h5><ul>
+<li><p>树型表格，可以进行多级扩展表格的创建</p>
+</li>
+<li><p>安装方式：npm i vue-table-with-tree-grid -S</p>
+</li>
+<li><p>导入方式：</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> TreeTable <span class="keyword">from</span> <span class="string">&#x27;vue-table-with-tree-grid&#x27;</span></span><br><span class="line">Vue.component(<span class="string">&#x27;tree-table&#x27;</span>,TreeTable)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-VueQuillEditor"><a href="#4-VueQuillEditor" class="headerlink" title="4.VueQuillEditor"></a>4.VueQuillEditor</h5><ul>
+<li>富文本编辑器</li>
+<li><a href="https://www.kancloud.cn/liuwave/quill/1434140">https://www.kancloud.cn/liuwave/quill/1434140</a></li>
+<li>安装方式：npm install vue-quill-editor –save</li>
+<li>导入方式：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入富文本编辑器</span></span><br><span class="line"><span class="keyword">import</span> VueQuillEditor <span class="keyword">from</span> <span class="string">&#x27;vue-quill-editor&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// require styles</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;quill/dist/quill.core.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;quill/dist/quill.snow.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;quill/dist/quill.bubble.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//引用富文本编辑器</span></span><br><span class="line">Vue.use(VueQuillEditor)</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-NProgress"><a href="#5-NProgress" class="headerlink" title="5.NProgress"></a>5.NProgress</h5><ul>
+<li>加载进度条</li>
+<li>安装方式：npm install –save nprogress</li>
+<li>导入和使用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//导入进度条的包</span></span><br><span class="line"><span class="keyword">import</span> NProgress <span class="keyword">from</span> <span class="string">&#x27;nprogress&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;nprogress/nprogress.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//在request中展示进度条NProgress.start()</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="comment">//为请求头对象，添加token验证的Authorization字段</span></span><br><span class="line">  config.headers.Authorization=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="6-lodash"><a href="#6-lodash" class="headerlink" title="6.lodash"></a>6.lodash</h5><ul>
+<li>用到里面的深拷贝cloneDeep的方法，在添加商品上的goods_form表单</li>
+<li>在report生成图表的地方用到merge方法，用于将数据和需要合并的操作合并起来</li>
+<li><a href="https://www.lodashjs.com/">https://www.lodashjs.com/</a></li>
+<li>安装方式：npm i –save lodash</li>
+<li>导入方式：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入lodash</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;lodash&#x27;</span></span><br><span class="line">Vue.prototype._=_</span><br></pre></td></tr></table></figure>
+
+<h5 id="7-echarts"><a href="#7-echarts" class="headerlink" title="7.echarts"></a>7.echarts</h5><ul>
+<li><a href="https://echarts.apache.org/handbook/zh/get-started/">https://echarts.apache.org/handbook/zh/get-started/</a></li>
+<li>安装方式：npm install echarts –save</li>
+<li>引入方式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入echarts</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> echarts <span class="keyword">from</span> <span class="string">&#x27;echarts&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="四、登录-退出功能"><a href="#四、登录-退出功能" class="headerlink" title="四、登录/退出功能"></a>四、登录/退出功能</h4><h5 id="1-登录的业务流程"><a href="#1-登录的业务流程" class="headerlink" title="1.登录的业务流程"></a>1.登录的业务流程</h5><ul>
+<li>在登录页面输入用户名和密码</li>
+<li>调用后台接口进行验证</li>
+<li>通过验证之后，根据后台的响应状态跳转到项目主页</li>
+</ul>
+<h5 id="2-登录的相关技术点"><a href="#2-登录的相关技术点" class="headerlink" title="2.登录的相关技术点"></a>2.登录的相关技术点</h5><ul>
+<li>http无状态的</li>
+<li>通过session在服务端记录状态</li>
+<li>通过token方式维持状态</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="comment">//为请求头对象，添加token验证的Authorization字段</span></span><br><span class="line">  config.headers.Authorization=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-token原理分析"><a href="#3-token原理分析" class="headerlink" title="3.token原理分析"></a>3.token原理分析</h5><p><img src="/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/myBlog\source_posts\项目实战\5.png"></p>
+<h5 id="4-登录页面布局"><a href="#4-登录页面布局" class="headerlink" title="4.登录页面布局"></a>4.登录页面布局</h5><ul>
+<li>el-form 登录表单（具有验证规则）</li>
+</ul>
+<h5 id="5-登录功能实现"><a href="#5-登录功能实现" class="headerlink" title="5.登录功能实现"></a>5.登录功能实现</h5><p>（1）实现登录</p>
+<ul>
+<li>用axios调用登录接口<ul>
+<li>this.$http.post(‘login’,this.loginForm)</li>
+</ul>
+</li>
+<li>登录成功之后保持用户token信息<ul>
+<li>window.sessionStorage.setItem(‘token’, res.data.token)</li>
+</ul>
+</li>
+<li>跳转到项目主页<ul>
+<li>this.$router.push(‘/home’)</li>
+</ul>
+</li>
+</ul>
+<p>（2）登录功能实现</p>
+<ul>
+<li>路由导航守卫控制访问权限<ul>
+<li>如果用户没有登录，但是直接通过URL访问特定页面，需要重新导航到登录页面。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//挂载路由导航守卫</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to,<span class="keyword">from</span>,next</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">//to 将要访问的路径</span></span><br><span class="line">  <span class="comment">//from 代表从那个路径跳转而来</span></span><br><span class="line">  <span class="comment">//next 是一个函数，表示放行</span></span><br><span class="line">  <span class="comment">//next() 放行 next(&#x27;./login&#x27;) 强制跳转</span></span><br><span class="line">  <span class="comment">//如果是登录页面就不需要什么权限，直接放行</span></span><br><span class="line">  <span class="keyword">if</span>(to.path === <span class="string">&#x27;/login&#x27;</span>) <span class="keyword">return</span> next();</span><br><span class="line">  <span class="comment">//获取token值</span></span><br><span class="line">  <span class="keyword">const</span> tokenstr=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>);</span><br><span class="line">  <span class="comment">//如果没有token就证明没有</span></span><br><span class="line">  <span class="keyword">if</span>(!tokenstr) <span class="keyword">return</span> next(<span class="string">&#x27;/login&#x27;</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="6-退出"><a href="#6-退出" class="headerlink" title="6.退出"></a>6.退出</h5><ul>
+<li>需要销毁本地的 token 即可</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">logout</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">window</span>.sessionStorage.clear();</span><br><span class="line">            <span class="built_in">this</span>.$router.push(<span class="string">&#x27;/login&#x27;</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、主页布局"><a href="#五、主页布局" class="headerlink" title="五、主页布局"></a>五、主页布局</h4><h5 id="1-布局"><a href="#1-布局" class="headerlink" title="1.布局"></a>1.布局</h5><ul>
+<li>el-container<ul>
+<li>el-header</li>
+<li>el-container<ul>
+<li>el-aside</li>
+<li>el-main</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/myBlog\source_posts\项目实战\6.png"></p>
+<h5 id="2-通过接口获取菜单数据"><a href="#2-通过接口获取菜单数据" class="headerlink" title="2.通过接口获取菜单数据"></a>2.通过接口获取菜单数据</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line"> <span class="comment">// 为请求头对象，添加 Token 验证的 Authorization 字段</span></span><br><span class="line">     config.headers.Authorization = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">     <span class="keyword">return</span> config</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-动态获取路径"><a href="#3-动态获取路径" class="headerlink" title="3.动态获取路径"></a>3.动态获取路径</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;el-menu-item :index=&quot;&#x27;/&#x27;+subItem.path&quot; v-for=&quot;subItem in item.children&quot; :key=&quot;subItem.id&quot;</span><br><span class="line">        @click=&quot;saveNavState(&#x27;/&#x27;+subItem.path)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//保存链接激活状态</span></span><br><span class="line"><span class="function"><span class="title">saveNavState</span>(<span class="params">activePath</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">window</span>.sessionStorage.setItem(<span class="string">&#x27;activePath&#x27;</span>,activePath)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="六、所有模块的共同点"><a href="#六、所有模块的共同点" class="headerlink" title="六、所有模块的共同点"></a>六、所有模块的共同点</h4><h5 id="1-分页"><a href="#1-分页" class="headerlink" title="1.分页"></a>1.分页</h5><p>用el-pagination分页器</p>
+<h5 id="2-增删查改"><a href="#2-增删查改" class="headerlink" title="2.增删查改"></a>2.增删查改</h5><ul>
+<li>增：都是通过增加新的参数传到后台</li>
+<li>删：根据id删除并刷新页面</li>
+<li>改：查询之后更改</li>
+</ul>
+]]></content>
+      <categories>
+        <category>练手项目</category>
+      </categories>
+      <tags>
+        <tag>练手项目</tag>
       </tags>
   </entry>
   <entry>
