@@ -304,249 +304,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git&amp;GitHub</title>
-    <url>/2021/09/06/Git/</url>
-    <content><![CDATA[<h3 id="一、版本控制工具的功能"><a href="#一、版本控制工具的功能" class="headerlink" title="一、版本控制工具的功能"></a>一、版本控制工具的功能</h3><h4 id="1-协同修改"><a href="#1-协同修改" class="headerlink" title="1.协同修改"></a>1.协同修改</h4><ul>
-<li>多人并行不悖的修改服务器端的同一个文件</li>
-</ul>
-<h4 id="2-数据备份"><a href="#2-数据备份" class="headerlink" title="2.数据备份"></a>2.数据备份</h4><ul>
-<li>不仅保存目录和文件的当前状态，还能够保存每一个提交过的状态</li>
-</ul>
-<h4 id="3-版本管理"><a href="#3-版本管理" class="headerlink" title="3.版本管理"></a>3.版本管理</h4><ul>
-<li>在保存每一个版本的文件信息的时候要做到不保存重复数据，以节约存储空间，提高运行效率。这方面SVN采用的是增量式管理的方式，而Git采取了文件系统快照的方式</li>
-</ul>
-<h4 id="4-权限控制"><a href="#4-权限控制" class="headerlink" title="4.权限控制"></a>4.权限控制</h4><ul>
-<li>对团队中参与开发的人员进行权限控制</li>
-<li>对团队开发者贡献的代码进行审核——Git独有</li>
-</ul>
-<h4 id="5-历史记录"><a href="#5-历史记录" class="headerlink" title="5.历史记录"></a>5.历史记录</h4><ul>
-<li>查看修改人、修改时间、修改内容、日志信息</li>
-<li>将本地文件恢复到某一个历史状态</li>
-</ul>
-<h4 id="6-分支管理"><a href="#6-分支管理" class="headerlink" title="6.分支管理"></a>6.分支管理</h4><ul>
-<li>允许开发团队在工作过程中多条生产线同时推进任务，进一步提高效率</li>
-</ul>
-<h3 id="二、版本控制简介"><a href="#二、版本控制简介" class="headerlink" title="二、版本控制简介"></a>二、版本控制简介</h3><h4 id="1-集中式版本控制工具"><a href="#1-集中式版本控制工具" class="headerlink" title="1.集中式版本控制工具"></a>1.集中式版本控制工具</h4><p>CVS、SVN、VSS……</p>
-<h4 id="2-分布式版本控制工具"><a href="#2-分布式版本控制工具" class="headerlink" title="2.分布式版本控制工具"></a>2.分布式版本控制工具</h4><p>Git</p>
-<p>有效避免单点故障</p>
-<h3 id="三、Git简史"><a href="#三、Git简史" class="headerlink" title="三、Git简史"></a>三、Git简史</h3><h4 id="1-Git官网"><a href="#1-Git官网" class="headerlink" title="1.Git官网"></a>1.Git官网</h4><p>地址：<a href="https://git-scm.com/">https://git-scm.com/</a></p>
-<h4 id="2-Git优势"><a href="#2-Git优势" class="headerlink" title="2.Git优势"></a>2.Git优势</h4><ul>
-<li>大部分操作在本地完成，不需要联网</li>
-<li>完整性保证（文件的完整性）</li>
-<li>尽可能添加数据而不是删除或修改数据（因为删除就找不回来了）</li>
-<li>分支操作而非常快捷流畅</li>
-<li>与Linux命令全面兼容</li>
-</ul>
-<h3 id="四、Git结构"><a href="#四、Git结构" class="headerlink" title="四、Git结构"></a>四、Git结构</h3><p>Git在本地的结构</p>
-<p><img src="/2021/09/06/Git/1.png"></p>
-<h3 id="五、Git和代码托管中心"><a href="#五、Git和代码托管中心" class="headerlink" title="五、Git和代码托管中心"></a>五、Git和代码托管中心</h3><h4 id="1-局域网环境下"><a href="#1-局域网环境下" class="headerlink" title="1.局域网环境下"></a>1.局域网环境下</h4><p>GitLab服务器</p>
-<h4 id="2-外网环境下行"><a href="#2-外网环境下行" class="headerlink" title="2.外网环境下行"></a>2.外网环境下行</h4><ul>
-<li>GitHub</li>
-<li>码云（Gitee）</li>
-</ul>
-<h4 id="3-代码托管中心的任务"><a href="#3-代码托管中心的任务" class="headerlink" title="3.代码托管中心的任务"></a>3.代码托管中心的任务</h4><p>维护远程库</p>
-<h3 id="六、本地库和远程库"><a href="#六、本地库和远程库" class="headerlink" title="六、本地库和远程库"></a>六、本地库和远程库</h3><h4 id="1-团队内部协作"><a href="#1-团队内部协作" class="headerlink" title="1.团队内部协作"></a>1.团队内部协作</h4><p><img src="/2021/09/06/Git/2.png"></p>
-<h4 id="3-跨团队协作"><a href="#3-跨团队协作" class="headerlink" title="3.跨团队协作"></a>3.跨团队协作</h4><p><img src="/2021/09/06/Git/3.png"></p>
-<h3 id="七、Git命令行操作"><a href="#七、Git命令行操作" class="headerlink" title="七、Git命令行操作"></a>七、Git命令行操作</h3><h4 id="1-本地库初始化"><a href="#1-本地库初始化" class="headerlink" title="1.本地库初始化"></a>1.本地库初始化</h4><p>（1）命令：git init </p>
-<p>（2）效果</p>
-<p><img src="/2021/09/06/Git/4.png"></p>
-<p>（3）注意：.git目录中存放的是本地库相关的子目录和文件，不要删除，也不要胡乱修改</p>
-<h4 id="2-设置签名"><a href="#2-设置签名" class="headerlink" title="2.设置签名"></a>2.设置签名</h4><p>（1）形式</p>
-<p>用户名：cranberry</p>
-<p>Email地址：<a href="mailto:&#x63;&#x72;&#97;&#110;&#98;&#x65;&#x72;&#x72;&#121;&#x40;&#x71;&#113;&#46;&#99;&#111;&#x6d;">&#x63;&#x72;&#97;&#110;&#98;&#x65;&#x72;&#x72;&#121;&#x40;&#x71;&#113;&#46;&#99;&#111;&#x6d;</a></p>
-<p>（2）作用：区分不同开发人员的身份</p>
-<p>（3）辨析：这里设置的签名和登录远程库（代码托管中心）的账号密码没有任何关系</p>
-<p>（4）命令</p>
-<ul>
-<li>项目级别/仓库级别：仅在当前本地库范围内有效<ul>
-<li>git <strong>config</strong> user.name cranberry</li>
-<li>git <strong>config</strong> user.email <a href="mailto:&#x63;&#114;&#x61;&#110;&#98;&#x65;&#114;&#114;&#x79;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;">&#x63;&#114;&#x61;&#110;&#98;&#x65;&#114;&#114;&#x79;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;</a></li>
-</ul>
-</li>
-<li>系统用户级别：登录当前操作系统的用户范围<ul>
-<li>git config <strong>–global</strong> user.name cranberry</li>
-<li>git config <strong>–global</strong> user.email <a href="mailto:&#x63;&#x72;&#97;&#x6e;&#98;&#x65;&#x72;&#x72;&#121;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#x63;&#x72;&#97;&#x6e;&#98;&#x65;&#x72;&#x72;&#121;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a></li>
-</ul>
-</li>
-<li>级别优先级<ul>
-<li>就近原则：项目级别优先于系统用户级别，二者都有时采用项目级别的签名</li>
-<li>如果只有系统用户级别的签名，就以系统用户级别的签名为准</li>
-<li>二者都没有不允许</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2021/09/06/Git/5.png"></p>
-<h4 id="3-基本操作"><a href="#3-基本操作" class="headerlink" title="3.基本操作"></a>3.基本操作</h4><h5 id="（1）状态查看操作"><a href="#（1）状态查看操作" class="headerlink" title="（1）状态查看操作"></a>（1）状态查看操作</h5><p>git status:查看工作区、暂存区状态</p>
-<h5 id="（2）添加操作"><a href="#（2）添加操作" class="headerlink" title="（2）添加操作"></a>（2）添加操作</h5><p>git add [filename]:将工作区的“新建/修改”添加到暂存区</p>
-<h5 id="（3）提交操作"><a href="#（3）提交操作" class="headerlink" title="（3）提交操作"></a>（3）提交操作</h5><p>git commit -m “commit message” [filename]:将暂存区的内容提交到本地库</p>
-<h5 id="（4）查看历史记录操作"><a href="#（4）查看历史记录操作" class="headerlink" title="（4）查看历史记录操作"></a>（4）查看历史记录操作</h5><ul>
-<li>git log</li>
-</ul>
-<p><img src="/2021/09/06/Git/6.png"></p>
-<p>多屏显示控制方式：空格向下翻页、b向上翻页、q退出</p>
-<ul>
-<li>git log –pretty=oneline</li>
-</ul>
-<p><img src="/2021/09/06/Git/7.png"></p>
-<ul>
-<li>git log –oneline</li>
-</ul>
-<p><img src="/2021/09/06/Git/8.png"></p>
-<ul>
-<li>git reflog</li>
-</ul>
-<p><img src="/2021/09/06/Git/9.png"></p>
-<p>HEAD@{移动到当前笨笨需要多少步}</p>
-<h5 id="（5）前进后退"><a href="#（5）前进后退" class="headerlink" title="（5）前进后退"></a>（5）前进后退</h5><ul>
-<li>基于索引值操作【推荐】<ul>
-<li>git reset –hard [局部索引值]</li>
-<li>git reset –hard a6ace91</li>
-</ul>
-</li>
-<li>使用^符号：只能后退<ul>
-<li>git reset –hard HEAD^</li>
-<li>注：一个^表示后退一步，n个表示后退n步</li>
-</ul>
-</li>
-<li>使用~符号：只能后提<ul>
-<li>git reset –hard HEAD~n</li>
-<li>注：表示后退n步</li>
-</ul>
-</li>
-</ul>
-<h5 id="（6）reset命令的三个参数对比"><a href="#（6）reset命令的三个参数对比" class="headerlink" title="（6）reset命令的三个参数对比"></a>（6）reset命令的三个参数对比</h5><ul>
-<li>–soft参数<ul>
-<li>仅仅在本地库移动HEAD指针</li>
-</ul>
-</li>
-<li>–mixed参数<ul>
-<li>在本地库移动HEAD指针</li>
-<li>重置暂存区</li>
-</ul>
-</li>
-<li>–hard参数<ul>
-<li>在本地库移动HEAD指针</li>
-<li>重置暂存区</li>
-<li>重置工作区</li>
-</ul>
-</li>
-</ul>
-<h5 id="（7）删除文件并找回"><a href="#（7）删除文件并找回" class="headerlink" title="（7）删除文件并找回"></a>（7）删除文件并找回</h5><ul>
-<li>前提：删除前，文件存在时的状态提交到了本地库</li>
-<li>操作：git reset –hard[指针位置]<ul>
-<li>删除操作已经提交到本地库：指针位置指向历史记录</li>
-<li>删除操作尚未提交到本地库：指针位置使用HEAD</li>
-</ul>
-</li>
-</ul>
-<h5 id="（8）比较文件差异"><a href="#（8）比较文件差异" class="headerlink" title="（8）比较文件差异"></a>（8）比较文件差异</h5><ul>
-<li><p>git diff[文件名]</p>
-<ul>
-<li>将工作区中的文件和暂存区进行比较</li>
-</ul>
-</li>
-<li><p>git diff [本地库中历史版本] [文件名]</p>
-<ul>
-<li>将工作区中的文件和本地库历史记录比较</li>
-</ul>
-</li>
-<li><p>不带文件名比较多个文件</p>
-</li>
-</ul>
-<h4 id="4-分支管理"><a href="#4-分支管理" class="headerlink" title="4.分支管理"></a>4.分支管理</h4><h5 id="（1）什么是分支？"><a href="#（1）什么是分支？" class="headerlink" title="（1）什么是分支？"></a>（1）什么是分支？</h5><p>在版本控制过程中，使用多条线同时推进多个任务</p>
-<h5 id="（2）分支的好处"><a href="#（2）分支的好处" class="headerlink" title="（2）分支的好处"></a>（2）分支的好处</h5><ul>
-<li>同时并行推进多个功能开发，提高开发效率</li>
-<li>各个分支在开发过程中，如果某一个分支开发失败，不会对其他分支有任何影响。失败的分支删除重新开始即可</li>
-</ul>
-<h5 id="（3）分支操作"><a href="#（3）分支操作" class="headerlink" title="（3）分支操作"></a>（3）分支操作</h5><ul>
-<li><p>创建分支</p>
-<ul>
-<li>git branch[分支名]</li>
-</ul>
-</li>
-<li><p>查看分支</p>
-<ul>
-<li>git branch -v</li>
-</ul>
-</li>
-<li><p>切换分支</p>
-<ul>
-<li>git checkout [分支名]</li>
-</ul>
-</li>
-<li><p>合并分支</p>
-<ul>
-<li><p>第一步：切换到接受修改的分支（被合并，增加新内容）上</p>
-<p>git checkout[分支名]</p>
-</li>
-<li><p>第二部：执行merge命令</p>
-<p>git merge[分支名]</p>
-</li>
-</ul>
-</li>
-<li><p>解决冲突</p>
-<ul>
-<li>冲突的表现：<ul>
-<li>一个文件的同一个地方同时被修改</li>
-</ul>
-</li>
-<li>冲突的解决<ul>
-<li>第一步：编辑文件，删除特殊符号</li>
-<li>第二步：把文件修改到满意的程度，保存退出</li>
-<li>第三步：gi add [文件名]</li>
-<li>第四步：git commit -m “日志信息”<ul>
-<li>注意：此时commit 一定不能带具体文件名</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="八、Github"><a href="#八、Github" class="headerlink" title="八、Github"></a>八、Github</h4><h5 id="1-在本地创建远程库地址别名"><a href="#1-在本地创建远程库地址别名" class="headerlink" title="1.在本地创建远程库地址别名"></a>1.在本地创建远程库地址别名</h5><ul>
-<li>git remote -v<ul>
-<li>查看起的别名</li>
-</ul>
-</li>
-<li>git remote add [别名] [远程地址]<ul>
-<li>起别名</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-推送操作"><a href="#2-推送操作" class="headerlink" title="2.推送操作"></a>2.推送操作</h5><ul>
-<li>git push [别名] [要推送的分支]</li>
-</ul>
-<h5 id="3-克隆操作"><a href="#3-克隆操作" class="headerlink" title="3.克隆操作"></a>3.克隆操作</h5><ul>
-<li>命令<ul>
-<li>git clone [远程地址]</li>
-</ul>
-</li>
-<li>效果<ul>
-<li>完整地把远程库下载到本地</li>
-<li>创建origin远程地址别名</li>
-<li>初始化本地库</li>
-</ul>
-</li>
-</ul>
-<h5 id="4-拉取"><a href="#4-拉取" class="headerlink" title="4.拉取"></a>4.拉取</h5><ul>
-<li>pull=fetch+merge</li>
-<li>git fetch [远程库地址别名] [远程分支名]</li>
-<li>git merge [远程库地址别名/远程分支名]</li>
-<li>git pull [远程库地址别名] [远程分支名]</li>
-</ul>
-<h5 id="5-解决冲突"><a href="#5-解决冲突" class="headerlink" title="5.解决冲突"></a>5.解决冲突</h5><ul>
-<li>如果不是基于Github远程库的最新版所做的修改，不能推送，必须先拉取</li>
-<li>拉取下来后如果进入冲突状态，则按照“分支冲突结局额”操作解决即可</li>
-</ul>
-]]></content>
-      <categories>
-        <category>版本控制工具</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ES6</title>
     <url>/2021/09/02/ES6-ES11/</url>
     <content><![CDATA[<h3 id="一、let关键字"><a href="#一、let关键字" class="headerlink" title="一、let关键字"></a>一、let关键字</h3><p>用来声明变量，有几个特点</p>
@@ -787,6 +544,249 @@
       </categories>
       <tags>
         <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git&amp;GitHub</title>
+    <url>/2021/09/06/Git/</url>
+    <content><![CDATA[<h3 id="一、版本控制工具的功能"><a href="#一、版本控制工具的功能" class="headerlink" title="一、版本控制工具的功能"></a>一、版本控制工具的功能</h3><h4 id="1-协同修改"><a href="#1-协同修改" class="headerlink" title="1.协同修改"></a>1.协同修改</h4><ul>
+<li>多人并行不悖的修改服务器端的同一个文件</li>
+</ul>
+<h4 id="2-数据备份"><a href="#2-数据备份" class="headerlink" title="2.数据备份"></a>2.数据备份</h4><ul>
+<li>不仅保存目录和文件的当前状态，还能够保存每一个提交过的状态</li>
+</ul>
+<h4 id="3-版本管理"><a href="#3-版本管理" class="headerlink" title="3.版本管理"></a>3.版本管理</h4><ul>
+<li>在保存每一个版本的文件信息的时候要做到不保存重复数据，以节约存储空间，提高运行效率。这方面SVN采用的是增量式管理的方式，而Git采取了文件系统快照的方式</li>
+</ul>
+<h4 id="4-权限控制"><a href="#4-权限控制" class="headerlink" title="4.权限控制"></a>4.权限控制</h4><ul>
+<li>对团队中参与开发的人员进行权限控制</li>
+<li>对团队开发者贡献的代码进行审核——Git独有</li>
+</ul>
+<h4 id="5-历史记录"><a href="#5-历史记录" class="headerlink" title="5.历史记录"></a>5.历史记录</h4><ul>
+<li>查看修改人、修改时间、修改内容、日志信息</li>
+<li>将本地文件恢复到某一个历史状态</li>
+</ul>
+<h4 id="6-分支管理"><a href="#6-分支管理" class="headerlink" title="6.分支管理"></a>6.分支管理</h4><ul>
+<li>允许开发团队在工作过程中多条生产线同时推进任务，进一步提高效率</li>
+</ul>
+<h3 id="二、版本控制简介"><a href="#二、版本控制简介" class="headerlink" title="二、版本控制简介"></a>二、版本控制简介</h3><h4 id="1-集中式版本控制工具"><a href="#1-集中式版本控制工具" class="headerlink" title="1.集中式版本控制工具"></a>1.集中式版本控制工具</h4><p>CVS、SVN、VSS……</p>
+<h4 id="2-分布式版本控制工具"><a href="#2-分布式版本控制工具" class="headerlink" title="2.分布式版本控制工具"></a>2.分布式版本控制工具</h4><p>Git</p>
+<p>有效避免单点故障</p>
+<h3 id="三、Git简史"><a href="#三、Git简史" class="headerlink" title="三、Git简史"></a>三、Git简史</h3><h4 id="1-Git官网"><a href="#1-Git官网" class="headerlink" title="1.Git官网"></a>1.Git官网</h4><p>地址：<a href="https://git-scm.com/">https://git-scm.com/</a></p>
+<h4 id="2-Git优势"><a href="#2-Git优势" class="headerlink" title="2.Git优势"></a>2.Git优势</h4><ul>
+<li>大部分操作在本地完成，不需要联网</li>
+<li>完整性保证（文件的完整性）</li>
+<li>尽可能添加数据而不是删除或修改数据（因为删除就找不回来了）</li>
+<li>分支操作而非常快捷流畅</li>
+<li>与Linux命令全面兼容</li>
+</ul>
+<h3 id="四、Git结构"><a href="#四、Git结构" class="headerlink" title="四、Git结构"></a>四、Git结构</h3><p>Git在本地的结构</p>
+<p><img src="/2021/09/06/Git/1.png"></p>
+<h3 id="五、Git和代码托管中心"><a href="#五、Git和代码托管中心" class="headerlink" title="五、Git和代码托管中心"></a>五、Git和代码托管中心</h3><h4 id="1-局域网环境下"><a href="#1-局域网环境下" class="headerlink" title="1.局域网环境下"></a>1.局域网环境下</h4><p>GitLab服务器</p>
+<h4 id="2-外网环境下行"><a href="#2-外网环境下行" class="headerlink" title="2.外网环境下行"></a>2.外网环境下行</h4><ul>
+<li>GitHub</li>
+<li>码云（Gitee）</li>
+</ul>
+<h4 id="3-代码托管中心的任务"><a href="#3-代码托管中心的任务" class="headerlink" title="3.代码托管中心的任务"></a>3.代码托管中心的任务</h4><p>维护远程库</p>
+<h3 id="六、本地库和远程库"><a href="#六、本地库和远程库" class="headerlink" title="六、本地库和远程库"></a>六、本地库和远程库</h3><h4 id="1-团队内部协作"><a href="#1-团队内部协作" class="headerlink" title="1.团队内部协作"></a>1.团队内部协作</h4><p><img src="/2021/09/06/Git/2.png"></p>
+<h4 id="3-跨团队协作"><a href="#3-跨团队协作" class="headerlink" title="3.跨团队协作"></a>3.跨团队协作</h4><p><img src="/2021/09/06/Git/3.png"></p>
+<h3 id="七、Git命令行操作"><a href="#七、Git命令行操作" class="headerlink" title="七、Git命令行操作"></a>七、Git命令行操作</h3><h4 id="1-本地库初始化"><a href="#1-本地库初始化" class="headerlink" title="1.本地库初始化"></a>1.本地库初始化</h4><p>（1）命令：git init </p>
+<p>（2）效果</p>
+<p><img src="/2021/09/06/Git/4.png"></p>
+<p>（3）注意：.git目录中存放的是本地库相关的子目录和文件，不要删除，也不要胡乱修改</p>
+<h4 id="2-设置签名"><a href="#2-设置签名" class="headerlink" title="2.设置签名"></a>2.设置签名</h4><p>（1）形式</p>
+<p>用户名：cranberry</p>
+<p>Email地址：<a href="mailto:&#99;&#x72;&#x61;&#x6e;&#x62;&#x65;&#x72;&#x72;&#121;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#99;&#x72;&#x61;&#x6e;&#x62;&#x65;&#x72;&#x72;&#121;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p>（2）作用：区分不同开发人员的身份</p>
+<p>（3）辨析：这里设置的签名和登录远程库（代码托管中心）的账号密码没有任何关系</p>
+<p>（4）命令</p>
+<ul>
+<li>项目级别/仓库级别：仅在当前本地库范围内有效<ul>
+<li>git <strong>config</strong> user.name cranberry</li>
+<li>git <strong>config</strong> user.email <a href="mailto:&#99;&#x72;&#x61;&#110;&#98;&#101;&#x72;&#x72;&#121;&#x40;&#113;&#x71;&#46;&#99;&#111;&#x6d;">&#99;&#x72;&#x61;&#110;&#98;&#101;&#x72;&#x72;&#121;&#x40;&#113;&#x71;&#46;&#99;&#111;&#x6d;</a></li>
+</ul>
+</li>
+<li>系统用户级别：登录当前操作系统的用户范围<ul>
+<li>git config <strong>–global</strong> user.name cranberry</li>
+<li>git config <strong>–global</strong> user.email <a href="mailto:&#x63;&#x72;&#x61;&#110;&#98;&#101;&#x72;&#114;&#121;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#x63;&#x72;&#x61;&#110;&#98;&#101;&#x72;&#114;&#121;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;</a></li>
+</ul>
+</li>
+<li>级别优先级<ul>
+<li>就近原则：项目级别优先于系统用户级别，二者都有时采用项目级别的签名</li>
+<li>如果只有系统用户级别的签名，就以系统用户级别的签名为准</li>
+<li>二者都没有不允许</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/09/06/Git/5.png"></p>
+<h4 id="3-基本操作"><a href="#3-基本操作" class="headerlink" title="3.基本操作"></a>3.基本操作</h4><h5 id="（1）状态查看操作"><a href="#（1）状态查看操作" class="headerlink" title="（1）状态查看操作"></a>（1）状态查看操作</h5><p>git status:查看工作区、暂存区状态</p>
+<h5 id="（2）添加操作"><a href="#（2）添加操作" class="headerlink" title="（2）添加操作"></a>（2）添加操作</h5><p>git add [filename]:将工作区的“新建/修改”添加到暂存区</p>
+<h5 id="（3）提交操作"><a href="#（3）提交操作" class="headerlink" title="（3）提交操作"></a>（3）提交操作</h5><p>git commit -m “commit message” [filename]:将暂存区的内容提交到本地库</p>
+<h5 id="（4）查看历史记录操作"><a href="#（4）查看历史记录操作" class="headerlink" title="（4）查看历史记录操作"></a>（4）查看历史记录操作</h5><ul>
+<li>git log</li>
+</ul>
+<p><img src="/2021/09/06/Git/6.png"></p>
+<p>多屏显示控制方式：空格向下翻页、b向上翻页、q退出</p>
+<ul>
+<li>git log –pretty=oneline</li>
+</ul>
+<p><img src="/2021/09/06/Git/7.png"></p>
+<ul>
+<li>git log –oneline</li>
+</ul>
+<p><img src="/2021/09/06/Git/8.png"></p>
+<ul>
+<li>git reflog</li>
+</ul>
+<p><img src="/2021/09/06/Git/9.png"></p>
+<p>HEAD@{移动到当前笨笨需要多少步}</p>
+<h5 id="（5）前进后退"><a href="#（5）前进后退" class="headerlink" title="（5）前进后退"></a>（5）前进后退</h5><ul>
+<li>基于索引值操作【推荐】<ul>
+<li>git reset –hard [局部索引值]</li>
+<li>git reset –hard a6ace91</li>
+</ul>
+</li>
+<li>使用^符号：只能后退<ul>
+<li>git reset –hard HEAD^</li>
+<li>注：一个^表示后退一步，n个表示后退n步</li>
+</ul>
+</li>
+<li>使用~符号：只能后提<ul>
+<li>git reset –hard HEAD~n</li>
+<li>注：表示后退n步</li>
+</ul>
+</li>
+</ul>
+<h5 id="（6）reset命令的三个参数对比"><a href="#（6）reset命令的三个参数对比" class="headerlink" title="（6）reset命令的三个参数对比"></a>（6）reset命令的三个参数对比</h5><ul>
+<li>–soft参数<ul>
+<li>仅仅在本地库移动HEAD指针</li>
+</ul>
+</li>
+<li>–mixed参数<ul>
+<li>在本地库移动HEAD指针</li>
+<li>重置暂存区</li>
+</ul>
+</li>
+<li>–hard参数<ul>
+<li>在本地库移动HEAD指针</li>
+<li>重置暂存区</li>
+<li>重置工作区</li>
+</ul>
+</li>
+</ul>
+<h5 id="（7）删除文件并找回"><a href="#（7）删除文件并找回" class="headerlink" title="（7）删除文件并找回"></a>（7）删除文件并找回</h5><ul>
+<li>前提：删除前，文件存在时的状态提交到了本地库</li>
+<li>操作：git reset –hard[指针位置]<ul>
+<li>删除操作已经提交到本地库：指针位置指向历史记录</li>
+<li>删除操作尚未提交到本地库：指针位置使用HEAD</li>
+</ul>
+</li>
+</ul>
+<h5 id="（8）比较文件差异"><a href="#（8）比较文件差异" class="headerlink" title="（8）比较文件差异"></a>（8）比较文件差异</h5><ul>
+<li><p>git diff[文件名]</p>
+<ul>
+<li>将工作区中的文件和暂存区进行比较</li>
+</ul>
+</li>
+<li><p>git diff [本地库中历史版本] [文件名]</p>
+<ul>
+<li>将工作区中的文件和本地库历史记录比较</li>
+</ul>
+</li>
+<li><p>不带文件名比较多个文件</p>
+</li>
+</ul>
+<h4 id="4-分支管理"><a href="#4-分支管理" class="headerlink" title="4.分支管理"></a>4.分支管理</h4><h5 id="（1）什么是分支？"><a href="#（1）什么是分支？" class="headerlink" title="（1）什么是分支？"></a>（1）什么是分支？</h5><p>在版本控制过程中，使用多条线同时推进多个任务</p>
+<h5 id="（2）分支的好处"><a href="#（2）分支的好处" class="headerlink" title="（2）分支的好处"></a>（2）分支的好处</h5><ul>
+<li>同时并行推进多个功能开发，提高开发效率</li>
+<li>各个分支在开发过程中，如果某一个分支开发失败，不会对其他分支有任何影响。失败的分支删除重新开始即可</li>
+</ul>
+<h5 id="（3）分支操作"><a href="#（3）分支操作" class="headerlink" title="（3）分支操作"></a>（3）分支操作</h5><ul>
+<li><p>创建分支</p>
+<ul>
+<li>git branch[分支名]</li>
+</ul>
+</li>
+<li><p>查看分支</p>
+<ul>
+<li>git branch -v</li>
+</ul>
+</li>
+<li><p>切换分支</p>
+<ul>
+<li>git checkout [分支名]</li>
+</ul>
+</li>
+<li><p>合并分支</p>
+<ul>
+<li><p>第一步：切换到接受修改的分支（被合并，增加新内容）上</p>
+<p>git checkout[分支名]</p>
+</li>
+<li><p>第二部：执行merge命令</p>
+<p>git merge[分支名]</p>
+</li>
+</ul>
+</li>
+<li><p>解决冲突</p>
+<ul>
+<li>冲突的表现：<ul>
+<li>一个文件的同一个地方同时被修改</li>
+</ul>
+</li>
+<li>冲突的解决<ul>
+<li>第一步：编辑文件，删除特殊符号</li>
+<li>第二步：把文件修改到满意的程度，保存退出</li>
+<li>第三步：gi add [文件名]</li>
+<li>第四步：git commit -m “日志信息”<ul>
+<li>注意：此时commit 一定不能带具体文件名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="八、Github"><a href="#八、Github" class="headerlink" title="八、Github"></a>八、Github</h4><h5 id="1-在本地创建远程库地址别名"><a href="#1-在本地创建远程库地址别名" class="headerlink" title="1.在本地创建远程库地址别名"></a>1.在本地创建远程库地址别名</h5><ul>
+<li>git remote -v<ul>
+<li>查看起的别名</li>
+</ul>
+</li>
+<li>git remote add [别名] [远程地址]<ul>
+<li>起别名</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-推送操作"><a href="#2-推送操作" class="headerlink" title="2.推送操作"></a>2.推送操作</h5><ul>
+<li>git push [别名] [要推送的分支]</li>
+</ul>
+<h5 id="3-克隆操作"><a href="#3-克隆操作" class="headerlink" title="3.克隆操作"></a>3.克隆操作</h5><ul>
+<li>命令<ul>
+<li>git clone [远程地址]</li>
+</ul>
+</li>
+<li>效果<ul>
+<li>完整地把远程库下载到本地</li>
+<li>创建origin远程地址别名</li>
+<li>初始化本地库</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-拉取"><a href="#4-拉取" class="headerlink" title="4.拉取"></a>4.拉取</h5><ul>
+<li>pull=fetch+merge</li>
+<li>git fetch [远程库地址别名] [远程分支名]</li>
+<li>git merge [远程库地址别名/远程分支名]</li>
+<li>git pull [远程库地址别名] [远程分支名]</li>
+</ul>
+<h5 id="5-解决冲突"><a href="#5-解决冲突" class="headerlink" title="5.解决冲突"></a>5.解决冲突</h5><ul>
+<li>如果不是基于Github远程库的最新版所做的修改，不能推送，必须先拉取</li>
+<li>拉取下来后如果进入冲突状态，则按照“分支冲突结局额”操作解决即可</li>
+</ul>
+]]></content>
+      <categories>
+        <category>版本控制工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -1334,8 +1334,23 @@
   <entry>
     <title>vue</title>
     <url>/2021/09/02/vue/</url>
-    <content><![CDATA[<h4 id="一、vue初体验"><a href="#一、vue初体验" class="headerlink" title="一、vue初体验"></a>一、vue初体验</h4><p><img src="/2021/09/02/vue/40.png"></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../js/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">el</span>:<span class="string">&quot;#app&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">data</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">message</span>:<span class="string">&quot;你好vuejs&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">name</span>:<span class="string">&quot;code&quot;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h3 id="Vue2"><a href="#Vue2" class="headerlink" title="Vue2"></a>Vue2</h3><h4 id="一、vue初体验"><a href="#一、vue初体验" class="headerlink" title="一、vue初体验"></a>一、vue初体验</h4><p>vue是一套用于构建用户界面的渐进式JavaScript框架</p>
+<p><strong>渐进式</strong>：Vue可以自底向上逐层的应用</p>
+<ul>
+<li>简单应用：只需一个轻量小巧的核心库</li>
+<li>复杂应用：可以引入各式各样的Vue插件</li>
+</ul>
+<p><strong>Vue特点</strong>：</p>
+<ul>
+<li>采用组件化模式，提高代码复用率、且让代码更好维护</li>
+<li>声明式编码，让编码人员无需直接操作DOM，提高开发效率<ul>
+<li>声明式编码不用写一步一步的</li>
+</ul>
+</li>
+<li>使用虚拟DOM+优秀的diff算法，尽量复用DOM节点</li>
+</ul>
+<p><img src="/2021/09/02/vue/40.png"></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../js/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    Vue.config,productionTip=<span class="literal">false</span><span class="comment">//阻止vue在启动时生成生产提示</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="comment">//el的第一种写法</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">el</span>:<span class="string">&quot;#app&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">data</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">message</span>:<span class="string">&quot;你好vuejs&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">name</span>:<span class="string">&quot;code&quot;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml"><span class="comment">//el的第二种写法</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">     <span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">data</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">message</span>:<span class="string">&quot;你好vuejs&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">name</span>:<span class="string">&quot;code&quot;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">     v.$mount(<span class="string">&#x27;#app&#x27;</span>)</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//vue3</span></span><br><span class="line">   <span class="comment">// const app=Vue.createApp(&#123;</span></span><br><span class="line">   <span class="comment">//</span></span><br><span class="line">   <span class="comment">// &#125;);</span></span><br><span class="line">   <span class="comment">// //挂载</span></span><br><span class="line">   <span class="comment">// const vm=app.mount(&quot;#app&quot;);</span></span><br><span class="line">   <span class="keyword">const</span> app=Vue.createApp(&#123;</span><br><span class="line">       <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">           <span class="keyword">return</span>&#123;</span><br><span class="line">               <span class="attr">message</span>:<span class="string">&#x27;this is a text&#x27;</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;).mount(<span class="string">&quot;#app&quot;</span>);</span><br><span class="line"></span><br><span class="line">   app.message = <span class="string">&quot;hello vuejs&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -1346,26 +1361,55 @@
 
 <h4 id="四、vue中的MVVM"><a href="#四、vue中的MVVM" class="headerlink" title="四、vue中的MVVM"></a>四、vue中的MVVM</h4><p>model-view-viewModel</p>
 <p>（1）MVVM是前端视图层的分层开发思想，主要把每个页面，分成了M、V和VM，其中，VM是MVVM思想的核心；因为VM是M和V之间的调度者</p>
+<ul>
+<li>M：模型（Model）对应的data中的数据</li>
+<li>V：视图（View）模板</li>
+<li>VM：视图模型（ViewModel）Vue实例对象</li>
+</ul>
 <p>（2）前端页面中使用MVVM的思想，主要是为了让我们开发更加方便，因为MVVM提供了数据的双向绑定；注意：数据的双向绑定是由VM提供的</p>
+<p>（3）vue没有严格遵循MVVM模型，因为MVVM模型规定view层和model层不能直接通信，但是Vue提供了$refs可以直接操作dom层</p>
 <p><img src="/2021/09/02/vue/5.png"></p>
 <h4 id="五、vue生命周期"><a href="#五、vue生命周期" class="headerlink" title="五、vue生命周期"></a>五、vue生命周期</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;修改msg&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;msg=&#x27;No&#x27;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span> <span class="attr">id</span>=<span class="string">&quot;h3&quot;</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./js/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">el</span>:<span class="string">&quot;#app&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">msg</span>:<span class="string">&#x27;ok&#x27;</span></span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">show</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">&#x27;执行了show方法&#x27;</span>)</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//这是我们遇到的第一个生命周期函数，表示实例完全被创建出来之前，会执行它</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//注意：在beforeCreate生命周期函数执行的时候，data和methods中的数据都还没有初始化</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">beforeCreate</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.msg)<span class="comment">//undefined</span></span></span><br><span class="line"><span class="javascript">            <span class="built_in">this</span>.show()<span class="comment">//&quot;TypeError:this.show is not a function&quot;</span></span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//这是遇到的第二个生命周期函数</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//在created中，data和methods都已经被初始化好了！</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//如果要调用methods中的方法，或者操作data中的数据，最早，只能在created中操作</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">created</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.msg)<span class="comment">//ok</span></span></span><br><span class="line"><span class="javascript">            <span class="built_in">this</span>.show()<span class="comment">//执行了show方法</span></span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">// //这是遇到的第3个生命周期函数，表示模板已经在内存中编辑完成了，但是尚未把模板渲染到页面中</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">beforeMount</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">&#x27;h3&#x27;</span>).innerText)<span class="comment">//&#123;&#123;msg&#125;&#125;</span></span></span><br><span class="line"><span class="javascript">            <span class="comment">//在beforeMount执行的时候，页面中的元素，还没有被真正替换过来，只是之前写的一些模板字符串</span></span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">// //这是遇到的第4个生命周期函数，表示内存中的模板，已经真实的挂载到了页面中，用户已经可以看到渲染好的页面了</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// //注意：mounted是实例创建期间的最后一个生命周期函数，当执行完mouted就表示，实例已经被完全创建好了，此时，</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// //如果没有其它操作的话，这个实例，就静静的躺在我们的内存中，一动不动</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">&#x27;h3&#x27;</span>).innerText)<span class="comment">//ok</span></span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// //接下来的是运行中的两个事件</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// //这时候，表示我们的界面还没有被更新[数据被更新了]</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">beforeUpdate</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&#x27;界面上元素的内容：&#x27;</span>+<span class="built_in">document</span>.getElementById(<span class="string">&#x27;h3&#x27;</span>).innerText)</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&#x27;data 中的msg数据是：&#x27;</span>+<span class="built_in">this</span>.msg)</span></span><br><span class="line"><span class="javascript">            <span class="comment">//得出结论：当执行beforeUpdate的时候，页面中的显示的数据，还是旧的，此时</span></span></span><br><span class="line"><span class="javascript">            <span class="comment">//data数据是最新的，页面尚未和最新的数据保持同步</span></span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">// //updated事件执行的时候，页面和data数据已经保持同步了，都是最新的</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">updated</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&#x27;界面上元素的内容：&#x27;</span>+<span class="built_in">document</span>.getElementById(<span class="string">&#x27;h3&#x27;</span>).innerText)</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&#x27;data 中的 msg 数据是：&#x27;</span>+<span class="built_in">this</span>.msg)</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="六、数据代理"><a href="#六、数据代理" class="headerlink" title="六、数据代理"></a>六、数据代理</h4><h5 id="1-Object-defineproperty"><a href="#1-Object-defineproperty" class="headerlink" title="1.Object.defineproperty"></a>1.Object.defineproperty</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> person=&#123;</span><br><span class="line">            <span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">            <span class="attr">sex</span>:<span class="string">&quot;男&quot;</span>,</span><br><span class="line">            <span class="attr">age</span>:<span class="number">18</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(person))</span><br></pre></td></tr></table></figure>
 
+<p><img src="/2021/09/02/vue/48.png"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> person=&#123;</span><br><span class="line">            <span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">            <span class="attr">sex</span>:<span class="string">&quot;男&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(person,<span class="string">&#x27;age&#x27;</span>,&#123;</span><br><span class="line">            <span class="attr">value</span>:<span class="number">18</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(person))</span><br></pre></td></tr></table></figure>
 
-<h4 id="六、创建Vue实例传入的options"><a href="#六、创建Vue实例传入的options" class="headerlink" title="六、创建Vue实例传入的options"></a>六、创建Vue实例传入的options</h4><h5 id="1-el"><a href="#1-el" class="headerlink" title="1.el:"></a>1.el:</h5><ul>
+<p><img src="/2021/09/02/vue/49.png"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> number=<span class="number">18</span></span><br><span class="line">        <span class="keyword">let</span> person=&#123;</span><br><span class="line">            <span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">            <span class="attr">sex</span>:<span class="string">&quot;男&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(person,<span class="string">&#x27;age&#x27;</span>,&#123;</span><br><span class="line">            <span class="comment">// value:18,</span></span><br><span class="line">            <span class="comment">// enumerable:true,//控制属性是否可以枚举，默认值是false</span></span><br><span class="line">            <span class="comment">// writable:true,//控制属性是否可以修改，默认值是false</span></span><br><span class="line">            <span class="comment">// configurable:true//控制属性是否可以被删除，默认值是false</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//当有人读取person的age属性时，get函数（getter）就会被调用，且返回值就是age的值</span></span><br><span class="line">            <span class="function"><span class="title">get</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;读取了age属性&#x27;</span>)</span><br><span class="line">                <span class="keyword">return</span> number</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">//当有人修改person的age属性时，set函数（setter）就会被调用，且会受到修改的具体值</span></span><br><span class="line">            <span class="function"><span class="title">set</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;有人修改了age属性&#x27;</span>)</span><br><span class="line">                number=value</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-数据代理"><a href="#2-数据代理" class="headerlink" title="2.数据代理"></a>2.数据代理</h5><p>通过一个对象代理对另一个对象中属性的操作（读/写）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;<span class="attr">x</span>:<span class="number">200</span>&#125;</span><br><span class="line">        <span class="keyword">let</span> obj2=&#123;y=<span class="number">300</span>&#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(obj2,<span class="string">&#x27;x&#x27;</span>,&#123;</span><br><span class="line">            <span class="function"><span class="title">get</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> obj.x</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">set</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">                obj.x=value</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/09/02/vue/50.png"></p>
+<h5 id="3-Vue中的数据代理"><a href="#3-Vue中的数据代理" class="headerlink" title="3.Vue中的数据代理"></a>3.Vue中的数据代理</h5><h4 id="六、创建Vue实例传入的options"><a href="#六、创建Vue实例传入的options" class="headerlink" title="六、创建Vue实例传入的options"></a>六、创建Vue实例传入的options</h4><h5 id="1-el"><a href="#1-el" class="headerlink" title="1.el:"></a>1.el:</h5><ul>
 <li>类型：string | HTMLElement</li>
-<li>作用：决定之后Vue实例会管理哪一个DOM</li>
+<li>作用：决定之后Vue实例会管理哪一个DOM（指定当前Vue实例为哪个容器服务，值通常为css选择器字符串）</li>
 </ul>
 <h5 id="2-data"><a href="#2-data" class="headerlink" title="2.data:"></a>2.data:</h5><ul>
 <li>类型：Object | Function</li>
-<li>作用：Vue实例对应的数据对象</li>
+<li>作用：Vue实例对应的数据对象（用于存储数据，数据供el所指定的容器去使用）</li>
 </ul>
 <h5 id="3-methods"><a href="#3-methods" class="headerlink" title="3.methods:"></a>3.methods:</h5><ul>
 <li>类型：{[key:string]:Function}</li>
 <li>作用：定义属于Vue的一些方法，可以在其他地方调用，也可以在指令中使用</li>
 </ul>
-<h4 id="七、插值操作"><a href="#七、插值操作" class="headerlink" title="七、插值操作"></a>七、插值操作</h4><h5 id="1-Mustache语法"><a href="#1-Mustache语法" class="headerlink" title="1.Mustache语法"></a>1.Mustache语法</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;messgae&#125;&#125;,李银河！<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">    &lt;!--mustache语法中，不仅仅可以直接协变量，也可以写简单地表达式--&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;firstName+lastName&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;firstName + &#x27; &#x27; + lastName&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;counter *2 &#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../js/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">el</span>:<span class="string">&quot;#app&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">data</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">message</span>:<span class="string">&#x27;你好啊&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">firstName</span>:<span class="string">&#x27;fyyeg&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">lastName</span>:<span class="string">&#x27;hfui&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">counter</span>:<span class="number">100</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="七、模板语法"><a href="#七、模板语法" class="headerlink" title="七、模板语法"></a>七、模板语法</h4><ul>
+<li><strong>插值语法</strong><ul>
+<li>功能：用于解析标签体内容</li>
+<li>写法：,xxx是js表达式，且可以直接读取到data中的所有属性</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-Mustache语法"><a href="#1-Mustache语法" class="headerlink" title="1.Mustache语法"></a>1.Mustache语法</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;messgae&#125;&#125;,李银河！<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">    &lt;!--mustache语法中，不仅仅可以直接协变量，也可以写简单地表达式--&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;firstName+lastName&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;firstName + &#x27; &#x27; + lastName&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;counter *2 &#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../js/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">el</span>:<span class="string">&quot;#app&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">data</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">message</span>:<span class="string">&#x27;你好啊&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">firstName</span>:<span class="string">&#x27;fyyeg&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">lastName</span>:<span class="string">&#x27;hfui&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">counter</span>:<span class="number">100</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>指令语法<ul>
+<li>功能：用于解析标签（包括：标签属性、标签体内容、绑定事件……）</li>
+</ul>
+</li>
+</ul>
 <h5 id="2-v-once指令"><a href="#2-v-once指令" class="headerlink" title="2.v-once指令"></a>2.v-once指令</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 v-once&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    const app=new Vue(&#123;</span><br><span class="line">        el:&quot;#app&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            message:&#x27;你好啊&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 <h5 id="3-v-text指令（会覆盖）"><a href="#3-v-text指令（会覆盖）" class="headerlink" title="3.v-text指令（会覆盖）"></a>3.v-text指令（会覆盖）</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">v-text</span>=<span class="string">&quot;message&quot;</span>&gt;</span>,李银河<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../js/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">    <span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">        <span class="attr">data</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">            <span class="attr">message</span>:<span class="string">&#x27;你好啊&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">        &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">    &#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
@@ -1493,16 +1537,13 @@
 <p>案例的解析</p>
 <ul>
 <li>当我们在输入框输入内容时</li>
-<li>因为input中的v-model绑定了message，所以会实时将输入的内容传递给message,message发生改变</li>
-<li><ul>
-<li><ul>
+<li>因为input中的v-model绑定了message，所以会实时将输入的内容传递给message,message发生改变<ul>
 <li>当message发生改变时，因为上面我们使用Mustachce语法，将message的值插入到DOM中，所以DOM会发生响应的改变</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>所以通过v-model实现了双向的绑定</li>
 <li>也可以将v-model用于textareea匀速</li>
+<li>v-model只能用表单类元素上</li>
 </ul>
 <h5 id="7-v-model结合radio类型"><a href="#7-v-model结合radio类型" class="headerlink" title="7.v-model结合radio类型"></a>7.v-model结合radio类型</h5><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">       &lt;!--加上name才会互斥，但是现在有加上v-model绑定同一个属性，就可以不用加，因为也会实现互斥--&gt;</span><br><span class="line">       <span class="xml"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;male&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">           <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;male&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;男&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;sex&quot;</span>&gt;</span>男</span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;female&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">           <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;female&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;女&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;sex&quot;</span>&gt;</span>女 </span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;/<span class="name">label</span>&gt;</span> </span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">h2</span>&gt;</span>您的性别是:&#123;&#123;sex&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../js/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">       <span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">           <span class="attr">el</span>:<span class="string">&quot;#app&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">           <span class="attr">data</span>:&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">               <span class="attr">message</span>:<span class="string">&quot;你好vuejs&quot;</span>,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">               <span class="attr">sex</span>:<span class="string">&#x27;男&#x27;</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">           &#125;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">       &#125;)</span></span></span><br><span class="line"><span class="javascript"><span class="xml">   </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br></pre></td></tr></table></figure>
 
@@ -1587,7 +1628,7 @@
 <li>通过props向子组件传递数据</li>
 <li>通过事件向父组件发送消息</li>
 </ul>
-<p><img src="/2021/09/02/vue/myBlog\source_posts\vue\3.png"></p>
+<p><img src="/2021/09/02/vue/3.png"></p>
 <p>（1）在组件中，使用选项props来声明需要从父级接受到的数据</p>
 <p>props的值有两种方式：</p>
 <ul>
@@ -2150,18 +2191,1233 @@
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;button @click=&quot;userClick&quot;&gt;用户&lt;/button&gt;</span><br><span class="line">&lt;button @click=&quot;profileClick&quot;&gt;档案&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">userClick()&#123;</span><br><span class="line">	this.$router.push(&#x27;/user/&#x27;+this.userId)</span><br><span class="line">&#125;,</span><br><span class="line">profileClick()&#123;</span><br><span class="line">	this.$router.push(&#123;</span><br><span class="line">		path:&#x27;/profile&#x27;,</span><br><span class="line">		query:&#123;</span><br><span class="line">			name:&#x27;he&#x27;,</span><br><span class="line">			age:18</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h4 id="二十六、vue中的动画特效"><a href="#二十六、vue中的动画特效" class="headerlink" title="二十六、vue中的动画特效"></a>二十六、vue中的动画特效</h4><h5 id="1-Vue中的动画原理"><a href="#1-Vue中的动画原理" class="headerlink" title="1.Vue中的动画原理"></a>1.Vue中的动画原理</h5><p>(1)显示的时候的图表解释</p>
+<p><img src="/2021/09/02/vue/46.png"></p>
+<p>(2)隐藏的时候的图表解释</p>
+<p><img src="/2021/09/02/vue/47.png"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Vue动画原理<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="comment">/*进入的时候，也就还没有点击的时候的状态*/</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.v-enter</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">opacity</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/*点击按钮触发显示动画效果*/</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.v-enter-active</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">transition</span>:opacity <span class="number">3s</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/*离开最终的效果*/</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.v-leave-to</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">opacity</span>:<span class="number">0</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/*点击按钮，触发隐藏的效果*/</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.v-leave-active</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">transition</span>:opacity <span class="number">3s</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--可以给transition起个名字name:&#x27;fade&#x27;然后类名就要换成.fade-enter等--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">&quot;show&quot;</span> &gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;handleClick&quot;</span>&gt;</span>切换<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../js/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="javascript">                <span class="attr">message</span>:<span class="string">&#x27;hello world&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                <span class="attr">show</span>:<span class="literal">false</span></span></span><br><span class="line"><span class="javascript">            &#125;,</span></span><br><span class="line"><span class="javascript">            <span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="javascript">                <span class="function"><span class="title">handleClick</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">return</span> <span class="built_in">this</span>.show=!<span class="built_in">this</span>.show</span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;)</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<h5 id="2-在Vue中使用animate-css库"><a href="#2-在Vue中使用animate-css库" class="headerlink" title="2.在Vue中使用animate.css库"></a>2.在Vue中使用animate.css库</h5><p>官网：<a href="https://animate.style/">https://animate.style/</a></p>
+<p>使用animate.css库有两个注意点：</p>
+<ul>
+<li>必须是自己重新命名的类，而且里面一定要有animated</li>
+<li>根据自己的需要在后面加上效果</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">enter-active-class</span>=<span class="string">&quot;animated swing&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">leave-active-class</span>=<span class="string">&quot;animated shake&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">&quot;show&quot;</span>&gt;</span></span><br><span class="line">        hello world</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<h5 id="3-在Vue中同时使用过渡和动画"><a href="#3-在Vue中同时使用过渡和动画" class="headerlink" title="3.在Vue中同时使用过渡和动画"></a>3.在Vue中同时使用过渡和动画</h5><p>动画时长的问题：</p>
+<ul>
+<li><p>animate库是设置为1s</p>
+</li>
+<li><p>可以加个type=”transition”作为总的动画时长</p>
+</li>
+<li><p>也可以自定义动画播放的时长</p>
+<ul>
+<li>:duration=”1000”</li>
+<li>:duration=“{enter:100,leave:200}”</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--第一次内容显示有动画用appear解决--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">appear</span> <span class="attr">appear-active-class</span>=<span class="string">&quot;animated swing&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">&quot;show&quot;</span>&gt;</span></span><br><span class="line">        hello</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--两种动画结合--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">enter-active-class</span>=<span class="string">&quot;animated swing fade-enter-active&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">&quot;show&quot;</span>&gt;</span></span><br><span class="line">        hello</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="Vue3"><a href="#Vue3" class="headerlink" title="Vue3"></a>Vue3</h3><h4 id="一、Vue3带来了什么"><a href="#一、Vue3带来了什么" class="headerlink" title="一、Vue3带来了什么"></a>一、Vue3带来了什么</h4><h5 id="1-性能的提升"><a href="#1-性能的提升" class="headerlink" title="1.性能的提升"></a>1.性能的提升</h5><ul>
+<li><p>打包大小减少41%</p>
+</li>
+<li><p>初次渲染快55%，更新渲染块133%</p>
+</li>
+<li><p>内存减少54%</p>
+<p>……</p>
+</li>
+</ul>
+<h5 id="2-源码的升级"><a href="#2-源码的升级" class="headerlink" title="2.源码的升级"></a>2.源码的升级</h5><ul>
+<li><p>使用Proxy代替defineProperty实现响应式</p>
+</li>
+<li><p>重写虚拟DOM的实现和Tree-Shaking</p>
+<p>……</p>
+</li>
+</ul>
+<h5 id="3-拥抱TypeScript"><a href="#3-拥抱TypeScript" class="headerlink" title="3.拥抱TypeScript"></a>3.拥抱TypeScript</h5><ul>
+<li>Vue3可以更好的支持TypeScript</li>
+</ul>
+<h5 id="4-新的特性"><a href="#4-新的特性" class="headerlink" title="4.新的特性"></a>4.新的特性</h5><p>（1）Composition API(组合API)</p>
+<ul>
+<li><p>setup配置</p>
+</li>
+<li><p>ref与reactive</p>
+</li>
+<li><p>watch与watchEffect</p>
+</li>
+<li><p>provide与inject</p>
+<p>……</p>
+</li>
+</ul>
+<p>（2）新的内置组件</p>
+<ul>
+<li>Fragment</li>
+<li>Teleport</li>
+<li>Suspense</li>
+</ul>
+<p>（3）其它改变</p>
+<ul>
+<li><p>新的声明中周期钩子</p>
+</li>
+<li><p>data选项应始终被声明为一个函数</p>
+</li>
+<li><p>移除keyCode支持作为v-on的修饰符</p>
+<p>……</p>
+</li>
+</ul>
+<h4 id="二、使用vue-cli创建工程"><a href="#二、使用vue-cli创建工程" class="headerlink" title="二、使用vue-cli创建工程"></a>二、使用vue-cli创建工程</h4><ul>
+<li>确保vue-cli在4.5以上</li>
+<li>npm run serve</li>
+</ul>
+<h4 id="三、使用vite创建工程"><a href="#三、使用vite创建工程" class="headerlink" title="三、使用vite创建工程"></a>三、使用vite创建工程</h4><ul>
+<li><p>vite</p>
+<ul>
+<li>新一代的前端构建工具</li>
+<li>优势如下：<ul>
+<li>开发环境中，无需打包操作，可快速的冷启动</li>
+<li>轻量快速的热重载（HMR）</li>
+<li>真正的按需编译，不再等待整个应用编译完成</li>
+</ul>
+</li>
+<li>一上来就准备好了server</li>
+</ul>
+</li>
+<li><p>npm init vite-app <project-name></project-name></p>
+<p>cd <project-name></project-name></p>
+<p>npm run dev</p>
+</li>
+</ul>
+<h4 id="四、分析工程结构"><a href="#四、分析工程结构" class="headerlink" title="四、分析工程结构"></a>四、分析工程结构</h4><h5 id="1-main-js入口文件"><a href="#1-main-js入口文件" class="headerlink" title="1.main.js入口文件"></a>1.main.js入口文件</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入的不再是Vue构造函数了，引入的是一个名为createApp的工厂函数</span></span><br><span class="line"><span class="keyword">import</span> &#123;createApp&#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建应用实例对象——app(类似于之前Vue2中的vm，但app比vm更‘轻’)</span></span><br><span class="line"><span class="keyword">const</span> app=createApp(app)</span><br><span class="line"><span class="comment">//挂载</span></span><br><span class="line">app.mount(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
+<h5 id="2-在App-vue中"><a href="#2-在App-vue中" class="headerlink" title="2.在App.vue中"></a>2.在App.vue中</h5><p>在template中可以不用加div将东西包裹起来</p>
+<h4 id="五、常用Composition-API"><a href="#五、常用Composition-API" class="headerlink" title="五、常用Composition API"></a>五、常用Composition API</h4><h5 id="1-初识setup"><a href="#1-初识setup" class="headerlink" title="1.初识setup"></a>1.初识setup</h5><ul>
+<li>Vue3.0中一个新的配置项，值为一个函数</li>
+<li>setup是所有Composition API(组合API)“表演舞台”</li>
+<li>组件中所用到的：数据、方法等等，均要配置在setup中</li>
+<li>setup函数的两种返回值：<ul>
+<li>若返回一个对象，则对象中的属性、方法，在模板中均可以直接使用</li>
+<li>若返回一个渲染函数：则可以自定义渲染内容</li>
+</ul>
+</li>
+<li>注意点：<ul>
+<li>尽量不要与Vue2.x配置混用<ul>
+<li>Vue2.x配置（data、methods、computed…）中可以访问到setup中的属性、方法</li>
+<li>但在setup中不能访问到Vue2.x配置（data、methods、computed…）</li>
+<li>如果有重名，setup优先</li>
+</ul>
+</li>
+<li>setup不能是一个async函数，因为返回值不再是return的对象，而是promise，模板看不到return对象中的属性</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;	</span><br><span class="line">    &lt;h1&gt;</span><br><span class="line">    一个人的信息  </span><br><span class="line">    &lt;/h1&gt;</span><br><span class="line">	&lt;h2&gt;</span><br><span class="line">        姓名：&#123;&#123;name&#125;&#125;</span><br><span class="line">    &lt;/h2&gt;</span><br><span class="line">	&lt;h2&gt;</span><br><span class="line">        年龄：&#123;&#123;age&#125;&#125;</span><br><span class="line">    &lt;/h2&gt;</span><br><span class="line">	&lt;button @click=&quot;sayHello&quot;&gt;</span><br><span class="line">       说话</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default&#123;</span><br><span class="line">        name:&#x27;App&#x27;,</span><br><span class="line">        setup()&#123;</span><br><span class="line">            //数据</span><br><span class="line">            let name=&#x27;张三&#x27;</span><br><span class="line">            let age=18</span><br><span class="line">            //方法</span><br><span class="line">            function sayHello()&#123;</span><br><span class="line">                alert(`我叫$&#123;name&#125;，我$&#123;age&#125;岁了`)</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            return&#123;</span><br><span class="line">                name,</span><br><span class="line">                age,</span><br><span class="line">                sayHello</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
+<h5 id="2-ref函数"><a href="#2-ref函数" class="headerlink" title="2.ref函数"></a>2.ref函数</h5><p>作用：定义一个响应式的数据</p>
+<p>语法：const xxx=ref(initValue)</p>
+<ul>
+<li>创建一个包含响应式数据的<strong>引用对象（reference对象，简称ref对象）</strong></li>
+<li>JS中操作数据：xxx.value</li>
+<li>模板中读取数据：不需要.value，直接：<div></div></li>
+</ul>
+<p>备注：</p>
+<ul>
+<li>接收的数据可以是：基本类型、也可以是对象类型</li>
+<li>基本类型的数据：响应式依然是靠Object.defineProperty()的get与set完成的</li>
+<li>对象类型的数据：内部“求助”了Vue3.0中的一个新函数——reactive函数</li>
+</ul>
+<p>（1）<strong>处理基本数据类型</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;信息&lt;/h1&gt;</span><br><span class="line">  &lt;h2&gt;姓名：&#123;&#123;name&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;h2&gt;年龄：&#123;&#123;age&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;button @click=&quot;changeInfo&quot;&gt;修改人的信息&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  setup()&#123;</span><br><span class="line">    //数据</span><br><span class="line">    let name=ref(&#x27;张三&#x27;)</span><br><span class="line">    let age=ref(18)</span><br><span class="line"></span><br><span class="line">    //方法</span><br><span class="line">    function changeInfo()&#123;</span><br><span class="line">      name.value=&#x27;李四&#x27;</span><br><span class="line">      age.value=&#x27;10&#x27;</span><br><span class="line">      console.log(name,age)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //返回一个对象</span><br><span class="line">    return &#123;</span><br><span class="line">      name,</span><br><span class="line">      age,</span><br><span class="line">      changeInfo</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/09/02/vue/51.png"></p>
+<p>（2）<strong>处理对象类型</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;信息&lt;/h1&gt;</span><br><span class="line">  &lt;h2&gt;姓名：&#123;&#123;name&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;h2&gt;年龄：&#123;&#123;age&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;h2&gt;职位：&#123;&#123;job.type&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;h2&gt;工作薪水：&#123;&#123;job.salary&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;button @click=&quot;changeInfo&quot;&gt;修改人的信息&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  setup()&#123;</span><br><span class="line">    //数据</span><br><span class="line">    let name=ref(&#x27;张三&#x27;)</span><br><span class="line">    let age=ref(18)</span><br><span class="line">    let job=ref(&#123;</span><br><span class="line">      type:&#x27;前端工程师&#x27;,</span><br><span class="line">      salary:&#x27;10k&#x27;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    //方法</span><br><span class="line">    function changeInfo()&#123;</span><br><span class="line">      job.value.type=&#x27;UI设计师&#x27;</span><br><span class="line">      job.value.salary=&#x27;20k&#x27;</span><br><span class="line">      console.log(job.value)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //返回一个对象</span><br><span class="line">    return &#123;</span><br><span class="line">      name,</span><br><span class="line">      age,</span><br><span class="line">      job,</span><br><span class="line">      changeInfo</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/09/02/vue/52.png"></p>
+<h5 id="3-reactive函数"><a href="#3-reactive函数" class="headerlink" title="3.reactive函数"></a>3.reactive函数</h5><p>作用：定义一个<strong>对象类型</strong>的响应式数据（基本类型不要用它，要用ref函数）</p>
+<p>语法：const 代理对象=reactive(源对象) 接收一个对象（或数组），返回一个<strong>代理对象（proxy对象）</strong></p>
+<p>reactive定义的响应式数据时“深层次的”</p>
+<p>内部基于ES6的Proxy实现，通过代理对象操作源对象内部数据进行操作</p>
+<p>在处理对象的时候是深层次的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;信息&lt;/h1&gt;</span><br><span class="line">  &lt;h2&gt;姓名：&#123;&#123;name&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;h2&gt;年龄：&#123;&#123;age&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;h2&gt;职位：&#123;&#123;job.type&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;h2&gt;工作薪水：&#123;&#123;job.salary&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;h2&gt;测试c：&#123;&#123;job.a.b.c&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;button @click=&quot;changeInfo&quot;&gt;修改人的信息&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; ref,reactive &#125; from &#x27;vue&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  setup()&#123;</span><br><span class="line">    //数据</span><br><span class="line">    let name=ref(&#x27;张三&#x27;)</span><br><span class="line">    let age=ref(18)</span><br><span class="line">    let job=reactive(&#123;</span><br><span class="line">      type:&#x27;前端工程师&#x27;,</span><br><span class="line">      salary:&#x27;10k&#x27;,</span><br><span class="line">      a:&#123;</span><br><span class="line">        b:&#123;</span><br><span class="line">          c:999</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    //方法</span><br><span class="line">    function changeInfo()&#123;</span><br><span class="line">      name.value=&#x27;里斯&#x27;</span><br><span class="line">      age.value=20</span><br><span class="line">      job.type=&#x27;UI设计师&#x27;</span><br><span class="line">      job.salary=&#x27;20k&#x27;</span><br><span class="line">      //在这里如果输出job.value是undefined</span><br><span class="line">      // console.log(job)//Proxy对象</span><br><span class="line">      job.a.b.c=666</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //返回一个对象</span><br><span class="line">    return &#123;</span><br><span class="line">      name,</span><br><span class="line">      age,</span><br><span class="line">      job,</span><br><span class="line">      changeInfo</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>数组：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;信息&lt;/h1&gt;</span><br><span class="line">  &lt;h2&gt;爱好：&#123;&#123;hobby&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;button @click=&quot;changeInfo&quot;&gt;修改人的信息&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; reactive &#125; from &#x27;vue&#x27;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  setup()&#123;</span><br><span class="line">    let hobby=reactive([&#x27;学习&#x27;,&#x27;唱歌&#x27;])</span><br><span class="line"></span><br><span class="line">    //方法</span><br><span class="line">    function changeInfo()&#123;</span><br><span class="line">      hobby[0]=&#x27;玩游戏&#x27;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //返回一个对象</span><br><span class="line">    return &#123;</span><br><span class="line">      hobby,</span><br><span class="line">      changeInfo</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-回顾Vue2-x的响应式原理"><a href="#4-回顾Vue2-x的响应式原理" class="headerlink" title="4.回顾Vue2.x的响应式原理"></a>4.回顾Vue2.x的响应式原理</h5><ul>
+<li>实现原理：<ul>
+<li>对象类型：通过Object.defineProperty()对属性的读取、修改进行拦截（数据劫持）</li>
+<li>数组类型：通过重写更新数组的一系列方法来实现拦截（对数组的变更方法进行了包裹）</li>
+</ul>
+</li>
+<li>存在问题：<ul>
+<li>新增属性、删除属性，界面不会更新</li>
+<li>直接通过下标修改数组，界面不会自动更新</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;姓名：&#123;&#123;person.name&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;年龄：&#123;&#123;person.age&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;性别：&#123;&#123;person.sex&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;爱好：&#123;&#123;person.hobby&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;addAttr&quot;&gt;增加一个属性&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;deleteAttr&quot;&gt;删除一个属性&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;updateHobby&quot;&gt;更新爱好&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Vue from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123; Button &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      person:&#123;</span><br><span class="line">        name:&#x27;张三&#x27;,</span><br><span class="line">        age:18,</span><br><span class="line">        hobby:[&#x27;学习&#x27;,&#x27;玩游戏&#x27;]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    addAttr()&#123; </span><br><span class="line">      // this.person.sex=&#x27;女&#x27;//添加失败</span><br><span class="line">      // console.log(this.person.sex)</span><br><span class="line">      //实现真正添加的方法</span><br><span class="line">      // this.$set(this.person,&#x27;sex&#x27;,&#x27;女&#x27;)</span><br><span class="line">      Vue.set(this.person,&#x27;sex&#x27;,&#x27;男&#x27;)</span><br><span class="line">    &#125;,</span><br><span class="line">    deleteAttr()&#123;</span><br><span class="line">      // this.$delete(this.person,&#x27;name&#x27;)</span><br><span class="line">      Vue.delete(this.person,&#x27;name&#x27;)</span><br><span class="line">    &#125;,</span><br><span class="line">    updateHobby()&#123;</span><br><span class="line">      // this.$set.hobby(this.person.hobby,0,&#x27;逛街&#x27;)</span><br><span class="line">      this.person.hobby.splice(0,1,&#x27;逛街&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//源数据</span></span><br><span class="line">        <span class="keyword">let</span> person=&#123;</span><br><span class="line">            <span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">            <span class="attr">age</span>:<span class="number">18</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//模拟Vue2.x中实现响应式原理</span></span><br><span class="line">        <span class="keyword">let</span> p=&#123;&#125;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(p,<span class="string">&#x27;name&#x27;</span>,&#123;</span><br><span class="line">            <span class="attr">configurable</span>:<span class="literal">true</span>,</span><br><span class="line">            <span class="function"><span class="title">get</span>(<span class="params"></span>)</span>&#123;<span class="comment">//有人读取name时调用</span></span><br><span class="line">                <span class="keyword">return</span> person.name</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">set</span>(<span class="params">value</span>)</span>&#123;<span class="comment">//有人修改name时调用</span></span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;有人修改了name属性&#x27;</span>)</span><br><span class="line">                person.name=value</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(p,<span class="string">&#x27;age&#x27;</span>,&#123;</span><br><span class="line">            <span class="attr">configurable</span>:<span class="literal">true</span>,</span><br><span class="line">            <span class="function"><span class="title">get</span>(<span class="params"></span>)</span>&#123;<span class="comment">//有人读取age时调用</span></span><br><span class="line">                <span class="keyword">return</span> person.age</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">set</span>(<span class="params">value</span>)</span>&#123;<span class="comment">//有人修改age时调用</span></span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;有人修改了age属性&#x27;</span>)</span><br><span class="line">                person.age=value</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/09/02/vue/53.png"></p>
+<h5 id="5-Vue3-0的响应式"><a href="#5-Vue3-0的响应式" class="headerlink" title="5.Vue3.0的响应式"></a>5.Vue3.0的响应式</h5><ul>
+<li>实现原理<ul>
+<li>实现Proxy(代理)：拦截对象中任意属性的变化，包括：属性值的读写、属性的添加、属性的删除等</li>
+<li>通过Reflext（反射）：对被代理对象的属性进行操作</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//源数据</span></span><br><span class="line">        <span class="keyword">let</span> person=&#123;</span><br><span class="line">            <span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">            <span class="attr">age</span>:<span class="number">18</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//模拟Vue3.0中响应式原理</span></span><br><span class="line">        <span class="keyword">const</span> p=<span class="keyword">new</span> <span class="built_in">Proxy</span>(person,&#123;</span><br><span class="line">            <span class="function"><span class="title">get</span>(<span class="params">target,propName</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">`有人读取了p身上的<span class="subst">$&#123;propName&#125;</span>属性`</span>)</span><br><span class="line">                <span class="comment">// return target[propName]</span></span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(target,propName)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">//有人修改p的某个属性或者追加时调用</span></span><br><span class="line">            <span class="function"><span class="title">set</span>(<span class="params">target,propName,value</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">`有人修改了p身上的<span class="subst">$&#123;propName&#125;</span>`</span>)</span><br><span class="line">                <span class="comment">// target[propName]=value</span></span><br><span class="line">                <span class="built_in">Reflect</span>.set(target,propName,value)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">deleteProperty</span>(<span class="params">target,propName</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">`有人删除了p身上的<span class="subst">$&#123;propName&#125;</span>`</span>)</span><br><span class="line">                <span class="comment">// return delete target[propName]</span></span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">Reflect</span>.deleteProperty(target,propName)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/09/02/vue/54.png"></p>
 ]]></content>
       <categories>
         <category>vue</category>
       </categories>
       <tags>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图解HTTP</title>
+    <url>/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/</url>
+    <content><![CDATA[<h4 id="第一章-了解Web及网络基础"><a href="#第一章-了解Web及网络基础" class="headerlink" title="第一章 了解Web及网络基础"></a>第一章 了解Web及网络基础</h4><h5 id="1-1使用HTTP协议访问Web"><a href="#1-1使用HTTP协议访问Web" class="headerlink" title="1.1使用HTTP协议访问Web"></a>1.1使用HTTP协议访问Web</h5><ul>
+<li><p>客户端：通过发送请求获取服务器资源的Web浏览器</p>
+</li>
+<li><p>Web使用一种名为HTTP（HyperText Transfer Protocol，超文本传输协议）的协议作为规范，完成从<strong>客户端到服务器端</strong>等一系列运作流程</p>
+</li>
+</ul>
+<h5 id="1-2HTTP的诞生"><a href="#1-2HTTP的诞生" class="headerlink" title="1.2HTTP的诞生"></a>1.2HTTP的诞生</h5><ul>
+<li>三项WWW技术<ul>
+<li><strong>HTML</strong>:把SGML(Standard Generalized Markup Language，标准通用标记语言)作为页面的文本标记语言的HTML(HyperText Markup Language，超文本标记语言)</li>
+<li><strong>HTTP</strong>:作为文档传递协议</li>
+<li><strong>URL</strong>:指定文档所在地址</li>
+</ul>
+</li>
+<li>Web成长时代</li>
+</ul>
+<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/1.png"></p>
+<ul>
+<li>驻足不前的http<ul>
+<li>HTTP/0.9<ul>
+<li>没有作为正式的标准被建立</li>
+</ul>
+</li>
+<li>HTTP/1.0<ul>
+<li>HTTP正式作为标准被公布是在1996年的5月</li>
+<li>该协议标准至今仍被广泛使用在服务器端。</li>
+</ul>
+</li>
+<li>HTTP/1.1<ul>
+<li>1997年1月公布的HTTP/1.1是目前主流的HTTP协议版本</li>
+</ul>
+</li>
+<li>现在HTTP协议已经超出了Web这个框架的局限，被运用到了各种场景里。</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-3网络基础TCP-IP"><a href="#1-3网络基础TCP-IP" class="headerlink" title="1.3网络基础TCP/IP"></a>1.3网络基础TCP/IP</h5><ul>
+<li>把与互联网相关联的协议集合起来总称为TCP/IP</li>
+<li>两种说法：<ul>
+<li>把与互联网相关联的协议集合起来总称为TCP/IP</li>
+<li>TCP/IP是在IP协议的通信过程中，使用到的协议族的统称。</li>
+</ul>
+</li>
+<li>TCP/IP层次化的好处：<ul>
+<li>如果互联网只由一个协议统筹，某个地方需要改变设计时，就必须把所有部分整体替换掉</li>
+<li>分层之后只需把变动的层替换掉即可。把各层之间的接口部分规划好之后，每个层次内部的设计就能够自由改动了。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/2.png"></p>
+<ul>
+<li>TCP/IP协议族进行网络通信<ul>
+<li>发送端从应用层往下走，接收端则往应用层往上走。</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-4与HTTP关系密切的协议：IP、TCP和DNS"><a href="#1-4与HTTP关系密切的协议：IP、TCP和DNS" class="headerlink" title="1.4与HTTP关系密切的协议：IP、TCP和DNS"></a>1.4与HTTP关系密切的协议：IP、TCP和DNS</h5><p>（1）IP</p>
+<ul>
+<li>IP其实是一种协议的名称</li>
+<li>IP协议的作用<ul>
+<li>把各种数据包传送给对方</li>
+<li>保证确实传送到对方那里，则需要满足各类条件<ul>
+<li>两个重要的条件是<strong>IP地址和MAC地址</strong><ul>
+<li>IP地址指明了节点被分配到的地址</li>
+<li>MAC地址是指网卡所属的固定地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IP地址可以和MAC地址进行配对。IP地址可变换，但MAC地址基本上不会更改。</li>
+<li>使用ARP协议凭借MAC地址进行通信<ul>
+<li>IP间的通信依赖MAC地址</li>
+<li>ARP是一种用以解析地址的协议，根据通信方的IP地址就可以反查出对应的MAC地址。</li>
+</ul>
+</li>
+</ul>
+<p>（2）TCP位于传输层，提供可靠的字节流服务</p>
+<ul>
+<li>字节流服务（Byte Stream Service）<ul>
+<li>为了方便传输，将大块数据分割成以报文段（segment）为单位的数据包进行管理</li>
+</ul>
+</li>
+<li>可靠的传输服务<ul>
+<li>能够把数据准确可靠地传给对方</li>
+</ul>
+</li>
+<li>TCP协议为了更容易传送大数据才把数据分割，而且TCP协议能够确认数据最终是否送达到对方。</li>
+</ul>
+<p>（3）确保数据能达到目标</p>
+<p>TCP协议采用了三次握手（three-way handshaking）策略</p>
+<ul>
+<li>握手过程中使用了TCP的标志<ul>
+<li>flag</li>
+<li>SYN(synchronize)</li>
+<li>ACK</li>
+</ul>
+</li>
+<li>发送过程：<ul>
+<li>发送端首先发送一个带SYN标志的数据包给对方</li>
+<li>接收端收到后，回传一个带有SYN/ACK标志的数据包以示传达确认信息</li>
+<li>发送端再回传一个带ACK标志的数据包，代表“握手”结束</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-5负责域名解析的DNS服务"><a href="#1-5负责域名解析的DNS服务" class="headerlink" title="1.5负责域名解析的DNS服务"></a>1.5负责域名解析的DNS服务</h5><p>（1）作用：提供域名到IP地址之间的解析服务。</p>
+<p>（2）DNS协议提供通过域名查找IP地址，或逆向从IP地址反查域名的服务</p>
+<h5 id="1-6URI和URL"><a href="#1-6URI和URL" class="headerlink" title="1.6URI和URL"></a>1.6URI和URL</h5><ul>
+<li><strong>URL</strong>:UniformResource Locator，统一资源定位符</li>
+<li><strong>URI</strong>：Uniform Resource Identifier<ul>
+<li>Uniform：规定统一的格式可方便处理多种不同类型的资源，而不用根据上下文环境来识别资源指定的访问方式</li>
+<li>Resource：可标识的任何东西<ul>
+<li>不仅是文档文件，图像或服务（例如当天的天气预报）等能够区别于其他类型的，全都可作为资源</li>
+</ul>
+</li>
+<li>Identifier<ul>
+<li>表示可标识的对象。也称为标识符。</li>
+</ul>
+</li>
+<li>URI就是由某个协议方案表示的资源的定位标识符</li>
+</ul>
+</li>
+<li>URI用字符串标识某一互联网资源，而URL表示资源的地点（互联网上所处的位置）。可见URL是URI的子集</li>
+</ul>
+<h4 id="第2章-简单的HTTP协议"><a href="#第2章-简单的HTTP协议" class="headerlink" title="第2章 简单的HTTP协议"></a>第2章 简单的HTTP协议</h4><h5 id="2-1-HTTP协议用于客户端和服务器端之间的通信"><a href="#2-1-HTTP协议用于客户端和服务器端之间的通信" class="headerlink" title="2.1 HTTP协议用于客户端和服务器端之间的通信"></a>2.1 HTTP协议用于客户端和服务器端之间的通信</h5><ul>
+<li><p>请求访问文本或图像等资源的一端称为<strong>客户端</strong></p>
+</li>
+<li><p>提供资源响应的一端称为<strong>服务器端</strong></p>
+</li>
+<li><p>仅从一条通信路线来说，服务器端和客户端的角色是确定的，而用HTTP协议能够明确区分哪端是客户端，哪端是服务器端</p>
+</li>
+</ul>
+<h5 id="2-2通过请求和响应的交换达成通信"><a href="#2-2通过请求和响应的交换达成通信" class="headerlink" title="2.2通过请求和响应的交换达成通信"></a>2.2通过请求和响应的交换达成通信</h5><ul>
+<li>请求报文是由<ul>
+<li>请求方法</li>
+<li>请求URI</li>
+<li>协议版本</li>
+<li>可选的请求首部字段</li>
+<li>内容实体构成的</li>
+</ul>
+</li>
+<li>响应报文基本上由<ul>
+<li>协议版本</li>
+<li>状态码（表示请求成功或失败的数字代码）</li>
+<li>用以解释状态码的原因短语</li>
+<li>可选的响应首部字段</li>
+<li>实体主体构成</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-3HTTP是不保存状态的协议"><a href="#2-3HTTP是不保存状态的协议" class="headerlink" title="2.3HTTP是不保存状态的协议"></a>2.3HTTP是不保存状态的协议</h5><ul>
+<li>HTTP是一种<strong>不保存状态</strong>，即<strong>无状态（stateless）协议</strong>，每当有新的请求发送时，就会有对应的新响应产生<ul>
+<li>为了更快地处理大量事务，确保协议的可伸缩性</li>
+<li>自然可减少服务器的CPU及内存资源的消耗</li>
+<li>因为HTTP协议本身是非常简单的，所以才会被应用在各种场景里</li>
+</ul>
+</li>
+<li>HTTP/1.1虽然是无状态协议，但为了实现期望的保持状态功能，于是引入了<strong>Cookie技术</strong>。有了Cookie再用HTTP协议通信，就可以管理状态了</li>
+</ul>
+<h5 id="2-4请求URI定位资源"><a href="#2-4请求URI定位资源" class="headerlink" title="2.4请求URI定位资源"></a>2.4请求URI定位资源</h5><ul>
+<li>HTTP协议使用URI定位互联网上的资源</li>
+<li>如果不是访问特定资源而是对服务器本身发起请求，可以用一个*来代替请求URI</li>
+</ul>
+<h5 id="2-5告知服务器意图的HTTP方法"><a href="#2-5告知服务器意图的HTTP方法" class="headerlink" title="2.5告知服务器意图的HTTP方法"></a>2.5告知服务器意图的HTTP方法</h5><ul>
+<li>GET：获取资源<ul>
+<li>用来请求访问已被URI识别的资源</li>
+</ul>
+</li>
+<li>POST：传输实体主体（GET也可以，但一般不用）</li>
+<li>PUT：传输文件<ul>
+<li>就像FTP协议的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存到请求URI指定的位置。</li>
+<li>HTTP/1.1的PUT方法自身不带验证机制，任何人都可以上传文件，存在安全性问题，因此一般的Web网站不使用该方法</li>
+<li>配合HTTP/1.1的PUT方法自身不带验证机制，任何人都可以上传文件，存在安全性问题，因此一般的Web网站不使用该方法就可能可以使用</li>
+</ul>
+</li>
+<li>HEAD：获得报文首部<ul>
+<li>HEAD方法和GET方法一样，只是不返回报文主体部分</li>
+<li>HEAD方法和GET方法一样，只是不返回报文主体部分</li>
+</ul>
+</li>
+<li>DELETE：删除文件<ul>
+<li>是与PUT相反的方法</li>
+<li>按请求URI删除指定的资源</li>
+<li>HTTP/1.1的DELETE方法本身和PUT方法一样不带验证机制，所以一般的Web网站也不使用DELETE方法</li>
+</ul>
+</li>
+<li>OPTIONS：询问支持的方法<ul>
+<li>来查询针对请求URI指定的资源支持的方法。</li>
+</ul>
+</li>
+<li>TRACE：追踪路径<ul>
+<li>让Web服务器端将<strong>之前的请求通信</strong>环回给客户端的方法。</li>
+<li>发送请求时，在Max-Forwards首部字段中填入数值，每经过一个服务器端就将该数字减1，当数值刚好减到0时，就停止继续传输，最后接收到请求的服务器端则返回状态码200OK的响应</li>
+<li>客户端通过TRACE方法可以查询发送出去的请求是怎样被加工修改/篡改的<ul>
+<li>因为，请求想要连接到源目标服务器可能会通过代理中转，TRACE方法就是用来确认连接过程中发生的一系列操作</li>
+</ul>
+</li>
+<li>容易引发XST（Cross-Site Tracing，跨站追踪）攻击，通常就更不会用到了。</li>
+</ul>
+</li>
+<li>CONNECT：要求用隧道协议连接代理<ul>
+<li>要求在与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信</li>
+<li>主要使用<strong>SSL（Secure SocketsLayer，安全套接层）</strong>和<strong>TLS（Transport Layer Security，传输层安全）协议</strong>把通信内容<strong>加密</strong>后经网络隧道传输</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-6使用方法下达命令"><a href="#2-6使用方法下达命令" class="headerlink" title="2.6使用方法下达命令"></a>2.6使用方法下达命令</h5><ul>
+<li>向请求URI指定的资源发送请求报文时，采用称为方法的命令。</li>
+<li>方法名区分大小写，注意要用大写字母。</li>
+</ul>
+<h5 id="2-7持久连接节省通信量"><a href="#2-7持久连接节省通信量" class="headerlink" title="2.7持久连接节省通信量"></a>2.7持久连接节省通信量</h5><ul>
+<li>持久连接<ul>
+<li>持久连接的特点是，只要任意一端没有明确提出断开连接，则保持TCP连接状态。</li>
+<li>好处<ul>
+<li>在于减少了TCP连接的重复建立</li>
+<li>减少断开所造成的额外开销<ul>
+<li>这部分时间使HTTP请求和响应能够更早地结束，这样Web页面的显示速度也就相应提高了</li>
+</ul>
+</li>
+<li>减轻了服务器端的负载</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>管线化<ul>
+<li>持久连接使得多数请求以管线化（pipelining）方式发送成为可能</li>
+<li>从前发送请求后需等待并收到响应，才能发送下一个请求。管线化技术出现后，不用等待响应亦可直接发送下一个请求</li>
+<li>就能够做到<strong>同时并行发送多个请求</strong>，而不需要一个接一个地等待响应了</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-8使用Cookie的状态管理"><a href="#2-8使用Cookie的状态管理" class="headerlink" title="2.8使用Cookie的状态管理"></a>2.8使用Cookie的状态管理</h5><ul>
+<li>Cookie技术通过在请求和响应报文中写入Cookie信息来控制客户端的状态</li>
+<li>Cookie会根据从服务器端发送的响应报文内的一个叫做<strong>Set-Cookie的首部字段信息</strong>—-&gt;通知<strong>客户端保存Cookie</strong>。当下次客户端再往该服务器发送请求时，客户端会<strong>自动</strong>在请求报文中<strong>加入Cookie值</strong>后发送出去。</li>
+<li>服务器端发现客户端发送过来的Cookie后，会去检查究竟是从哪一个客户端发来的连接请求，然后对比服务器上的记录，最后得到之前的状态信息</li>
+</ul>
+<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/3.png"></p>
+<h4 id="第3章-HTTP报文内的HTTP信息"><a href="#第3章-HTTP报文内的HTTP信息" class="headerlink" title="第3章 HTTP报文内的HTTP信息"></a>第3章 HTTP报文内的HTTP信息</h4><h5 id="3-1HTTP报文"><a href="#3-1HTTP报文" class="headerlink" title="3.1HTTP报文"></a>3.1HTTP报文</h5><ul>
+<li>用于HTTP协议交互的信息被称为HTTP报文<ul>
+<li>HTTP报文本身是由<strong>多行（用CR+LF作换行符）数据</strong>构成的字符串文本</li>
+<li>大致可分为报文首部和报文主体两块，由最初出现的空行（CR+LF）来划分</li>
+<li>由最初出现的空行（CR+LF）来划分</li>
+</ul>
+</li>
+<li>请求端（客户端）的HTTP报文叫做请求报文</li>
+<li>响应端（服务器端）的叫做响应报文</li>
+</ul>
+<h5 id="3-2请求报文及响应报文的结构"><a href="#3-2请求报文及响应报文的结构" class="headerlink" title="3.2请求报文及响应报文的结构"></a>3.2请求报文及响应报文的结构</h5><ul>
+<li>请求报文和响应报文的<strong>首部内容</strong>由以下数据组成<ul>
+<li>请求行<ul>
+<li>包含用于请求的方法，请求URI和HTTP版本。</li>
+</ul>
+</li>
+<li>状态行<ul>
+<li>包含表明响应结果的状态码，原因短语和HTTP版本。</li>
+</ul>
+</li>
+<li>首部字段<ul>
+<li>包含表示请求和响应的各种条件和属性的各类首部。</li>
+<li>一般有4种首部<ul>
+<li>通用首部、请求首部、响应首部和实体首部。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>其他<ul>
+<li>可能包含HTTP的RFC里未定义的首部（Cookie等）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-3编码提升传输速率"><a href="#3-3编码提升传输速率" class="headerlink" title="3.3编码提升传输速率"></a>3.3编码提升传输速率</h5><ul>
+<li>编码的操作需要计算机来完成，因此会消耗更多的CPU等资源</li>
+<li>报文主体和实体主体的差异<ul>
+<li>报文（message）<ul>
+<li>HTTP通信中的基本单位</li>
+<li>8位<strong>组字节流</strong>（octetsequence，其中octet为8个比特）组成</li>
+<li>通过HTTP通信传输</li>
+</ul>
+</li>
+<li>实体（entity）<ul>
+<li>作为请求或响应的有效载荷数据（补充项）被传输，其内容由<strong>实体首部和实体主体</strong>组成。</li>
+</ul>
+</li>
+<li>HTTP报文的主体用于传输请求或响应的实体主体</li>
+<li>通常，<strong>报文主体等于实体主体</strong>。只有<strong>当传输中进行编码操作</strong>时，实体主体的内容发生变化，才导致它和报文主体产生差异。</li>
+</ul>
+</li>
+<li>内容编码<ul>
+<li>指明应用在实体内容上的编码格式，并保持实体信息原样压缩</li>
+<li>内容编码后的实体由客户端接收并负责解码。</li>
+<li>常用的内容编码有以下几种<ul>
+<li>gzip（GNU zip）</li>
+<li>compress（UNIX系统的标准压缩）</li>
+<li>deflate（zlib）</li>
+<li>identity（不进行编码）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分块传输编码<ul>
+<li>把实体主体分块的功能</li>
+<li>在传输大容量数据时，通过把数据分割成多块，能够让浏览器逐步显示页面</li>
+<li>每一块都会用十六进制来标记块的大小，而实体主体的最后一块会使用“0(CR+LF)”来标记。</li>
+<li>使用分块传输编码的实体主体会由接收的客户端负责解码，恢复到编码前的实体主体。</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-4发送多种数据的多部分对象集合"><a href="#3-4发送多种数据的多部分对象集合" class="headerlink" title="3.4发送多种数据的多部分对象集合"></a>3.4发送多种数据的多部分对象集合</h5><ul>
+<li>在MIME（多用途因特网邮件扩展—-&gt;它允许邮件处理文本、图片、视频等多个不同类型的数据）扩展中会使用一种称为多部分对象集合（Multipart）的方法，来容纳多份不同类型的数据。</li>
+<li>HTTP协议中也采纳了多部分对象集合，发送的一份报文主体内可含有多类型实体。通常是在图片或文本文件等上传时使用。<ul>
+<li>多部分对象集合包含的对象如下<ul>
+<li>multipart/form-data<ul>
+<li>在Web表单文件上传时使用</li>
+</ul>
+</li>
+<li>multipart/byteranges<ul>
+<li>状态码206（Partial Content，部分内容）响应报文包含了多个范围的内容时使用。</li>
+</ul>
+</li>
+<li>multipart/form-data</li>
+<li>multipart/byteranges</li>
+</ul>
+</li>
+<li>在HTTP报文中使用多部分对象集合时，需要在首部字段里加上Content-type</li>
+<li>使用boundary字符串来划分多部分对象集合指明的各类实体<ul>
+<li>在boundary字符串指定的各个实体的起始行之前插入“–”标记（例如：–AaB03x、–THIS_STRING_SEPARATES）</li>
+<li>在多部分对象集合对应的字符串的最后插入“–”标记（例如：–AaB03x–、–THIS_STRING_SEPARATES–）作为结束</li>
+</ul>
+</li>
+<li>多部分对象集合的每个部分类型中，都可以含有首部字段。<ul>
+<li>可以在某个部分中嵌套使用多部分对象集合</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-5获取部分内容的范围请求"><a href="#3-5获取部分内容的范围请求" class="headerlink" title="3.5获取部分内容的范围请求"></a>3.5获取部分内容的范围请求</h5><ul>
+<li><p>范围请求（Range Request）</p>
+<ul>
+<li><p>指定范围发送的请求</p>
+</li>
+<li><p>执行范围请求时，会用到首部字段Range来指定资源的byte范围</p>
+<ul>
+<li><p>byte范围的指定形式如下</p>
+<ul>
+<li><p>5001～10000字节</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Range:bytes=5001-10000</span><br></pre></td></tr></table></figure></li>
+<li><p>从5001字节之后全部的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Range:bytes=5001-</span><br></pre></td></tr></table></figure></li>
+<li><p>从一开始到3000字节和5000～7000字节的多重范围</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Range:bytes=-3000,5000-700</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>针对范围请求，响应会返回状态码为206 Partial Content的响应报文</p>
+</li>
+<li><p>对于多重范围的范围请求，响应会在首部字段Content-Type标明multipart/byteranges后返回响应报文。</p>
+</li>
+<li><p>服务器端无法响应范围请求，则会返回状态码200 OK和完整的实体内容。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-6内容协商返回最合适的内容"><a href="#3-6内容协商返回最合适的内容" class="headerlink" title="3.6内容协商返回最合适的内容"></a>3.6内容协商返回最合适的内容</h5><ul>
+<li>内容协商<ul>
+<li>当浏览器的默认语言为英语或中文，访问相同URI的Web页面时，则会显示对应的英语版或中文版的Web页面</li>
+</ul>
+</li>
+<li>内容协商机制<ul>
+<li>指客户端和服务器端就响应的资源内容进行交涉，然后提供给客户端最为适合的资源</li>
+<li>内容协商会以响应资源的语言、字符集、编码方式等作为判断的基准</li>
+<li>包含在请求报文中的某些首部字段（如下）就是判断的基准<ul>
+<li>Accept</li>
+<li>Accept-Charset</li>
+<li>Accept-Encoding</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内容协商技术有以下3种类型<ul>
+<li>服务器驱动协商<ul>
+<li>以请求的首部字段为参考，在服务器端自动处理</li>
+<li>对用户来说，以浏览器发送的信息作为判定的依据，并不一定能筛选出最优内容</li>
+</ul>
+</li>
+<li>客户端驱动协商<ul>
+<li>用户从浏览器显示的可选项列表中手动选择</li>
+<li>还可以利用JavaScript脚本在Web页面上自动进行上述选择</li>
+</ul>
+</li>
+<li>透明协商<ul>
+<li>是服务器驱动和客户端驱动的结合体</li>
+<li>由服务器端和客户端各自进行内容协商的一种方法。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="第4章-返回结果的HTTP状态码"><a href="#第4章-返回结果的HTTP状态码" class="headerlink" title="第4章 返回结果的HTTP状态码"></a>第4章 返回结果的HTTP状态码</h4><h5 id="4-1状态码告知从服务器端返回的请求结果"><a href="#4-1状态码告知从服务器端返回的请求结果" class="headerlink" title="4.1状态码告知从服务器端返回的请求结果"></a>4.1状态码告知从服务器端返回的请求结果</h5><ul>
+<li>状态码<ul>
+<li>当客户端向服务器端发送请求时，描述返回的请求结果</li>
+<li>借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误</li>
+<li>以3位数字和原因短语组成<ul>
+<li>数字中的第一位指定了响应类别，后两位无分类</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类别</th>
+<th>原因短语</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1XX</td>
+<td>Information(信息性状态码)</td>
+<td>接收的请求正在处理</td>
+</tr>
+<tr>
+<td>2XX</td>
+<td>Success(成功状态码)</td>
+<td>请求正常处理完毕</td>
+</tr>
+<tr>
+<td>3XX</td>
+<td>Redirection(重定向状态码)</td>
+<td>需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td>4XX</td>
+<td>Client Error(客户端错误状态码)</td>
+<td>服务器无法处理请求</td>
+</tr>
+<tr>
+<td>5XX</td>
+<td>Server Error(服务器错误状态码)</td>
+<td>服务器处理请求出错</td>
+</tr>
+</tbody></table>
+<h5 id="4-2-2XX成功（表明请求被正常处理了）"><a href="#4-2-2XX成功（表明请求被正常处理了）" class="headerlink" title="4.2 2XX成功（表明请求被正常处理了）"></a>4.2 2XX成功（表明请求被正常处理了）</h5><ul>
+<li>200 OK<ul>
+<li>表示从客户端发来的请求在服务器端被正常处理了</li>
+<li>在响应报文内，随状态码一起返回的信息会因方法的不同而发生改变<ul>
+<li>使用GET方法时，对应请求资源的实体会作为响应返回</li>
+<li>而使用HEAD方法时，对应请求资源的实体主体不随报文首部作为响应返回（即在响应中只返回首部，不会返回实体的主体部分）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>204 No Content<ul>
+<li>代表服务器接收的请求已成功处理，但在返回的响应报文中不含实体的主体部分</li>
+<li>也不允许返回任何实体的主体</li>
+<li>比如：<ul>
+<li>当从浏览器发出请求处理后，返回204响应，那么浏览器显示的页面不发生更新</li>
+</ul>
+</li>
+<li>使用场景<ul>
+<li>一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>206 Partial Content<ul>
+<li>表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求</li>
+<li>响应报文中包含由Content-Range指定范围的实体内容。</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-3-3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）"><a href="#4-3-3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）" class="headerlink" title="4.3 3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）"></a>4.3 3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）</h5><ul>
+<li><p>301 Moved Permanently</p>
+<ul>
+<li>永久性重定向</li>
+<li>表示请求的资源已被分配了新的URI，以后应使用资源现在所指的URI</li>
+<li>如果已经把资源对应的URI保存为书签了，这时应该按Location首部字段提示的URI重新保存</li>
+</ul>
+</li>
+<li><p>302 Found</p>
+<ul>
+<li>临时性重定向</li>
+<li>表示请求的资源已被分配了新的URI，希望用户（本次）能使用新的URI访问</li>
+</ul>
+</li>
+<li><p>303 See Other</p>
+<ul>
+<li>表示由于请求对应的资源存在着另一个URI，应使用GET方法定向获取请求的资源</li>
+<li>当301、302、303响应状态码返回时，几乎所有的浏览器都会把POST改成GET，并删除请求报文内的主体，之后请求会自动再次发送。301、302标准是禁止将POST方法改变成GET方法的，但实际使用时大家都会这么做。</li>
+</ul>
+</li>
+<li><p>304 Not Modified（与重定向无关）</p>
+<ul>
+<li>表示客户端发送附带条件的请求时，服务器端允许请求访问资源</li>
+<li>但因发生请求未满足条件的情况后，直接返回304 Not Modified（服务器端资源未改变，可直接使用客户端未过期的缓存）</li>
+<li>304状态码返回时，不包含任何响应的主体部分</li>
+</ul>
+</li>
+<li><p>307 Temporary Redirect</p>
+<ul>
+<li>临时重定向</li>
+<li>该状态码与302 Found有着相同的含义</li>
+<li>307会遵照浏览器标准，不会从POST变成GET</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-4-4XX客户端错误（表明客户端是发生错误的原因所在）"><a href="#4-4-4XX客户端错误（表明客户端是发生错误的原因所在）" class="headerlink" title="4.4 4XX客户端错误（表明客户端是发生错误的原因所在）"></a>4.4 4XX客户端错误（表明客户端是发生错误的原因所在）</h5><ul>
+<li>400 Bad Request<ul>
+<li>表示请求报文中存在<strong>语法错误</strong></li>
+<li>需修改请求的内容后再次发送请求</li>
+<li>浏览器会像200 OK一样对待该状态码。</li>
+</ul>
+</li>
+<li>401 Unauthorized<ul>
+<li>表示发送的请求需要有通过HTTP认证（BASIC认证、DIGEST认证）的认证信息</li>
+<li>若之前已进行过1次请求，则表示用户认证失败。</li>
+<li>返回含有401的响应必须包含一个适用于被请求资源的WWW-Authenticate首部用以质询（challenge）用户信息</li>
+<li>当浏览器初次接收到401响应，会弹出认证用的对话窗口。</li>
+</ul>
+</li>
+<li>403 Forbidden<ul>
+<li>表明对请求资源的访问被服务器拒绝了</li>
+<li>未获得文件系统的访问授权，访问权限出现某些问题（从未授权的发送源IP地址试图访问）等列举的情况都可能是发生403的原因。</li>
+</ul>
+</li>
+<li>404 Not Found<ul>
+<li>表明服务器上无法找到请求的资源</li>
+<li>可以在服务器端拒绝请求且不想说明理由时使用</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-5-5XX服务器错误（表明服务器本身发生错误）"><a href="#4-5-5XX服务器错误（表明服务器本身发生错误）" class="headerlink" title="4.5 5XX服务器错误（表明服务器本身发生错误）"></a>4.5 5XX服务器错误（表明服务器本身发生错误）</h5><ul>
+<li>500 Internal Server Error<ul>
+<li>表明服务器端在执行请求时发生了错误</li>
+<li>也有可能是Web应用存在的bug或某些临时的故障</li>
+</ul>
+</li>
+<li>503 Service Unavailable<ul>
+<li>表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求</li>
+<li>如果事先得知解除以上状况需要的时间，最好写入Retry-After首部字段再返回给客户端</li>
+</ul>
+</li>
+</ul>
+<h4 id="第5章-与HTTP协作的Web服务器"><a href="#第5章-与HTTP协作的Web服务器" class="headerlink" title="第5章 与HTTP协作的Web服务器"></a>第5章 与HTTP协作的Web服务器</h4><h5 id="5-1-用单台虚拟主机实现多个域名"><a href="#5-1-用单台虚拟主机实现多个域名" class="headerlink" title="5.1 用单台虚拟主机实现多个域名"></a>5.1 用单台虚拟主机实现多个域名</h5><ul>
+<li>HTTP/1.1规范允许一台HTTP服务器搭建多个Web站点<ul>
+<li>比如：<ul>
+<li>提供Web托管服务（Web Hosting Service）的供应商，可以用一台服务器为多位客户服务，也可以以每位客户持有的域名运行各自不同的网站</li>
+<li>利用了虚拟主机（Virtual Host，又称虚拟服务器）的功能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在互联网上，域名通过DNS服务映射到IP地址（域名解析）之后访问目标网站</li>
+<li>在相同的IP地址下，由于虚拟主机可以寄存多个不同主机名和域名的Web网站，因此在发送HTTP请求时，必须在Host首部内完整指定主机名或域名的URI</li>
+</ul>
+<h5 id="5-2-通信数据转发程序：代理、网关、隧道"><a href="#5-2-通信数据转发程序：代理、网关、隧道" class="headerlink" title="5.2 通信数据转发程序：代理、网关、隧道"></a>5.2 通信数据转发程序：代理、网关、隧道</h5><ul>
+<li>这些应用程序和服务器可以将请求转发给通信线路上的下一站服务器，并且能接收从那台服务器发送的响应再转发给客户端。</li>
+<li>代理<ul>
+<li>一种有<strong>转发功能</strong>的应用程序</li>
+<li>“中间人”的角色</li>
+<li>接收由客户端发送的请求并转发给服务器，同时也接收服务器返回的响应并转发给客户端。</li>
+<li>基本行为：<ul>
+<li>接收客户端发送的请求后转发给其他服务器</li>
+</ul>
+</li>
+<li>不改变请求URI，会直接发送给前方持有资源的目标服务器</li>
+<li>源服务器：<ul>
+<li>持有资源实体的服务器</li>
+<li>从源服务器返回的响应经过代理服务器后再传给客户端</li>
+</ul>
+</li>
+<li>使用代理服务器的理由<ul>
+<li>利用缓存技术（稍后讲解）减少网络带宽的流量</li>
+<li>组织内部针对特定网站的访问控制，以获取访问日志为主要目的</li>
+</ul>
+</li>
+<li>实现代理的方法：两个基准<ul>
+<li>是否使用缓存：<ul>
+<li>缓存代理<ul>
+<li>代理转发响应时，缓存代理（Caching Proxy）会预先将资源的副本（缓存）保存在代理服务器上</li>
+<li>当代理再次接收到对相同资源的请求时，就可以不从源服务器那里获取资源，而是将之前缓存的资源作为响应返回</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>是否会修改报文<ul>
+<li>透明代理<ul>
+<li>转发请求或响应时，不对报文做任何加工的代理类型</li>
+</ul>
+</li>
+<li>非透明代理<ul>
+<li>对报文内容进行加工的代理</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网关<ul>
+<li>转发其他服务器通信数据的服务器</li>
+<li>接收从客户端发送来的请求时，它就<strong>像自己拥有资源的源服务器</strong>一样对请求进行处理</li>
+<li>工作机制和代理十分相似，而网关能使通信线路上的服务器提供<strong>非HTTP协议服务</strong></li>
+<li>好处<ul>
+<li>能提高通信的安全性<ul>
+<li>理由：</li>
+<li>因为可以在<strong>客户端与网关</strong>之间的通信线路上<strong>加密</strong>以确保连接的安全</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>隧道<ul>
+<li>在相隔甚远的客户端和服务器两者之间进行中转，并保持双方通信连接的应用程序</li>
+<li>目的：<ul>
+<li>确保客户端能与服务器进行安全的通信</li>
+</ul>
+</li>
+<li>隧道本身不会去解析HTTP请求<ul>
+<li>请求保持原样中转给之后的服务器。隧道会在通信双方断开连接时结束</li>
+</ul>
+</li>
+<li>隧道本身是透明的</li>
+</ul>
+</li>
+</ul>
+<h5 id="5-3-保存资源的缓存"><a href="#5-3-保存资源的缓存" class="headerlink" title="5.3 保存资源的缓存"></a>5.3 保存资源的缓存</h5><ul>
+<li>缓存<ul>
+<li><strong>代理服务器或客户端本地磁盘内</strong>保存的资源副本</li>
+<li>利用缓存的<strong>好处</strong>：<ul>
+<li>可减少对源服务器的访问，因此也就节省了通信流量和通信时间</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>缓存服务器<ul>
+<li>代理服务器的一种，并归类在缓存代理类型中</li>
+<li>当代理转发从服务器返回的响应时，代理服务器将会保存一份资源的副本</li>
+<li><strong>优势</strong>：<ul>
+<li>在于利用缓存可避免多次从源服务器转发资源</li>
+<li>因此客户端可就近从缓存服务器上获取资源，而源服务器也不必多次处理相同的请求了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>缓存的有效期限<ul>
+<li>因为客户端的要求、缓存的有效期等因素，向源服务器确认资源的有效性</li>
+<li>若判断缓存失效，缓存服务器将会再次从源服务器上获取“新”资源</li>
+</ul>
+</li>
+<li>客户端的缓存（临时网络文件）<ul>
+<li>浏览器缓存如果有效，就不必再向服务器请求相同的资源了，可以直接从本地磁盘内读取</li>
+</ul>
+</li>
+<li>在HTTP出现之前的协议<ul>
+<li>FTP（File Transfer Protocol）<ul>
+<li>传输文件时使用的协议（<strong>仍在使用</strong>）</li>
+</ul>
+</li>
+<li>NNTP（Network News Transfer Protocol）<ul>
+<li>用于NetNews电子会议室内传送消息的协议（<strong>已经不怎么使用了</strong>）</li>
+<li>现在，利用Web交换信息已成主流</li>
+</ul>
+</li>
+<li>Archie<ul>
+<li>以关键词检索多个数据库使用的协议（<strong>已经不怎么使用了</strong>）</li>
+</ul>
+</li>
+<li>Gopher<ul>
+<li>查找与互联网连接的计算机内信息的协议</li>
+<li>由于现在已经被HTTP协议替代，也已经不怎么使用了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="第6章-HTTP的首部"><a href="#第6章-HTTP的首部" class="headerlink" title="第6章 HTTP的首部"></a>第6章 HTTP的首部</h4><h5 id="6-1-HTTP报文首部"><a href="#6-1-HTTP报文首部" class="headerlink" title="6.1 HTTP报文首部"></a>6.1 HTTP报文首部</h5><ul>
+<li>HTTP协议的请求和响应报文中必定包含HTTP首部</li>
+<li>HTTP请求报文<ul>
+<li>方法</li>
+<li>URI</li>
+<li>HTTP版本</li>
+<li>HTTP首部字段等部分构成</li>
+</ul>
+</li>
+<li>HTTP响应报文<ul>
+<li>HTTP版本</li>
+<li>状态码（数字和原因短语）</li>
+<li>HTTP首部字段3部分构成</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-2-HTTP首部字段"><a href="#6-2-HTTP首部字段" class="headerlink" title="6.2 HTTP首部字段"></a>6.2 HTTP首部字段</h5><ul>
+<li>为了给浏览器和服务器提供报文主体大小、所使用的语言、认证信息等内容</li>
+<li>HTTP首部字段结构<ul>
+<li>首部字段名和字段值构成的，中间用冒号“:”分隔</li>
+<li>首部字段名：字段值</li>
+<li>例子：Content-Type:text/html</li>
+<li>字段值对应单个HTTP首部字段可以有多个值<ul>
+<li>Keep-Alive:timeout=15,max=100</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>4种HTTP首部字段类型<ul>
+<li>通用首部字段（General Header Fields）<ul>
+<li>请求报文和响应报文两方都会使用的首部</li>
+</ul>
+</li>
+<li>请求首部字段（Request Header Fields）<ul>
+<li>客户端向服务器端发送请求</li>
+<li>补了请求的附加内容、客户端信息、响应内容相关优先级等信息</li>
+</ul>
+</li>
+<li>响应首部字段（Response Header Fields）<ul>
+<li>服务器端向客户端返回响应</li>
+<li>补充了响应的附加内容，也会要求客户端附加额外的内容信息</li>
+</ul>
+</li>
+<li>实体首部字段（Entity Header Fields）<ul>
+<li>针对请求报文和响应报文的实体部分</li>
+<li>补充了资源内容更新时间等与实体有关的信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HTTP首部字段将定义成缓存代理和非缓存代理的行为，分成2种类型<ul>
+<li>端到端首部（End-to-end Header）<ul>
+<li>首部会转发给请求/响应对应的最终接收目标</li>
+<li>且必须保存在由缓存生成的响应中</li>
+<li>另外规定它必须被转发</li>
+</ul>
+</li>
+<li>逐跳首部（Hop-by-hop Header）<ul>
+<li>只对单次转发有效，会因通过缓存或代理而不再转发</li>
+<li>如果要使用hop-by-hop首部，需提供Connection首部字段</li>
+<li>Connection</li>
+<li>Keep-Alive</li>
+<li>Proxy-Authenticate</li>
+<li>Proxy-Authorization</li>
+<li>Trailer</li>
+<li>TE</li>
+<li>Transfer-Encoding</li>
+<li>Upgrade</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-3-HTTP-1-1-通用首部字段"><a href="#6-3-HTTP-1-1-通用首部字段" class="headerlink" title="6.3 HTTP/1.1 通用首部字段"></a>6.3 HTTP/1.1 通用首部字段</h5><ul>
+<li><p> Cache-Control</p>
+</li>
+<li><p>通过指定首部字段Cache-Control的指令，就能操作缓存的工作机制</p>
+</li>
+<li><p>指令的参数是可选的，多个指令之间通过“,”分隔</p>
+</li>
+<li><p>表示是否能缓存的指令:</p>
+<ul>
+<li>public指令(Cache-Control:public)<ul>
+<li>当指定使用public指令时，则明确表明其他用户也可利用缓存</li>
+</ul>
+</li>
+<li>private指令(Cache-Control:private)<ul>
+<li>当指定private指令后，响应只以特定的用户作为对象，这与public指令的行为相反</li>
+</ul>
+</li>
+<li>no-cache指令(Cache-Control:no-cache)<ul>
+<li>为了防止从缓存中返回过期的资源</li>
+<li>客户端发送的请求包含no-cache的话表示客户端将不会接收缓存过的响应</li>
+<li>服务器返回的响应中包含no-cache指令，那么缓存服务器不能对资源进行缓存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>控制可执行缓存的对象的指令</p>
+<ul>
+<li>no-store指令<ul>
+<li>暗示请求（和对应的响应）或响应中包含<strong>机密信息</strong></li>
+<li>规定缓存不能在本地存储请求或响应的任一部分</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>指定缓存期限和认证的指令</p>
+<ul>
+<li>s-maxage指令<ul>
+<li>功能和max-age指令的相同，它们的不同点是s-maxage指令只适用于<strong>供多位用户使用的公共缓存服务器</strong></li>
+<li>对于向同一用户重复返回响应的服务器来说，这个指令没有任何作用</li>
+</ul>
+</li>
+<li>max-age指令<ul>
+<li>客户端发送的请求中包含max-age指令时<ul>
+<li>如果判定缓存资源的缓存时间数值比指定时间的数值<strong>更小</strong>，那么客户端就<strong>接收</strong>缓存的资源</li>
+</ul>
+</li>
+<li>服务器返回的响应中包含max-age指令时<ul>
+<li>缓存服务器将不对资源的有效性再作确认，而max-age数值代表资源保存为缓存的最长时间</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>min-fresh指令<ul>
+<li>指令要求缓存服务器返回<strong>至少还未过指定时间</strong>的缓存资源</li>
+</ul>
+</li>
+<li>max-stale指令<ul>
+<li>指示缓存资源，即使过期也照常接收</li>
+<li>指令未指定参数值，那么无论经过多久，客户端都会接收响应</li>
+<li>指令中指定了具体数值，那么即使过期，只要仍处于max-stale指定的时间内，仍旧会被客户端接收</li>
+</ul>
+</li>
+<li>only-if-cached指令<ul>
+<li>表示客户端仅在缓存服务器本地缓存目标资源的情况下才会要求其返回</li>
+<li>要求缓存服务器不重新加载响应，也不会再次确认资源有效性</li>
+</ul>
+</li>
+<li>must-revalidate指令<ul>
+<li>代理会向源服务器再次验证即将返回的响应缓存目前是否仍然有效</li>
+<li>代理无法连通源服务器再次获取有效资源的话<ul>
+<li>缓存必须给客户端一条504（Gateway Timeout）状态码</li>
+</ul>
+</li>
+<li>使用must-revalidate指令会忽略请求的max-stale指令（即使已经在首部使用了max-stale，也不会再有效果）</li>
+</ul>
+</li>
+<li>proxy-revalidate指令<ul>
+<li>要求所有的缓存服务器在接收到客户端带有该指令的请求返回响应<strong>之前</strong>，必须再次验证缓存的有效性</li>
+</ul>
+</li>
+<li>no-transform指令<ul>
+<li>规定无论是在请求还是响应中，缓存都不能改变实体主体的媒体类型</li>
+<li>作用：<ul>
+<li>可防止缓存或代理压缩图片等类似操作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Cache-Control扩展</p>
+<ul>
+<li>cache-extension token<ul>
+<li>cache-extension标记（token），可以扩展Cache-Control首部字段内的指令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Connection</p>
+<ul>
+<li>控制不再转发给代理的首部字段</li>
+<li>管理持久连接<ul>
+<li>HTTP/1.1版本的默认连接都是持久连接，<ul>
+<li>当服务器端想明确断开连接时，则指定Connection首部字段的值为Close</li>
+</ul>
+</li>
+<li>HTTP/1.1之前的HTTP版本的默认连接都是非持久连接<ul>
+<li>想在旧版本的HTTP协议上维持持续连接，则需要指定Connection首部字段的值为Keep-Alive</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Date</p>
+<ul>
+<li>表明创建HTTP报文的日期和时间</li>
+</ul>
+</li>
+<li><p>Pragma</p>
+<ul>
+<li><p>Pragma是HTTP/1.1之前版本的历史遗留字段，仅作为与HTTP/1.0的向后兼容而定义</p>
+</li>
+<li><p>要整体掌握全部中间服务器使用的HTTP协议版本却是不现实的。因此，发送的请求会同时含有下面两个首部字段</p>
+<ul>
+<li><p>```<br>Cache-Control:no-cache<br>Progma:no-cache</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- Trailer</span><br><span class="line"></span><br><span class="line">  - 会事先说明在报文主体后记录了哪些首部字段</span><br><span class="line">  - 可应用在HTTP/1.1版本分块传输编码时</span><br><span class="line"></span><br><span class="line">- Transfer-Encoding</span><br><span class="line"></span><br><span class="line">  - 规定了传输报文主体时采用的编码方式</span><br><span class="line">  - HTTP/1.1的传输编码方式仅对分块传输编码有效</span><br><span class="line"></span><br><span class="line">- Upgrade</span><br><span class="line"></span><br><span class="line">  - 用于检测HTTP协议及其他协议是否可使用更高的版本进行通信，其参数值可以用来指定一个完全不同的通信协议</span><br><span class="line">  - Upgrade首部字段产生作用的Upgrade对象仅限于客户端和邻接服务器之间</span><br><span class="line">  - 使用首部字段Upgrade时，还需要额外指定Connection:Upgrade</span><br><span class="line"></span><br><span class="line">-  Via</span><br><span class="line"></span><br><span class="line">  - 为了追踪客户端与服务器之间的请求和响应报文的传输路径</span><br><span class="line">  - 报文经过代理或网关时，会先在首部字段Via中附加该服务器的信息，然后再进行转发</span><br><span class="line">  - 不仅用于追踪报文的转发，还可避免请求回环的发生。所以必须在经过代理时附加该首部字段内容</span><br><span class="line">  - 为了追踪传输路径，所以经常会和TRACE方法一起使用</span><br><span class="line"></span><br><span class="line">- Warning</span><br><span class="line"></span><br><span class="line">  - 首部通常会告知用户一些与缓存相关的问题的警告</span><br><span class="line"></span><br><span class="line">##### 6.4 请求首部字段</span><br><span class="line"></span><br><span class="line">- 从客户端往服务器端发送请求报文中所使用的字段，用于补充请求的附加信息、客户端信息、对响应内容相关的优先级等内容</span><br><span class="line"></span><br><span class="line">- Accept</span><br><span class="line"></span><br><span class="line">  - 可通知服务器，用户代理能够处理的媒体类型及媒体类型的相对优先级</span><br><span class="line"></span><br><span class="line">  - 可使用type/subtype这种形式，一次指定多种媒体类型</span><br><span class="line"></span><br><span class="line">  - 媒体类型的例子</span><br><span class="line"></span><br><span class="line">    - 文本文件</span><br><span class="line"></span><br><span class="line">      - ```</span><br><span class="line">        text/html, text/plain, text/css ...application/xhtml+xml, application/xml ...</span><br></pre></td></tr></table></figure></li>
+<li><p>图片文件</p>
+<ul>
+<li>```<br>image/jpeg, image/gif, image/png …<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 视频文件</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    video/mpeg, video/quicktime ..</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>应用程序使用的二进制文件</p>
+<ul>
+<li><pre><code>application/octet-stream, application/zip ...
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>给显示的媒体类型增加优先级，则使用q=来额外表示权重值，用分号（;）进行分隔</p>
+<ul>
+<li>权重值q的范围是0～1（可精确到小数点后3位）</li>
+<li>1为最大值</li>
+<li>不指定权重q值时，默认权重为q=1.0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Accept-Charset</p>
+<ul>
+<li>可用来通知服务器用户代理支持的字符集及字符集的相对优先顺序</li>
+<li>可一次性指定多种字符集</li>
+<li>与首部字段Accept相同的是可用权重q值来表示相对优先级</li>
+<li>应用场景<ul>
+<li>内容协商机制的服务器驱动协商</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Accept-Encoding</p>
+<ul>
+<li>用来告知服务器用户代理支持的内容编码及内容编码的优先级顺序</li>
+<li>可一次性指定多种内容编码</li>
+<li>几个内容编码的例子<ul>
+<li>gzip</li>
+<li>compress</li>
+<li>deflate</li>
+<li>identity<ul>
+<li>不执行压缩或不会变化的默认编码格式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>采用权重q值来表示相对优先级，这点与首部字段Accept相同</li>
+<li>可使用<strong>星号（*）</strong>作为通配符，指定任意的编码格式</li>
+</ul>
+</li>
+<li><p>Accept-Language</p>
+<ul>
+<li>告知服务器用户代理能够处理的自然语言集（指中文或英文等），以及自然语言集的相对优先级。可一次指定多种自然语言集</li>
+</ul>
+</li>
+<li><p>Authorization</p>
+<ul>
+<li>用来告知服务器，用户代理的认证信息（证书值)</li>
+</ul>
+</li>
+<li><p>Expect</p>
+<ul>
+<li>告知服务器，期望出现的某种特定行为</li>
+<li>可以利用该首部字段，写明所期望的扩展</li>
+</ul>
+</li>
+<li><p>From</p>
+<ul>
+<li>告知服务器使用用户代理的用户的电子邮件地址</li>
+<li>目的<ul>
+<li>为了显示搜索引擎等用户代理的负责人的电子邮件联系方式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Host</p>
+<ul>
+<li>会告知服务器，请求的资源所处的互联网主机名和端口号</li>
+<li>唯一一个必须被包含在请求内的首部字段</li>
+</ul>
+</li>
+<li><p>If-Match</p>
+<ul>
+<li>告知服务器匹配资源所用的实体标记（ETag）值</li>
+<li>可以使用星号（*）指定If-Match的字段值</li>
+<li>形如If-xxx这种样式的请求首部字段，都可称为条件请求</li>
+<li>服务器接收到附带条件的请求后，只有判断指定条件为真时，才会执行请求</li>
+</ul>
+</li>
+<li><p>If-Modified-Since</p>
+<ul>
+<li>告知服务器若If-Modified-Since字段值早于资源的更新时间，则希望能处理该请求</li>
+</ul>
+</li>
+<li><p> If-None-Match</p>
+</li>
+<li><p>和首部字段If-Match作用相反。用于指定If-None-Match字段值的实体标记（ETag）值与请求资源的ETag不一致时，它就告知服务器处理该请求</p>
+</li>
+<li><p>If-Range</p>
+<ul>
+<li>告知服务器若指定的If-Range字段值（ETag值或者时间）和请求资源的ETag值或时间相一致时，则<strong>作为范围请求处理</strong>。反之，则返回<strong>全体资源</strong></li>
+</ul>
+</li>
+<li><p>If-Unmodified-Since</p>
+<ul>
+<li>告知服务器，指定的请求资源只有在字段值内指定的日期时间之后，未发生更新的情况下，才能处理请求</li>
+<li>和首部字段If-Modified-Since的作用相反</li>
+</ul>
+</li>
+<li><p>Max-Forwards</p>
+<ul>
+<li>当Max-Forwards字段值为0时，服务器就会立即返回响应，由此我们至少可以对以那台服务器为终点的传输路径的通信状况有所把握</li>
+</ul>
+</li>
+<li><p>Proxy-Authorization</p>
+<ul>
+<li>接收到从代理服务器发来的认证质询时，客户端会发送包含首部字段Proxy-Authorization的请求，以告知服务器认证所需要的信息</li>
+</ul>
+</li>
+<li><p>Range</p>
+<ul>
+<li>只需获取部分资源的范围请求，包含首部字段Range即可告知服务器资源的指定范围</li>
+</ul>
+</li>
+<li><p>Referer</p>
+<ul>
+<li>告知服务器请求的原始资源的URI</li>
+<li>原始资源的URI中的查询字符串可能含有ID和密码等保密信息，要是写进Referer转发给其他服务器，则有可能导致保密信息的泄露</li>
+</ul>
+</li>
+<li><p>TE</p>
+<ul>
+<li>告知服务器客户端能够处理响应的传输编码方式及相对优先级</li>
+</ul>
+</li>
+<li><p>User-Agent</p>
+<ul>
+<li>创建请求的浏览器和用户代理名称等信息传达给服务器</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>读书笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -3679,151 +4935,6 @@
       </tags>
   </entry>
   <entry>
-    <title>电商管理vue项目实战</title>
-    <url>/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</url>
-    <content><![CDATA[<p>描述：基于Vue技术栈的SPA项目</p>
-<h4 id="一、搭建vue-cli，采用可视化的形式搭建"><a href="#一、搭建vue-cli，采用可视化的形式搭建" class="headerlink" title="一、搭建vue-cli，采用可视化的形式搭建"></a>一、搭建vue-cli，采用可视化的形式搭建</h4><p>1.第一步，win+r打开cmd，然后输入vue ui</p>
-<p><img src="/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/myBlog\source_posts\项目实战\1.png"></p>
-<h4 id="二、此项目用到的工具"><a href="#二、此项目用到的工具" class="headerlink" title="二、此项目用到的工具"></a>二、此项目用到的工具</h4><h5 id="1-phpStudy"><a href="#1-phpStudy" class="headerlink" title="1.phpStudy"></a>1.phpStudy</h5><p>是一个php运行环境的集成包,用户不需要去配置运行环境,就可以使用。用它将把sql文件导入mysql</p>
-<h5 id="2-postman"><a href="#2-postman" class="headerlink" title="2.postman"></a>2.postman</h5><p>网页调试工具的客户端，用于测试接口</p>
-<h5 id="3-VSCode"><a href="#3-VSCode" class="headerlink" title="3.VSCode"></a>3.VSCode</h5><p>进行开发</p>
-<h5 id="4-Git"><a href="#4-Git" class="headerlink" title="4.Git"></a>4.Git</h5><p>使用git将项目部署到码云Gitee</p>
-<p><a href="https://gitee.com/peng-zeman/vue_shop">https://gitee.com/peng-zeman/vue_shop</a></p>
-<h4 id="三、项目中添加的依赖"><a href="#三、项目中添加的依赖" class="headerlink" title="三、项目中添加的依赖"></a>三、项目中添加的依赖</h4><h5 id="1-element-ui"><a href="#1-element-ui" class="headerlink" title="1.element-ui"></a>1.element-ui</h5><ul>
-<li><p><a href="https://element.eleme.cn/#/zh-CN">https://element.eleme.cn/#/zh-CN</a></p>
-</li>
-<li><p>安装方式：npm i element-ui -S</p>
-</li>
-<li><p>导入方式：在入口文件导入import ‘./plugins/element.js’</p>
-</li>
-<li><p>再在./plugins/element.js中按需导入</p>
-</li>
-</ul>
-<h5 id="2-axios"><a href="#2-axios" class="headerlink" title="2.axios"></a>2.axios</h5><ul>
-<li>安装方式：npm install axios</li>
-<li>在入口环境配置</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这样每一个vue组件可以通过this.$http访问到发起axios请求</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="comment">//配置请求的根路径</span></span><br><span class="line">axios.defaults.baseURL=<span class="string">&#x27;http://127.0.0.1:8888/api/private/v1/&#x27;</span></span><br><span class="line"><span class="comment">//在request中展示进度条NProgress.start()</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="comment">//为请求头对象，添加token验证的Authorization字段</span></span><br><span class="line">  config.headers.Authorization=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//在response拦截器中，隐藏进度条NProgress.done()</span></span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.done()</span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">&#125;)</span><br><span class="line">Vue.prototype.$http=axios</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-TreeTable"><a href="#3-TreeTable" class="headerlink" title="3.TreeTable"></a>3.TreeTable</h5><ul>
-<li><p>树型表格，可以进行多级扩展表格的创建</p>
-</li>
-<li><p>安装方式：npm i vue-table-with-tree-grid -S</p>
-</li>
-<li><p>导入方式：</p>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> TreeTable <span class="keyword">from</span> <span class="string">&#x27;vue-table-with-tree-grid&#x27;</span></span><br><span class="line">Vue.component(<span class="string">&#x27;tree-table&#x27;</span>,TreeTable)</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-VueQuillEditor"><a href="#4-VueQuillEditor" class="headerlink" title="4.VueQuillEditor"></a>4.VueQuillEditor</h5><ul>
-<li>富文本编辑器</li>
-<li><a href="https://www.kancloud.cn/liuwave/quill/1434140">https://www.kancloud.cn/liuwave/quill/1434140</a></li>
-<li>安装方式：npm install vue-quill-editor –save</li>
-<li>导入方式：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入富文本编辑器</span></span><br><span class="line"><span class="keyword">import</span> VueQuillEditor <span class="keyword">from</span> <span class="string">&#x27;vue-quill-editor&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// require styles</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;quill/dist/quill.core.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;quill/dist/quill.snow.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;quill/dist/quill.bubble.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//引用富文本编辑器</span></span><br><span class="line">Vue.use(VueQuillEditor)</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-NProgress"><a href="#5-NProgress" class="headerlink" title="5.NProgress"></a>5.NProgress</h5><ul>
-<li>加载进度条</li>
-<li>安装方式：npm install –save nprogress</li>
-<li>导入和使用</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//导入进度条的包</span></span><br><span class="line"><span class="keyword">import</span> NProgress <span class="keyword">from</span> <span class="string">&#x27;nprogress&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;nprogress/nprogress.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//在request中展示进度条NProgress.start()</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="comment">//为请求头对象，添加token验证的Authorization字段</span></span><br><span class="line">  config.headers.Authorization=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="6-lodash"><a href="#6-lodash" class="headerlink" title="6.lodash"></a>6.lodash</h5><ul>
-<li>用到里面的深拷贝cloneDeep的方法，在添加商品上的goods_form表单</li>
-<li>在report生成图表的地方用到merge方法，用于将数据和需要合并的操作合并起来</li>
-<li><a href="https://www.lodashjs.com/">https://www.lodashjs.com/</a></li>
-<li>安装方式：npm i –save lodash</li>
-<li>导入方式：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入lodash</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;lodash&#x27;</span></span><br><span class="line">Vue.prototype._=_</span><br></pre></td></tr></table></figure>
-
-<h5 id="7-echarts"><a href="#7-echarts" class="headerlink" title="7.echarts"></a>7.echarts</h5><ul>
-<li><a href="https://echarts.apache.org/handbook/zh/get-started/">https://echarts.apache.org/handbook/zh/get-started/</a></li>
-<li>安装方式：npm install echarts –save</li>
-<li>引入方式</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入echarts</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> echarts <span class="keyword">from</span> <span class="string">&#x27;echarts&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="四、登录-退出功能"><a href="#四、登录-退出功能" class="headerlink" title="四、登录/退出功能"></a>四、登录/退出功能</h4><h5 id="1-登录的业务流程"><a href="#1-登录的业务流程" class="headerlink" title="1.登录的业务流程"></a>1.登录的业务流程</h5><ul>
-<li>在登录页面输入用户名和密码</li>
-<li>调用后台接口进行验证</li>
-<li>通过验证之后，根据后台的响应状态跳转到项目主页</li>
-</ul>
-<h5 id="2-登录的相关技术点"><a href="#2-登录的相关技术点" class="headerlink" title="2.登录的相关技术点"></a>2.登录的相关技术点</h5><ul>
-<li>http无状态的</li>
-<li>通过session在服务端记录状态</li>
-<li>通过token方式维持状态</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="comment">//为请求头对象，添加token验证的Authorization字段</span></span><br><span class="line">  config.headers.Authorization=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-token原理分析"><a href="#3-token原理分析" class="headerlink" title="3.token原理分析"></a>3.token原理分析</h5><p><img src="/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/myBlog\source_posts\项目实战\5.png"></p>
-<h5 id="4-登录页面布局"><a href="#4-登录页面布局" class="headerlink" title="4.登录页面布局"></a>4.登录页面布局</h5><ul>
-<li>el-form 登录表单（具有验证规则）</li>
-</ul>
-<h5 id="5-登录功能实现"><a href="#5-登录功能实现" class="headerlink" title="5.登录功能实现"></a>5.登录功能实现</h5><p>（1）实现登录</p>
-<ul>
-<li>用axios调用登录接口<ul>
-<li>this.$http.post(‘login’,this.loginForm)</li>
-</ul>
-</li>
-<li>登录成功之后保持用户token信息<ul>
-<li>window.sessionStorage.setItem(‘token’, res.data.token)</li>
-</ul>
-</li>
-<li>跳转到项目主页<ul>
-<li>this.$router.push(‘/home’)</li>
-</ul>
-</li>
-</ul>
-<p>（2）登录功能实现</p>
-<ul>
-<li>路由导航守卫控制访问权限<ul>
-<li>如果用户没有登录，但是直接通过URL访问特定页面，需要重新导航到登录页面。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//挂载路由导航守卫</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to,<span class="keyword">from</span>,next</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">//to 将要访问的路径</span></span><br><span class="line">  <span class="comment">//from 代表从那个路径跳转而来</span></span><br><span class="line">  <span class="comment">//next 是一个函数，表示放行</span></span><br><span class="line">  <span class="comment">//next() 放行 next(&#x27;./login&#x27;) 强制跳转</span></span><br><span class="line">  <span class="comment">//如果是登录页面就不需要什么权限，直接放行</span></span><br><span class="line">  <span class="keyword">if</span>(to.path === <span class="string">&#x27;/login&#x27;</span>) <span class="keyword">return</span> next();</span><br><span class="line">  <span class="comment">//获取token值</span></span><br><span class="line">  <span class="keyword">const</span> tokenstr=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>);</span><br><span class="line">  <span class="comment">//如果没有token就证明没有</span></span><br><span class="line">  <span class="keyword">if</span>(!tokenstr) <span class="keyword">return</span> next(<span class="string">&#x27;/login&#x27;</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="6-退出"><a href="#6-退出" class="headerlink" title="6.退出"></a>6.退出</h5><ul>
-<li>需要销毁本地的 token 即可</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">logout</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">window</span>.sessionStorage.clear();</span><br><span class="line">            <span class="built_in">this</span>.$router.push(<span class="string">&#x27;/login&#x27;</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="五、主页布局"><a href="#五、主页布局" class="headerlink" title="五、主页布局"></a>五、主页布局</h4><h5 id="1-布局"><a href="#1-布局" class="headerlink" title="1.布局"></a>1.布局</h5><ul>
-<li>el-container<ul>
-<li>el-header</li>
-<li>el-container<ul>
-<li>el-aside</li>
-<li>el-main</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/myBlog\source_posts\项目实战\6.png"></p>
-<h5 id="2-通过接口获取菜单数据"><a href="#2-通过接口获取菜单数据" class="headerlink" title="2.通过接口获取菜单数据"></a>2.通过接口获取菜单数据</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line"> <span class="comment">// 为请求头对象，添加 Token 验证的 Authorization 字段</span></span><br><span class="line">     config.headers.Authorization = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">     <span class="keyword">return</span> config</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-动态获取路径"><a href="#3-动态获取路径" class="headerlink" title="3.动态获取路径"></a>3.动态获取路径</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;el-menu-item :index=&quot;&#x27;/&#x27;+subItem.path&quot; v-for=&quot;subItem in item.children&quot; :key=&quot;subItem.id&quot;</span><br><span class="line">        @click=&quot;saveNavState(&#x27;/&#x27;+subItem.path)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//保存链接激活状态</span></span><br><span class="line"><span class="function"><span class="title">saveNavState</span>(<span class="params">activePath</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">window</span>.sessionStorage.setItem(<span class="string">&#x27;activePath&#x27;</span>,activePath)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="六、所有模块的共同点"><a href="#六、所有模块的共同点" class="headerlink" title="六、所有模块的共同点"></a>六、所有模块的共同点</h4><h5 id="1-分页"><a href="#1-分页" class="headerlink" title="1.分页"></a>1.分页</h5><p>用el-pagination分页器</p>
-<h5 id="2-增删查改"><a href="#2-增删查改" class="headerlink" title="2.增删查改"></a>2.增删查改</h5><ul>
-<li>增：都是通过增加新的参数传到后台</li>
-<li>删：根据id删除并刷新页面</li>
-<li>改：查询之后更改</li>
-</ul>
-]]></content>
-      <categories>
-        <category>练手项目</category>
-      </categories>
-      <tags>
-        <tag>练手项目</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>html+css+js</title>
     <url>/2021/09/10/%E9%9D%A2%E8%AF%95/</url>
     <content><![CDATA[<h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><h4 id="1-预编译习题"><a href="#1-预编译习题" class="headerlink" title="1.预编译习题"></a>1.预编译习题</h4><p>作用域的创建阶段-&gt;预编译的阶段</p>
@@ -4210,6 +5321,151 @@
       </categories>
       <tags>
         <tag>高频知识点汇总</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电商管理vue项目实战</title>
+    <url>/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</url>
+    <content><![CDATA[<p>描述：基于Vue技术栈的SPA项目</p>
+<h4 id="一、搭建vue-cli，采用可视化的形式搭建"><a href="#一、搭建vue-cli，采用可视化的形式搭建" class="headerlink" title="一、搭建vue-cli，采用可视化的形式搭建"></a>一、搭建vue-cli，采用可视化的形式搭建</h4><p>1.第一步，win+r打开cmd，然后输入vue ui</p>
+<p><img src="/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/1.png"></p>
+<h4 id="二、此项目用到的工具"><a href="#二、此项目用到的工具" class="headerlink" title="二、此项目用到的工具"></a>二、此项目用到的工具</h4><h5 id="1-phpStudy"><a href="#1-phpStudy" class="headerlink" title="1.phpStudy"></a>1.phpStudy</h5><p>是一个php运行环境的集成包,用户不需要去配置运行环境,就可以使用。用它将把sql文件导入mysql</p>
+<h5 id="2-postman"><a href="#2-postman" class="headerlink" title="2.postman"></a>2.postman</h5><p>网页调试工具的客户端，用于测试接口</p>
+<h5 id="3-VSCode"><a href="#3-VSCode" class="headerlink" title="3.VSCode"></a>3.VSCode</h5><p>进行开发</p>
+<h5 id="4-Git"><a href="#4-Git" class="headerlink" title="4.Git"></a>4.Git</h5><p>使用git将项目部署到码云Gitee</p>
+<p><a href="https://gitee.com/peng-zeman/vue_shop">https://gitee.com/peng-zeman/vue_shop</a></p>
+<h4 id="三、项目中添加的依赖"><a href="#三、项目中添加的依赖" class="headerlink" title="三、项目中添加的依赖"></a>三、项目中添加的依赖</h4><h5 id="1-element-ui"><a href="#1-element-ui" class="headerlink" title="1.element-ui"></a>1.element-ui</h5><ul>
+<li><p><a href="https://element.eleme.cn/#/zh-CN">https://element.eleme.cn/#/zh-CN</a></p>
+</li>
+<li><p>安装方式：npm i element-ui -S</p>
+</li>
+<li><p>导入方式：在入口文件导入import ‘./plugins/element.js’</p>
+</li>
+<li><p>再在./plugins/element.js中按需导入</p>
+</li>
+</ul>
+<h5 id="2-axios"><a href="#2-axios" class="headerlink" title="2.axios"></a>2.axios</h5><ul>
+<li>安装方式：npm install axios</li>
+<li>在入口环境配置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这样每一个vue组件可以通过this.$http访问到发起axios请求</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="comment">//配置请求的根路径</span></span><br><span class="line">axios.defaults.baseURL=<span class="string">&#x27;http://127.0.0.1:8888/api/private/v1/&#x27;</span></span><br><span class="line"><span class="comment">//在request中展示进度条NProgress.start()</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="comment">//为请求头对象，添加token验证的Authorization字段</span></span><br><span class="line">  config.headers.Authorization=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//在response拦截器中，隐藏进度条NProgress.done()</span></span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.done()</span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">&#125;)</span><br><span class="line">Vue.prototype.$http=axios</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-TreeTable"><a href="#3-TreeTable" class="headerlink" title="3.TreeTable"></a>3.TreeTable</h5><ul>
+<li><p>树型表格，可以进行多级扩展表格的创建</p>
+</li>
+<li><p>安装方式：npm i vue-table-with-tree-grid -S</p>
+</li>
+<li><p>导入方式：</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> TreeTable <span class="keyword">from</span> <span class="string">&#x27;vue-table-with-tree-grid&#x27;</span></span><br><span class="line">Vue.component(<span class="string">&#x27;tree-table&#x27;</span>,TreeTable)</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-VueQuillEditor"><a href="#4-VueQuillEditor" class="headerlink" title="4.VueQuillEditor"></a>4.VueQuillEditor</h5><ul>
+<li>富文本编辑器</li>
+<li><a href="https://www.kancloud.cn/liuwave/quill/1434140">https://www.kancloud.cn/liuwave/quill/1434140</a></li>
+<li>安装方式：npm install vue-quill-editor –save</li>
+<li>导入方式：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入富文本编辑器</span></span><br><span class="line"><span class="keyword">import</span> VueQuillEditor <span class="keyword">from</span> <span class="string">&#x27;vue-quill-editor&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// require styles</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;quill/dist/quill.core.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;quill/dist/quill.snow.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;quill/dist/quill.bubble.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//引用富文本编辑器</span></span><br><span class="line">Vue.use(VueQuillEditor)</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-NProgress"><a href="#5-NProgress" class="headerlink" title="5.NProgress"></a>5.NProgress</h5><ul>
+<li>加载进度条</li>
+<li>安装方式：npm install –save nprogress</li>
+<li>导入和使用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//导入进度条的包</span></span><br><span class="line"><span class="keyword">import</span> NProgress <span class="keyword">from</span> <span class="string">&#x27;nprogress&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;nprogress/nprogress.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//在request中展示进度条NProgress.start()</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="comment">//为请求头对象，添加token验证的Authorization字段</span></span><br><span class="line">  config.headers.Authorization=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="6-lodash"><a href="#6-lodash" class="headerlink" title="6.lodash"></a>6.lodash</h5><ul>
+<li>用到里面的深拷贝cloneDeep的方法，在添加商品上的goods_form表单</li>
+<li>在report生成图表的地方用到merge方法，用于将数据和需要合并的操作合并起来</li>
+<li><a href="https://www.lodashjs.com/">https://www.lodashjs.com/</a></li>
+<li>安装方式：npm i –save lodash</li>
+<li>导入方式：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入lodash</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;lodash&#x27;</span></span><br><span class="line">Vue.prototype._=_</span><br></pre></td></tr></table></figure>
+
+<h5 id="7-echarts"><a href="#7-echarts" class="headerlink" title="7.echarts"></a>7.echarts</h5><ul>
+<li><a href="https://echarts.apache.org/handbook/zh/get-started/">https://echarts.apache.org/handbook/zh/get-started/</a></li>
+<li>安装方式：npm install echarts –save</li>
+<li>引入方式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入echarts</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> echarts <span class="keyword">from</span> <span class="string">&#x27;echarts&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="四、登录-退出功能"><a href="#四、登录-退出功能" class="headerlink" title="四、登录/退出功能"></a>四、登录/退出功能</h4><h5 id="1-登录的业务流程"><a href="#1-登录的业务流程" class="headerlink" title="1.登录的业务流程"></a>1.登录的业务流程</h5><ul>
+<li>在登录页面输入用户名和密码</li>
+<li>调用后台接口进行验证</li>
+<li>通过验证之后，根据后台的响应状态跳转到项目主页</li>
+</ul>
+<h5 id="2-登录的相关技术点"><a href="#2-登录的相关技术点" class="headerlink" title="2.登录的相关技术点"></a>2.登录的相关技术点</h5><ul>
+<li>http无状态的</li>
+<li>通过session在服务端记录状态</li>
+<li>通过token方式维持状态</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="comment">//为请求头对象，添加token验证的Authorization字段</span></span><br><span class="line">  config.headers.Authorization=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-token原理分析"><a href="#3-token原理分析" class="headerlink" title="3.token原理分析"></a>3.token原理分析</h5><p><img src="/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/5.png"></p>
+<h5 id="4-登录页面布局"><a href="#4-登录页面布局" class="headerlink" title="4.登录页面布局"></a>4.登录页面布局</h5><ul>
+<li>el-form 登录表单（具有验证规则）</li>
+</ul>
+<h5 id="5-登录功能实现"><a href="#5-登录功能实现" class="headerlink" title="5.登录功能实现"></a>5.登录功能实现</h5><p>（1）实现登录</p>
+<ul>
+<li>用axios调用登录接口<ul>
+<li>this.$http.post(‘login’,this.loginForm)</li>
+</ul>
+</li>
+<li>登录成功之后保持用户token信息<ul>
+<li>window.sessionStorage.setItem(‘token’, res.data.token)</li>
+</ul>
+</li>
+<li>跳转到项目主页<ul>
+<li>this.$router.push(‘/home’)</li>
+</ul>
+</li>
+</ul>
+<p>（2）登录功能实现</p>
+<ul>
+<li>路由导航守卫控制访问权限<ul>
+<li>如果用户没有登录，但是直接通过URL访问特定页面，需要重新导航到登录页面。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//挂载路由导航守卫</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to,<span class="keyword">from</span>,next</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">//to 将要访问的路径</span></span><br><span class="line">  <span class="comment">//from 代表从那个路径跳转而来</span></span><br><span class="line">  <span class="comment">//next 是一个函数，表示放行</span></span><br><span class="line">  <span class="comment">//next() 放行 next(&#x27;./login&#x27;) 强制跳转</span></span><br><span class="line">  <span class="comment">//如果是登录页面就不需要什么权限，直接放行</span></span><br><span class="line">  <span class="keyword">if</span>(to.path === <span class="string">&#x27;/login&#x27;</span>) <span class="keyword">return</span> next();</span><br><span class="line">  <span class="comment">//获取token值</span></span><br><span class="line">  <span class="keyword">const</span> tokenstr=<span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>);</span><br><span class="line">  <span class="comment">//如果没有token就证明没有</span></span><br><span class="line">  <span class="keyword">if</span>(!tokenstr) <span class="keyword">return</span> next(<span class="string">&#x27;/login&#x27;</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="6-退出"><a href="#6-退出" class="headerlink" title="6.退出"></a>6.退出</h5><ul>
+<li>需要销毁本地的 token 即可</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">logout</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">window</span>.sessionStorage.clear();</span><br><span class="line">            <span class="built_in">this</span>.$router.push(<span class="string">&#x27;/login&#x27;</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、主页布局"><a href="#五、主页布局" class="headerlink" title="五、主页布局"></a>五、主页布局</h4><h5 id="1-布局"><a href="#1-布局" class="headerlink" title="1.布局"></a>1.布局</h5><ul>
+<li>el-container<ul>
+<li>el-header</li>
+<li>el-container<ul>
+<li>el-aside</li>
+<li>el-main</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/09/25/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/6.png"></p>
+<h5 id="2-通过接口获取菜单数据"><a href="#2-通过接口获取菜单数据" class="headerlink" title="2.通过接口获取菜单数据"></a>2.通过接口获取菜单数据</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line"> <span class="comment">// 为请求头对象，添加 Token 验证的 Authorization 字段</span></span><br><span class="line">     config.headers.Authorization = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">     <span class="keyword">return</span> config</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-动态获取路径"><a href="#3-动态获取路径" class="headerlink" title="3.动态获取路径"></a>3.动态获取路径</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;el-menu-item :index=&quot;&#x27;/&#x27;+subItem.path&quot; v-for=&quot;subItem in item.children&quot; :key=&quot;subItem.id&quot;</span><br><span class="line">        @click=&quot;saveNavState(&#x27;/&#x27;+subItem.path)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//保存链接激活状态</span></span><br><span class="line"><span class="function"><span class="title">saveNavState</span>(<span class="params">activePath</span>)</span>&#123;</span><br><span class="line">   <span class="built_in">window</span>.sessionStorage.setItem(<span class="string">&#x27;activePath&#x27;</span>,activePath)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="六、所有模块的共同点"><a href="#六、所有模块的共同点" class="headerlink" title="六、所有模块的共同点"></a>六、所有模块的共同点</h4><h5 id="1-分页"><a href="#1-分页" class="headerlink" title="1.分页"></a>1.分页</h5><p>用el-pagination分页器</p>
+<h5 id="2-增删查改"><a href="#2-增删查改" class="headerlink" title="2.增删查改"></a>2.增删查改</h5><ul>
+<li>增：都是通过增加新的参数传到后台</li>
+<li>删：根据id删除并刷新页面</li>
+<li>改：查询之后更改</li>
+</ul>
+]]></content>
+      <categories>
+        <category>练手项目</category>
+      </categories>
+      <tags>
+        <tag>练手项目</tag>
       </tags>
   </entry>
 </search>
