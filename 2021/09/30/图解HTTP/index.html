@@ -32,8 +32,9 @@
 <meta property="og:image" content="https://cranberry11.github.io/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/1.png">
 <meta property="og:image" content="https://cranberry11.github.io/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/2.png">
 <meta property="og:image" content="https://cranberry11.github.io/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/3.png">
+<meta property="og:image" content="https://cranberry11.github.io/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/4.png">
 <meta property="article:published_time" content="2021-09-30T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-07T12:02:14.633Z">
+<meta property="article:modified_time" content="2021-10-08T12:38:08.586Z">
 <meta property="article:author" content="cranberry">
 <meta property="article:tag" content="读书笔记">
 <meta name="twitter:card" content="summary">
@@ -226,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-07 20:02:14" itemprop="dateModified" datetime="2021-10-07T20:02:14+08:00">2021-10-07</time>
+                <time title="修改时间：2021-10-08 20:38:08" itemprop="dateModified" datetime="2021-10-08T20:38:08+08:00">2021-10-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1276,6 +1277,217 @@
 </ul>
 </li>
 </ul>
+<h5 id="6-5-响应首部字段"><a href="#6-5-响应首部字段" class="headerlink" title="6.5 响应首部字段"></a>6.5 响应首部字段</h5><p>由服务器端向客户端返回响应报文中所使用的字段，用于补充响应的附加信息、服务器信息，以及对客户端的附加要求等信息</p>
+<ul>
+<li>Accept-Ranges<ul>
+<li>用来告知客户端服务器是否能处理范围请求，以指定获取服务器端某个部分的资源</li>
+<li>可指定的字段值有两种:<ul>
+<li>处理范围请求时指定其为bytes</li>
+<li>反之则指定其为none</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Age<ul>
+<li>告知客户端，源服务器在多久前创建了响应。字段值的单位为秒</li>
+<li>创建该响应的服务器是缓存服务器<ul>
+<li>Age值是指缓存后的响应再次发起认证到认证完成的时间值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ETag<ul>
+<li>告知客户端实体标识</li>
+<li>一种可将资源以字符串形式做唯一性标识的方式</li>
+<li>字符串形式做唯一性标识的方式。服务器会为每份资源分配对应的ETag值</li>
+<li>资源被缓存时，就会被分配唯一性标识</li>
+<li>分为强ETag和弱ETag值</li>
+<li>强ETag值<ul>
+<li>论实体发生多么细微的变化都会改变其值</li>
+</ul>
+</li>
+<li>弱ETag值<ul>
+<li>只用于提示资源是否相同</li>
+<li>只有资源发生了根本改变，产生差异时才会改变ETag值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li> Location</li>
+<li>可以将响应接收方引导至某个与请求URI位置不同的资源</li>
+<li>Proxy-Authenticate<ul>
+<li>会把由代理服务器所要求的认证信息发送给客户端</li>
+</ul>
+</li>
+<li>Retry-After<ul>
+<li>告知客户端应该在多久之后再次发送请求</li>
+<li>主要配合状态码503 Service Unavailable响应，或3xxRedirect响应一起使用</li>
+</ul>
+</li>
+<li>Server<ul>
+<li>告知客户端当前服务器上安装的HTTP服务器应用程序的信息</li>
+<li>不单单会标出服务器上的软件应用名称，还有可能包括版本号和安装时启用的可选项</li>
+</ul>
+</li>
+<li>Vary<ul>
+<li>可对缓存进行控制</li>
+<li>源服务器会向代理服务器传达关于本地缓存使用方法的命令</li>
+</ul>
+</li>
+<li>WWW-Authenticate<ul>
+<li>用于HTTP访问认证</li>
+<li>会告知客户端适用于访问请求URI所指定资源的认证方案（Basic或是Digest）和带参数提示的质询（challenge）</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-6-实体首部字段"><a href="#6-6-实体首部字段" class="headerlink" title="6.6 实体首部字段"></a>6.6 实体首部字段</h5><p>包含在请求报文和响应报文中的实体部分所使用的首部，用于补充内容的更新时间等与实体相关的信息。</p>
+<ul>
+<li>Allow<ul>
+<li>用于通知客户端能够支持Request-URI指定资源的所有HTTP方法</li>
+<li>不支持的时候，会以状态码405Method Not Allowed作为响应返回，还会把所有能支持的HTTP方法写入首部字段Allow后返回</li>
+</ul>
+</li>
+<li>Content-Encoding<ul>
+<li>告知客户端服务器对实体的主体部分选用的内容编码方式</li>
+<li>内容编码是指在不丢失实体信息的前提下所进行的压缩</li>
+<li>以下4种内容编码的方式：<ul>
+<li>gzip </li>
+<li>compress</li>
+<li>deflate</li>
+<li>identity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Content-Language<ul>
+<li>告知客户端，实体主体使用的自然语言（指中文或英文等语言）</li>
+</ul>
+</li>
+<li>Content-Length<ul>
+<li>表明了实体主体部分的大小（单位是字节）</li>
+</ul>
+</li>
+<li>Content-Location<ul>
+<li>给出与报文主体部分相对应的URI</li>
+<li>和首部字段Location不同，Content-Location表示的是报文主体返回资源对应的URI</li>
+</ul>
+</li>
+<li>Content-MD5<ul>
+<li>一串由MD5算法生成的值，其目的在于检查报文主体在传输过程中是否保持完整，以及确认传输到达</li>
+<li>对内容上的偶发性改变是无从查证的，也无法检测出恶意篡改</li>
+</ul>
+</li>
+<li>Content-Range<ul>
+<li>返回响应时使用的首部字段Content-Range，能告知客户端作为响应返回的实体的哪个部分符合范围请求</li>
+<li>字段值以字节为单位，表示当前发送部分及整个实体大小</li>
+</ul>
+</li>
+<li>Content-Type<ul>
+<li>说明了实体主体内对象的媒体类型</li>
+</ul>
+</li>
+<li> Expires</li>
+<li>将资源失效的日期告知客户端</li>
+<li>在Expires字段值指定的时间之前，响应的副本会一直被保存</li>
+<li>当超过指定的时间后，缓存服务器在请求发送过来时，会转向源服务器请求资源</li>
+<li>Last-Modified<ul>
+<li>指明资源最终修改的时间</li>
+<li>一般来说，这个值就是Request-URI指定资源被修改的时间</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-7-为Cookie服务的首部字段"><a href="#6-7-为Cookie服务的首部字段" class="headerlink" title="6.7 为Cookie服务的首部字段"></a>6.7 为Cookie服务的首部字段</h5><ul>
+<li>Cookie的工作机制是用户识别及状态管理</li>
+<li>Cookie的规格标准文档有以下4种</li>
+</ul>
+<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/4.png"></p>
+<ul>
+<li>Set-Cookie<ul>
+<li>Set-Cookie的字段值<ul>
+<li> expires属性</li>
+<li>指定浏览器可发送Cookie的有效期</li>
+<li>当省略expires属性时，其有效期仅限于维持浏览器会话（Session）时间段内。这通常限于浏览器应用程序被关闭之前</li>
+<li>一旦Cookie从服务器端发送至客户端，服务器端就不存在可以显式删除Cookie的方法。但可通过覆盖已过期的Cookie，实现对客户端Cookie的实质性删除操作</li>
+<li>path属性<ul>
+<li>可用于限制指定Cookie的发送范围的文件目录</li>
+</ul>
+</li>
+<li>domain属性<ul>
+<li>指定的域名可做到与结尾匹配一致</li>
+</ul>
+</li>
+<li>secure属性<ul>
+<li>用于限制Web页面<strong>仅在HTTPS</strong>安全连接时，才可以发送Cookie</li>
+<li>设置了secure的话<ul>
+<li>仅当在<a target="_blank" rel="noopener" href="https://www.example.com/%EF%BC%88HTTPS%EF%BC%89%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%89%8D%E4%BC%9A%E8%BF%9B%E8%A1%8CCookie%E7%9A%84%E5%9B%9E%E6%94%B6%E3%80%82%E4%B9%9F%E5%B0%B1%E6%98%AF%E8%AF%B4%EF%BC%8C%E5%8D%B3%E4%BD%BF%E5%9F%9F%E5%90%8D%E7%9B%B8%E5%90%8C%EF%BC%8Chttp://www.example.com/%EF%BC%88HTTP%EF%BC%89%E4%B9%9F%E4%B8%8D%E4%BC%9A%E5%8F%91%E7%94%9FCookie%E5%9B%9E%E6%94%B6%E8%A1%8C%E4%B8%BA">https://www.example.com/（HTTPS）安全连接的情况下才会进行Cookie的回收。也就是说，即使域名相同，http://www.example.com/（HTTP）也不会发生Cookie回收行为</a></li>
+</ul>
+</li>
+<li>当省略secure属性时<ul>
+<li>不论HTTP还是HTTPS，都会对Cookie进行回收</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HttpOnly属性<ul>
+<li>Cookie的扩展功能，它使JavaScript脚本无法获得Cookie</li>
+<li>主要目的为防止跨站脚本攻击（Cross-site scripting,XSS）对Cookie的信息窃取</li>
+</ul>
+</li>
+<li>通过上述设置<ul>
+<li>通常从Web页面内还可以对Cookie进行读取操作</li>
+<li>使用JavaScript的document.cookie就无法读取附加HttpOnly属性后的Cookie的内容了</li>
+<li>因此，也就无法在XSS中利用JavaScript劫持Cookie了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cookie<ul>
+<li>当客户端想获得HTTP状态管理支持时，就会在请求中包含从服务器接收到的Cookie</li>
+<li>接收到多个Cookie时，同样可以以多个Cookie形式发送</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-8-其他首部字段"><a href="#6-8-其他首部字段" class="headerlink" title="6.8 其他首部字段"></a>6.8 其他首部字段</h5><ul>
+<li><p>X-Frame-Options</p>
+<ul>
+<li>属于HTTP响应首部</li>
+<li>用于控制网站内容在其他Web网站的Frame标签内的显示问题</li>
+<li>其主要目的是为了防止点击劫持（clickjacking）攻击</li>
+<li>DENY：拒绝</li>
+<li> SAMEORIGIN：仅同源域名下的页面匹配时许可</li>
+</ul>
+</li>
+<li><p>X-XSS-Protection</p>
+<ul>
+<li>属于HTTP响应首部</li>
+<li>针对跨站脚本攻击（XSS）的一种对策，用于控制浏览器XSS防护机制的开关</li>
+<li>可指定的字段值：<ul>
+<li>0 ：将XSS过滤设置成无效状态</li>
+<li>将XSS过滤设置成无效状态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>DNT</p>
+<ul>
+<li>属于HTTP请求首部</li>
+<li>Do NotTrack的简称，意为拒绝个人信息被收集，是表示拒绝被精准广告追踪的一种方法</li>
+<li>可指定的字段值：<ul>
+<li> 0 ：同意被追踪</li>
+<li>1 ：拒绝被追踪</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p> P3P</p>
+</li>
+<li><p>属于HTTP响应首部</p>
+</li>
+<li><p>通过利用P3P技术，可以让Web网站上的个人隐私变成一种仅供程序可理解的形式，以达到保护用户隐私的目的</p>
+</li>
+</ul>
 
     </div>
 
@@ -1359,7 +1571,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E4%BA%86%E8%A7%A3Web%E5%8F%8A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">第一章 了解Web及网络基础</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1%E4%BD%BF%E7%94%A8HTTP%E5%8D%8F%E8%AE%AE%E8%AE%BF%E9%97%AEWeb"><span class="nav-number">1.1.</span> <span class="nav-text">1.1使用HTTP协议访问Web</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2HTTP%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="nav-number">1.2.</span> <span class="nav-text">1.2HTTP的诞生</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80TCP-IP"><span class="nav-number">1.3.</span> <span class="nav-text">1.3网络基础TCP&#x2F;IP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4%E4%B8%8EHTTP%E5%85%B3%E7%B3%BB%E5%AF%86%E5%88%87%E7%9A%84%E5%8D%8F%E8%AE%AE%EF%BC%9AIP%E3%80%81TCP%E5%92%8CDNS"><span class="nav-number">1.4.</span> <span class="nav-text">1.4与HTTP关系密切的协议：IP、TCP和DNS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-5%E8%B4%9F%E8%B4%A3%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E7%9A%84DNS%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.5.</span> <span class="nav-text">1.5负责域名解析的DNS服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6URI%E5%92%8CURL"><span class="nav-number">1.6.</span> <span class="nav-text">1.6URI和URL</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E7%AE%80%E5%8D%95%E7%9A%84HTTP%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.</span> <span class="nav-text">第2章 简单的HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-HTTP%E5%8D%8F%E8%AE%AE%E7%94%A8%E4%BA%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 HTTP协议用于客户端和服务器端之间的通信</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2%E9%80%9A%E8%BF%87%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94%E7%9A%84%E4%BA%A4%E6%8D%A2%E8%BE%BE%E6%88%90%E9%80%9A%E4%BF%A1"><span class="nav-number">2.2.</span> <span class="nav-text">2.2通过请求和响应的交换达成通信</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3HTTP%E6%98%AF%E4%B8%8D%E4%BF%9D%E5%AD%98%E7%8A%B6%E6%80%81%E7%9A%84%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.3.</span> <span class="nav-text">2.3HTTP是不保存状态的协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4%E8%AF%B7%E6%B1%82URI%E5%AE%9A%E4%BD%8D%E8%B5%84%E6%BA%90"><span class="nav-number">2.4.</span> <span class="nav-text">2.4请求URI定位资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5%E5%91%8A%E7%9F%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%84%8F%E5%9B%BE%E7%9A%84HTTP%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">2.5告知服务器意图的HTTP方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E4%B8%8B%E8%BE%BE%E5%91%BD%E4%BB%A4"><span class="nav-number">2.6.</span> <span class="nav-text">2.6使用方法下达命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-7%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5%E8%8A%82%E7%9C%81%E9%80%9A%E4%BF%A1%E9%87%8F"><span class="nav-number">2.7.</span> <span class="nav-text">2.7持久连接节省通信量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-8%E4%BD%BF%E7%94%A8Cookie%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="nav-number">2.8.</span> <span class="nav-text">2.8使用Cookie的状态管理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-HTTP%E6%8A%A5%E6%96%87%E5%86%85%E7%9A%84HTTP%E4%BF%A1%E6%81%AF"><span class="nav-number">3.</span> <span class="nav-text">第3章 HTTP报文内的HTTP信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1HTTP%E6%8A%A5%E6%96%87"><span class="nav-number">3.1.</span> <span class="nav-text">3.1HTTP报文</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87%E5%8F%8A%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.</span> <span class="nav-text">3.2请求报文及响应报文的结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3%E7%BC%96%E7%A0%81%E6%8F%90%E5%8D%87%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87"><span class="nav-number">3.3.</span> <span class="nav-text">3.3编码提升传输速率</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4%E5%8F%91%E9%80%81%E5%A4%9A%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%9A%E9%83%A8%E5%88%86%E5%AF%B9%E8%B1%A1%E9%9B%86%E5%90%88"><span class="nav-number">3.4.</span> <span class="nav-text">3.4发送多种数据的多部分对象集合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5%E8%8E%B7%E5%8F%96%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E7%9A%84%E8%8C%83%E5%9B%B4%E8%AF%B7%E6%B1%82"><span class="nav-number">3.5.</span> <span class="nav-text">3.5获取部分内容的范围请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-6%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86%E8%BF%94%E5%9B%9E%E6%9C%80%E5%90%88%E9%80%82%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">3.6.</span> <span class="nav-text">3.6内容协商返回最合适的内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%9A%84HTTP%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">第4章 返回结果的HTTP状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1%E7%8A%B6%E6%80%81%E7%A0%81%E5%91%8A%E7%9F%A5%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%BF%94%E5%9B%9E%E7%9A%84%E8%AF%B7%E6%B1%82%E7%BB%93%E6%9E%9C"><span class="nav-number">4.1.</span> <span class="nav-text">4.1状态码告知从服务器端返回的请求结果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-2XX%E6%88%90%E5%8A%9F%EF%BC%88%E8%A1%A8%E6%98%8E%E8%AF%B7%E6%B1%82%E8%A2%AB%E6%AD%A3%E5%B8%B8%E5%A4%84%E7%90%86%E4%BA%86%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 2XX成功（表明请求被正常处理了）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-3XX%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E8%A1%A8%E6%98%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E9%9C%80%E8%A6%81%E6%89%A7%E8%A1%8C%E6%9F%90%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%9A%84%E5%A4%84%E7%90%86%E4%BB%A5%E6%AD%A3%E7%A1%AE%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-4-4XX%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF%EF%BC%88%E8%A1%A8%E6%98%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%98%AF%E5%8F%91%E7%94%9F%E9%94%99%E8%AF%AF%E7%9A%84%E5%8E%9F%E5%9B%A0%E6%89%80%E5%9C%A8%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 4XX客户端错误（表明客户端是发生错误的原因所在）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-5-5XX%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%94%99%E8%AF%AF%EF%BC%88%E8%A1%A8%E6%98%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AC%E8%BA%AB%E5%8F%91%E7%94%9F%E9%94%99%E8%AF%AF%EF%BC%89"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 5XX服务器错误（表明服务器本身发生错误）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-%E4%B8%8EHTTP%E5%8D%8F%E4%BD%9C%E7%9A%84Web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">第5章 与HTTP协作的Web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-%E7%94%A8%E5%8D%95%E5%8F%B0%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%B8%AA%E5%9F%9F%E5%90%8D"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 用单台虚拟主机实现多个域名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-%E9%80%9A%E4%BF%A1%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E7%A8%8B%E5%BA%8F%EF%BC%9A%E4%BB%A3%E7%90%86%E3%80%81%E7%BD%91%E5%85%B3%E3%80%81%E9%9A%A7%E9%81%93"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 通信数据转发程序：代理、网关、隧道</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-%E4%BF%9D%E5%AD%98%E8%B5%84%E6%BA%90%E7%9A%84%E7%BC%93%E5%AD%98"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 保存资源的缓存</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC6%E7%AB%A0-HTTP%E7%9A%84%E9%A6%96%E9%83%A8"><span class="nav-number">6.</span> <span class="nav-text">第6章 HTTP的首部</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#6-1-HTTP%E6%8A%A5%E6%96%87%E9%A6%96%E9%83%A8"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 HTTP报文首部</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-2-HTTP%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 HTTP首部字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-3-HTTP-1-1-%E9%80%9A%E7%94%A8%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 HTTP&#x2F;1.1 通用首部字段</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E4%BA%86%E8%A7%A3Web%E5%8F%8A%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">第一章 了解Web及网络基础</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1%E4%BD%BF%E7%94%A8HTTP%E5%8D%8F%E8%AE%AE%E8%AE%BF%E9%97%AEWeb"><span class="nav-number">1.1.</span> <span class="nav-text">1.1使用HTTP协议访问Web</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2HTTP%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="nav-number">1.2.</span> <span class="nav-text">1.2HTTP的诞生</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80TCP-IP"><span class="nav-number">1.3.</span> <span class="nav-text">1.3网络基础TCP&#x2F;IP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4%E4%B8%8EHTTP%E5%85%B3%E7%B3%BB%E5%AF%86%E5%88%87%E7%9A%84%E5%8D%8F%E8%AE%AE%EF%BC%9AIP%E3%80%81TCP%E5%92%8CDNS"><span class="nav-number">1.4.</span> <span class="nav-text">1.4与HTTP关系密切的协议：IP、TCP和DNS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-5%E8%B4%9F%E8%B4%A3%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E7%9A%84DNS%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.5.</span> <span class="nav-text">1.5负责域名解析的DNS服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6URI%E5%92%8CURL"><span class="nav-number">1.6.</span> <span class="nav-text">1.6URI和URL</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E7%AE%80%E5%8D%95%E7%9A%84HTTP%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.</span> <span class="nav-text">第2章 简单的HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-HTTP%E5%8D%8F%E8%AE%AE%E7%94%A8%E4%BA%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 HTTP协议用于客户端和服务器端之间的通信</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2%E9%80%9A%E8%BF%87%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94%E7%9A%84%E4%BA%A4%E6%8D%A2%E8%BE%BE%E6%88%90%E9%80%9A%E4%BF%A1"><span class="nav-number">2.2.</span> <span class="nav-text">2.2通过请求和响应的交换达成通信</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3HTTP%E6%98%AF%E4%B8%8D%E4%BF%9D%E5%AD%98%E7%8A%B6%E6%80%81%E7%9A%84%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.3.</span> <span class="nav-text">2.3HTTP是不保存状态的协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4%E8%AF%B7%E6%B1%82URI%E5%AE%9A%E4%BD%8D%E8%B5%84%E6%BA%90"><span class="nav-number">2.4.</span> <span class="nav-text">2.4请求URI定位资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5%E5%91%8A%E7%9F%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%84%8F%E5%9B%BE%E7%9A%84HTTP%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">2.5告知服务器意图的HTTP方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E4%B8%8B%E8%BE%BE%E5%91%BD%E4%BB%A4"><span class="nav-number">2.6.</span> <span class="nav-text">2.6使用方法下达命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-7%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5%E8%8A%82%E7%9C%81%E9%80%9A%E4%BF%A1%E9%87%8F"><span class="nav-number">2.7.</span> <span class="nav-text">2.7持久连接节省通信量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-8%E4%BD%BF%E7%94%A8Cookie%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="nav-number">2.8.</span> <span class="nav-text">2.8使用Cookie的状态管理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-HTTP%E6%8A%A5%E6%96%87%E5%86%85%E7%9A%84HTTP%E4%BF%A1%E6%81%AF"><span class="nav-number">3.</span> <span class="nav-text">第3章 HTTP报文内的HTTP信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1HTTP%E6%8A%A5%E6%96%87"><span class="nav-number">3.1.</span> <span class="nav-text">3.1HTTP报文</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87%E5%8F%8A%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.</span> <span class="nav-text">3.2请求报文及响应报文的结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3%E7%BC%96%E7%A0%81%E6%8F%90%E5%8D%87%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87"><span class="nav-number">3.3.</span> <span class="nav-text">3.3编码提升传输速率</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4%E5%8F%91%E9%80%81%E5%A4%9A%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%9A%E9%83%A8%E5%88%86%E5%AF%B9%E8%B1%A1%E9%9B%86%E5%90%88"><span class="nav-number">3.4.</span> <span class="nav-text">3.4发送多种数据的多部分对象集合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5%E8%8E%B7%E5%8F%96%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E7%9A%84%E8%8C%83%E5%9B%B4%E8%AF%B7%E6%B1%82"><span class="nav-number">3.5.</span> <span class="nav-text">3.5获取部分内容的范围请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-6%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86%E8%BF%94%E5%9B%9E%E6%9C%80%E5%90%88%E9%80%82%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">3.6.</span> <span class="nav-text">3.6内容协商返回最合适的内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%9A%84HTTP%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">第4章 返回结果的HTTP状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1%E7%8A%B6%E6%80%81%E7%A0%81%E5%91%8A%E7%9F%A5%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%BF%94%E5%9B%9E%E7%9A%84%E8%AF%B7%E6%B1%82%E7%BB%93%E6%9E%9C"><span class="nav-number">4.1.</span> <span class="nav-text">4.1状态码告知从服务器端返回的请求结果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-2XX%E6%88%90%E5%8A%9F%EF%BC%88%E8%A1%A8%E6%98%8E%E8%AF%B7%E6%B1%82%E8%A2%AB%E6%AD%A3%E5%B8%B8%E5%A4%84%E7%90%86%E4%BA%86%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 2XX成功（表明请求被正常处理了）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-3XX%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E8%A1%A8%E6%98%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E9%9C%80%E8%A6%81%E6%89%A7%E8%A1%8C%E6%9F%90%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%9A%84%E5%A4%84%E7%90%86%E4%BB%A5%E6%AD%A3%E7%A1%AE%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-4-4XX%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF%EF%BC%88%E8%A1%A8%E6%98%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%98%AF%E5%8F%91%E7%94%9F%E9%94%99%E8%AF%AF%E7%9A%84%E5%8E%9F%E5%9B%A0%E6%89%80%E5%9C%A8%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 4XX客户端错误（表明客户端是发生错误的原因所在）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-5-5XX%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%94%99%E8%AF%AF%EF%BC%88%E8%A1%A8%E6%98%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AC%E8%BA%AB%E5%8F%91%E7%94%9F%E9%94%99%E8%AF%AF%EF%BC%89"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 5XX服务器错误（表明服务器本身发生错误）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-%E4%B8%8EHTTP%E5%8D%8F%E4%BD%9C%E7%9A%84Web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">第5章 与HTTP协作的Web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-%E7%94%A8%E5%8D%95%E5%8F%B0%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%B8%AA%E5%9F%9F%E5%90%8D"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 用单台虚拟主机实现多个域名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-%E9%80%9A%E4%BF%A1%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E7%A8%8B%E5%BA%8F%EF%BC%9A%E4%BB%A3%E7%90%86%E3%80%81%E7%BD%91%E5%85%B3%E3%80%81%E9%9A%A7%E9%81%93"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 通信数据转发程序：代理、网关、隧道</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-%E4%BF%9D%E5%AD%98%E8%B5%84%E6%BA%90%E7%9A%84%E7%BC%93%E5%AD%98"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 保存资源的缓存</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC6%E7%AB%A0-HTTP%E7%9A%84%E9%A6%96%E9%83%A8"><span class="nav-number">6.</span> <span class="nav-text">第6章 HTTP的首部</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#6-1-HTTP%E6%8A%A5%E6%96%87%E9%A6%96%E9%83%A8"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 HTTP报文首部</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-2-HTTP%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 HTTP首部字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-3-HTTP-1-1-%E9%80%9A%E7%94%A8%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 HTTP&#x2F;1.1 通用首部字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-5-%E5%93%8D%E5%BA%94%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5"><span class="nav-number">6.4.</span> <span class="nav-text">6.5 响应首部字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-6-%E5%AE%9E%E4%BD%93%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5"><span class="nav-number">6.5.</span> <span class="nav-text">6.6 实体首部字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-7-%E4%B8%BACookie%E6%9C%8D%E5%8A%A1%E7%9A%84%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5"><span class="nav-number">6.6.</span> <span class="nav-text">6.7 为Cookie服务的首部字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-8-%E5%85%B6%E4%BB%96%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5"><span class="nav-number">6.7.</span> <span class="nav-text">6.8 其他首部字段</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1373,20 +1585,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
