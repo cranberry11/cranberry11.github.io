@@ -596,19 +596,19 @@
 <p>（3）注意：.git目录中存放的是本地库相关的子目录和文件，不要删除，也不要胡乱修改</p>
 <h4 id="2-设置签名"><a href="#2-设置签名" class="headerlink" title="2.设置签名"></a>2.设置签名</h4><p>（1）形式</p>
 <p>用户名：cranberry</p>
-<p>Email地址：<a href="mailto:&#x63;&#x72;&#x61;&#x6e;&#98;&#101;&#x72;&#114;&#x79;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x63;&#x72;&#x61;&#x6e;&#98;&#101;&#x72;&#114;&#x79;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
+<p>Email地址：<a href="mailto:&#99;&#x72;&#x61;&#x6e;&#98;&#101;&#x72;&#x72;&#121;&#x40;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;">&#99;&#x72;&#x61;&#x6e;&#98;&#101;&#x72;&#x72;&#121;&#x40;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;</a></p>
 <p>（2）作用：区分不同开发人员的身份</p>
 <p>（3）辨析：这里设置的签名和登录远程库（代码托管中心）的账号密码没有任何关系</p>
 <p>（4）命令</p>
 <ul>
 <li>项目级别/仓库级别：仅在当前本地库范围内有效<ul>
 <li>git <strong>config</strong> user.name cranberry</li>
-<li>git <strong>config</strong> user.email <a href="mailto:&#x63;&#114;&#x61;&#x6e;&#98;&#101;&#114;&#x72;&#x79;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#x63;&#114;&#x61;&#x6e;&#98;&#101;&#114;&#x72;&#x79;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;</a></li>
+<li>git <strong>config</strong> user.email <a href="mailto:&#99;&#x72;&#x61;&#110;&#x62;&#x65;&#114;&#x72;&#x79;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#99;&#x72;&#x61;&#110;&#x62;&#x65;&#114;&#x72;&#x79;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;</a></li>
 </ul>
 </li>
 <li>系统用户级别：登录当前操作系统的用户范围<ul>
 <li>git config <strong>–global</strong> user.name cranberry</li>
-<li>git config <strong>–global</strong> user.email <a href="mailto:&#x63;&#x72;&#97;&#110;&#x62;&#101;&#114;&#x72;&#121;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;">&#x63;&#x72;&#97;&#110;&#x62;&#101;&#114;&#x72;&#121;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;</a></li>
+<li>git config <strong>–global</strong> user.email <a href="mailto:&#x63;&#x72;&#97;&#x6e;&#x62;&#x65;&#114;&#x72;&#x79;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#x63;&#x72;&#97;&#x6e;&#x62;&#x65;&#114;&#x72;&#x79;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a></li>
 </ul>
 </li>
 <li>级别优先级<ul>
@@ -1131,99 +1131,6 @@
       </tags>
   </entry>
   <entry>
-    <title>axios框架</title>
-    <url>/2021/09/13/axios/</url>
-    <content><![CDATA[<h3 id="一、axios框架的基本使用"><a href="#一、axios框架的基本使用" class="headerlink" title="一、axios框架的基本使用"></a>一、axios框架的基本使用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">    <span class="attr">method</span>:<span class="string">&#x27;post&#x27;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//没写method，默认是get</span></span><br><span class="line">axios(&#123;</span><br><span class="line">	<span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">   <span class="attr">params</span>:&#123;</span><br><span class="line">       <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">       <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、axios发送并发请求"><a href="#二、axios发送并发请求" class="headerlink" title="二、axios发送并发请求"></a>二、axios发送并发请求</h3><p>有时候我们可能需要同时发送两个请求</p>
-<ul>
-<li>使用axios.all可以放入多个请求的数组</li>
-<li>axios.all([])返回的结果是一个数组，使用axios.spread可将数组[res1,res2]展开为res1,res2</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.all([axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">&#125;),axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;yyy&#x27;</span>,</span><br><span class="line">    <span class="attr">parms</span>:&#123;</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)]).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.all([axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">&#125;),axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;yyy&#x27;</span>,</span><br><span class="line">    <span class="attr">parms</span>:&#123;</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)]).then(axios.spread([res1,res2])=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res1)</span><br><span class="line">    <span class="built_in">console</span>.log(res2)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="三、axios的配置信息相关"><a href="#三、axios的配置信息相关" class="headerlink" title="三、axios的配置信息相关"></a>三、axios的配置信息相关</h3><h4 id="1-全局配置"><a href="#1-全局配置" class="headerlink" title="1.全局配置"></a>1.全局配置</h4><p>在开发中可能很多参数都是固定，这个时候可以进行一些抽取，也可以利用axios的全局配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">axios.defaults.baseURL=&#x27;http://localhost:8080&#x27;</span><br><span class="line">axios.defaults.headers.post[&#x27;Content-Type&#x27;]=&#x27;application/x-www-form-urlencoded&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2021/09/13/axios/1.png"></p>
-<h3 id="四、axios的实例和模块封装"><a href="#四、axios的实例和模块封装" class="headerlink" title="四、axios的实例和模块封装"></a>四、axios的实例和模块封装</h3><p>创建对应的axios的实例</p>
-<p>第一个方法：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config,success,failure</span>)</span>&#123;<span class="comment">//config配置信息，success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;/home/multidata&#x27;</span></span><br><span class="line">&#125;,<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>第二个方法：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(baseConfig.config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        config.success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        config.failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">   <span class="attr">baseConfig</span>:&#123;</span><br><span class="line">       </span><br><span class="line">   &#125;,</span><br><span class="line">    <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">suc</span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">failuer</span>:<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>第三个的方法：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">             <span class="comment">//1.创建axios的实例</span></span><br><span class="line">            <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">            <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">            <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment">//发送真正的网络请求</span></span><br><span class="line">        instance(config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="comment">//console.log(res)</span></span><br><span class="line">            resolve(res)</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">           <span class="comment">// console.log(err)</span></span><br><span class="line">            reject(res)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;/home/multidata&#x27;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>最终的方法</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    <span class="keyword">return</span> instance(config)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance1=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(baseConfig.config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        config.success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        config.failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="五、axios的拦截器的使用"><a href="#五、axios的拦截器的使用" class="headerlink" title="五、axios的拦截器的使用"></a>五、axios的拦截器的使用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.axios的拦截器</span></span><br><span class="line">    instance.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(config)</span><br><span class="line">        <span class="comment">//拦截后可能要做的操作</span></span><br><span class="line">        <span class="comment">//1.比如config中的一些信息不符合服务器的要求</span></span><br><span class="line">        <span class="comment">//2.比如每次发送网络请求时，都希望在界面中显示一个请求的图标</span></span><br><span class="line">        <span class="comment">//3.某些网络请求（比如登录（token）)，必须携带一些特殊的信息</span></span><br><span class="line">        <span class="keyword">return</span> config<span class="comment">//放行</span></span><br><span class="line">    &#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.2响应拦截</span></span><br><span class="line">    instance.interceptors.response.use(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">        <span class="keyword">return</span> res.data</span><br><span class="line">    &#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    <span class="keyword">return</span> instance(config)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>axios</category>
-      </categories>
-      <tags>
-        <tag>axios框架</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ajax</title>
     <url>/2021/09/02/ajax/</url>
     <content><![CDATA[<h2 id="一、AJAX介绍与网页应用"><a href="#一、AJAX介绍与网页应用" class="headerlink" title="一、AJAX介绍与网页应用"></a><strong>一、AJAX介绍与网页应用</strong></h2><p>在不刷新的情况下与服务器交互</p>
@@ -1320,6 +1227,99 @@
       </tags>
   </entry>
   <entry>
+    <title>axios框架</title>
+    <url>/2021/09/13/axios/</url>
+    <content><![CDATA[<h3 id="一、axios框架的基本使用"><a href="#一、axios框架的基本使用" class="headerlink" title="一、axios框架的基本使用"></a>一、axios框架的基本使用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">    <span class="attr">method</span>:<span class="string">&#x27;post&#x27;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//没写method，默认是get</span></span><br><span class="line">axios(&#123;</span><br><span class="line">	<span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">   <span class="attr">params</span>:&#123;</span><br><span class="line">       <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">       <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、axios发送并发请求"><a href="#二、axios发送并发请求" class="headerlink" title="二、axios发送并发请求"></a>二、axios发送并发请求</h3><p>有时候我们可能需要同时发送两个请求</p>
+<ul>
+<li>使用axios.all可以放入多个请求的数组</li>
+<li>axios.all([])返回的结果是一个数组，使用axios.spread可将数组[res1,res2]展开为res1,res2</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.all([axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">&#125;),axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;yyy&#x27;</span>,</span><br><span class="line">    <span class="attr">parms</span>:&#123;</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)]).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.all([axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">&#125;),axios(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;yyy&#x27;</span>,</span><br><span class="line">    <span class="attr">parms</span>:&#123;</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        <span class="attr">page</span>:<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)]).then(axios.spread([res1,res2])=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res1)</span><br><span class="line">    <span class="built_in">console</span>.log(res2)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、axios的配置信息相关"><a href="#三、axios的配置信息相关" class="headerlink" title="三、axios的配置信息相关"></a>三、axios的配置信息相关</h3><h4 id="1-全局配置"><a href="#1-全局配置" class="headerlink" title="1.全局配置"></a>1.全局配置</h4><p>在开发中可能很多参数都是固定，这个时候可以进行一些抽取，也可以利用axios的全局配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">axios.defaults.baseURL=&#x27;http://localhost:8080&#x27;</span><br><span class="line">axios.defaults.headers.post[&#x27;Content-Type&#x27;]=&#x27;application/x-www-form-urlencoded&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/09/13/axios/1.png"></p>
+<h3 id="四、axios的实例和模块封装"><a href="#四、axios的实例和模块封装" class="headerlink" title="四、axios的实例和模块封装"></a>四、axios的实例和模块封装</h3><p>创建对应的axios的实例</p>
+<p>第一个方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config,success,failure</span>)</span>&#123;<span class="comment">//config配置信息，success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;/home/multidata&#x27;</span></span><br><span class="line">&#125;,<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第二个方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(baseConfig.config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        config.success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        config.failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">   <span class="attr">baseConfig</span>:&#123;</span><br><span class="line">       </span><br><span class="line">   &#125;,</span><br><span class="line">    <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">suc</span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">failuer</span>:<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第三个的方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">             <span class="comment">//1.创建axios的实例</span></span><br><span class="line">            <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">            <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">            <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment">//发送真正的网络请求</span></span><br><span class="line">        instance(config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="comment">//console.log(res)</span></span><br><span class="line">            resolve(res)</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">           <span class="comment">// console.log(err)</span></span><br><span class="line">            reject(res)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在main.js中引用</span></span><br><span class="line"><span class="comment">//封装request模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;request&#125; <span class="keyword">from</span> <span class="string">&quot;./network/request&quot;</span></span><br><span class="line">request(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;/home/multidata&#x27;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>最终的方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    <span class="keyword">return</span> instance(config)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance1=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    instance(baseConfig.config).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res)</span></span><br><span class="line">        config.success(res)</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">       <span class="comment">// console.log(err)</span></span><br><span class="line">        config.failure(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、axios的拦截器的使用"><a href="#五、axios的拦截器的使用" class="headerlink" title="五、axios的拦截器的使用"></a>五、axios的拦截器的使用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>)</span>&#123;<span class="comment">//config配置信息，包含success成功的函数，failure出错的函数</span></span><br><span class="line">    <span class="comment">//1.创建axios的实例</span></span><br><span class="line">    <span class="keyword">const</span> instance=axios.create(&#123;</span><br><span class="line">        <span class="attr">baseURL</span>:<span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">timeout</span>: <span class="number">4000</span></span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.axios的拦截器</span></span><br><span class="line">    instance.interceptors.request.use(<span class="function"><span class="params">config</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(config)</span><br><span class="line">        <span class="comment">//拦截后可能要做的操作</span></span><br><span class="line">        <span class="comment">//1.比如config中的一些信息不符合服务器的要求</span></span><br><span class="line">        <span class="comment">//2.比如每次发送网络请求时，都希望在界面中显示一个请求的图标</span></span><br><span class="line">        <span class="comment">//3.某些网络请求（比如登录（token）)，必须携带一些特殊的信息</span></span><br><span class="line">        <span class="keyword">return</span> config<span class="comment">//放行</span></span><br><span class="line">    &#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.2响应拦截</span></span><br><span class="line">    instance.interceptors.response.use(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">        <span class="keyword">return</span> res.data</span><br><span class="line">    &#125;,<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">//发送真正的网络请求</span></span><br><span class="line">    <span class="keyword">return</span> instance(config)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>axios</category>
+      </categories>
+      <tags>
+        <tag>axios框架</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端性能优化</title>
     <url>/2021/09/18/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>主流的，面向Chrome</p>
@@ -1329,1255 +1329,6 @@
       </categories>
       <tags>
         <tag>性能优化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图解HTTP</title>
-    <url>/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/</url>
-    <content><![CDATA[<h4 id="第一章-了解Web及网络基础"><a href="#第一章-了解Web及网络基础" class="headerlink" title="第一章 了解Web及网络基础"></a>第一章 了解Web及网络基础</h4><h5 id="1-1使用HTTP协议访问Web"><a href="#1-1使用HTTP协议访问Web" class="headerlink" title="1.1使用HTTP协议访问Web"></a>1.1使用HTTP协议访问Web</h5><ul>
-<li><p>客户端：通过发送请求获取服务器资源的Web浏览器</p>
-</li>
-<li><p>Web使用一种名为HTTP（HyperText Transfer Protocol，超文本传输协议）的协议作为规范，完成从<strong>客户端到服务器端</strong>等一系列运作流程</p>
-</li>
-</ul>
-<h5 id="1-2HTTP的诞生"><a href="#1-2HTTP的诞生" class="headerlink" title="1.2HTTP的诞生"></a>1.2HTTP的诞生</h5><ul>
-<li>三项WWW技术<ul>
-<li><strong>HTML</strong>:把SGML(Standard Generalized Markup Language，标准通用标记语言)作为页面的文本标记语言的HTML(HyperText Markup Language，超文本标记语言)</li>
-<li><strong>HTTP</strong>:作为文档传递协议</li>
-<li><strong>URL</strong>:指定文档所在地址</li>
-</ul>
-</li>
-<li>Web成长时代</li>
-</ul>
-<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/1.png"></p>
-<ul>
-<li>驻足不前的http<ul>
-<li>HTTP/0.9<ul>
-<li>没有作为正式的标准被建立</li>
-</ul>
-</li>
-<li>HTTP/1.0<ul>
-<li>HTTP正式作为标准被公布是在1996年的5月</li>
-<li>该协议标准至今仍被广泛使用在服务器端。</li>
-</ul>
-</li>
-<li>HTTP/1.1<ul>
-<li>1997年1月公布的HTTP/1.1是目前主流的HTTP协议版本</li>
-</ul>
-</li>
-<li>现在HTTP协议已经超出了Web这个框架的局限，被运用到了各种场景里。</li>
-</ul>
-</li>
-</ul>
-<h5 id="1-3网络基础TCP-IP"><a href="#1-3网络基础TCP-IP" class="headerlink" title="1.3网络基础TCP/IP"></a>1.3网络基础TCP/IP</h5><ul>
-<li>把与互联网相关联的协议集合起来总称为TCP/IP</li>
-<li>两种说法：<ul>
-<li>把与互联网相关联的协议集合起来总称为TCP/IP</li>
-<li>TCP/IP是在IP协议的通信过程中，使用到的协议族的统称。</li>
-</ul>
-</li>
-<li>TCP/IP层次化的好处：<ul>
-<li>如果互联网只由一个协议统筹，某个地方需要改变设计时，就必须把所有部分整体替换掉</li>
-<li>分层之后只需把变动的层替换掉即可。把各层之间的接口部分规划好之后，每个层次内部的设计就能够自由改动了。</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/2.png"></p>
-<ul>
-<li>TCP/IP协议族进行网络通信<ul>
-<li>发送端从应用层往下走，接收端则往应用层往上走。</li>
-</ul>
-</li>
-</ul>
-<h5 id="1-4与HTTP关系密切的协议：IP、TCP和DNS"><a href="#1-4与HTTP关系密切的协议：IP、TCP和DNS" class="headerlink" title="1.4与HTTP关系密切的协议：IP、TCP和DNS"></a>1.4与HTTP关系密切的协议：IP、TCP和DNS</h5><p>（1）IP</p>
-<ul>
-<li>IP其实是一种协议的名称</li>
-<li>IP协议的作用<ul>
-<li>把各种数据包传送给对方</li>
-<li>保证确实传送到对方那里，则需要满足各类条件<ul>
-<li>两个重要的条件是<strong>IP地址和MAC地址</strong><ul>
-<li>IP地址指明了节点被分配到的地址</li>
-<li>MAC地址是指网卡所属的固定地址</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>IP地址可以和MAC地址进行配对。IP地址可变换，但MAC地址基本上不会更改。</li>
-<li>使用ARP协议凭借MAC地址进行通信<ul>
-<li>IP间的通信依赖MAC地址</li>
-<li>ARP是一种用以解析地址的协议，根据通信方的IP地址就可以反查出对应的MAC地址。</li>
-</ul>
-</li>
-</ul>
-<p>（2）TCP位于传输层，提供可靠的字节流服务</p>
-<ul>
-<li>字节流服务（Byte Stream Service）<ul>
-<li>为了方便传输，将大块数据分割成以报文段（segment）为单位的数据包进行管理</li>
-</ul>
-</li>
-<li>可靠的传输服务<ul>
-<li>能够把数据准确可靠地传给对方</li>
-</ul>
-</li>
-<li>TCP协议为了更容易传送大数据才把数据分割，而且TCP协议能够确认数据最终是否送达到对方。</li>
-</ul>
-<p>（3）确保数据能达到目标</p>
-<p>TCP协议采用了三次握手（three-way handshaking）策略</p>
-<ul>
-<li>握手过程中使用了TCP的标志<ul>
-<li>flag</li>
-<li>SYN(synchronize)</li>
-<li>ACK</li>
-</ul>
-</li>
-<li>发送过程：<ul>
-<li>发送端首先发送一个带SYN标志的数据包给对方</li>
-<li>接收端收到后，回传一个带有SYN/ACK标志的数据包以示传达确认信息</li>
-<li>发送端再回传一个带ACK标志的数据包，代表“握手”结束</li>
-</ul>
-</li>
-</ul>
-<h5 id="1-5负责域名解析的DNS服务"><a href="#1-5负责域名解析的DNS服务" class="headerlink" title="1.5负责域名解析的DNS服务"></a>1.5负责域名解析的DNS服务</h5><p>（1）作用：提供域名到IP地址之间的解析服务。</p>
-<p>（2）DNS协议提供通过域名查找IP地址，或逆向从IP地址反查域名的服务</p>
-<h5 id="1-6URI和URL"><a href="#1-6URI和URL" class="headerlink" title="1.6URI和URL"></a>1.6URI和URL</h5><ul>
-<li><strong>URL</strong>:UniformResource Locator，统一资源定位符</li>
-<li><strong>URI</strong>：Uniform Resource Identifier<ul>
-<li>Uniform：规定统一的格式可方便处理多种不同类型的资源，而不用根据上下文环境来识别资源指定的访问方式</li>
-<li>Resource：可标识的任何东西<ul>
-<li>不仅是文档文件，图像或服务（例如当天的天气预报）等能够区别于其他类型的，全都可作为资源</li>
-</ul>
-</li>
-<li>Identifier<ul>
-<li>表示可标识的对象。也称为标识符。</li>
-</ul>
-</li>
-<li>URI就是由某个协议方案表示的资源的定位标识符</li>
-</ul>
-</li>
-<li>URI用字符串标识某一互联网资源，而URL表示资源的地点（互联网上所处的位置）。可见URL是URI的子集</li>
-</ul>
-<h4 id="第2章-简单的HTTP协议"><a href="#第2章-简单的HTTP协议" class="headerlink" title="第2章 简单的HTTP协议"></a>第2章 简单的HTTP协议</h4><h5 id="2-1-HTTP协议用于客户端和服务器端之间的通信"><a href="#2-1-HTTP协议用于客户端和服务器端之间的通信" class="headerlink" title="2.1 HTTP协议用于客户端和服务器端之间的通信"></a>2.1 HTTP协议用于客户端和服务器端之间的通信</h5><ul>
-<li><p>请求访问文本或图像等资源的一端称为<strong>客户端</strong></p>
-</li>
-<li><p>提供资源响应的一端称为<strong>服务器端</strong></p>
-</li>
-<li><p>仅从一条通信路线来说，服务器端和客户端的角色是确定的，而用HTTP协议能够明确区分哪端是客户端，哪端是服务器端</p>
-</li>
-</ul>
-<h5 id="2-2通过请求和响应的交换达成通信"><a href="#2-2通过请求和响应的交换达成通信" class="headerlink" title="2.2通过请求和响应的交换达成通信"></a>2.2通过请求和响应的交换达成通信</h5><ul>
-<li>请求报文是由<ul>
-<li>请求方法</li>
-<li>请求URI</li>
-<li>协议版本</li>
-<li>可选的请求首部字段</li>
-<li>内容实体构成的</li>
-</ul>
-</li>
-<li>响应报文基本上由<ul>
-<li>协议版本</li>
-<li>状态码（表示请求成功或失败的数字代码）</li>
-<li>用以解释状态码的原因短语</li>
-<li>可选的响应首部字段</li>
-<li>实体主体构成</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-3HTTP是不保存状态的协议"><a href="#2-3HTTP是不保存状态的协议" class="headerlink" title="2.3HTTP是不保存状态的协议"></a>2.3HTTP是不保存状态的协议</h5><ul>
-<li>HTTP是一种<strong>不保存状态</strong>，即<strong>无状态（stateless）协议</strong>，每当有新的请求发送时，就会有对应的新响应产生<ul>
-<li>为了更快地处理大量事务，确保协议的可伸缩性</li>
-<li>自然可减少服务器的CPU及内存资源的消耗</li>
-<li>因为HTTP协议本身是非常简单的，所以才会被应用在各种场景里</li>
-</ul>
-</li>
-<li>HTTP/1.1虽然是无状态协议，但为了实现期望的保持状态功能，于是引入了<strong>Cookie技术</strong>。有了Cookie再用HTTP协议通信，就可以管理状态了</li>
-</ul>
-<h5 id="2-4请求URI定位资源"><a href="#2-4请求URI定位资源" class="headerlink" title="2.4请求URI定位资源"></a>2.4请求URI定位资源</h5><ul>
-<li>HTTP协议使用URI定位互联网上的资源</li>
-<li>如果不是访问特定资源而是对服务器本身发起请求，可以用一个*来代替请求URI</li>
-</ul>
-<h5 id="2-5告知服务器意图的HTTP方法"><a href="#2-5告知服务器意图的HTTP方法" class="headerlink" title="2.5告知服务器意图的HTTP方法"></a>2.5告知服务器意图的HTTP方法</h5><ul>
-<li>GET：获取资源<ul>
-<li>用来请求访问已被URI识别的资源</li>
-</ul>
-</li>
-<li>POST：传输实体主体（GET也可以，但一般不用）</li>
-<li>PUT：传输文件<ul>
-<li>就像FTP协议的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存到请求URI指定的位置。</li>
-<li>HTTP/1.1的PUT方法自身不带验证机制，任何人都可以上传文件，存在安全性问题，因此一般的Web网站不使用该方法</li>
-<li>配合HTTP/1.1的PUT方法自身不带验证机制，任何人都可以上传文件，存在安全性问题，因此一般的Web网站不使用该方法就可能可以使用</li>
-</ul>
-</li>
-<li>HEAD：获得报文首部<ul>
-<li>HEAD方法和GET方法一样，只是不返回报文主体部分</li>
-<li>HEAD方法和GET方法一样，只是不返回报文主体部分</li>
-</ul>
-</li>
-<li>DELETE：删除文件<ul>
-<li>是与PUT相反的方法</li>
-<li>按请求URI删除指定的资源</li>
-<li>HTTP/1.1的DELETE方法本身和PUT方法一样不带验证机制，所以一般的Web网站也不使用DELETE方法</li>
-</ul>
-</li>
-<li>OPTIONS：询问支持的方法<ul>
-<li>来查询针对请求URI指定的资源支持的方法。</li>
-</ul>
-</li>
-<li>TRACE：追踪路径<ul>
-<li>让Web服务器端将<strong>之前的请求通信</strong>环回给客户端的方法。</li>
-<li>发送请求时，在Max-Forwards首部字段中填入数值，每经过一个服务器端就将该数字减1，当数值刚好减到0时，就停止继续传输，最后接收到请求的服务器端则返回状态码200OK的响应</li>
-<li>客户端通过TRACE方法可以查询发送出去的请求是怎样被加工修改/篡改的<ul>
-<li>因为，请求想要连接到源目标服务器可能会通过代理中转，TRACE方法就是用来确认连接过程中发生的一系列操作</li>
-</ul>
-</li>
-<li>容易引发XST（Cross-Site Tracing，跨站追踪）攻击，通常就更不会用到了。</li>
-</ul>
-</li>
-<li>CONNECT：要求用隧道协议连接代理<ul>
-<li>要求在与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信</li>
-<li>主要使用<strong>SSL（Secure SocketsLayer，安全套接层）</strong>和<strong>TLS（Transport Layer Security，传输层安全）协议</strong>把通信内容<strong>加密</strong>后经网络隧道传输</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-6使用方法下达命令"><a href="#2-6使用方法下达命令" class="headerlink" title="2.6使用方法下达命令"></a>2.6使用方法下达命令</h5><ul>
-<li>向请求URI指定的资源发送请求报文时，采用称为方法的命令。</li>
-<li>方法名区分大小写，注意要用大写字母。</li>
-</ul>
-<h5 id="2-7持久连接节省通信量"><a href="#2-7持久连接节省通信量" class="headerlink" title="2.7持久连接节省通信量"></a>2.7持久连接节省通信量</h5><ul>
-<li>持久连接<ul>
-<li>持久连接的特点是，只要任意一端没有明确提出断开连接，则保持TCP连接状态。</li>
-<li>好处<ul>
-<li>在于减少了TCP连接的重复建立</li>
-<li>减少断开所造成的额外开销<ul>
-<li>这部分时间使HTTP请求和响应能够更早地结束，这样Web页面的显示速度也就相应提高了</li>
-</ul>
-</li>
-<li>减轻了服务器端的负载</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>管线化<ul>
-<li>持久连接使得多数请求以管线化（pipelining）方式发送成为可能</li>
-<li>从前发送请求后需等待并收到响应，才能发送下一个请求。管线化技术出现后，不用等待响应亦可直接发送下一个请求</li>
-<li>就能够做到<strong>同时并行发送多个请求</strong>，而不需要一个接一个地等待响应了</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-8使用Cookie的状态管理"><a href="#2-8使用Cookie的状态管理" class="headerlink" title="2.8使用Cookie的状态管理"></a>2.8使用Cookie的状态管理</h5><ul>
-<li>Cookie技术通过在请求和响应报文中写入Cookie信息来控制客户端的状态</li>
-<li>Cookie会根据从服务器端发送的响应报文内的一个叫做<strong>Set-Cookie的首部字段信息</strong>—-&gt;通知<strong>客户端保存Cookie</strong>。当下次客户端再往该服务器发送请求时，客户端会<strong>自动</strong>在请求报文中<strong>加入Cookie值</strong>后发送出去。</li>
-<li>服务器端发现客户端发送过来的Cookie后，会去检查究竟是从哪一个客户端发来的连接请求，然后对比服务器上的记录，最后得到之前的状态信息</li>
-</ul>
-<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/3.png"></p>
-<h4 id="第3章-HTTP报文内的HTTP信息"><a href="#第3章-HTTP报文内的HTTP信息" class="headerlink" title="第3章 HTTP报文内的HTTP信息"></a>第3章 HTTP报文内的HTTP信息</h4><h5 id="3-1HTTP报文"><a href="#3-1HTTP报文" class="headerlink" title="3.1HTTP报文"></a>3.1HTTP报文</h5><ul>
-<li>用于HTTP协议交互的信息被称为HTTP报文<ul>
-<li>HTTP报文本身是由<strong>多行（用CR+LF作换行符）数据</strong>构成的字符串文本</li>
-<li>大致可分为报文首部和报文主体两块，由最初出现的空行（CR+LF）来划分</li>
-<li>由最初出现的空行（CR+LF）来划分</li>
-</ul>
-</li>
-<li>请求端（客户端）的HTTP报文叫做请求报文</li>
-<li>响应端（服务器端）的叫做响应报文</li>
-</ul>
-<h5 id="3-2请求报文及响应报文的结构"><a href="#3-2请求报文及响应报文的结构" class="headerlink" title="3.2请求报文及响应报文的结构"></a>3.2请求报文及响应报文的结构</h5><ul>
-<li>请求报文和响应报文的<strong>首部内容</strong>由以下数据组成<ul>
-<li>请求行<ul>
-<li>包含用于请求的方法，请求URI和HTTP版本。</li>
-</ul>
-</li>
-<li>状态行<ul>
-<li>包含表明响应结果的状态码，原因短语和HTTP版本。</li>
-</ul>
-</li>
-<li>首部字段<ul>
-<li>包含表示请求和响应的各种条件和属性的各类首部。</li>
-<li>一般有4种首部<ul>
-<li>通用首部、请求首部、响应首部和实体首部。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>其他<ul>
-<li>可能包含HTTP的RFC里未定义的首部（Cookie等）。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="3-3编码提升传输速率"><a href="#3-3编码提升传输速率" class="headerlink" title="3.3编码提升传输速率"></a>3.3编码提升传输速率</h5><ul>
-<li>编码的操作需要计算机来完成，因此会消耗更多的CPU等资源</li>
-<li>报文主体和实体主体的差异<ul>
-<li>报文（message）<ul>
-<li>HTTP通信中的基本单位</li>
-<li>8位<strong>组字节流</strong>（octetsequence，其中octet为8个比特）组成</li>
-<li>通过HTTP通信传输</li>
-</ul>
-</li>
-<li>实体（entity）<ul>
-<li>作为请求或响应的有效载荷数据（补充项）被传输，其内容由<strong>实体首部和实体主体</strong>组成。</li>
-</ul>
-</li>
-<li>HTTP报文的主体用于传输请求或响应的实体主体</li>
-<li>通常，<strong>报文主体等于实体主体</strong>。只有<strong>当传输中进行编码操作</strong>时，实体主体的内容发生变化，才导致它和报文主体产生差异。</li>
-</ul>
-</li>
-<li>内容编码<ul>
-<li>指明应用在实体内容上的编码格式，并保持实体信息原样压缩</li>
-<li>内容编码后的实体由客户端接收并负责解码。</li>
-<li>常用的内容编码有以下几种<ul>
-<li>gzip（GNU zip）</li>
-<li>compress（UNIX系统的标准压缩）</li>
-<li>deflate（zlib）</li>
-<li>identity（不进行编码）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>分块传输编码<ul>
-<li>把实体主体分块的功能</li>
-<li>在传输大容量数据时，通过把数据分割成多块，能够让浏览器逐步显示页面</li>
-<li>每一块都会用十六进制来标记块的大小，而实体主体的最后一块会使用“0(CR+LF)”来标记。</li>
-<li>使用分块传输编码的实体主体会由接收的客户端负责解码，恢复到编码前的实体主体。</li>
-</ul>
-</li>
-</ul>
-<h5 id="3-4发送多种数据的多部分对象集合"><a href="#3-4发送多种数据的多部分对象集合" class="headerlink" title="3.4发送多种数据的多部分对象集合"></a>3.4发送多种数据的多部分对象集合</h5><ul>
-<li>在MIME（多用途因特网邮件扩展—-&gt;它允许邮件处理文本、图片、视频等多个不同类型的数据）扩展中会使用一种称为多部分对象集合（Multipart）的方法，来容纳多份不同类型的数据。</li>
-<li>HTTP协议中也采纳了多部分对象集合，发送的一份报文主体内可含有多类型实体。通常是在图片或文本文件等上传时使用。<ul>
-<li>多部分对象集合包含的对象如下<ul>
-<li>multipart/form-data<ul>
-<li>在Web表单文件上传时使用</li>
-</ul>
-</li>
-<li>multipart/byteranges<ul>
-<li>状态码206（Partial Content，部分内容）响应报文包含了多个范围的内容时使用。</li>
-</ul>
-</li>
-<li>multipart/form-data</li>
-<li>multipart/byteranges</li>
-</ul>
-</li>
-<li>在HTTP报文中使用多部分对象集合时，需要在首部字段里加上Content-type</li>
-<li>使用boundary字符串来划分多部分对象集合指明的各类实体<ul>
-<li>在boundary字符串指定的各个实体的起始行之前插入“–”标记（例如：–AaB03x、–THIS_STRING_SEPARATES）</li>
-<li>在多部分对象集合对应的字符串的最后插入“–”标记（例如：–AaB03x–、–THIS_STRING_SEPARATES–）作为结束</li>
-</ul>
-</li>
-<li>多部分对象集合的每个部分类型中，都可以含有首部字段。<ul>
-<li>可以在某个部分中嵌套使用多部分对象集合</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="3-5获取部分内容的范围请求"><a href="#3-5获取部分内容的范围请求" class="headerlink" title="3.5获取部分内容的范围请求"></a>3.5获取部分内容的范围请求</h5><ul>
-<li><p>范围请求（Range Request）</p>
-<ul>
-<li><p>指定范围发送的请求</p>
-</li>
-<li><p>执行范围请求时，会用到首部字段Range来指定资源的byte范围</p>
-<ul>
-<li><p>byte范围的指定形式如下</p>
-<ul>
-<li><p>5001～10000字节</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Range:bytes=5001-10000</span><br></pre></td></tr></table></figure></li>
-<li><p>从5001字节之后全部的</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Range:bytes=5001-</span><br></pre></td></tr></table></figure></li>
-<li><p>从一开始到3000字节和5000～7000字节的多重范围</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Range:bytes=-3000,5000-700</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>针对范围请求，响应会返回状态码为206 Partial Content的响应报文</p>
-</li>
-<li><p>对于多重范围的范围请求，响应会在首部字段Content-Type标明multipart/byteranges后返回响应报文。</p>
-</li>
-<li><p>服务器端无法响应范围请求，则会返回状态码200 OK和完整的实体内容。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="3-6内容协商返回最合适的内容"><a href="#3-6内容协商返回最合适的内容" class="headerlink" title="3.6内容协商返回最合适的内容"></a>3.6内容协商返回最合适的内容</h5><ul>
-<li>内容协商<ul>
-<li>当浏览器的默认语言为英语或中文，访问相同URI的Web页面时，则会显示对应的英语版或中文版的Web页面</li>
-</ul>
-</li>
-<li>内容协商机制<ul>
-<li>指客户端和服务器端就响应的资源内容进行交涉，然后提供给客户端最为适合的资源</li>
-<li>内容协商会以响应资源的语言、字符集、编码方式等作为判断的基准</li>
-<li>包含在请求报文中的某些首部字段（如下）就是判断的基准<ul>
-<li>Accept</li>
-<li>Accept-Charset</li>
-<li>Accept-Encoding</li>
-<li>Accept-Language</li>
-<li>Content-Language</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>内容协商技术有以下3种类型<ul>
-<li>服务器驱动协商<ul>
-<li>以请求的首部字段为参考，在服务器端自动处理</li>
-<li>对用户来说，以浏览器发送的信息作为判定的依据，并不一定能筛选出最优内容</li>
-</ul>
-</li>
-<li>客户端驱动协商<ul>
-<li>用户从浏览器显示的可选项列表中手动选择</li>
-<li>还可以利用JavaScript脚本在Web页面上自动进行上述选择</li>
-</ul>
-</li>
-<li>透明协商<ul>
-<li>是服务器驱动和客户端驱动的结合体</li>
-<li>由服务器端和客户端各自进行内容协商的一种方法。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="第4章-返回结果的HTTP状态码"><a href="#第4章-返回结果的HTTP状态码" class="headerlink" title="第4章 返回结果的HTTP状态码"></a>第4章 返回结果的HTTP状态码</h4><h5 id="4-1状态码告知从服务器端返回的请求结果"><a href="#4-1状态码告知从服务器端返回的请求结果" class="headerlink" title="4.1状态码告知从服务器端返回的请求结果"></a>4.1状态码告知从服务器端返回的请求结果</h5><ul>
-<li>状态码<ul>
-<li>当客户端向服务器端发送请求时，描述返回的请求结果</li>
-<li>借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误</li>
-<li>以3位数字和原因短语组成<ul>
-<li>数字中的第一位指定了响应类别，后两位无分类</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>类别</th>
-<th>原因短语</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1XX</td>
-<td>Information(信息性状态码)</td>
-<td>接收的请求正在处理</td>
-</tr>
-<tr>
-<td>2XX</td>
-<td>Success(成功状态码)</td>
-<td>请求正常处理完毕</td>
-</tr>
-<tr>
-<td>3XX</td>
-<td>Redirection(重定向状态码)</td>
-<td>需要进行附加操作以完成请求</td>
-</tr>
-<tr>
-<td>4XX</td>
-<td>Client Error(客户端错误状态码)</td>
-<td>服务器无法处理请求</td>
-</tr>
-<tr>
-<td>5XX</td>
-<td>Server Error(服务器错误状态码)</td>
-<td>服务器处理请求出错</td>
-</tr>
-</tbody></table>
-<h5 id="4-2-2XX成功（表明请求被正常处理了）"><a href="#4-2-2XX成功（表明请求被正常处理了）" class="headerlink" title="4.2 2XX成功（表明请求被正常处理了）"></a>4.2 2XX成功（表明请求被正常处理了）</h5><ul>
-<li>200 OK<ul>
-<li>表示从客户端发来的请求在服务器端被正常处理了</li>
-<li>在响应报文内，随状态码一起返回的信息会因方法的不同而发生改变<ul>
-<li>使用GET方法时，对应请求资源的实体会作为响应返回</li>
-<li>而使用HEAD方法时，对应请求资源的实体主体不随报文首部作为响应返回（即在响应中只返回首部，不会返回实体的主体部分）。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>204 No Content<ul>
-<li>代表服务器接收的请求已成功处理，但在返回的响应报文中不含实体的主体部分</li>
-<li>也不允许返回任何实体的主体</li>
-<li>比如：<ul>
-<li>当从浏览器发出请求处理后，返回204响应，那么浏览器显示的页面不发生更新</li>
-</ul>
-</li>
-<li>使用场景<ul>
-<li>一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>206 Partial Content<ul>
-<li>表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求</li>
-<li>响应报文中包含由Content-Range指定范围的实体内容。</li>
-</ul>
-</li>
-</ul>
-<h5 id="4-3-3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）"><a href="#4-3-3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）" class="headerlink" title="4.3 3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）"></a>4.3 3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）</h5><ul>
-<li><p>301 Moved Permanently</p>
-<ul>
-<li>永久性重定向</li>
-<li>表示请求的资源已被分配了新的URI，以后应使用资源现在所指的URI</li>
-<li>如果已经把资源对应的URI保存为书签了，这时应该按Location首部字段提示的URI重新保存</li>
-</ul>
-</li>
-<li><p>302 Found</p>
-<ul>
-<li>临时性重定向</li>
-<li>表示请求的资源已被分配了新的URI，希望用户（本次）能使用新的URI访问</li>
-</ul>
-</li>
-<li><p>303 See Other</p>
-<ul>
-<li>表示由于请求对应的资源存在着另一个URI，应使用GET方法定向获取请求的资源</li>
-<li>当301、302、303响应状态码返回时，几乎所有的浏览器都会把POST改成GET，并删除请求报文内的主体，之后请求会自动再次发送。301、302标准是禁止将POST方法改变成GET方法的，但实际使用时大家都会这么做。</li>
-</ul>
-</li>
-<li><p>304 Not Modified（与重定向无关）</p>
-<ul>
-<li>表示客户端发送附带条件的请求时，服务器端允许请求访问资源</li>
-<li>但因发生请求未满足条件的情况后，直接返回304 Not Modified（服务器端资源未改变，可直接使用客户端未过期的缓存）</li>
-<li>304状态码返回时，不包含任何响应的主体部分</li>
-</ul>
-</li>
-<li><p>307 Temporary Redirect</p>
-<ul>
-<li>临时重定向</li>
-<li>该状态码与302 Found有着相同的含义</li>
-<li>307会遵照浏览器标准，不会从POST变成GET</li>
-</ul>
-</li>
-</ul>
-<h5 id="4-4-4XX客户端错误（表明客户端是发生错误的原因所在）"><a href="#4-4-4XX客户端错误（表明客户端是发生错误的原因所在）" class="headerlink" title="4.4 4XX客户端错误（表明客户端是发生错误的原因所在）"></a>4.4 4XX客户端错误（表明客户端是发生错误的原因所在）</h5><ul>
-<li>400 Bad Request<ul>
-<li>表示请求报文中存在<strong>语法错误</strong></li>
-<li>需修改请求的内容后再次发送请求</li>
-<li>浏览器会像200 OK一样对待该状态码。</li>
-</ul>
-</li>
-<li>401 Unauthorized<ul>
-<li>表示发送的请求需要有通过HTTP认证（BASIC认证、DIGEST认证）的认证信息</li>
-<li>若之前已进行过1次请求，则表示用户认证失败。</li>
-<li>返回含有401的响应必须包含一个适用于被请求资源的WWW-Authenticate首部用以质询（challenge）用户信息</li>
-<li>当浏览器初次接收到401响应，会弹出认证用的对话窗口。</li>
-</ul>
-</li>
-<li>403 Forbidden<ul>
-<li>表明对请求资源的访问被服务器拒绝了</li>
-<li>未获得文件系统的访问授权，访问权限出现某些问题（从未授权的发送源IP地址试图访问）等列举的情况都可能是发生403的原因。</li>
-</ul>
-</li>
-<li>404 Not Found<ul>
-<li>表明服务器上无法找到请求的资源</li>
-<li>可以在服务器端拒绝请求且不想说明理由时使用</li>
-</ul>
-</li>
-</ul>
-<h5 id="4-5-5XX服务器错误（表明服务器本身发生错误）"><a href="#4-5-5XX服务器错误（表明服务器本身发生错误）" class="headerlink" title="4.5 5XX服务器错误（表明服务器本身发生错误）"></a>4.5 5XX服务器错误（表明服务器本身发生错误）</h5><ul>
-<li>500 Internal Server Error<ul>
-<li>表明服务器端在执行请求时发生了错误</li>
-<li>也有可能是Web应用存在的bug或某些临时的故障</li>
-</ul>
-</li>
-<li>503 Service Unavailable<ul>
-<li>表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求</li>
-<li>如果事先得知解除以上状况需要的时间，最好写入Retry-After首部字段再返回给客户端</li>
-</ul>
-</li>
-</ul>
-<h4 id="第5章-与HTTP协作的Web服务器"><a href="#第5章-与HTTP协作的Web服务器" class="headerlink" title="第5章 与HTTP协作的Web服务器"></a>第5章 与HTTP协作的Web服务器</h4><h5 id="5-1-用单台虚拟主机实现多个域名"><a href="#5-1-用单台虚拟主机实现多个域名" class="headerlink" title="5.1 用单台虚拟主机实现多个域名"></a>5.1 用单台虚拟主机实现多个域名</h5><ul>
-<li>HTTP/1.1规范允许一台HTTP服务器搭建多个Web站点<ul>
-<li>比如：<ul>
-<li>提供Web托管服务（Web Hosting Service）的供应商，可以用一台服务器为多位客户服务，也可以以每位客户持有的域名运行各自不同的网站</li>
-<li>利用了虚拟主机（Virtual Host，又称虚拟服务器）的功能</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>在互联网上，域名通过DNS服务映射到IP地址（域名解析）之后访问目标网站</li>
-<li>在相同的IP地址下，由于虚拟主机可以寄存多个不同主机名和域名的Web网站，因此在发送HTTP请求时，必须在Host首部内完整指定主机名或域名的URI</li>
-</ul>
-<h5 id="5-2-通信数据转发程序：代理、网关、隧道"><a href="#5-2-通信数据转发程序：代理、网关、隧道" class="headerlink" title="5.2 通信数据转发程序：代理、网关、隧道"></a>5.2 通信数据转发程序：代理、网关、隧道</h5><ul>
-<li>这些应用程序和服务器可以将请求转发给通信线路上的下一站服务器，并且能接收从那台服务器发送的响应再转发给客户端。</li>
-<li>代理<ul>
-<li>一种有<strong>转发功能</strong>的应用程序</li>
-<li>“中间人”的角色</li>
-<li>接收由客户端发送的请求并转发给服务器，同时也接收服务器返回的响应并转发给客户端。</li>
-<li>基本行为：<ul>
-<li>接收客户端发送的请求后转发给其他服务器</li>
-</ul>
-</li>
-<li>不改变请求URI，会直接发送给前方持有资源的目标服务器</li>
-<li>源服务器：<ul>
-<li>持有资源实体的服务器</li>
-<li>从源服务器返回的响应经过代理服务器后再传给客户端</li>
-</ul>
-</li>
-<li>使用代理服务器的理由<ul>
-<li>利用缓存技术（稍后讲解）减少网络带宽的流量</li>
-<li>组织内部针对特定网站的访问控制，以获取访问日志为主要目的</li>
-</ul>
-</li>
-<li>实现代理的方法：两个基准<ul>
-<li>是否使用缓存：<ul>
-<li>缓存代理<ul>
-<li>代理转发响应时，缓存代理（Caching Proxy）会预先将资源的副本（缓存）保存在代理服务器上</li>
-<li>当代理再次接收到对相同资源的请求时，就可以不从源服务器那里获取资源，而是将之前缓存的资源作为响应返回</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>是否会修改报文<ul>
-<li>透明代理<ul>
-<li>转发请求或响应时，不对报文做任何加工的代理类型</li>
-</ul>
-</li>
-<li>非透明代理<ul>
-<li>对报文内容进行加工的代理</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>网关<ul>
-<li>转发其他服务器通信数据的服务器</li>
-<li>接收从客户端发送来的请求时，它就<strong>像自己拥有资源的源服务器</strong>一样对请求进行处理</li>
-<li>工作机制和代理十分相似，而网关能使通信线路上的服务器提供<strong>非HTTP协议服务</strong></li>
-<li>好处<ul>
-<li>能提高通信的安全性<ul>
-<li>理由：</li>
-<li>因为可以在<strong>客户端与网关</strong>之间的通信线路上<strong>加密</strong>以确保连接的安全</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>隧道<ul>
-<li>在相隔甚远的客户端和服务器两者之间进行中转，并保持双方通信连接的应用程序</li>
-<li>目的：<ul>
-<li>确保客户端能与服务器进行安全的通信</li>
-</ul>
-</li>
-<li>隧道本身不会去解析HTTP请求<ul>
-<li>请求保持原样中转给之后的服务器。隧道会在通信双方断开连接时结束</li>
-</ul>
-</li>
-<li>隧道本身是透明的</li>
-</ul>
-</li>
-</ul>
-<h5 id="5-3-保存资源的缓存"><a href="#5-3-保存资源的缓存" class="headerlink" title="5.3 保存资源的缓存"></a>5.3 保存资源的缓存</h5><ul>
-<li>缓存<ul>
-<li><strong>代理服务器或客户端本地磁盘内</strong>保存的资源副本</li>
-<li>利用缓存的<strong>好处</strong>：<ul>
-<li>可减少对源服务器的访问，因此也就节省了通信流量和通信时间</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>缓存服务器<ul>
-<li>代理服务器的一种，并归类在缓存代理类型中</li>
-<li>当代理转发从服务器返回的响应时，代理服务器将会保存一份资源的副本</li>
-<li><strong>优势</strong>：<ul>
-<li>在于利用缓存可避免多次从源服务器转发资源</li>
-<li>因此客户端可就近从缓存服务器上获取资源，而源服务器也不必多次处理相同的请求了</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>缓存的有效期限<ul>
-<li>因为客户端的要求、缓存的有效期等因素，向源服务器确认资源的有效性</li>
-<li>若判断缓存失效，缓存服务器将会再次从源服务器上获取“新”资源</li>
-</ul>
-</li>
-<li>客户端的缓存（临时网络文件）<ul>
-<li>浏览器缓存如果有效，就不必再向服务器请求相同的资源了，可以直接从本地磁盘内读取</li>
-</ul>
-</li>
-<li>在HTTP出现之前的协议<ul>
-<li>FTP（File Transfer Protocol）<ul>
-<li>传输文件时使用的协议（<strong>仍在使用</strong>）</li>
-</ul>
-</li>
-<li>NNTP（Network News Transfer Protocol）<ul>
-<li>用于NetNews电子会议室内传送消息的协议（<strong>已经不怎么使用了</strong>）</li>
-<li>现在，利用Web交换信息已成主流</li>
-</ul>
-</li>
-<li>Archie<ul>
-<li>以关键词检索多个数据库使用的协议（<strong>已经不怎么使用了</strong>）</li>
-</ul>
-</li>
-<li>Gopher<ul>
-<li>查找与互联网连接的计算机内信息的协议</li>
-<li>由于现在已经被HTTP协议替代，也已经不怎么使用了</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="第6章-HTTP的首部"><a href="#第6章-HTTP的首部" class="headerlink" title="第6章 HTTP的首部"></a>第6章 HTTP的首部</h4><h5 id="6-1-HTTP报文首部"><a href="#6-1-HTTP报文首部" class="headerlink" title="6.1 HTTP报文首部"></a>6.1 HTTP报文首部</h5><ul>
-<li>HTTP协议的请求和响应报文中必定包含HTTP首部</li>
-<li>HTTP请求报文<ul>
-<li>方法</li>
-<li>URI</li>
-<li>HTTP版本</li>
-<li>HTTP首部字段等部分构成</li>
-</ul>
-</li>
-<li>HTTP响应报文<ul>
-<li>HTTP版本</li>
-<li>状态码（数字和原因短语）</li>
-<li>HTTP首部字段3部分构成</li>
-</ul>
-</li>
-</ul>
-<h5 id="6-2-HTTP首部字段"><a href="#6-2-HTTP首部字段" class="headerlink" title="6.2 HTTP首部字段"></a>6.2 HTTP首部字段</h5><ul>
-<li>为了给浏览器和服务器提供报文主体大小、所使用的语言、认证信息等内容</li>
-<li>HTTP首部字段结构<ul>
-<li>首部字段名和字段值构成的，中间用冒号“:”分隔</li>
-<li>首部字段名：字段值</li>
-<li>例子：Content-Type:text/html</li>
-<li>字段值对应单个HTTP首部字段可以有多个值<ul>
-<li>Keep-Alive:timeout=15,max=100</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>4种HTTP首部字段类型<ul>
-<li>通用首部字段（General Header Fields）<ul>
-<li>请求报文和响应报文两方都会使用的首部</li>
-</ul>
-</li>
-<li>请求首部字段（Request Header Fields）<ul>
-<li>客户端向服务器端发送请求</li>
-<li>补了请求的附加内容、客户端信息、响应内容相关优先级等信息</li>
-</ul>
-</li>
-<li>响应首部字段（Response Header Fields）<ul>
-<li>服务器端向客户端返回响应</li>
-<li>补充了响应的附加内容，也会要求客户端附加额外的内容信息</li>
-</ul>
-</li>
-<li>实体首部字段（Entity Header Fields）<ul>
-<li>针对请求报文和响应报文的实体部分</li>
-<li>补充了资源内容更新时间等与实体有关的信息</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>HTTP首部字段将定义成缓存代理和非缓存代理的行为，分成2种类型<ul>
-<li>端到端首部（End-to-end Header）<ul>
-<li>首部会转发给请求/响应对应的最终接收目标</li>
-<li>且必须保存在由缓存生成的响应中</li>
-<li>另外规定它必须被转发</li>
-</ul>
-</li>
-<li>逐跳首部（Hop-by-hop Header）<ul>
-<li>只对单次转发有效，会因通过缓存或代理而不再转发</li>
-<li>如果要使用hop-by-hop首部，需提供Connection首部字段</li>
-<li>Connection</li>
-<li>Keep-Alive</li>
-<li>Proxy-Authenticate</li>
-<li>Proxy-Authorization</li>
-<li>Trailer</li>
-<li>TE</li>
-<li>Transfer-Encoding</li>
-<li>Upgrade</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="6-3-HTTP-1-1-通用首部字段"><a href="#6-3-HTTP-1-1-通用首部字段" class="headerlink" title="6.3 HTTP/1.1 通用首部字段"></a>6.3 HTTP/1.1 通用首部字段</h5><ul>
-<li><p> Cache-Control</p>
-</li>
-<li><p>通过指定首部字段Cache-Control的指令，就能操作缓存的工作机制</p>
-</li>
-<li><p>指令的参数是可选的，多个指令之间通过“,”分隔</p>
-</li>
-<li><p>表示是否能缓存的指令:</p>
-<ul>
-<li>public指令(Cache-Control:public)<ul>
-<li>当指定使用public指令时，则明确表明其他用户也可利用缓存</li>
-</ul>
-</li>
-<li>private指令(Cache-Control:private)<ul>
-<li>当指定private指令后，响应只以特定的用户作为对象，这与public指令的行为相反</li>
-</ul>
-</li>
-<li>no-cache指令(Cache-Control:no-cache)<ul>
-<li>为了防止从缓存中返回过期的资源</li>
-<li>客户端发送的请求包含no-cache的话表示客户端将不会接收缓存过的响应</li>
-<li>服务器返回的响应中包含no-cache指令，那么缓存服务器不能对资源进行缓存</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>控制可执行缓存的对象的指令</p>
-<ul>
-<li>no-store指令<ul>
-<li>暗示请求（和对应的响应）或响应中包含<strong>机密信息</strong></li>
-<li>规定缓存不能在本地存储请求或响应的任一部分</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>指定缓存期限和认证的指令</p>
-<ul>
-<li>s-maxage指令<ul>
-<li>功能和max-age指令的相同，它们的不同点是s-maxage指令只适用于<strong>供多位用户使用的公共缓存服务器</strong></li>
-<li>对于向同一用户重复返回响应的服务器来说，这个指令没有任何作用</li>
-</ul>
-</li>
-<li>max-age指令<ul>
-<li>客户端发送的请求中包含max-age指令时<ul>
-<li>如果判定缓存资源的缓存时间数值比指定时间的数值<strong>更小</strong>，那么客户端就<strong>接收</strong>缓存的资源</li>
-</ul>
-</li>
-<li>服务器返回的响应中包含max-age指令时<ul>
-<li>缓存服务器将不对资源的有效性再作确认，而max-age数值代表资源保存为缓存的最长时间</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>min-fresh指令<ul>
-<li>指令要求缓存服务器返回<strong>至少还未过指定时间</strong>的缓存资源</li>
-</ul>
-</li>
-<li>max-stale指令<ul>
-<li>指示缓存资源，即使过期也照常接收</li>
-<li>指令未指定参数值，那么无论经过多久，客户端都会接收响应</li>
-<li>指令中指定了具体数值，那么即使过期，只要仍处于max-stale指定的时间内，仍旧会被客户端接收</li>
-</ul>
-</li>
-<li>only-if-cached指令<ul>
-<li>表示客户端仅在缓存服务器本地缓存目标资源的情况下才会要求其返回</li>
-<li>要求缓存服务器不重新加载响应，也不会再次确认资源有效性</li>
-</ul>
-</li>
-<li>must-revalidate指令<ul>
-<li>代理会向源服务器再次验证即将返回的响应缓存目前是否仍然有效</li>
-<li>代理无法连通源服务器再次获取有效资源的话<ul>
-<li>缓存必须给客户端一条504（Gateway Timeout）状态码</li>
-</ul>
-</li>
-<li>使用must-revalidate指令会忽略请求的max-stale指令（即使已经在首部使用了max-stale，也不会再有效果）</li>
-</ul>
-</li>
-<li>proxy-revalidate指令<ul>
-<li>要求所有的缓存服务器在接收到客户端带有该指令的请求返回响应<strong>之前</strong>，必须再次验证缓存的有效性</li>
-</ul>
-</li>
-<li>no-transform指令<ul>
-<li>规定无论是在请求还是响应中，缓存都不能改变实体主体的媒体类型</li>
-<li>作用：<ul>
-<li>可防止缓存或代理压缩图片等类似操作</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Cache-Control扩展</p>
-<ul>
-<li>cache-extension token<ul>
-<li>cache-extension标记（token），可以扩展Cache-Control首部字段内的指令</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Connection</p>
-<ul>
-<li>控制不再转发给代理的首部字段</li>
-<li>管理持久连接<ul>
-<li>HTTP/1.1版本的默认连接都是持久连接，<ul>
-<li>当服务器端想明确断开连接时，则指定Connection首部字段的值为Close</li>
-</ul>
-</li>
-<li>HTTP/1.1之前的HTTP版本的默认连接都是非持久连接<ul>
-<li>想在旧版本的HTTP协议上维持持续连接，则需要指定Connection首部字段的值为Keep-Alive</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Date</p>
-<ul>
-<li>表明创建HTTP报文的日期和时间</li>
-</ul>
-</li>
-<li><p>Pragma</p>
-<ul>
-<li><p>Pragma是HTTP/1.1之前版本的历史遗留字段，仅作为与HTTP/1.0的向后兼容而定义</p>
-</li>
-<li><p>要整体掌握全部中间服务器使用的HTTP协议版本却是不现实的。因此，发送的请求会同时含有下面两个首部字段</p>
-<ul>
-<li><p>```<br>Cache-Control:no-cache<br>Progma:no-cache</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- Trailer</span><br><span class="line"></span><br><span class="line">  - 会事先说明在报文主体后记录了哪些首部字段</span><br><span class="line">  - 可应用在HTTP/1.1版本分块传输编码时</span><br><span class="line"></span><br><span class="line">- Transfer-Encoding</span><br><span class="line"></span><br><span class="line">  - 规定了传输报文主体时采用的编码方式</span><br><span class="line">  - HTTP/1.1的传输编码方式仅对分块传输编码有效</span><br><span class="line"></span><br><span class="line">- Upgrade</span><br><span class="line"></span><br><span class="line">  - 用于检测HTTP协议及其他协议是否可使用更高的版本进行通信，其参数值可以用来指定一个完全不同的通信协议</span><br><span class="line">  - Upgrade首部字段产生作用的Upgrade对象仅限于客户端和邻接服务器之间</span><br><span class="line">  - 使用首部字段Upgrade时，还需要额外指定Connection:Upgrade</span><br><span class="line"></span><br><span class="line">-  Via</span><br><span class="line"></span><br><span class="line">  - 为了追踪客户端与服务器之间的请求和响应报文的传输路径</span><br><span class="line">  - 报文经过代理或网关时，会先在首部字段Via中附加该服务器的信息，然后再进行转发</span><br><span class="line">  - 不仅用于追踪报文的转发，还可避免请求回环的发生。所以必须在经过代理时附加该首部字段内容</span><br><span class="line">  - 为了追踪传输路径，所以经常会和TRACE方法一起使用</span><br><span class="line"></span><br><span class="line">- Warning</span><br><span class="line"></span><br><span class="line">  - 首部通常会告知用户一些与缓存相关的问题的警告</span><br><span class="line"></span><br><span class="line">##### 6.4 请求首部字段</span><br><span class="line"></span><br><span class="line">- 从客户端往服务器端发送请求报文中所使用的字段，用于补充请求的附加信息、客户端信息、对响应内容相关的优先级等内容</span><br><span class="line"></span><br><span class="line">- Accept</span><br><span class="line"></span><br><span class="line">  - 可通知服务器，用户代理能够处理的媒体类型及媒体类型的相对优先级</span><br><span class="line"></span><br><span class="line">  - 可使用type/subtype这种形式，一次指定多种媒体类型</span><br><span class="line"></span><br><span class="line">  - 媒体类型的例子</span><br><span class="line"></span><br><span class="line">    - 文本文件</span><br><span class="line"></span><br><span class="line">      - ```</span><br><span class="line">        text/html, text/plain, text/css ...application/xhtml+xml, application/xml ...</span><br></pre></td></tr></table></figure></li>
-<li><p>图片文件</p>
-<ul>
-<li>```<br>image/jpeg, image/gif, image/png …<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 视频文件</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    video/mpeg, video/quicktime ..</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>应用程序使用的二进制文件</p>
-<ul>
-<li><pre><code>application/octet-stream, application/zip ...
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>给显示的媒体类型增加优先级，则使用q=来额外表示权重值，用分号（;）进行分隔</p>
-<ul>
-<li>权重值q的范围是0～1（可精确到小数点后3位）</li>
-<li>1为最大值</li>
-<li>不指定权重q值时，默认权重为q=1.0</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Accept-Charset</p>
-<ul>
-<li>可用来通知服务器用户代理支持的字符集及字符集的相对优先顺序</li>
-<li>可一次性指定多种字符集</li>
-<li>与首部字段Accept相同的是可用权重q值来表示相对优先级</li>
-<li>应用场景<ul>
-<li>内容协商机制的服务器驱动协商</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Accept-Encoding</p>
-<ul>
-<li>用来告知服务器用户代理支持的内容编码及内容编码的优先级顺序</li>
-<li>可一次性指定多种内容编码</li>
-<li>几个内容编码的例子<ul>
-<li>gzip</li>
-<li>compress</li>
-<li>deflate</li>
-<li>identity<ul>
-<li>不执行压缩或不会变化的默认编码格式</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>采用权重q值来表示相对优先级，这点与首部字段Accept相同</li>
-<li>可使用<strong>星号（*）</strong>作为通配符，指定任意的编码格式</li>
-</ul>
-</li>
-<li><p>Accept-Language</p>
-<ul>
-<li>告知服务器用户代理能够处理的自然语言集（指中文或英文等），以及自然语言集的相对优先级。可一次指定多种自然语言集</li>
-</ul>
-</li>
-<li><p>Authorization</p>
-<ul>
-<li>用来告知服务器，用户代理的认证信息（证书值)</li>
-</ul>
-</li>
-<li><p>Expect</p>
-<ul>
-<li>告知服务器，期望出现的某种特定行为</li>
-<li>可以利用该首部字段，写明所期望的扩展</li>
-</ul>
-</li>
-<li><p>From</p>
-<ul>
-<li>告知服务器使用用户代理的用户的电子邮件地址</li>
-<li>目的<ul>
-<li>为了显示搜索引擎等用户代理的负责人的电子邮件联系方式</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Host</p>
-<ul>
-<li>会告知服务器，请求的资源所处的互联网主机名和端口号</li>
-<li>唯一一个必须被包含在请求内的首部字段</li>
-</ul>
-</li>
-<li><p>If-Match</p>
-<ul>
-<li>告知服务器匹配资源所用的实体标记（ETag）值</li>
-<li>可以使用星号（*）指定If-Match的字段值</li>
-<li>形如If-xxx这种样式的请求首部字段，都可称为条件请求</li>
-<li>服务器接收到附带条件的请求后，只有判断指定条件为真时，才会执行请求</li>
-</ul>
-</li>
-<li><p>If-Modified-Since</p>
-<ul>
-<li>告知服务器若If-Modified-Since字段值早于资源的更新时间，则希望能处理该请求</li>
-</ul>
-</li>
-<li><p> If-None-Match</p>
-</li>
-<li><p>和首部字段If-Match作用相反。用于指定If-None-Match字段值的实体标记（ETag）值与请求资源的ETag不一致时，它就告知服务器处理该请求</p>
-</li>
-<li><p>If-Range</p>
-<ul>
-<li>告知服务器若指定的If-Range字段值（ETag值或者时间）和请求资源的ETag值或时间相一致时，则<strong>作为范围请求处理</strong>。反之，则返回<strong>全体资源</strong></li>
-</ul>
-</li>
-<li><p>If-Unmodified-Since</p>
-<ul>
-<li>告知服务器，指定的请求资源只有在字段值内指定的日期时间之后，未发生更新的情况下，才能处理请求</li>
-<li>和首部字段If-Modified-Since的作用相反</li>
-</ul>
-</li>
-<li><p>Max-Forwards</p>
-<ul>
-<li>当Max-Forwards字段值为0时，服务器就会立即返回响应，由此我们至少可以对以那台服务器为终点的传输路径的通信状况有所把握</li>
-</ul>
-</li>
-<li><p>Proxy-Authorization</p>
-<ul>
-<li>接收到从代理服务器发来的认证质询时，客户端会发送包含首部字段Proxy-Authorization的请求，以告知服务器认证所需要的信息</li>
-</ul>
-</li>
-<li><p>Range</p>
-<ul>
-<li>只需获取部分资源的范围请求，包含首部字段Range即可告知服务器资源的指定范围</li>
-</ul>
-</li>
-<li><p>Referer</p>
-<ul>
-<li>告知服务器请求的原始资源的URI</li>
-<li>原始资源的URI中的查询字符串可能含有ID和密码等保密信息，要是写进Referer转发给其他服务器，则有可能导致保密信息的泄露</li>
-</ul>
-</li>
-<li><p>TE</p>
-<ul>
-<li>告知服务器客户端能够处理响应的传输编码方式及相对优先级</li>
-</ul>
-</li>
-<li><p>User-Agent</p>
-<ul>
-<li>创建请求的浏览器和用户代理名称等信息传达给服务器</li>
-</ul>
-</li>
-</ul>
-<h5 id="6-5-响应首部字段"><a href="#6-5-响应首部字段" class="headerlink" title="6.5 响应首部字段"></a>6.5 响应首部字段</h5><p>由服务器端向客户端返回响应报文中所使用的字段，用于补充响应的附加信息、服务器信息，以及对客户端的附加要求等信息</p>
-<ul>
-<li>Accept-Ranges<ul>
-<li>用来告知客户端服务器是否能处理范围请求，以指定获取服务器端某个部分的资源</li>
-<li>可指定的字段值有两种:<ul>
-<li>处理范围请求时指定其为bytes</li>
-<li>反之则指定其为none</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Age<ul>
-<li>告知客户端，源服务器在多久前创建了响应。字段值的单位为秒</li>
-<li>创建该响应的服务器是缓存服务器<ul>
-<li>Age值是指缓存后的响应再次发起认证到认证完成的时间值</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>ETag<ul>
-<li>告知客户端实体标识</li>
-<li>一种可将资源以字符串形式做唯一性标识的方式</li>
-<li>字符串形式做唯一性标识的方式。服务器会为每份资源分配对应的ETag值</li>
-<li>资源被缓存时，就会被分配唯一性标识</li>
-<li>分为强ETag和弱ETag值</li>
-<li>强ETag值<ul>
-<li>论实体发生多么细微的变化都会改变其值</li>
-</ul>
-</li>
-<li>弱ETag值<ul>
-<li>只用于提示资源是否相同</li>
-<li>只有资源发生了根本改变，产生差异时才会改变ETag值</li>
-</ul>
-</li>
-</ul>
-</li>
-<li> Location</li>
-<li>可以将响应接收方引导至某个与请求URI位置不同的资源</li>
-<li>Proxy-Authenticate<ul>
-<li>会把由代理服务器所要求的认证信息发送给客户端</li>
-</ul>
-</li>
-<li>Retry-After<ul>
-<li>告知客户端应该在多久之后再次发送请求</li>
-<li>主要配合状态码503 Service Unavailable响应，或3xxRedirect响应一起使用</li>
-</ul>
-</li>
-<li>Server<ul>
-<li>告知客户端当前服务器上安装的HTTP服务器应用程序的信息</li>
-<li>不单单会标出服务器上的软件应用名称，还有可能包括版本号和安装时启用的可选项</li>
-</ul>
-</li>
-<li>Vary<ul>
-<li>可对缓存进行控制</li>
-<li>源服务器会向代理服务器传达关于本地缓存使用方法的命令</li>
-</ul>
-</li>
-<li>WWW-Authenticate<ul>
-<li>用于HTTP访问认证</li>
-<li>会告知客户端适用于访问请求URI所指定资源的认证方案（Basic或是Digest）和带参数提示的质询（challenge）</li>
-</ul>
-</li>
-</ul>
-<h5 id="6-6-实体首部字段"><a href="#6-6-实体首部字段" class="headerlink" title="6.6 实体首部字段"></a>6.6 实体首部字段</h5><p>包含在请求报文和响应报文中的实体部分所使用的首部，用于补充内容的更新时间等与实体相关的信息。</p>
-<ul>
-<li>Allow<ul>
-<li>用于通知客户端能够支持Request-URI指定资源的所有HTTP方法</li>
-<li>不支持的时候，会以状态码405Method Not Allowed作为响应返回，还会把所有能支持的HTTP方法写入首部字段Allow后返回</li>
-</ul>
-</li>
-<li>Content-Encoding<ul>
-<li>告知客户端服务器对实体的主体部分选用的内容编码方式</li>
-<li>内容编码是指在不丢失实体信息的前提下所进行的压缩</li>
-<li>以下4种内容编码的方式：<ul>
-<li>gzip </li>
-<li>compress</li>
-<li>deflate</li>
-<li>identity</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Content-Language<ul>
-<li>告知客户端，实体主体使用的自然语言（指中文或英文等语言）</li>
-</ul>
-</li>
-<li>Content-Length<ul>
-<li>表明了实体主体部分的大小（单位是字节）</li>
-</ul>
-</li>
-<li>Content-Location<ul>
-<li>给出与报文主体部分相对应的URI</li>
-<li>和首部字段Location不同，Content-Location表示的是报文主体返回资源对应的URI</li>
-</ul>
-</li>
-<li>Content-MD5<ul>
-<li>一串由MD5算法生成的值，其目的在于检查报文主体在传输过程中是否保持完整，以及确认传输到达</li>
-<li>对内容上的偶发性改变是无从查证的，也无法检测出恶意篡改</li>
-</ul>
-</li>
-<li>Content-Range<ul>
-<li>返回响应时使用的首部字段Content-Range，能告知客户端作为响应返回的实体的哪个部分符合范围请求</li>
-<li>字段值以字节为单位，表示当前发送部分及整个实体大小</li>
-</ul>
-</li>
-<li>Content-Type<ul>
-<li>说明了实体主体内对象的媒体类型</li>
-</ul>
-</li>
-<li> Expires</li>
-<li>将资源失效的日期告知客户端</li>
-<li>在Expires字段值指定的时间之前，响应的副本会一直被保存</li>
-<li>当超过指定的时间后，缓存服务器在请求发送过来时，会转向源服务器请求资源</li>
-<li>Last-Modified<ul>
-<li>指明资源最终修改的时间</li>
-<li>一般来说，这个值就是Request-URI指定资源被修改的时间</li>
-</ul>
-</li>
-</ul>
-<h5 id="6-7-为Cookie服务的首部字段"><a href="#6-7-为Cookie服务的首部字段" class="headerlink" title="6.7 为Cookie服务的首部字段"></a>6.7 为Cookie服务的首部字段</h5><ul>
-<li>Cookie的工作机制是用户识别及状态管理</li>
-<li>Cookie的规格标准文档有以下4种</li>
-</ul>
-<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/4.png"></p>
-<ul>
-<li>Set-Cookie<ul>
-<li>Set-Cookie的字段值<ul>
-<li> expires属性</li>
-<li>指定浏览器可发送Cookie的有效期</li>
-<li>当省略expires属性时，其有效期仅限于维持浏览器会话（Session）时间段内。这通常限于浏览器应用程序被关闭之前</li>
-<li>一旦Cookie从服务器端发送至客户端，服务器端就不存在可以显式删除Cookie的方法。但可通过覆盖已过期的Cookie，实现对客户端Cookie的实质性删除操作</li>
-<li>path属性<ul>
-<li>可用于限制指定Cookie的发送范围的文件目录</li>
-</ul>
-</li>
-<li>domain属性<ul>
-<li>指定的域名可做到与结尾匹配一致</li>
-</ul>
-</li>
-<li>secure属性<ul>
-<li>用于限制Web页面<strong>仅在HTTPS</strong>安全连接时，才可以发送Cookie</li>
-<li>设置了secure的话<ul>
-<li>仅当在<a href="https://www.example.com/%EF%BC%88HTTPS%EF%BC%89%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%89%8D%E4%BC%9A%E8%BF%9B%E8%A1%8CCookie%E7%9A%84%E5%9B%9E%E6%94%B6%E3%80%82%E4%B9%9F%E5%B0%B1%E6%98%AF%E8%AF%B4%EF%BC%8C%E5%8D%B3%E4%BD%BF%E5%9F%9F%E5%90%8D%E7%9B%B8%E5%90%8C%EF%BC%8Chttp://www.example.com/%EF%BC%88HTTP%EF%BC%89%E4%B9%9F%E4%B8%8D%E4%BC%9A%E5%8F%91%E7%94%9FCookie%E5%9B%9E%E6%94%B6%E8%A1%8C%E4%B8%BA">https://www.example.com/（HTTPS）安全连接的情况下才会进行Cookie的回收。也就是说，即使域名相同，http://www.example.com/（HTTP）也不会发生Cookie回收行为</a></li>
-</ul>
-</li>
-<li>当省略secure属性时<ul>
-<li>不论HTTP还是HTTPS，都会对Cookie进行回收</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>HttpOnly属性<ul>
-<li>Cookie的扩展功能，它使JavaScript脚本无法获得Cookie</li>
-<li>主要目的为防止跨站脚本攻击（Cross-site scripting,XSS）对Cookie的信息窃取</li>
-</ul>
-</li>
-<li>通过上述设置<ul>
-<li>通常从Web页面内还可以对Cookie进行读取操作</li>
-<li>使用JavaScript的document.cookie就无法读取附加HttpOnly属性后的Cookie的内容了</li>
-<li>因此，也就无法在XSS中利用JavaScript劫持Cookie了</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Cookie<ul>
-<li>当客户端想获得HTTP状态管理支持时，就会在请求中包含从服务器接收到的Cookie</li>
-<li>接收到多个Cookie时，同样可以以多个Cookie形式发送</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="6-8-其他首部字段"><a href="#6-8-其他首部字段" class="headerlink" title="6.8 其他首部字段"></a>6.8 其他首部字段</h5><ul>
-<li><p>X-Frame-Options</p>
-<ul>
-<li>属于HTTP响应首部</li>
-<li>用于控制网站内容在其他Web网站的Frame标签内的显示问题</li>
-<li>其主要目的是为了防止点击劫持（clickjacking）攻击</li>
-<li>DENY：拒绝</li>
-<li> SAMEORIGIN：仅同源域名下的页面匹配时许可</li>
-</ul>
-</li>
-<li><p>X-XSS-Protection</p>
-<ul>
-<li>属于HTTP响应首部</li>
-<li>针对跨站脚本攻击（XSS）的一种对策，用于控制浏览器XSS防护机制的开关</li>
-<li>可指定的字段值：<ul>
-<li>0 ：将XSS过滤设置成无效状态</li>
-<li>将XSS过滤设置成无效状态</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>DNT</p>
-<ul>
-<li>属于HTTP请求首部</li>
-<li>Do NotTrack的简称，意为拒绝个人信息被收集，是表示拒绝被精准广告追踪的一种方法</li>
-<li>可指定的字段值：<ul>
-<li> 0 ：同意被追踪</li>
-<li>1 ：拒绝被追踪</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p> P3P</p>
-</li>
-<li><p>属于HTTP响应首部</p>
-</li>
-<li><p>通过利用P3P技术，可以让Web网站上的个人隐私变成一种仅供程序可理解的形式，以达到保护用户隐私的目的</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>读书笔记</category>
-      </categories>
-      <tags>
-        <tag>读书笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -3790,42 +2541,6 @@
       </categories>
       <tags>
         <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法--冲冲冲</title>
-    <url>/2021/10/06/%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h3 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h3><h4 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h4><p><a href="https://leetcode-cn.com/problems/two-sum">https://leetcode-cn.com/problems/two-sum</a></p>
-<p>题目描述：</p>
-<p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p>
-<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
-<p>你可以按任意顺序返回答案。</p>
-<h5 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h5><h6 id="（1）暴力求解"><a href="#（1）暴力求解" class="headerlink" title="（1）暴力求解"></a>（1）暴力求解</h6><ul>
-<li>获取数组的长度</li>
-<li>通过两层循环进行循环遍历</li>
-<li><img src="/2021/10/06/%E7%AE%97%E6%B3%95/1.png"></li>
-<li>直到找到值相加等于target的，将他们的下标存在数组里面</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> length=nums.length;<span class="comment">//获取数组的长度</span></span><br><span class="line">        <span class="comment">//通过两层循环找到</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j]==target)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i,j&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;No two sum solution&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="（2）哈希表法"><a href="#（2）哈希表法" class="headerlink" title="（2）哈希表法"></a>（2）哈希表法</h6><ul>
-<li>利用Map</li>
-<li>Map第一个值存的是值，第二个存的时相应的下标值</li>
-<li>通过目标值（target）去减相应的值，去map查看有没有包含这个值，如果有的话就返回，没有的话就要将值放进map里面</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        Map&lt;Integer,Integer&gt; map=<span class="keyword">new</span> HashMap&lt;&gt;(len-<span class="number">1</span>);</span><br><span class="line">        map.put(nums[<span class="number">0</span>],<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(target-nums[i]))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i,map.get(target-nums[i])&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;No two sum solution&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h5><p>求解方式类似于Java的哈希表法</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">target</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        <span class="keyword">let</span> j = target-nums[i]</span><br><span class="line">        <span class="keyword">if</span>(map.has(j))&#123;<span class="comment">//如果map中含有该数值的话</span></span><br><span class="line">            <span class="comment">//那我们就要返回数组，即将i和target-nums[i]的下标放进里面</span></span><br><span class="line">            <span class="keyword">return</span> [map.get(j),i]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果没有的话，就将值和对应的下标先存入在map中</span></span><br><span class="line">        map.set(nums[i],i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -5340,6 +4055,1291 @@
       </categories>
       <tags>
         <tag>html+css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图解HTTP</title>
+    <url>/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/</url>
+    <content><![CDATA[<h4 id="第一章-了解Web及网络基础"><a href="#第一章-了解Web及网络基础" class="headerlink" title="第一章 了解Web及网络基础"></a>第一章 了解Web及网络基础</h4><h5 id="1-1使用HTTP协议访问Web"><a href="#1-1使用HTTP协议访问Web" class="headerlink" title="1.1使用HTTP协议访问Web"></a>1.1使用HTTP协议访问Web</h5><ul>
+<li><p>客户端：通过发送请求获取服务器资源的Web浏览器</p>
+</li>
+<li><p>Web使用一种名为HTTP（HyperText Transfer Protocol，超文本传输协议）的协议作为规范，完成从<strong>客户端到服务器端</strong>等一系列运作流程</p>
+</li>
+</ul>
+<h5 id="1-2HTTP的诞生"><a href="#1-2HTTP的诞生" class="headerlink" title="1.2HTTP的诞生"></a>1.2HTTP的诞生</h5><ul>
+<li>三项WWW技术<ul>
+<li><strong>HTML</strong>:把SGML(Standard Generalized Markup Language，标准通用标记语言)作为页面的文本标记语言的HTML(HyperText Markup Language，超文本标记语言)</li>
+<li><strong>HTTP</strong>:作为文档传递协议</li>
+<li><strong>URL</strong>:指定文档所在地址</li>
+</ul>
+</li>
+<li>Web成长时代</li>
+</ul>
+<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/1.png"></p>
+<ul>
+<li>驻足不前的http<ul>
+<li>HTTP/0.9<ul>
+<li>没有作为正式的标准被建立</li>
+</ul>
+</li>
+<li>HTTP/1.0<ul>
+<li>HTTP正式作为标准被公布是在1996年的5月</li>
+<li>该协议标准至今仍被广泛使用在服务器端。</li>
+</ul>
+</li>
+<li>HTTP/1.1<ul>
+<li>1997年1月公布的HTTP/1.1是目前主流的HTTP协议版本</li>
+</ul>
+</li>
+<li>现在HTTP协议已经超出了Web这个框架的局限，被运用到了各种场景里。</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-3网络基础TCP-IP"><a href="#1-3网络基础TCP-IP" class="headerlink" title="1.3网络基础TCP/IP"></a>1.3网络基础TCP/IP</h5><ul>
+<li>把与互联网相关联的协议集合起来总称为TCP/IP</li>
+<li>两种说法：<ul>
+<li>把与互联网相关联的协议集合起来总称为TCP/IP</li>
+<li>TCP/IP是在IP协议的通信过程中，使用到的协议族的统称。</li>
+</ul>
+</li>
+<li>TCP/IP层次化的好处：<ul>
+<li>如果互联网只由一个协议统筹，某个地方需要改变设计时，就必须把所有部分整体替换掉</li>
+<li>分层之后只需把变动的层替换掉即可。把各层之间的接口部分规划好之后，每个层次内部的设计就能够自由改动了。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/2.png"></p>
+<ul>
+<li>TCP/IP协议族进行网络通信<ul>
+<li>发送端从应用层往下走，接收端则往应用层往上走。</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-4与HTTP关系密切的协议：IP、TCP和DNS"><a href="#1-4与HTTP关系密切的协议：IP、TCP和DNS" class="headerlink" title="1.4与HTTP关系密切的协议：IP、TCP和DNS"></a>1.4与HTTP关系密切的协议：IP、TCP和DNS</h5><p>（1）IP</p>
+<ul>
+<li>IP其实是一种协议的名称</li>
+<li>IP协议的作用<ul>
+<li>把各种数据包传送给对方</li>
+<li>保证确实传送到对方那里，则需要满足各类条件<ul>
+<li>两个重要的条件是<strong>IP地址和MAC地址</strong><ul>
+<li>IP地址指明了节点被分配到的地址</li>
+<li>MAC地址是指网卡所属的固定地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IP地址可以和MAC地址进行配对。IP地址可变换，但MAC地址基本上不会更改。</li>
+<li>使用ARP协议凭借MAC地址进行通信<ul>
+<li>IP间的通信依赖MAC地址</li>
+<li>ARP是一种用以解析地址的协议，根据通信方的IP地址就可以反查出对应的MAC地址。</li>
+</ul>
+</li>
+</ul>
+<p>（2）TCP位于传输层，提供可靠的字节流服务</p>
+<ul>
+<li>字节流服务（Byte Stream Service）<ul>
+<li>为了方便传输，将大块数据分割成以报文段（segment）为单位的数据包进行管理</li>
+</ul>
+</li>
+<li>可靠的传输服务<ul>
+<li>能够把数据准确可靠地传给对方</li>
+</ul>
+</li>
+<li>TCP协议为了更容易传送大数据才把数据分割，而且TCP协议能够确认数据最终是否送达到对方。</li>
+</ul>
+<p>（3）确保数据能达到目标</p>
+<p>TCP协议采用了三次握手（three-way handshaking）策略</p>
+<ul>
+<li>握手过程中使用了TCP的标志<ul>
+<li>flag</li>
+<li>SYN(synchronize)</li>
+<li>ACK</li>
+</ul>
+</li>
+<li>发送过程：<ul>
+<li>发送端首先发送一个带SYN标志的数据包给对方</li>
+<li>接收端收到后，回传一个带有SYN/ACK标志的数据包以示传达确认信息</li>
+<li>发送端再回传一个带ACK标志的数据包，代表“握手”结束</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-5负责域名解析的DNS服务"><a href="#1-5负责域名解析的DNS服务" class="headerlink" title="1.5负责域名解析的DNS服务"></a>1.5负责域名解析的DNS服务</h5><p>（1）作用：提供域名到IP地址之间的解析服务。</p>
+<p>（2）DNS协议提供通过域名查找IP地址，或逆向从IP地址反查域名的服务</p>
+<h5 id="1-6URI和URL"><a href="#1-6URI和URL" class="headerlink" title="1.6URI和URL"></a>1.6URI和URL</h5><ul>
+<li><strong>URL</strong>:UniformResource Locator，统一资源定位符</li>
+<li><strong>URI</strong>：Uniform Resource Identifier<ul>
+<li>Uniform：规定统一的格式可方便处理多种不同类型的资源，而不用根据上下文环境来识别资源指定的访问方式</li>
+<li>Resource：可标识的任何东西<ul>
+<li>不仅是文档文件，图像或服务（例如当天的天气预报）等能够区别于其他类型的，全都可作为资源</li>
+</ul>
+</li>
+<li>Identifier<ul>
+<li>表示可标识的对象。也称为标识符。</li>
+</ul>
+</li>
+<li>URI就是由某个协议方案表示的资源的定位标识符</li>
+</ul>
+</li>
+<li>URI用字符串标识某一互联网资源，而URL表示资源的地点（互联网上所处的位置）。可见URL是URI的子集</li>
+</ul>
+<h4 id="第2章-简单的HTTP协议"><a href="#第2章-简单的HTTP协议" class="headerlink" title="第2章 简单的HTTP协议"></a>第2章 简单的HTTP协议</h4><h5 id="2-1-HTTP协议用于客户端和服务器端之间的通信"><a href="#2-1-HTTP协议用于客户端和服务器端之间的通信" class="headerlink" title="2.1 HTTP协议用于客户端和服务器端之间的通信"></a>2.1 HTTP协议用于客户端和服务器端之间的通信</h5><ul>
+<li><p>请求访问文本或图像等资源的一端称为<strong>客户端</strong></p>
+</li>
+<li><p>提供资源响应的一端称为<strong>服务器端</strong></p>
+</li>
+<li><p>仅从一条通信路线来说，服务器端和客户端的角色是确定的，而用HTTP协议能够明确区分哪端是客户端，哪端是服务器端</p>
+</li>
+</ul>
+<h5 id="2-2通过请求和响应的交换达成通信"><a href="#2-2通过请求和响应的交换达成通信" class="headerlink" title="2.2通过请求和响应的交换达成通信"></a>2.2通过请求和响应的交换达成通信</h5><ul>
+<li>请求报文是由<ul>
+<li>请求方法</li>
+<li>请求URI</li>
+<li>协议版本</li>
+<li>可选的请求首部字段</li>
+<li>内容实体构成的</li>
+</ul>
+</li>
+<li>响应报文基本上由<ul>
+<li>协议版本</li>
+<li>状态码（表示请求成功或失败的数字代码）</li>
+<li>用以解释状态码的原因短语</li>
+<li>可选的响应首部字段</li>
+<li>实体主体构成</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-3HTTP是不保存状态的协议"><a href="#2-3HTTP是不保存状态的协议" class="headerlink" title="2.3HTTP是不保存状态的协议"></a>2.3HTTP是不保存状态的协议</h5><ul>
+<li>HTTP是一种<strong>不保存状态</strong>，即<strong>无状态（stateless）协议</strong>，每当有新的请求发送时，就会有对应的新响应产生<ul>
+<li>为了更快地处理大量事务，确保协议的可伸缩性</li>
+<li>自然可减少服务器的CPU及内存资源的消耗</li>
+<li>因为HTTP协议本身是非常简单的，所以才会被应用在各种场景里</li>
+</ul>
+</li>
+<li>HTTP/1.1虽然是无状态协议，但为了实现期望的保持状态功能，于是引入了<strong>Cookie技术</strong>。有了Cookie再用HTTP协议通信，就可以管理状态了</li>
+</ul>
+<h5 id="2-4请求URI定位资源"><a href="#2-4请求URI定位资源" class="headerlink" title="2.4请求URI定位资源"></a>2.4请求URI定位资源</h5><ul>
+<li>HTTP协议使用URI定位互联网上的资源</li>
+<li>如果不是访问特定资源而是对服务器本身发起请求，可以用一个*来代替请求URI</li>
+</ul>
+<h5 id="2-5告知服务器意图的HTTP方法"><a href="#2-5告知服务器意图的HTTP方法" class="headerlink" title="2.5告知服务器意图的HTTP方法"></a>2.5告知服务器意图的HTTP方法</h5><ul>
+<li>GET：获取资源<ul>
+<li>用来请求访问已被URI识别的资源</li>
+</ul>
+</li>
+<li>POST：传输实体主体（GET也可以，但一般不用）</li>
+<li>PUT：传输文件<ul>
+<li>就像FTP协议的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存到请求URI指定的位置。</li>
+<li>HTTP/1.1的PUT方法自身不带验证机制，任何人都可以上传文件，存在安全性问题，因此一般的Web网站不使用该方法</li>
+<li>配合HTTP/1.1的PUT方法自身不带验证机制，任何人都可以上传文件，存在安全性问题，因此一般的Web网站不使用该方法就可能可以使用</li>
+</ul>
+</li>
+<li>HEAD：获得报文首部<ul>
+<li>HEAD方法和GET方法一样，只是不返回报文主体部分</li>
+<li>HEAD方法和GET方法一样，只是不返回报文主体部分</li>
+</ul>
+</li>
+<li>DELETE：删除文件<ul>
+<li>是与PUT相反的方法</li>
+<li>按请求URI删除指定的资源</li>
+<li>HTTP/1.1的DELETE方法本身和PUT方法一样不带验证机制，所以一般的Web网站也不使用DELETE方法</li>
+</ul>
+</li>
+<li>OPTIONS：询问支持的方法<ul>
+<li>来查询针对请求URI指定的资源支持的方法。</li>
+</ul>
+</li>
+<li>TRACE：追踪路径<ul>
+<li>让Web服务器端将<strong>之前的请求通信</strong>环回给客户端的方法。</li>
+<li>发送请求时，在Max-Forwards首部字段中填入数值，每经过一个服务器端就将该数字减1，当数值刚好减到0时，就停止继续传输，最后接收到请求的服务器端则返回状态码200OK的响应</li>
+<li>客户端通过TRACE方法可以查询发送出去的请求是怎样被加工修改/篡改的<ul>
+<li>因为，请求想要连接到源目标服务器可能会通过代理中转，TRACE方法就是用来确认连接过程中发生的一系列操作</li>
+</ul>
+</li>
+<li>容易引发XST（Cross-Site Tracing，跨站追踪）攻击，通常就更不会用到了。</li>
+</ul>
+</li>
+<li>CONNECT：要求用隧道协议连接代理<ul>
+<li>要求在与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信</li>
+<li>主要使用<strong>SSL（Secure SocketsLayer，安全套接层）</strong>和<strong>TLS（Transport Layer Security，传输层安全）协议</strong>把通信内容<strong>加密</strong>后经网络隧道传输</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-6使用方法下达命令"><a href="#2-6使用方法下达命令" class="headerlink" title="2.6使用方法下达命令"></a>2.6使用方法下达命令</h5><ul>
+<li>向请求URI指定的资源发送请求报文时，采用称为方法的命令。</li>
+<li>方法名区分大小写，注意要用大写字母。</li>
+</ul>
+<h5 id="2-7持久连接节省通信量"><a href="#2-7持久连接节省通信量" class="headerlink" title="2.7持久连接节省通信量"></a>2.7持久连接节省通信量</h5><ul>
+<li>持久连接<ul>
+<li>持久连接的特点是，只要任意一端没有明确提出断开连接，则保持TCP连接状态。</li>
+<li>好处<ul>
+<li>在于减少了TCP连接的重复建立</li>
+<li>减少断开所造成的额外开销<ul>
+<li>这部分时间使HTTP请求和响应能够更早地结束，这样Web页面的显示速度也就相应提高了</li>
+</ul>
+</li>
+<li>减轻了服务器端的负载</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>管线化<ul>
+<li>持久连接使得多数请求以管线化（pipelining）方式发送成为可能</li>
+<li>从前发送请求后需等待并收到响应，才能发送下一个请求。管线化技术出现后，不用等待响应亦可直接发送下一个请求</li>
+<li>就能够做到<strong>同时并行发送多个请求</strong>，而不需要一个接一个地等待响应了</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-8使用Cookie的状态管理"><a href="#2-8使用Cookie的状态管理" class="headerlink" title="2.8使用Cookie的状态管理"></a>2.8使用Cookie的状态管理</h5><ul>
+<li>Cookie技术通过在请求和响应报文中写入Cookie信息来控制客户端的状态</li>
+<li>Cookie会根据从服务器端发送的响应报文内的一个叫做<strong>Set-Cookie的首部字段信息</strong>—-&gt;通知<strong>客户端保存Cookie</strong>。当下次客户端再往该服务器发送请求时，客户端会<strong>自动</strong>在请求报文中<strong>加入Cookie值</strong>后发送出去。</li>
+<li>服务器端发现客户端发送过来的Cookie后，会去检查究竟是从哪一个客户端发来的连接请求，然后对比服务器上的记录，最后得到之前的状态信息</li>
+</ul>
+<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/3.png"></p>
+<h4 id="第3章-HTTP报文内的HTTP信息"><a href="#第3章-HTTP报文内的HTTP信息" class="headerlink" title="第3章 HTTP报文内的HTTP信息"></a>第3章 HTTP报文内的HTTP信息</h4><h5 id="3-1HTTP报文"><a href="#3-1HTTP报文" class="headerlink" title="3.1HTTP报文"></a>3.1HTTP报文</h5><ul>
+<li>用于HTTP协议交互的信息被称为HTTP报文<ul>
+<li>HTTP报文本身是由<strong>多行（用CR+LF作换行符）数据</strong>构成的字符串文本</li>
+<li>大致可分为报文首部和报文主体两块，由最初出现的空行（CR+LF）来划分</li>
+<li>由最初出现的空行（CR+LF）来划分</li>
+</ul>
+</li>
+<li>请求端（客户端）的HTTP报文叫做请求报文</li>
+<li>响应端（服务器端）的叫做响应报文</li>
+</ul>
+<h5 id="3-2请求报文及响应报文的结构"><a href="#3-2请求报文及响应报文的结构" class="headerlink" title="3.2请求报文及响应报文的结构"></a>3.2请求报文及响应报文的结构</h5><ul>
+<li>请求报文和响应报文的<strong>首部内容</strong>由以下数据组成<ul>
+<li>请求行<ul>
+<li>包含用于请求的方法，请求URI和HTTP版本。</li>
+</ul>
+</li>
+<li>状态行<ul>
+<li>包含表明响应结果的状态码，原因短语和HTTP版本。</li>
+</ul>
+</li>
+<li>首部字段<ul>
+<li>包含表示请求和响应的各种条件和属性的各类首部。</li>
+<li>一般有4种首部<ul>
+<li>通用首部、请求首部、响应首部和实体首部。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>其他<ul>
+<li>可能包含HTTP的RFC里未定义的首部（Cookie等）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-3编码提升传输速率"><a href="#3-3编码提升传输速率" class="headerlink" title="3.3编码提升传输速率"></a>3.3编码提升传输速率</h5><ul>
+<li>编码的操作需要计算机来完成，因此会消耗更多的CPU等资源</li>
+<li>报文主体和实体主体的差异<ul>
+<li>报文（message）<ul>
+<li>HTTP通信中的基本单位</li>
+<li>8位<strong>组字节流</strong>（octetsequence，其中octet为8个比特）组成</li>
+<li>通过HTTP通信传输</li>
+</ul>
+</li>
+<li>实体（entity）<ul>
+<li>作为请求或响应的有效载荷数据（补充项）被传输，其内容由<strong>实体首部和实体主体</strong>组成。</li>
+</ul>
+</li>
+<li>HTTP报文的主体用于传输请求或响应的实体主体</li>
+<li>通常，<strong>报文主体等于实体主体</strong>。只有<strong>当传输中进行编码操作</strong>时，实体主体的内容发生变化，才导致它和报文主体产生差异。</li>
+</ul>
+</li>
+<li>内容编码<ul>
+<li>指明应用在实体内容上的编码格式，并保持实体信息原样压缩</li>
+<li>内容编码后的实体由客户端接收并负责解码。</li>
+<li>常用的内容编码有以下几种<ul>
+<li>gzip（GNU zip）</li>
+<li>compress（UNIX系统的标准压缩）</li>
+<li>deflate（zlib）</li>
+<li>identity（不进行编码）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分块传输编码<ul>
+<li>把实体主体分块的功能</li>
+<li>在传输大容量数据时，通过把数据分割成多块，能够让浏览器逐步显示页面</li>
+<li>每一块都会用十六进制来标记块的大小，而实体主体的最后一块会使用“0(CR+LF)”来标记。</li>
+<li>使用分块传输编码的实体主体会由接收的客户端负责解码，恢复到编码前的实体主体。</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-4发送多种数据的多部分对象集合"><a href="#3-4发送多种数据的多部分对象集合" class="headerlink" title="3.4发送多种数据的多部分对象集合"></a>3.4发送多种数据的多部分对象集合</h5><ul>
+<li>在MIME（多用途因特网邮件扩展—-&gt;它允许邮件处理文本、图片、视频等多个不同类型的数据）扩展中会使用一种称为多部分对象集合（Multipart）的方法，来容纳多份不同类型的数据。</li>
+<li>HTTP协议中也采纳了多部分对象集合，发送的一份报文主体内可含有多类型实体。通常是在图片或文本文件等上传时使用。<ul>
+<li>多部分对象集合包含的对象如下<ul>
+<li>multipart/form-data<ul>
+<li>在Web表单文件上传时使用</li>
+</ul>
+</li>
+<li>multipart/byteranges<ul>
+<li>状态码206（Partial Content，部分内容）响应报文包含了多个范围的内容时使用。</li>
+</ul>
+</li>
+<li>multipart/form-data</li>
+<li>multipart/byteranges</li>
+</ul>
+</li>
+<li>在HTTP报文中使用多部分对象集合时，需要在首部字段里加上Content-type</li>
+<li>使用boundary字符串来划分多部分对象集合指明的各类实体<ul>
+<li>在boundary字符串指定的各个实体的起始行之前插入“–”标记（例如：–AaB03x、–THIS_STRING_SEPARATES）</li>
+<li>在多部分对象集合对应的字符串的最后插入“–”标记（例如：–AaB03x–、–THIS_STRING_SEPARATES–）作为结束</li>
+</ul>
+</li>
+<li>多部分对象集合的每个部分类型中，都可以含有首部字段。<ul>
+<li>可以在某个部分中嵌套使用多部分对象集合</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-5获取部分内容的范围请求"><a href="#3-5获取部分内容的范围请求" class="headerlink" title="3.5获取部分内容的范围请求"></a>3.5获取部分内容的范围请求</h5><ul>
+<li><p>范围请求（Range Request）</p>
+<ul>
+<li><p>指定范围发送的请求</p>
+</li>
+<li><p>执行范围请求时，会用到首部字段Range来指定资源的byte范围</p>
+<ul>
+<li><p>byte范围的指定形式如下</p>
+<ul>
+<li><p>5001～10000字节</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Range:bytes=5001-10000</span><br></pre></td></tr></table></figure></li>
+<li><p>从5001字节之后全部的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Range:bytes=5001-</span><br></pre></td></tr></table></figure></li>
+<li><p>从一开始到3000字节和5000～7000字节的多重范围</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Range:bytes=-3000,5000-700</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>针对范围请求，响应会返回状态码为206 Partial Content的响应报文</p>
+</li>
+<li><p>对于多重范围的范围请求，响应会在首部字段Content-Type标明multipart/byteranges后返回响应报文。</p>
+</li>
+<li><p>服务器端无法响应范围请求，则会返回状态码200 OK和完整的实体内容。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-6内容协商返回最合适的内容"><a href="#3-6内容协商返回最合适的内容" class="headerlink" title="3.6内容协商返回最合适的内容"></a>3.6内容协商返回最合适的内容</h5><ul>
+<li>内容协商<ul>
+<li>当浏览器的默认语言为英语或中文，访问相同URI的Web页面时，则会显示对应的英语版或中文版的Web页面</li>
+</ul>
+</li>
+<li>内容协商机制<ul>
+<li>指客户端和服务器端就响应的资源内容进行交涉，然后提供给客户端最为适合的资源</li>
+<li>内容协商会以响应资源的语言、字符集、编码方式等作为判断的基准</li>
+<li>包含在请求报文中的某些首部字段（如下）就是判断的基准<ul>
+<li>Accept</li>
+<li>Accept-Charset</li>
+<li>Accept-Encoding</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内容协商技术有以下3种类型<ul>
+<li>服务器驱动协商<ul>
+<li>以请求的首部字段为参考，在服务器端自动处理</li>
+<li>对用户来说，以浏览器发送的信息作为判定的依据，并不一定能筛选出最优内容</li>
+</ul>
+</li>
+<li>客户端驱动协商<ul>
+<li>用户从浏览器显示的可选项列表中手动选择</li>
+<li>还可以利用JavaScript脚本在Web页面上自动进行上述选择</li>
+</ul>
+</li>
+<li>透明协商<ul>
+<li>是服务器驱动和客户端驱动的结合体</li>
+<li>由服务器端和客户端各自进行内容协商的一种方法。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="第4章-返回结果的HTTP状态码"><a href="#第4章-返回结果的HTTP状态码" class="headerlink" title="第4章 返回结果的HTTP状态码"></a>第4章 返回结果的HTTP状态码</h4><h5 id="4-1状态码告知从服务器端返回的请求结果"><a href="#4-1状态码告知从服务器端返回的请求结果" class="headerlink" title="4.1状态码告知从服务器端返回的请求结果"></a>4.1状态码告知从服务器端返回的请求结果</h5><ul>
+<li>状态码<ul>
+<li>当客户端向服务器端发送请求时，描述返回的请求结果</li>
+<li>借助状态码，用户可以知道服务器端是正常处理了请求，还是出现了错误</li>
+<li>以3位数字和原因短语组成<ul>
+<li>数字中的第一位指定了响应类别，后两位无分类</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类别</th>
+<th>原因短语</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1XX</td>
+<td>Information(信息性状态码)</td>
+<td>接收的请求正在处理</td>
+</tr>
+<tr>
+<td>2XX</td>
+<td>Success(成功状态码)</td>
+<td>请求正常处理完毕</td>
+</tr>
+<tr>
+<td>3XX</td>
+<td>Redirection(重定向状态码)</td>
+<td>需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td>4XX</td>
+<td>Client Error(客户端错误状态码)</td>
+<td>服务器无法处理请求</td>
+</tr>
+<tr>
+<td>5XX</td>
+<td>Server Error(服务器错误状态码)</td>
+<td>服务器处理请求出错</td>
+</tr>
+</tbody></table>
+<h5 id="4-2-2XX成功（表明请求被正常处理了）"><a href="#4-2-2XX成功（表明请求被正常处理了）" class="headerlink" title="4.2 2XX成功（表明请求被正常处理了）"></a>4.2 2XX成功（表明请求被正常处理了）</h5><ul>
+<li>200 OK<ul>
+<li>表示从客户端发来的请求在服务器端被正常处理了</li>
+<li>在响应报文内，随状态码一起返回的信息会因方法的不同而发生改变<ul>
+<li>使用GET方法时，对应请求资源的实体会作为响应返回</li>
+<li>而使用HEAD方法时，对应请求资源的实体主体不随报文首部作为响应返回（即在响应中只返回首部，不会返回实体的主体部分）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>204 No Content<ul>
+<li>代表服务器接收的请求已成功处理，但在返回的响应报文中不含实体的主体部分</li>
+<li>也不允许返回任何实体的主体</li>
+<li>比如：<ul>
+<li>当从浏览器发出请求处理后，返回204响应，那么浏览器显示的页面不发生更新</li>
+</ul>
+</li>
+<li>使用场景<ul>
+<li>一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>206 Partial Content<ul>
+<li>表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求</li>
+<li>响应报文中包含由Content-Range指定范围的实体内容。</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-3-3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）"><a href="#4-3-3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）" class="headerlink" title="4.3 3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）"></a>4.3 3XX重定向（表明浏览器需要执行某些特殊的处理以正确处理请求）</h5><ul>
+<li><p>301 Moved Permanently</p>
+<ul>
+<li>永久性重定向</li>
+<li>表示请求的资源已被分配了新的URI，以后应使用资源现在所指的URI</li>
+<li>如果已经把资源对应的URI保存为书签了，这时应该按Location首部字段提示的URI重新保存</li>
+</ul>
+</li>
+<li><p>302 Found</p>
+<ul>
+<li>临时性重定向</li>
+<li>表示请求的资源已被分配了新的URI，希望用户（本次）能使用新的URI访问</li>
+</ul>
+</li>
+<li><p>303 See Other</p>
+<ul>
+<li>表示由于请求对应的资源存在着另一个URI，应使用GET方法定向获取请求的资源</li>
+<li>当301、302、303响应状态码返回时，几乎所有的浏览器都会把POST改成GET，并删除请求报文内的主体，之后请求会自动再次发送。301、302标准是禁止将POST方法改变成GET方法的，但实际使用时大家都会这么做。</li>
+</ul>
+</li>
+<li><p>304 Not Modified（与重定向无关）</p>
+<ul>
+<li>表示客户端发送附带条件的请求时，服务器端允许请求访问资源</li>
+<li>但因发生请求未满足条件的情况后，直接返回304 Not Modified（服务器端资源未改变，可直接使用客户端未过期的缓存）</li>
+<li>304状态码返回时，不包含任何响应的主体部分</li>
+</ul>
+</li>
+<li><p>307 Temporary Redirect</p>
+<ul>
+<li>临时重定向</li>
+<li>该状态码与302 Found有着相同的含义</li>
+<li>307会遵照浏览器标准，不会从POST变成GET</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-4-4XX客户端错误（表明客户端是发生错误的原因所在）"><a href="#4-4-4XX客户端错误（表明客户端是发生错误的原因所在）" class="headerlink" title="4.4 4XX客户端错误（表明客户端是发生错误的原因所在）"></a>4.4 4XX客户端错误（表明客户端是发生错误的原因所在）</h5><ul>
+<li>400 Bad Request<ul>
+<li>表示请求报文中存在<strong>语法错误</strong></li>
+<li>需修改请求的内容后再次发送请求</li>
+<li>浏览器会像200 OK一样对待该状态码。</li>
+</ul>
+</li>
+<li>401 Unauthorized<ul>
+<li>表示发送的请求需要有通过HTTP认证（BASIC认证、DIGEST认证）的认证信息</li>
+<li>若之前已进行过1次请求，则表示用户认证失败。</li>
+<li>返回含有401的响应必须包含一个适用于被请求资源的WWW-Authenticate首部用以质询（challenge）用户信息</li>
+<li>当浏览器初次接收到401响应，会弹出认证用的对话窗口。</li>
+</ul>
+</li>
+<li>403 Forbidden<ul>
+<li>表明对请求资源的访问被服务器拒绝了</li>
+<li>未获得文件系统的访问授权，访问权限出现某些问题（从未授权的发送源IP地址试图访问）等列举的情况都可能是发生403的原因。</li>
+</ul>
+</li>
+<li>404 Not Found<ul>
+<li>表明服务器上无法找到请求的资源</li>
+<li>可以在服务器端拒绝请求且不想说明理由时使用</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-5-5XX服务器错误（表明服务器本身发生错误）"><a href="#4-5-5XX服务器错误（表明服务器本身发生错误）" class="headerlink" title="4.5 5XX服务器错误（表明服务器本身发生错误）"></a>4.5 5XX服务器错误（表明服务器本身发生错误）</h5><ul>
+<li>500 Internal Server Error<ul>
+<li>表明服务器端在执行请求时发生了错误</li>
+<li>也有可能是Web应用存在的bug或某些临时的故障</li>
+</ul>
+</li>
+<li>503 Service Unavailable<ul>
+<li>表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求</li>
+<li>如果事先得知解除以上状况需要的时间，最好写入Retry-After首部字段再返回给客户端</li>
+</ul>
+</li>
+</ul>
+<h4 id="第5章-与HTTP协作的Web服务器"><a href="#第5章-与HTTP协作的Web服务器" class="headerlink" title="第5章 与HTTP协作的Web服务器"></a>第5章 与HTTP协作的Web服务器</h4><h5 id="5-1-用单台虚拟主机实现多个域名"><a href="#5-1-用单台虚拟主机实现多个域名" class="headerlink" title="5.1 用单台虚拟主机实现多个域名"></a>5.1 用单台虚拟主机实现多个域名</h5><ul>
+<li>HTTP/1.1规范允许一台HTTP服务器搭建多个Web站点<ul>
+<li>比如：<ul>
+<li>提供Web托管服务（Web Hosting Service）的供应商，可以用一台服务器为多位客户服务，也可以以每位客户持有的域名运行各自不同的网站</li>
+<li>利用了虚拟主机（Virtual Host，又称虚拟服务器）的功能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在互联网上，域名通过DNS服务映射到IP地址（域名解析）之后访问目标网站</li>
+<li>在相同的IP地址下，由于虚拟主机可以寄存多个不同主机名和域名的Web网站，因此在发送HTTP请求时，必须在Host首部内完整指定主机名或域名的URI</li>
+</ul>
+<h5 id="5-2-通信数据转发程序：代理、网关、隧道"><a href="#5-2-通信数据转发程序：代理、网关、隧道" class="headerlink" title="5.2 通信数据转发程序：代理、网关、隧道"></a>5.2 通信数据转发程序：代理、网关、隧道</h5><ul>
+<li>这些应用程序和服务器可以将请求转发给通信线路上的下一站服务器，并且能接收从那台服务器发送的响应再转发给客户端。</li>
+<li>代理<ul>
+<li>一种有<strong>转发功能</strong>的应用程序</li>
+<li>“中间人”的角色</li>
+<li>接收由客户端发送的请求并转发给服务器，同时也接收服务器返回的响应并转发给客户端。</li>
+<li>基本行为：<ul>
+<li>接收客户端发送的请求后转发给其他服务器</li>
+</ul>
+</li>
+<li>不改变请求URI，会直接发送给前方持有资源的目标服务器</li>
+<li>源服务器：<ul>
+<li>持有资源实体的服务器</li>
+<li>从源服务器返回的响应经过代理服务器后再传给客户端</li>
+</ul>
+</li>
+<li>使用代理服务器的理由<ul>
+<li>利用缓存技术（稍后讲解）减少网络带宽的流量</li>
+<li>组织内部针对特定网站的访问控制，以获取访问日志为主要目的</li>
+</ul>
+</li>
+<li>实现代理的方法：两个基准<ul>
+<li>是否使用缓存：<ul>
+<li>缓存代理<ul>
+<li>代理转发响应时，缓存代理（Caching Proxy）会预先将资源的副本（缓存）保存在代理服务器上</li>
+<li>当代理再次接收到对相同资源的请求时，就可以不从源服务器那里获取资源，而是将之前缓存的资源作为响应返回</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>是否会修改报文<ul>
+<li>透明代理<ul>
+<li>转发请求或响应时，不对报文做任何加工的代理类型</li>
+</ul>
+</li>
+<li>非透明代理<ul>
+<li>对报文内容进行加工的代理</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网关<ul>
+<li>转发其他服务器通信数据的服务器</li>
+<li>接收从客户端发送来的请求时，它就<strong>像自己拥有资源的源服务器</strong>一样对请求进行处理</li>
+<li>工作机制和代理十分相似，而网关能使通信线路上的服务器提供<strong>非HTTP协议服务</strong></li>
+<li>好处<ul>
+<li>能提高通信的安全性<ul>
+<li>理由：</li>
+<li>因为可以在<strong>客户端与网关</strong>之间的通信线路上<strong>加密</strong>以确保连接的安全</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>隧道<ul>
+<li>在相隔甚远的客户端和服务器两者之间进行中转，并保持双方通信连接的应用程序</li>
+<li>目的：<ul>
+<li>确保客户端能与服务器进行安全的通信</li>
+</ul>
+</li>
+<li>隧道本身不会去解析HTTP请求<ul>
+<li>请求保持原样中转给之后的服务器。隧道会在通信双方断开连接时结束</li>
+</ul>
+</li>
+<li>隧道本身是透明的</li>
+</ul>
+</li>
+</ul>
+<h5 id="5-3-保存资源的缓存"><a href="#5-3-保存资源的缓存" class="headerlink" title="5.3 保存资源的缓存"></a>5.3 保存资源的缓存</h5><ul>
+<li>缓存<ul>
+<li><strong>代理服务器或客户端本地磁盘内</strong>保存的资源副本</li>
+<li>利用缓存的<strong>好处</strong>：<ul>
+<li>可减少对源服务器的访问，因此也就节省了通信流量和通信时间</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>缓存服务器<ul>
+<li>代理服务器的一种，并归类在缓存代理类型中</li>
+<li>当代理转发从服务器返回的响应时，代理服务器将会保存一份资源的副本</li>
+<li><strong>优势</strong>：<ul>
+<li>在于利用缓存可避免多次从源服务器转发资源</li>
+<li>因此客户端可就近从缓存服务器上获取资源，而源服务器也不必多次处理相同的请求了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>缓存的有效期限<ul>
+<li>因为客户端的要求、缓存的有效期等因素，向源服务器确认资源的有效性</li>
+<li>若判断缓存失效，缓存服务器将会再次从源服务器上获取“新”资源</li>
+</ul>
+</li>
+<li>客户端的缓存（临时网络文件）<ul>
+<li>浏览器缓存如果有效，就不必再向服务器请求相同的资源了，可以直接从本地磁盘内读取</li>
+</ul>
+</li>
+<li>在HTTP出现之前的协议<ul>
+<li>FTP（File Transfer Protocol）<ul>
+<li>传输文件时使用的协议（<strong>仍在使用</strong>）</li>
+</ul>
+</li>
+<li>NNTP（Network News Transfer Protocol）<ul>
+<li>用于NetNews电子会议室内传送消息的协议（<strong>已经不怎么使用了</strong>）</li>
+<li>现在，利用Web交换信息已成主流</li>
+</ul>
+</li>
+<li>Archie<ul>
+<li>以关键词检索多个数据库使用的协议（<strong>已经不怎么使用了</strong>）</li>
+</ul>
+</li>
+<li>Gopher<ul>
+<li>查找与互联网连接的计算机内信息的协议</li>
+<li>由于现在已经被HTTP协议替代，也已经不怎么使用了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="第6章-HTTP的首部"><a href="#第6章-HTTP的首部" class="headerlink" title="第6章 HTTP的首部"></a>第6章 HTTP的首部</h4><h5 id="6-1-HTTP报文首部"><a href="#6-1-HTTP报文首部" class="headerlink" title="6.1 HTTP报文首部"></a>6.1 HTTP报文首部</h5><ul>
+<li>HTTP协议的请求和响应报文中必定包含HTTP首部</li>
+<li>HTTP请求报文<ul>
+<li>方法</li>
+<li>URI</li>
+<li>HTTP版本</li>
+<li>HTTP首部字段等部分构成</li>
+</ul>
+</li>
+<li>HTTP响应报文<ul>
+<li>HTTP版本</li>
+<li>状态码（数字和原因短语）</li>
+<li>HTTP首部字段3部分构成</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-2-HTTP首部字段"><a href="#6-2-HTTP首部字段" class="headerlink" title="6.2 HTTP首部字段"></a>6.2 HTTP首部字段</h5><ul>
+<li>为了给浏览器和服务器提供报文主体大小、所使用的语言、认证信息等内容</li>
+<li>HTTP首部字段结构<ul>
+<li>首部字段名和字段值构成的，中间用冒号“:”分隔</li>
+<li>首部字段名：字段值</li>
+<li>例子：Content-Type:text/html</li>
+<li>字段值对应单个HTTP首部字段可以有多个值<ul>
+<li>Keep-Alive:timeout=15,max=100</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>4种HTTP首部字段类型<ul>
+<li>通用首部字段（General Header Fields）<ul>
+<li>请求报文和响应报文两方都会使用的首部</li>
+</ul>
+</li>
+<li>请求首部字段（Request Header Fields）<ul>
+<li>客户端向服务器端发送请求</li>
+<li>补了请求的附加内容、客户端信息、响应内容相关优先级等信息</li>
+</ul>
+</li>
+<li>响应首部字段（Response Header Fields）<ul>
+<li>服务器端向客户端返回响应</li>
+<li>补充了响应的附加内容，也会要求客户端附加额外的内容信息</li>
+</ul>
+</li>
+<li>实体首部字段（Entity Header Fields）<ul>
+<li>针对请求报文和响应报文的实体部分</li>
+<li>补充了资源内容更新时间等与实体有关的信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HTTP首部字段将定义成缓存代理和非缓存代理的行为，分成2种类型<ul>
+<li>端到端首部（End-to-end Header）<ul>
+<li>首部会转发给请求/响应对应的最终接收目标</li>
+<li>且必须保存在由缓存生成的响应中</li>
+<li>另外规定它必须被转发</li>
+</ul>
+</li>
+<li>逐跳首部（Hop-by-hop Header）<ul>
+<li>只对单次转发有效，会因通过缓存或代理而不再转发</li>
+<li>如果要使用hop-by-hop首部，需提供Connection首部字段</li>
+<li>Connection</li>
+<li>Keep-Alive</li>
+<li>Proxy-Authenticate</li>
+<li>Proxy-Authorization</li>
+<li>Trailer</li>
+<li>TE</li>
+<li>Transfer-Encoding</li>
+<li>Upgrade</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-3-HTTP-1-1-通用首部字段"><a href="#6-3-HTTP-1-1-通用首部字段" class="headerlink" title="6.3 HTTP/1.1 通用首部字段"></a>6.3 HTTP/1.1 通用首部字段</h5><ul>
+<li><p> Cache-Control</p>
+</li>
+<li><p>通过指定首部字段Cache-Control的指令，就能操作缓存的工作机制</p>
+</li>
+<li><p>指令的参数是可选的，多个指令之间通过“,”分隔</p>
+</li>
+<li><p>表示是否能缓存的指令:</p>
+<ul>
+<li>public指令(Cache-Control:public)<ul>
+<li>当指定使用public指令时，则明确表明其他用户也可利用缓存</li>
+</ul>
+</li>
+<li>private指令(Cache-Control:private)<ul>
+<li>当指定private指令后，响应只以特定的用户作为对象，这与public指令的行为相反</li>
+</ul>
+</li>
+<li>no-cache指令(Cache-Control:no-cache)<ul>
+<li>为了防止从缓存中返回过期的资源</li>
+<li>客户端发送的请求包含no-cache的话表示客户端将不会接收缓存过的响应</li>
+<li>服务器返回的响应中包含no-cache指令，那么缓存服务器不能对资源进行缓存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>控制可执行缓存的对象的指令</p>
+<ul>
+<li>no-store指令<ul>
+<li>暗示请求（和对应的响应）或响应中包含<strong>机密信息</strong></li>
+<li>规定缓存不能在本地存储请求或响应的任一部分</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>指定缓存期限和认证的指令</p>
+<ul>
+<li>s-maxage指令<ul>
+<li>功能和max-age指令的相同，它们的不同点是s-maxage指令只适用于<strong>供多位用户使用的公共缓存服务器</strong></li>
+<li>对于向同一用户重复返回响应的服务器来说，这个指令没有任何作用</li>
+</ul>
+</li>
+<li>max-age指令<ul>
+<li>客户端发送的请求中包含max-age指令时<ul>
+<li>如果判定缓存资源的缓存时间数值比指定时间的数值<strong>更小</strong>，那么客户端就<strong>接收</strong>缓存的资源</li>
+</ul>
+</li>
+<li>服务器返回的响应中包含max-age指令时<ul>
+<li>缓存服务器将不对资源的有效性再作确认，而max-age数值代表资源保存为缓存的最长时间</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>min-fresh指令<ul>
+<li>指令要求缓存服务器返回<strong>至少还未过指定时间</strong>的缓存资源</li>
+</ul>
+</li>
+<li>max-stale指令<ul>
+<li>指示缓存资源，即使过期也照常接收</li>
+<li>指令未指定参数值，那么无论经过多久，客户端都会接收响应</li>
+<li>指令中指定了具体数值，那么即使过期，只要仍处于max-stale指定的时间内，仍旧会被客户端接收</li>
+</ul>
+</li>
+<li>only-if-cached指令<ul>
+<li>表示客户端仅在缓存服务器本地缓存目标资源的情况下才会要求其返回</li>
+<li>要求缓存服务器不重新加载响应，也不会再次确认资源有效性</li>
+</ul>
+</li>
+<li>must-revalidate指令<ul>
+<li>代理会向源服务器再次验证即将返回的响应缓存目前是否仍然有效</li>
+<li>代理无法连通源服务器再次获取有效资源的话<ul>
+<li>缓存必须给客户端一条504（Gateway Timeout）状态码</li>
+</ul>
+</li>
+<li>使用must-revalidate指令会忽略请求的max-stale指令（即使已经在首部使用了max-stale，也不会再有效果）</li>
+</ul>
+</li>
+<li>proxy-revalidate指令<ul>
+<li>要求所有的缓存服务器在接收到客户端带有该指令的请求返回响应<strong>之前</strong>，必须再次验证缓存的有效性</li>
+</ul>
+</li>
+<li>no-transform指令<ul>
+<li>规定无论是在请求还是响应中，缓存都不能改变实体主体的媒体类型</li>
+<li>作用：<ul>
+<li>可防止缓存或代理压缩图片等类似操作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Cache-Control扩展</p>
+<ul>
+<li>cache-extension token<ul>
+<li>cache-extension标记（token），可以扩展Cache-Control首部字段内的指令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Connection</p>
+<ul>
+<li>控制不再转发给代理的首部字段</li>
+<li>管理持久连接<ul>
+<li>HTTP/1.1版本的默认连接都是持久连接，<ul>
+<li>当服务器端想明确断开连接时，则指定Connection首部字段的值为Close</li>
+</ul>
+</li>
+<li>HTTP/1.1之前的HTTP版本的默认连接都是非持久连接<ul>
+<li>想在旧版本的HTTP协议上维持持续连接，则需要指定Connection首部字段的值为Keep-Alive</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Date</p>
+<ul>
+<li>表明创建HTTP报文的日期和时间</li>
+</ul>
+</li>
+<li><p>Pragma</p>
+<ul>
+<li><p>Pragma是HTTP/1.1之前版本的历史遗留字段，仅作为与HTTP/1.0的向后兼容而定义</p>
+</li>
+<li><p>要整体掌握全部中间服务器使用的HTTP协议版本却是不现实的。因此，发送的请求会同时含有下面两个首部字段</p>
+<ul>
+<li><p>```<br>Cache-Control:no-cache<br>Progma:no-cache</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- Trailer</span><br><span class="line"></span><br><span class="line">  - 会事先说明在报文主体后记录了哪些首部字段</span><br><span class="line">  - 可应用在HTTP/1.1版本分块传输编码时</span><br><span class="line"></span><br><span class="line">- Transfer-Encoding</span><br><span class="line"></span><br><span class="line">  - 规定了传输报文主体时采用的编码方式</span><br><span class="line">  - HTTP/1.1的传输编码方式仅对分块传输编码有效</span><br><span class="line"></span><br><span class="line">- Upgrade</span><br><span class="line"></span><br><span class="line">  - 用于检测HTTP协议及其他协议是否可使用更高的版本进行通信，其参数值可以用来指定一个完全不同的通信协议</span><br><span class="line">  - Upgrade首部字段产生作用的Upgrade对象仅限于客户端和邻接服务器之间</span><br><span class="line">  - 使用首部字段Upgrade时，还需要额外指定Connection:Upgrade</span><br><span class="line"></span><br><span class="line">-  Via</span><br><span class="line"></span><br><span class="line">  - 为了追踪客户端与服务器之间的请求和响应报文的传输路径</span><br><span class="line">  - 报文经过代理或网关时，会先在首部字段Via中附加该服务器的信息，然后再进行转发</span><br><span class="line">  - 不仅用于追踪报文的转发，还可避免请求回环的发生。所以必须在经过代理时附加该首部字段内容</span><br><span class="line">  - 为了追踪传输路径，所以经常会和TRACE方法一起使用</span><br><span class="line"></span><br><span class="line">- Warning</span><br><span class="line"></span><br><span class="line">  - 首部通常会告知用户一些与缓存相关的问题的警告</span><br><span class="line"></span><br><span class="line">##### 6.4 请求首部字段</span><br><span class="line"></span><br><span class="line">- 从客户端往服务器端发送请求报文中所使用的字段，用于补充请求的附加信息、客户端信息、对响应内容相关的优先级等内容</span><br><span class="line"></span><br><span class="line">- Accept</span><br><span class="line"></span><br><span class="line">  - 可通知服务器，用户代理能够处理的媒体类型及媒体类型的相对优先级</span><br><span class="line"></span><br><span class="line">  - 可使用type/subtype这种形式，一次指定多种媒体类型</span><br><span class="line"></span><br><span class="line">  - 媒体类型的例子</span><br><span class="line"></span><br><span class="line">    - 文本文件</span><br><span class="line"></span><br><span class="line">      - ```</span><br><span class="line">        text/html, text/plain, text/css ...application/xhtml+xml, application/xml ...</span><br></pre></td></tr></table></figure></li>
+<li><p>图片文件</p>
+<ul>
+<li>```<br>image/jpeg, image/gif, image/png …<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 视频文件</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    video/mpeg, video/quicktime ..</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>应用程序使用的二进制文件</p>
+<ul>
+<li><pre><code>application/octet-stream, application/zip ...
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>给显示的媒体类型增加优先级，则使用q=来额外表示权重值，用分号（;）进行分隔</p>
+<ul>
+<li>权重值q的范围是0～1（可精确到小数点后3位）</li>
+<li>1为最大值</li>
+<li>不指定权重q值时，默认权重为q=1.0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Accept-Charset</p>
+<ul>
+<li>可用来通知服务器用户代理支持的字符集及字符集的相对优先顺序</li>
+<li>可一次性指定多种字符集</li>
+<li>与首部字段Accept相同的是可用权重q值来表示相对优先级</li>
+<li>应用场景<ul>
+<li>内容协商机制的服务器驱动协商</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Accept-Encoding</p>
+<ul>
+<li>用来告知服务器用户代理支持的内容编码及内容编码的优先级顺序</li>
+<li>可一次性指定多种内容编码</li>
+<li>几个内容编码的例子<ul>
+<li>gzip</li>
+<li>compress</li>
+<li>deflate</li>
+<li>identity<ul>
+<li>不执行压缩或不会变化的默认编码格式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>采用权重q值来表示相对优先级，这点与首部字段Accept相同</li>
+<li>可使用<strong>星号（*）</strong>作为通配符，指定任意的编码格式</li>
+</ul>
+</li>
+<li><p>Accept-Language</p>
+<ul>
+<li>告知服务器用户代理能够处理的自然语言集（指中文或英文等），以及自然语言集的相对优先级。可一次指定多种自然语言集</li>
+</ul>
+</li>
+<li><p>Authorization</p>
+<ul>
+<li>用来告知服务器，用户代理的认证信息（证书值)</li>
+</ul>
+</li>
+<li><p>Expect</p>
+<ul>
+<li>告知服务器，期望出现的某种特定行为</li>
+<li>可以利用该首部字段，写明所期望的扩展</li>
+</ul>
+</li>
+<li><p>From</p>
+<ul>
+<li>告知服务器使用用户代理的用户的电子邮件地址</li>
+<li>目的<ul>
+<li>为了显示搜索引擎等用户代理的负责人的电子邮件联系方式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Host</p>
+<ul>
+<li>会告知服务器，请求的资源所处的互联网主机名和端口号</li>
+<li>唯一一个必须被包含在请求内的首部字段</li>
+</ul>
+</li>
+<li><p>If-Match</p>
+<ul>
+<li>告知服务器匹配资源所用的实体标记（ETag）值</li>
+<li>可以使用星号（*）指定If-Match的字段值</li>
+<li>形如If-xxx这种样式的请求首部字段，都可称为条件请求</li>
+<li>服务器接收到附带条件的请求后，只有判断指定条件为真时，才会执行请求</li>
+</ul>
+</li>
+<li><p>If-Modified-Since</p>
+<ul>
+<li>告知服务器若If-Modified-Since字段值早于资源的更新时间，则希望能处理该请求</li>
+</ul>
+</li>
+<li><p> If-None-Match</p>
+</li>
+<li><p>和首部字段If-Match作用相反。用于指定If-None-Match字段值的实体标记（ETag）值与请求资源的ETag不一致时，它就告知服务器处理该请求</p>
+</li>
+<li><p>If-Range</p>
+<ul>
+<li>告知服务器若指定的If-Range字段值（ETag值或者时间）和请求资源的ETag值或时间相一致时，则<strong>作为范围请求处理</strong>。反之，则返回<strong>全体资源</strong></li>
+</ul>
+</li>
+<li><p>If-Unmodified-Since</p>
+<ul>
+<li>告知服务器，指定的请求资源只有在字段值内指定的日期时间之后，未发生更新的情况下，才能处理请求</li>
+<li>和首部字段If-Modified-Since的作用相反</li>
+</ul>
+</li>
+<li><p>Max-Forwards</p>
+<ul>
+<li>当Max-Forwards字段值为0时，服务器就会立即返回响应，由此我们至少可以对以那台服务器为终点的传输路径的通信状况有所把握</li>
+</ul>
+</li>
+<li><p>Proxy-Authorization</p>
+<ul>
+<li>接收到从代理服务器发来的认证质询时，客户端会发送包含首部字段Proxy-Authorization的请求，以告知服务器认证所需要的信息</li>
+</ul>
+</li>
+<li><p>Range</p>
+<ul>
+<li>只需获取部分资源的范围请求，包含首部字段Range即可告知服务器资源的指定范围</li>
+</ul>
+</li>
+<li><p>Referer</p>
+<ul>
+<li>告知服务器请求的原始资源的URI</li>
+<li>原始资源的URI中的查询字符串可能含有ID和密码等保密信息，要是写进Referer转发给其他服务器，则有可能导致保密信息的泄露</li>
+</ul>
+</li>
+<li><p>TE</p>
+<ul>
+<li>告知服务器客户端能够处理响应的传输编码方式及相对优先级</li>
+</ul>
+</li>
+<li><p>User-Agent</p>
+<ul>
+<li>创建请求的浏览器和用户代理名称等信息传达给服务器</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-5-响应首部字段"><a href="#6-5-响应首部字段" class="headerlink" title="6.5 响应首部字段"></a>6.5 响应首部字段</h5><p>由服务器端向客户端返回响应报文中所使用的字段，用于补充响应的附加信息、服务器信息，以及对客户端的附加要求等信息</p>
+<ul>
+<li>Accept-Ranges<ul>
+<li>用来告知客户端服务器是否能处理范围请求，以指定获取服务器端某个部分的资源</li>
+<li>可指定的字段值有两种:<ul>
+<li>处理范围请求时指定其为bytes</li>
+<li>反之则指定其为none</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Age<ul>
+<li>告知客户端，源服务器在多久前创建了响应。字段值的单位为秒</li>
+<li>创建该响应的服务器是缓存服务器<ul>
+<li>Age值是指缓存后的响应再次发起认证到认证完成的时间值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ETag<ul>
+<li>告知客户端实体标识</li>
+<li>一种可将资源以字符串形式做唯一性标识的方式</li>
+<li>字符串形式做唯一性标识的方式。服务器会为每份资源分配对应的ETag值</li>
+<li>资源被缓存时，就会被分配唯一性标识</li>
+<li>分为强ETag和弱ETag值</li>
+<li>强ETag值<ul>
+<li>论实体发生多么细微的变化都会改变其值</li>
+</ul>
+</li>
+<li>弱ETag值<ul>
+<li>只用于提示资源是否相同</li>
+<li>只有资源发生了根本改变，产生差异时才会改变ETag值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li> Location</li>
+<li>可以将响应接收方引导至某个与请求URI位置不同的资源</li>
+<li>Proxy-Authenticate<ul>
+<li>会把由代理服务器所要求的认证信息发送给客户端</li>
+</ul>
+</li>
+<li>Retry-After<ul>
+<li>告知客户端应该在多久之后再次发送请求</li>
+<li>主要配合状态码503 Service Unavailable响应，或3xxRedirect响应一起使用</li>
+</ul>
+</li>
+<li>Server<ul>
+<li>告知客户端当前服务器上安装的HTTP服务器应用程序的信息</li>
+<li>不单单会标出服务器上的软件应用名称，还有可能包括版本号和安装时启用的可选项</li>
+</ul>
+</li>
+<li>Vary<ul>
+<li>可对缓存进行控制</li>
+<li>源服务器会向代理服务器传达关于本地缓存使用方法的命令</li>
+</ul>
+</li>
+<li>WWW-Authenticate<ul>
+<li>用于HTTP访问认证</li>
+<li>会告知客户端适用于访问请求URI所指定资源的认证方案（Basic或是Digest）和带参数提示的质询（challenge）</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-6-实体首部字段"><a href="#6-6-实体首部字段" class="headerlink" title="6.6 实体首部字段"></a>6.6 实体首部字段</h5><p>包含在请求报文和响应报文中的实体部分所使用的首部，用于补充内容的更新时间等与实体相关的信息。</p>
+<ul>
+<li>Allow<ul>
+<li>用于通知客户端能够支持Request-URI指定资源的所有HTTP方法</li>
+<li>不支持的时候，会以状态码405Method Not Allowed作为响应返回，还会把所有能支持的HTTP方法写入首部字段Allow后返回</li>
+</ul>
+</li>
+<li>Content-Encoding<ul>
+<li>告知客户端服务器对实体的主体部分选用的内容编码方式</li>
+<li>内容编码是指在不丢失实体信息的前提下所进行的压缩</li>
+<li>以下4种内容编码的方式：<ul>
+<li>gzip </li>
+<li>compress</li>
+<li>deflate</li>
+<li>identity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Content-Language<ul>
+<li>告知客户端，实体主体使用的自然语言（指中文或英文等语言）</li>
+</ul>
+</li>
+<li>Content-Length<ul>
+<li>表明了实体主体部分的大小（单位是字节）</li>
+</ul>
+</li>
+<li>Content-Location<ul>
+<li>给出与报文主体部分相对应的URI</li>
+<li>和首部字段Location不同，Content-Location表示的是报文主体返回资源对应的URI</li>
+</ul>
+</li>
+<li>Content-MD5<ul>
+<li>一串由MD5算法生成的值，其目的在于检查报文主体在传输过程中是否保持完整，以及确认传输到达</li>
+<li>对内容上的偶发性改变是无从查证的，也无法检测出恶意篡改</li>
+</ul>
+</li>
+<li>Content-Range<ul>
+<li>返回响应时使用的首部字段Content-Range，能告知客户端作为响应返回的实体的哪个部分符合范围请求</li>
+<li>字段值以字节为单位，表示当前发送部分及整个实体大小</li>
+</ul>
+</li>
+<li>Content-Type<ul>
+<li>说明了实体主体内对象的媒体类型</li>
+</ul>
+</li>
+<li> Expires</li>
+<li>将资源失效的日期告知客户端</li>
+<li>在Expires字段值指定的时间之前，响应的副本会一直被保存</li>
+<li>当超过指定的时间后，缓存服务器在请求发送过来时，会转向源服务器请求资源</li>
+<li>Last-Modified<ul>
+<li>指明资源最终修改的时间</li>
+<li>一般来说，这个值就是Request-URI指定资源被修改的时间</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-7-为Cookie服务的首部字段"><a href="#6-7-为Cookie服务的首部字段" class="headerlink" title="6.7 为Cookie服务的首部字段"></a>6.7 为Cookie服务的首部字段</h5><ul>
+<li>Cookie的工作机制是用户识别及状态管理</li>
+<li>Cookie的规格标准文档有以下4种</li>
+</ul>
+<p><img src="/2021/09/30/%E5%9B%BE%E8%A7%A3HTTP/4.png"></p>
+<ul>
+<li>Set-Cookie<ul>
+<li>Set-Cookie的字段值<ul>
+<li> expires属性</li>
+<li>指定浏览器可发送Cookie的有效期</li>
+<li>当省略expires属性时，其有效期仅限于维持浏览器会话（Session）时间段内。这通常限于浏览器应用程序被关闭之前</li>
+<li>一旦Cookie从服务器端发送至客户端，服务器端就不存在可以显式删除Cookie的方法。但可通过覆盖已过期的Cookie，实现对客户端Cookie的实质性删除操作</li>
+<li>path属性<ul>
+<li>可用于限制指定Cookie的发送范围的文件目录</li>
+</ul>
+</li>
+<li>domain属性<ul>
+<li>指定的域名可做到与结尾匹配一致</li>
+</ul>
+</li>
+<li>secure属性<ul>
+<li>用于限制Web页面<strong>仅在HTTPS</strong>安全连接时，才可以发送Cookie</li>
+<li>设置了secure的话<ul>
+<li>仅当在<a href="https://www.example.com/%EF%BC%88HTTPS%EF%BC%89%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%89%8D%E4%BC%9A%E8%BF%9B%E8%A1%8CCookie%E7%9A%84%E5%9B%9E%E6%94%B6%E3%80%82%E4%B9%9F%E5%B0%B1%E6%98%AF%E8%AF%B4%EF%BC%8C%E5%8D%B3%E4%BD%BF%E5%9F%9F%E5%90%8D%E7%9B%B8%E5%90%8C%EF%BC%8Chttp://www.example.com/%EF%BC%88HTTP%EF%BC%89%E4%B9%9F%E4%B8%8D%E4%BC%9A%E5%8F%91%E7%94%9FCookie%E5%9B%9E%E6%94%B6%E8%A1%8C%E4%B8%BA">https://www.example.com/（HTTPS）安全连接的情况下才会进行Cookie的回收。也就是说，即使域名相同，http://www.example.com/（HTTP）也不会发生Cookie回收行为</a></li>
+</ul>
+</li>
+<li>当省略secure属性时<ul>
+<li>不论HTTP还是HTTPS，都会对Cookie进行回收</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HttpOnly属性<ul>
+<li>Cookie的扩展功能，它使JavaScript脚本无法获得Cookie</li>
+<li>主要目的为防止跨站脚本攻击（Cross-site scripting,XSS）对Cookie的信息窃取</li>
+</ul>
+</li>
+<li>通过上述设置<ul>
+<li>通常从Web页面内还可以对Cookie进行读取操作</li>
+<li>使用JavaScript的document.cookie就无法读取附加HttpOnly属性后的Cookie的内容了</li>
+<li>因此，也就无法在XSS中利用JavaScript劫持Cookie了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cookie<ul>
+<li>当客户端想获得HTTP状态管理支持时，就会在请求中包含从服务器接收到的Cookie</li>
+<li>接收到多个Cookie时，同样可以以多个Cookie形式发送</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="6-8-其他首部字段"><a href="#6-8-其他首部字段" class="headerlink" title="6.8 其他首部字段"></a>6.8 其他首部字段</h5><ul>
+<li><p>X-Frame-Options</p>
+<ul>
+<li>属于HTTP响应首部</li>
+<li>用于控制网站内容在其他Web网站的Frame标签内的显示问题</li>
+<li>其主要目的是为了防止点击劫持（clickjacking）攻击</li>
+<li>DENY：拒绝</li>
+<li> SAMEORIGIN：仅同源域名下的页面匹配时许可</li>
+</ul>
+</li>
+<li><p>X-XSS-Protection</p>
+<ul>
+<li>属于HTTP响应首部</li>
+<li>针对跨站脚本攻击（XSS）的一种对策，用于控制浏览器XSS防护机制的开关</li>
+<li>可指定的字段值：<ul>
+<li>0 ：将XSS过滤设置成无效状态</li>
+<li>将XSS过滤设置成无效状态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>DNT</p>
+<ul>
+<li>属于HTTP请求首部</li>
+<li>Do NotTrack的简称，意为拒绝个人信息被收集，是表示拒绝被精准广告追踪的一种方法</li>
+<li>可指定的字段值：<ul>
+<li> 0 ：同意被追踪</li>
+<li>1 ：拒绝被追踪</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p> P3P</p>
+</li>
+<li><p>属于HTTP响应首部</p>
+</li>
+<li><p>通过利用P3P技术，可以让Web网站上的个人隐私变成一种仅供程序可理解的形式，以达到保护用户隐私的目的</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法--冲冲冲</title>
+    <url>/2021/10/06/%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h3><h4 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h4><p><a href="https://leetcode-cn.com/problems/two-sum">https://leetcode-cn.com/problems/two-sum</a></p>
+<p>题目描述：</p>
+<p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
+<p>你可以按任意顺序返回答案。</p>
+<h5 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h5><h6 id="（1）暴力求解"><a href="#（1）暴力求解" class="headerlink" title="（1）暴力求解"></a>（1）暴力求解</h6><ul>
+<li>获取数组的长度</li>
+<li>通过两层循环进行循环遍历</li>
+<li><img src="/2021/10/06/%E7%AE%97%E6%B3%95/1.png"></li>
+<li>直到找到值相加等于target的，将他们的下标存在数组里面</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> length=nums.length;<span class="comment">//获取数组的长度</span></span><br><span class="line">        <span class="comment">//通过两层循环找到</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j]==target)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i,j&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;No two sum solution&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="（2）哈希表法"><a href="#（2）哈希表法" class="headerlink" title="（2）哈希表法"></a>（2）哈希表法</h6><ul>
+<li>利用Map</li>
+<li>Map第一个值存的是值，第二个存的时相应的下标值</li>
+<li>通过目标值（target）去减相应的值，去map查看有没有包含这个值，如果有的话就返回，没有的话就要将值放进map里面</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        Map&lt;Integer,Integer&gt; map=<span class="keyword">new</span> HashMap&lt;&gt;(len-<span class="number">1</span>);</span><br><span class="line">        map.put(nums[<span class="number">0</span>],<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(target-nums[i]))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i,map.get(target-nums[i])&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;No two sum solution&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h5><p>求解方式类似于Java的哈希表法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">target</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        <span class="keyword">let</span> j = target-nums[i]</span><br><span class="line">        <span class="keyword">if</span>(map.has(j))&#123;<span class="comment">//如果map中含有该数值的话</span></span><br><span class="line">            <span class="comment">//那我们就要返回数组，即将i和target-nums[i]的下标放进里面</span></span><br><span class="line">            <span class="keyword">return</span> [map.get(j),i]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果没有的话，就将值和对应的下标先存入在map中</span></span><br><span class="line">        map.set(nums[i],i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
