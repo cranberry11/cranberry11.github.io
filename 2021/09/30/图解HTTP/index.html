@@ -1613,44 +1613,34 @@
 </ul>
 </li>
 </ul>
-<h5 id="6-8-其他首部字段"><a href="#6-8-其他首部字段" class="headerlink" title="6.8 其他首部字段"></a>6.8 其他首部字段</h5><ul>
-<li><p>X-Frame-Options</p>
-<ul>
-<li>属于HTTP响应首部</li>
-<li>用于控制网站内容在其他Web网站的Frame标签内的显示问题</li>
-<li>其主要目的是为了防止点击劫持（clickjacking）攻击</li>
-<li>DENY：拒绝</li>
-<li> SAMEORIGIN：仅同源域名下的页面匹配时许可</li>
-</ul>
-</li>
-<li><p>X-XSS-Protection</p>
-<ul>
-<li>属于HTTP响应首部</li>
-<li>针对跨站脚本攻击（XSS）的一种对策，用于控制浏览器XSS防护机制的开关</li>
-<li>可指定的字段值：<ul>
-<li>0 ：将XSS过滤设置成无效状态</li>
-<li>将XSS过滤设置成无效状态</li>
+<h5 id="6-8-其他首部字段"><a href="#6-8-其他首部字段" class="headerlink" title="6.8 其他首部字段"></a>6.8 其他首部字段</h5><h4 id="第7章-确保Web安全的HTTPS"><a href="#第7章-确保Web安全的HTTPS" class="headerlink" title="第7章 确保Web安全的HTTPS"></a>第7章 确保Web安全的HTTPS</h4><h5 id="7-1-HTTP的缺点"><a href="#7-1-HTTP的缺点" class="headerlink" title="7.1 HTTP的缺点"></a>7.1 HTTP的缺点</h5><ul>
+<li>通信使用明文（不加密），内容可能会被窃听<ul>
+<li>无法做到对通信整体（使用HTTP协议通信的请求和响应的内容）进行加密</li>
+<li>TCP/IP是可能被窃听的网络</li>
+<li>加密处理防止被窃听<ul>
+<li>HTTP协议中没有加密机制，但可以通过和SSL（Secure Socket Layer，安全套接层）或TLS（Transport LayerSecurity，安全传输层协议）的组合使用，加密HTTP的通信内容</li>
+<li>与SSL组合使用的HTTP被称为HTTPS（HTTP Secure，超文本传输安全协议）或HTTP over SSL</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>DNT</p>
-<ul>
-<li>属于HTTP请求首部</li>
-<li>Do NotTrack的简称，意为拒绝个人信息被收集，是表示拒绝被精准广告追踪的一种方法</li>
-<li>可指定的字段值：<ul>
-<li> 0 ：同意被追踪</li>
-<li>1 ：拒绝被追踪</li>
+<li>不验证通信方的身份，因此有可能遭遇伪装<ul>
+<li>任何人都可发起请求</li>
+</ul>
+</li>
+<li>无法证明报文的完整性，所以有可能已遭篡改<ul>
+<li>接收到的内容可能有误</li>
+<li>请求或响应在传输途中，遭攻击者拦截并篡改内容的攻击称为中间人攻击（Man-in-the-Middleattack,MITM）</li>
+<li>如何防止篡改<ul>
+<li>常用的是MD5和SHA-1等散列值校验的方法，以及用来确认文件的数字签名方法</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p> P3P</p>
-</li>
-<li><p>属于HTTP响应首部</p>
-</li>
-<li><p>通过利用P3P技术，可以让Web网站上的个人隐私变成一种仅供程序可理解的形式，以达到保护用户隐私的目的</p>
-</li>
+</ul>
+<h5 id="7-2-HTTP-加密-认证-完整性保护-HTTPS"><a href="#7-2-HTTP-加密-认证-完整性保护-HTTPS" class="headerlink" title="7.2 HTTP+加密+认证+完整性保护=HTTPS"></a>7.2 HTTP+加密+认证+完整性保护=HTTPS</h5><ul>
+<li>通常，HTTP直接和TCP通信。当使用SSL时，则演变成先和SSL通信，再由SSL和TCP通信了</li>
+<li>SSL采用一种叫做公开密钥加密（Public-keycryptography）的加密处理方式</li>
 </ul>
 
                 
