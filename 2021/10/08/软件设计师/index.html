@@ -414,7 +414,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、计算机组成与结构"><a href="#一、计算机组成与结构" class="headerlink" title="一、计算机组成与结构"></a>一、计算机组成与结构</h3><h4 id="1-计算机基本工作原理"><a href="#1-计算机基本工作原理" class="headerlink" title="1.计算机基本工作原理"></a>1.计算机基本工作原理</h4><ul>
+                <h3 id="一、计算机组成与结构"><a href="#一、计算机组成与结构" class="headerlink" title="一、计算机组成与结构"></a>一、计算机组成与结构</h3><ul>
 <li><p>当表示数据时并规定了位数后，其能表示的数值范围就确定了，在两个数据进行相加运算的结果超出了该范围后，就发生了溢出。在二进制情况下，溢出时符号位将变反。即两个正数相加，结果的符号位是负数，或者两个负数相加，结果的符号位是证书。采用两个符号位时，溢出发生后两个符号位就不一致了，这两位进行异或的结果一定为1</p>
 </li>
 <li><p>海明码：k是校验位,n是数据位</p>
@@ -436,8 +436,27 @@
 <li>k个数据位之后跟k个数据位</li>
 </ul>
 </li>
-<li><p>CPU寄存器</p>
+<li><p>CPU（由以下组成）</p>
 <ul>
+<li>运算器</li>
+<li>控制器</li>
+<li>发布命令的“决策机构“，即完成协调和指挥整个计算机系统的操作<ul>
+<li>主要功能：<ul>
+<li>从内存中取出一条指令</li>
+</ul>
+</li>
+<li>组成部分：<ul>
+<li>程序计数器（PC）</li>
+<li>指令寄存器</li>
+<li>指令译码器</li>
+<li>时序产生器</li>
+<li>操作控制器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>寄存器组</li>
+<li>内部总线</li>
 <li>程序计数器（PC）<ul>
 <li>用于存放指令的地址</li>
 <li>当程序顺序执行时，每取出一条指令，PC内容自动增加一个值，指向下一条要取的指令</li>
@@ -765,18 +784,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/10/08/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/">
+                <a href="/2021/10/14/TypeScript/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="软件设计">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="TypeScript">
                         
-                        <span class="card-title">软件设计</span>
+                        <span class="card-title">TypeScript</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -786,27 +804,26 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-14
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A2%98%E7%9B%AE/" class="post-category">
-                                    题目
+                            <a href="/categories/TypeScript/" class="post-category">
+                                    TypeScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%A2%98%E7%9B%AE/">
-                        <span class="chip bg-color">题目</span>
+                    <a href="/tags/TypeScript/">
+                        <span class="chip bg-color">TypeScript</span>
                     </a>
                     
                 </div>
